@@ -1,37 +1,37 @@
 \documentclass[11pt]{article}
 
 \usepackage[a4paper,margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsfonts,amsthm}
-\usepackage{bm}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsfonts}
 \usepackage{hyperref}
 
 \numberwithin{equation}{section}
 
 \title{Unimetry: A Phase-Space Reformulation of Special Relativity}
-\author{Timur Abizgeldin\\ \small Independent researcher, Austria\\ \small \texttt{<replace-with-your-email>}}
+\author{Timur Abizgeldin\\ \small Independent researcher, Austria\\ \small \texttt{timurabizgeldin@gmail.com}}
 \date{\today}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We propose a compact reformulation of special relativity in which spacetime units (time and length) are treated as \emph{phase velocities}---directional derivatives of a single underlying parameter, the phase $\vec{\chi}\in\mathbb{C}$. The observable Minkowski interval emerges as a conserved quantity under a change of parameter from the hidden phase coordinate $\chi$ to the observer's proper time $\tau$. In this \emph{unimetry} formalism, familiar relativistic effects---time dilation, Lorentz factor, Doppler shift, and relativistic velocity composition---arise as elementary projections and rotations in a Euclidean phase plane. Hyperbolic features of Lorentz kinematics reappear after a reparametrization of time, yielding the standard relations without altering empirical content. We provide closed-form derivations of the longitudinal/transverse Doppler factors, identify a simple lemma equating the total phase speed to the conserved Minkowski norm, and outline connections to gauge phases, rapidity, and a cosmological time gauge.
+We propose a compact reformulation of special relativity in which spacetime units (time and length) are treated as \emph{phase velocities}---directional derivatives of a single underlying parameter, the phase $\vec{\chi}\in\mathbb{C}$. The observable Minkowski interval emerges as a conserved quantity under a change of parameter from the hidden phase coordinate $\chi$ to the observer's proper time $\tau$. In this \emph{unimetry} formalism, familiar relativistic effects---time dilation, Lorentz factor, Doppler shift, and relativistic velocity composition---arise as elementary projections and rotations in a Euclidean phase plane. Hyperbolic features of Lorentz kinematics reappear after a reparameterization of time, yielding the standard relations without altering empirical content. We provide closed-form derivations of the longitudinal/transverse Doppler factors, identify a simple lemma equating the total phase speed to the conserved Minkowski norm, and outline connections to gauge phases, rapidity, and a cosmological time gauge.
 \end{abstract}
 
-\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; Lorentz factor; alternative formalism.
+\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; Lorentz factor; phase parameterization.
 
 \paragraph{MSC/PhCS:} 83A05; 83-10; 70A05.
 
 \section{Introduction}
 We usually take time and space as primitive. The \emph{phase formalism} introduced here suggests a different viewpoint: time and space are \emph{derived projections} of a single parameter $\vec{\chi}\in\mathbb{C}$ (``phase''). In this picture, relativistic effects such as time dilation and the Doppler shift are geometric consequences of phase-flow rotations.
 
-The proposal does not modify physics; it reorganizes familiar relations in a simpler language. In spirit it is akin to Lagrangian/Hamiltonian re-descriptions of classical mechanics: same empirical content, different coordinates. Throughout, Greek $\theta$ will denote the \emph{external} rotation angle associated with relative motion, while $\zeta$ denotes an \emph{internal} angle associated with the object's intrinsic state (mass/density heuristic).
+The proposal does not modify physics; it reorganizes familiar relations in a simpler language. In spirit it is akin to Lagrangian/Hamiltonian re-descriptions of classical mechanics: same empirical content, different coordinates. Throughout, Greek $\theta$ will denote the \emph{external} rotation angle associated with relative motion, while $\zeta$ denotes an \emph{internal} angle associated with the object's intrinsic state (mass/density heuristic). We emphasize that no modification of Einstein's dynamics is proposed; all results are kinematical identities obtained by a change of parameter.
 
 \paragraph{Notation.} Tildes, dots and primes indicate derivatives with respect to the phase parameter, proper time, and spatial arclength:
 \[
 \tilde{X}:=\frac{dX}{d\chi},\qquad \dot{X}:=\frac{dX}{d\tau},\qquad X':=\frac{dX}{dl}.
 \]
-We use $\mathtt{c}$ for the speed of light and $\beta:=V/\mathtt{c}$, $\gamma:=1/\sqrt{1-\beta^2}$, rapidity $\tanh\eta=\beta$.
+We use $\mathtt{c}$ for the speed of light; $\beta:=V/\mathtt{c}$, $\gamma:=1/\sqrt{1-\beta^2}$, rapidity $\tanh\eta=\beta$. The subscript $l$ in $dx_l$ denotes spatial components, with $l=1,2,3$ a Cartesian index.
 
 \section{Time and space as phase derivatives}
 Let $\vec{\chi}\in\mathbb{C}$ be a variable whose change generates observable time-space effects. We treat the time and space units as directional derivatives (phase velocities) along the real and imaginary directions of a complex basis $(\hat{h},\mathbf{l})$:
@@ -54,12 +54,12 @@ equivalently
 \tilde{H}^2=\tilde{S}^2+\tilde{L}^2.
 \label{eq:13}
 \end{equation}
-Writing $\tilde{S}=\tilde{H}\cos\theta$ and $\tilde{L}=\tilde{H}\sin\theta$,
+Writing 
 \begin{equation}
 \tilde{S}=\tilde{H}\cos\theta,\qquad \tilde{L}=\tilde{H}\sin\theta,
 \label{eq:14}
 \end{equation}
-where $\theta$ is the angle of the phase speed relative to the real axis. Algebraically, \eqref{eq:13} is a Euclidean decomposition of a single speed into orthogonal projections; physically, we will see that under reparametrization the \emph{projection} $\tilde{S}$, not the Euclidean norm $\tilde{H}$, is the conserved Minkowski quantity.
+where $\theta$ is the angle of the phase speed relative to the real axis. Algebraically, \eqref{eq:13} is a Euclidean decomposition of a single speed into orthogonal projections; physically, we will see that under reparameterization the \emph{projection} $\tilde{S}$, not the Euclidean norm $\tilde{H}$, is the conserved Minkowski quantity.
 
 \section{Phase space (\textit{kh\={o}ra})}
 Let the phase vector space (``\emph{kh\={o}ra}'', after Plato) be $\mathbb{C}$ with orthonormal basis $(\hat{h},\mathbf{l})$. For a phase vector $\vec{\chi}=R\,e^{\theta\mathbf{l}}$ with $\theta\in[-\pi,\pi]$,
@@ -113,18 +113,18 @@ where $\zeta$ is an \emph{internal angle} (intrinsic to the object; heuristicall
 =R\cos\zeta+R\,\mathbf{l}\sin\zeta,
 \label{eq:312}
 \end{equation}
-with unit bases (normalized by $R$): $\hat{h}=\cos\zeta$, $\hat{\mathbf{l}}=\sin\zeta$.
+with unit components (normalized by $R$): the real component is $\cos\zeta$ and the imaginary component is $\sin\zeta$.
 
 \subsection{Absolute, local, and observed time}
-Define \emph{absolute} time $t=t(\tilde{H})$ at the zero phase direction; it is the slowest clock and useful for normalization between different phase speeds. Along the local real direction,
+Define \emph{absolute} time $t=t(\tilde{H})$ at the zero phase direction; it is the fastest clock and useful for normalization between different phase speeds. Along the local real direction,
 \begin{equation}
 dx_0=\frac{d}{d\chi}\Re(\vec{\chi})\,d\chi
-=\frac{\vec{\chi}^++\vec{\chi}^-}{2}\,d\chi
+=\frac{\vec{\chi}^+ + \vec{\chi}^-}{2}\,d\chi
 =\cos\zeta\,d\chi
 =:d\tau.
 \label{eq:321}
 \end{equation}
-Here $d\chi_0:=\cos\zeta\,d\chi$ is the projection onto the local real axis; in Sec.~\ref{sec:norm} we calibrate $d\tau=(1/\nu_0)\,d\chi_0$. The observed proper time of $A$ relative to the rest observer is
+Here $d\chi_0:=\cos\zeta\,d\chi$ is the projection of $d\chi$ onto the local real axis; in Sec.~\ref{sec:norm} we calibrate $d\tau=(1/\nu_0)\,d\chi_0$. The observed proper time of $A$ relative to the rest observer is
 \begin{equation}
 \tilde{H}_A=\Re\!\left(\frac{d\vec{\chi}_A}{d\vec{\chi}_0}\right)
 =\cos\theta_A
@@ -163,7 +163,7 @@ From $dx_0=dx_l$ for light one gets
 \end{equation}
 hence with temporal calibration to $\mathtt{c}$ the spatial scale becomes unit: $\tilde{L}'=1$.
 
-\subsection{Light and $\mathtt{c}$ as a calibration constant}
+\subsection{\texorpdfstring{Light and $\mathtt{c}$ as a calibration constant}{Light and c as a calibration constant}}
 From the normalized forms,
 \begin{equation}
 \frac{\mathtt{c}}{\dot{\chi}}\,d\chi=\frac{1}{\chi'}\,d\chi
@@ -192,7 +192,7 @@ At unit frequency, $\tau=\chi$: the photon's ``proper time'' is its phase, and t
 \end{equation}
 so $\theta=\pi/2$ implies $V=\mathtt{c}$.
 
-\subsection{Lorentz factor via reparametrization}
+\subsection{Lorentz factor via reparameterization}
 A change of direction of the phase speed transforms
 \begin{equation}
 \tilde{H}^2=\tilde{S}^2+\tilde{L}^2 \;\longmapsto\;
@@ -249,7 +249,7 @@ e^{\eta(\theta)}=\sqrt{\frac{1+\sin\theta}{1-\sin\theta}},\qquad
 \label{eq:365}
 \end{equation}
 
-\paragraph{Remark (groups).} Observables satisfy $\beta=\sin\theta=\tanh\eta$ and $\gamma=\sec\theta=\cosh\eta$. Thus Euclidean rotations in the phase circle (\,$U(1)$ with angle $\theta$\,) reproduce the numerical factors of hyperbolic boosts in $SO^+(1,1)$ (rapidity $\eta$) \emph{after} reparametrizing time. We do not claim an isomorphism $U(1)\cong SO(1,1)$; only the equality of observable combinations under the change of parameter.
+\paragraph{Remark (groups).} Observables satisfy $\beta=\sin\theta=\tanh\eta$ and $\gamma=\sec\theta=\cosh\eta$. Thus Euclidean rotations in the phase circle (\,$U(1)$ with angle $\theta$\,) reproduce the numerical factors of hyperbolic boosts in $SO^+(1,1)$ (rapidity $\eta$) \emph{after} reparameterizing time. We do not claim an isomorphism $U(1)\cong SO(1,1)$; only the equality of observable combinations under the change of parameter.
 
 \subsection{Velocity addition}
 Rapidity is additive:
@@ -293,12 +293,12 @@ Equivalent forms (with $\beta=\sin\theta$, $\gamma=\sec\theta$ and rapidity $\et
 =e^{\mp\eta}.
 \label{eq:385}
 \end{equation}
-Transverse Doppler ($\varphi=90^\circ$ in observer frame):
+Transverse Doppler ($\varphi=90^\circ$ in the observer's frame):
 \begin{equation}
 \frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{src}}}=\frac{1}{\gamma}=\cos\theta.
 \label{eq:389}
 \end{equation}
-General angle $\varphi$ (in observer frame):
+General line-of-sight (LOS) angle $\varphi$ in the observer's frame:
 \begin{equation}
 \boxed{\ \frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{src}}}=\gamma\,(1-\beta\cos\varphi)\ }.
 \label{eq:3810}
@@ -306,14 +306,14 @@ General angle $\varphi$ (in observer frame):
 Wavelength ratios are inverse to frequency ratios.
 
 \section{Discussion: links to known structures}
-\paragraph{Gauge phases.} A global shift $\chi\mapsto\chi+\chi_0$ is unobservable. Allowing local reparametrizations $\chi\mapsto\chi+\alpha(x)$ induces a connection when comparing phases at different points. On wavefunctions $\psi\sim e^{i\chi}$ this is the familiar $U(1)$ gauge freedom $\psi\to e^{i\alpha(x)}\psi$ with $D_\mu=\partial_\mu-iA_\mu$ as the \emph{geometric} phase-transport operator.
+\paragraph{Gauge phases.} A global shift $\chi\mapsto\chi+\chi_0$ is unobservable. Allowing local reparameterizations $\chi\mapsto\chi+\alpha(x)$ induces a connection when comparing phases at different points. On wavefunctions $\psi\sim e^{i\chi}$ this is the familiar $U(1)$ gauge freedom $\psi\to e^{i\alpha(x)}\psi$ with $D_\mu=\partial_\mu-iA_\mu$ as the \emph{phase-transport connection}.
 
 \paragraph{Mass and the internal angle.} With the decomposition by $\zeta$, mass heuristically correlates with an irreducible real projection: massless objects have $\zeta=\pm\pi/2$ (no proper time; photon subspace), while massive objects have $|\zeta|<\pi/2$ (proper time exists). In the present paper we set $\zeta=0$ in boost kinematics by calibration; a detailed mass-generation mechanism is left for future work.
 
 \paragraph{Cosmological gauge.} A natural global calibration of ``absolute'' time is the comoving frame with vanishing CMB dipole. This fixes a cosmological time $t$ (FLRW) as a gauge, without affecting local Lorentz invariance; Doppler factors are then operationally referenced to that frame.
 
 \section{Conclusion}
-In unimetry, time and space are integrals of phase velocities; the Minkowski interval appears as a conserved quantity under parameter change. The core relations of SR---$\gamma$, rapidity, velocity addition, and Doppler factors---follow from elementary phase-plane geometry with a single rotation angle $\theta$, while hyperbolic structure re-emerges upon reparametrizing time. The formalism is empirically equivalent to standard SR but can clarify causality and composition by treating all effects as projections of a single flow.
+In unimetry, time and space are integrals of phase velocities; the Minkowski interval appears as a conserved quantity under parameter change. The core relations of SR---$\gamma$, rapidity, velocity addition, and Doppler factors---follow from elementary phase-plane geometry with a single rotation angle $\theta$, while hyperbolic structure re-emerges upon reparameterizing time. The formalism is empirically equivalent to standard SR but can clarify causality and composition by treating all effects as projections of a single flow.
 
 \paragraph{Outlook.} Future directions include (i) a more explicit group-theoretic embedding, (ii) a rigorous treatment of the internal angle $\zeta$ and its relation to mass, and (iii) exploration of curved metrics as spatially varying Jacobians $\mathcal{J}(x)$ in the phase-to-observable map.
 
