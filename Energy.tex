@@ -1,0 +1,211 @@
+% !TEX TS-program = pdflatex
+% Unimetry — Energy in a Phase‑Space
+\documentclass[11pt,a4paper]{article}
+
+% ====== Packages ======
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% ====== Macros & Notation ======
+\newcommand{\tH}{\tilde{H}}
+\newcommand{\tS}{\tilde{S}}
+\newcommand{\tL}{\tilde{L}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\DeclareMathOperator{\sech}{sech}
+
+\title{Unimetry: Energy in a Phase\textendash Space}
+\author{Timur Abizgeldin}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We propose a phase\textendash space formulation (\emph{Unimetry}) where mass is a volume\textendash normalized structural coefficient of a flow, and the standard relativistic energy\textendash momentum relation emerges from the geometry of two orthogonal components of the flow. We develop a compact dictionary to SR, motivate the cubic scaling behind rest mass, and derive a scalar phase\textendash space energy density whose observed energy is obtained by kinematic projection. Consequences and empirical anchors (binding energy, heat, stress/pressure) are discussed.
+\end{abstract}
+
+\paragraph{Keywords:} phase\textendash space, relativistic energy, structural mass, volumetric normalization, emergent time.
+
+\section{Introduction}
+Why does relativistic energy take the form it does, and how can ``mass'' be read off from internal structure rather than postulated? Unimetry treats an object as a flow in phase\textendash space with modulus $\tH$ split into an internal (temporal) and external (spatial) part. This viewpoint suggests a cubic (volumetric) normalization for rest mass and recovers standard SR kinematics as a rotation in the $(\tS,\tL)$\textendash plane.
+
+\paragraph{Contributions.}
+(i) We model rest mass as a volume\textendash normalized structural coefficient $\kappa\propto k^3$ of a cyclic normalization $k$; (ii) we derive $E=\gamma m_0 c^2$ and $E^2=m_0^2c^4+p^2c^2$ directly from the phase geometry; (iii) we clarify why Euclidean quadratic invariants built from a cubic scale yield sixth\textendash power laws; (iv) we identify a scalar phase\textendash space energy density $e=\kappa\dot H^3$ and relate it to empirical effects (binding, heat, stress/pressure).
+
+\paragraph{Roadmap.}
+Sec.~2 fixes notation; Sec.~3 introduces structural mass; Sec.~4 derives relativistic energy; Sec.~5 justifies volume normalization and the ``$\times3$ rule''; Sec.~6 generalizes energy formulas, where we \emph{show} (Proposition~\#) that $e$ defines a phase\textendash space invariant; Sec.~7 discusses verification paths.
+
+\subsection*{Postulates (informal)}
+\begin{enumerate}
+  \item (Phase flow) Each physical object is represented by a flow with modulus $\tH$ and orthogonal components $(\tS,\tL)$ such that $\tH^2=\tS^2+\tL^2$.
+  \item (Kinematic angle) Define $\be=\sin\theta=\tL/\tH$ and $\ga=\sec\theta=1/\sqrt{1-\be^2}$.
+  \item (Gauge) The speed of light $c$ is identified with the local\textendash time phase speed: $c\equiv\dot H$.
+  \item (Cyclic time) Local time arises as a cyclic action with frequency $\nu=\dot\chi=k\,\tH$, where $k=R_1/R_2$ is a normalization factor of the cycle radii.
+\end{enumerate}
+
+\section{Preliminaries and Notation}
+We employ tilded symbols for proto\textendash space quantities and dots for local\textendash time derivatives. The basic geometric decomposition reads
+\begin{equation}
+  \tH^2 = \tS^2 + \tL^2, \qquad \tS=\tH\cos\theta,\quad \tL=\tH\sin\theta,\quad \be=\sin\theta,\quad \ga=\sec\theta.
+  \label{eq:decomp}
+\end{equation}
+The cyclic\textendash time normalization gives
+\begin{equation}
+  \nu=\frac{\dd\chi}{\dd\tau}=\dot\chi = k\,\tH, \qquad k=\frac{R_1}{R_2}.
+  \label{eq:nu}
+\end{equation}
+
+\subsection*{Why does $\nu = k\,\tH$? Three equivalent derivations}
+\paragraph{(A) Flux continuity on the two circles.} View the internal dynamics as a steady flow on a two-torus $\mathbb T^2=S^1_{\chi}\times S^1_{\tau}$ with circumferences $C_{\chi}=2\pi R_1$ and $C_{\tau}=2\pi R_2$. One tick corresponds to transporting the arc length $\Delta\chi=C_{\chi}$ while advancing the time circle by $\Delta\tau=C_{\tau}/\tH$ (since the speed along the $\tau$-fiber is $\tH$ by the gauge $c\equiv \dot H$). Equating the steady fluxes through the two fundamental cycles,
+\[
+J_{\chi}=\tH\,C_{\chi},\qquad J_{\tau}=\nu\,C_{\tau},
+\]
+forces $\nu \equiv d\chi/d\tau = (C_{\chi}/C_{\tau})\,\tH = (R_1/R_2)\,\tH$.
+
+\paragraph{(B) Circle-group homomorphism (winding).} The only smooth homomorphisms of the circle group $S^1$ are rotations with degree $k$; in angle variables $\theta_{\tau}=k\,\theta_{\chi}$ (mod $2\pi$). Passing to arc-length coordinates $\chi=R_1\theta_{\chi}$ and $\zeta=R_2\theta_{\tau}$ and differentiating with respect to $\tau$ gives $\dot\zeta=R_2\dot\theta_{\tau}=k(R_2/R_1)\dot\chi$. Identifying $\dot\zeta=\tH$ (the speed along the time-fiber under the gauge) yields $\dot\chi= k\,\tH$, i.e. $\nu=k\,\tH$.
+
+\paragraph{(C) Dimensional and symmetry argument.} A frequency must be built from the available scalars $\tH$ (a speed) and the two radii $R_1,R_2$. Rotational invariance rules out vectorial combinations; scale invariance on each circle restricts the dependence to their ratio. Thus the unique invariant with dimensions of $\mathrm{s^{-1}}$ is $\nu \propto \tH (R_1/R_2)$. Fixing the proportionality by the rest calibration leads to $\nu=k\,\tH$ with $k=R_1/R_2$.
+
+\paragraph{Remark.} Alternative bookkeeping that treats $k$ as carrying inverse-length units and $\tH$ as a speed is equivalent after absorbing constants into $\kappa$; all physical relations (e.g., $E=\ga m_0 c^2$) are unchanged.
+
+\section{Mass as a Structural Coefficient}
+We define a structural (volumetric) coefficient $\kappa$ and \emph{rest mass}
+\begin{equation}
+  \kappa(k) = \kappa_*\!\left(\frac{k}{k_*}\right)^{\!3},
+  \qquad m_0(k) := \kappa(k)\,c,
+  \qquad E_0(k) := \kappa(k)\,c^3 = m_0(k)c^2.
+  \label{eq:struct}
+\end{equation}
+The cubic dependence reflects a volumetric Jacobian of the internal phase normalization. Small variations obey
+\begin{equation}
+  \frac{\Delta m_0}{m_0}=\frac{\Delta E_0}{E_0}=3\,\frac{\Delta k}{k}.
+  \label{eq:small}
+\end{equation}
+A \emph{simple} (structureless) flow (photon) has $\tS=0$, hence $m_0=0$, while $E\propto c^3$ via its own scale factor $\kappa_\gamma$.
+
+\section{Relativistic Energy from Phase Geometry}
+With \cref{eq:decomp} and the gauge $c\equiv\dot H$, pure boosts are rotations in the $(\tS,\tL)$ plane that leave $\tH$ and $k$ invariant. Calibrating energy by rest we obtain
+\begin{equation}
+  E(\theta,k)=\frac{E_0(k)}{\cos\theta}=\ga\,m_0(k)c^2,\qquad p=\frac{E}{c}\sin\theta=\ga m_0(k) v,\quad v=c\sin\theta.
+  \label{eq:energy}
+\end{equation}
+Immediately,
+\begin{equation}
+  E^2 = m_0^2 c^4 + p^2 c^2,
+  \label{eq:emrelation}
+\end{equation}
+with the usual low\textendash velocity expansion $E=m_0c^2+\tfrac12 m_0 v^2+O(v^4/c^2)$.
+
+\subsection*{Anisotropic inertia (geometry)}
+For a boost along $x$ the transverse flows remain unchanged ($\tL_y,\tL_z$ invariant), yielding the geometric form of longitudinal and transverse inertial responses:
+\begin{equation}
+  m_{\parallel}=\frac{\dd p_x}{\dd v_x}=\ga^3 m_0,\qquad m_{\perp}=\frac{\dd p_y}{\dd v_y}=\ga m_0.
+  \label{eq:anis}
+\end{equation}
+
+\section{Justification of Volume\textendash Normalized Mass}
+\subsection{Composites and Jensen inequality}
+For a composite where $k$ varies internally,
+\begin{equation}
+  m_0 \propto \langle k^3 \rangle \ge (\langle k \rangle)^3,
+\end{equation}
+so inhomogeneities (internal stresses/pressures) increase $m_0$ at fixed average normalization.
+
+\subsection{Empirical anchors}
+\begin{itemize}
+  \item \textbf{Mass defect:} negative binding lowers $k$ and $m_0$, consistent with nuclear data.
+  \item \textbf{Heat/fields/rotation:} added internal energy raises $m_0$ by $\Delta E/c^2$, i.e. $\Delta k/k=\tfrac13\,\Delta E/E_0$.
+  \item \textbf{Gravitational redshift of clocks:} $\Delta\nu/\nu\simeq\Delta\Phi/c^2$ implies $\Delta k/k\simeq\Delta\Phi/c^2$ for the normalization factor.
+  \item \textbf{Stress\textendash energy link:} isotropic radiation with $p=\rho/3$ contributes via $(\rho+3p)$, mirroring the ``cubic'' internal degrees of freedom.
+\end{itemize}
+
+\section{Generalized Energy in Phase\textendash Space}
+At the kinematic level a convenient ``mixed'' representation is
+\begin{equation}
+  E = \ga\,\kappa\,\dot H^{2}\,\tH,\qquad (\text{with } c\equiv\dot H),
+  \label{eq:mixed}
+\end{equation}
+which collapses to $E=\ga\,\kappa c^3$ under dynamic renormalization $\tH\to\dot H$. For a photon (simple flow) in vacuum: $m_0=0$, $E=\kappa_\gamma c^3$, $p=E/c$.
+
+\subsection{Quadratic invariants and the sixth\textendash power law}
+Let $e := \kappa\,\dot H^{3}$ denote the local intensive energy scale of a single flow. Any Euclidean quadratic invariant built from a field with this scaling (e.g., self\textendash energy bilinears, $L^2$ norms in the phase domain, quadratic action densities) takes the form
+\begin{equation}
+  \mathcal I_2 \;=\; \int e^2\,\dd V_{\chi} \;\propto\; \int \kappa^{2}\,\dot H^{6}\,\dd V_{\chi} .
+\end{equation}
+Thus a quadratic invariant maps the cubic phase\textendash speed scaling into a sixth\textendash power law. More generally, $m$\textendash linear invariants scale as $\dot H^{3m}$.
+
+Equivalently, in the rest\textendash normalization $\kappa\propto k^3$ one has $e_0\propto k^3$ and any quadratic invariant in the varying normalization $k$ scales as $k^6$. This is the precise sense in which a Euclidean quadratic norm preserves an invariant built from a cubic structural coefficient.
+
+
+\subsection{Energy as a phase\textendash space invariant}
+\paragraph{Proposition (phase\textendash space energy).}
+Define the \emph{phase\textendash space energy density} by
+\begin{equation}
+  e(\chi) := \kappa(\chi)\,\dot H^{3},\qquad (c\equiv \dot H\ 	ext{const}).
+\end{equation}
+\textbf{Boost invariance.} Pure boosts are rotations in $(\tS,\tL)$ that leave $\tH$, $\dot H$ and $\kappa$ unchanged; hence $e$ is invariant. The integral
+\begin{equation}
+  E_{\chi} := \int_{\Sigma_{\chi}} e\,\dd V_{\chi} \equiv m_0 c^2
+\end{equation}
+— the energy measured in the intrinsic phase frame — is a scalar independent of the state of motion. The observed (laboratory) energy and momentum are projections
+\begin{equation}
+  E = \ga E_{\chi},\qquad p = \frac{E}{c}\sin\theta = \ga m_0 v,
+\end{equation}
+so that
+\begin{equation}
+  E^2 - (pc)^2 = E_{\chi}^{2} = (m_0 c^2)^2,
+\end{equation}
+which makes the usual SR invariant explicit as the square of the phase energy.
+
+\textbf{Reparameterization invariance.} Under a local reparametrization $\chi\mapsto \chi'(\chi)$ with Jacobian $J=\dd\chi'/\dd\chi$, the structural density transforms as a 3\textendash density $\kappa' = \kappa/J^{3}$ while $\dd V_{\chi'} = J^{3}\dd V_{\chi}$, so that $e\,\dd V_{\chi}$ and $E_{\chi}$ are invariant.
+
+\textbf{Dynamics vs kinematics.} Changes in internal structure (massogenesis) modify $\kappa$ and thus $e$ physically; the invariance statements above refer to kinematic transformations (boosts and phase reparametrizations), not to dynamics that pump energy into or out of the system.
+
+\subsection{Continuity and Noether\textendash like view (sketch)}
+Treat $\kappa(k)$ as a density on internal phase: local conservation takes the form
+\begin{equation}
+  \partial_\tau (\kappa c^3) + \nabla_{\chi}\!\cdot (\kappa c^2\,\bm{J}) = 0,
+\end{equation}
+where $\bm{J}$ is a phase\textendash space current; energy emerges as the charge of $\tau$\textendash translations.
+
+\section{Verification and Predictions}
+\begin{enumerate}
+  \item High\textendash $Q$ cavity: trapped field energy and pressure ($T^{ii}$) increase weight by $(E+\text{pressure term})/c^2$.
+  \item Flywheel test: compare mass at rest vs spinning, including elastic stress contribution; prediction from \cref{eq:anis,eq:struct}.
+  \item Nonuniform heating: at fixed $\Delta E$, inhomogeneous $k(\bm{x})$ gives slightly larger $\langle k^3\rangle$ than uniform heating.
+\end{enumerate}
+
+\section{Discussion and Outlook}
+We summarized how relativistic energy is recovered from a phase\textendash geometric decomposition with mass as a volume\textendash normalized structural coefficient. Open directions include: a full Lagrangian on phase\textendash space, coupling to curvature (mapping to $T^{\mu\nu}$ in GR), and quantum extensions where $k$ becomes an operator linked to cyclic spectra.
+
+\paragraph{Acknowledgments} ———
+
+\appendix
+\section{Dimensional Analysis and Units}
+With $[E]=\mathrm{J}$ and $[\dot H]=\mathrm{m\,s^{-1}}$, one has $[\kappa]=[E]/[\dot H]^3=\mathrm{J\,s^3\,m^{-3}}$. Using $m_0=\kappa c$ yields $[\kappa]=\mathrm{kg\,s\,m^{-1}}$.
+
+\paragraph{Cyclic-time normalization.} In $\nu= k\,\tH$, if $k$ is taken dimensionless (e.g., $k=R_1/R_2$), we treat $\tH$ here as an \emph{effective frequency scale} inherited from the normalization map; equivalently, if $\tH$ is regarded as a speed, then $k$ carries units of inverse length so that $\nu$ has units of $\mathrm{s^{-1}}$. Both conventions are equivalent after absorbing constants into $\kappa$ and do not affect $E=\gamma m_0 c^2$.
+
+\section{Derivation details for \cref{eq:energy}} 
+Using $E_0=m_0 c^2$ and the rotation in $(\tS,\tL)$ with invariant $\tH$, the energy scales as $1/\cos\theta=\ga$, while $p=(E/c)\sin\theta$; eliminating $\theta$ gives \cref{eq:emrelation}.
+
+\section{Dictionary to standard SR variables}
+$\tS\leftrightarrow$ internal (proper\textendash time) projection; $\tL\leftrightarrow$ spatial projection; $\theta$ is the boost rapidity angle via $\tan\theta = v/\sqrt{c^2-v^2}$; $k$ encodes internal normalization of the cyclic time.
+
+\end{document}
