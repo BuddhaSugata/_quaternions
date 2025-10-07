@@ -1,0 +1,141 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{hyperref}
+
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\ImH}{\mathrm{Im}\,\mathbb{H}}
+\newcommand{\Scal}{\mathrm{Scal}}
+\newcommand{\uu}{\mathbf{u}}        % unit imaginary axis
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\ww}{\mathbf{w}}
+\newcommand{\Sand}[2]{#1\,#2\,#1}   % sandwich without inverse (D)
+\newcommand{\Snd}[2]{#1\,#2\,#1^{-1}} % sandwich with inverse (ordinary)
+
+\title{\textbf{Unimetry: Quaternion Phase Space}\\
+{\large Расширение фазового формализма униметрии до кватернионов и два типа поворотов}}
+\author{ }
+\date{ }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Мы вводим кватернионное фазовое пространство как естественное расширение униметрии: прото-параметр объекта задаётся кватернионом
+\(\chi=\tilde S+\uu\,\tilde L\in\HH\) с \(\|\uu\|=1\).
+Рассматриваются два действия сэндвичем: (i) \emph{обычный} поворот \(\Snd{q}{X}\) (вращение в мнимом 3-пространстве кватернионов \(\ImH\)); (ii) \emph{вещественно-мнимый} D-поворот \(\Sand{r}{Z}\) в плоскости \(\mathrm{span}\{1,\uu\}\).
+Показывается, что D-поворот даёт простую модель изменения геометрии \(\ImH\) при ненулевой скорости: плоскость, ортогональная \(\uu\), масштабируется фактором \(1/\gamma\), а пара \((1,\uu)\) переживает обычную ротацию на угол \(\alpha\) с \(\tan\alpha=\beta\).
+\end{abstract}
+
+\section{Кватернионное фазовое пространство}
+Пусть \(\uu\in\ImH\) --- единичный мнимый вектор (\(\uu^2=-1\)).
+Зададим состояние (прото-параметр) объекта кватернионом
+\begin{equation}
+  \chi \;=\; \tilde S + \uu\,\tilde L \;\in\; \HH,\qquad
+  \tilde H := |\chi| = \sqrt{\tilde S^2+\tilde L^2}.
+\end{equation}
+Проективизация «забывает» масштаб \(\tilde H\): берём однородные координаты \([\tilde S:\tilde L]\in\mathbb{RP}^1\) и вводим угол
+\(\theta=\arctan(\tilde L/\tilde S)\).
+Удобные калибровки скорости:
+\begin{equation}
+  \beta := \sin\theta,\qquad
+  \gamma := \frac{1}{\cos\theta}.
+\end{equation}
+(Далее полезно положить \(\tan\alpha=\beta\Rightarrow \cos\alpha=1/\gamma\).)
+
+\section{Обычный поворот в \texorpdfstring{\(\ImH\)}{Im H}}
+Пусть \(q\in SU(2)=\{q\in\HH\mid |q|=1\}\), а \(X\in\ImH\).
+Обычный (трёхмерный) поворот действует \emph{сэндвичем с обратным}:
+\begin{equation}
+  X \mapsto X' = \Snd{q}{X} = q\,X\,q^{-1},\qquad |X'|=|X|.
+\end{equation}
+Генератором является мнимый кватернион \(\Omega_H=2\,q^{-1}\dot q\in\ImH\):
+\(\dot X = \Omega_H\times X\).
+Эта ветка описывает чистые вращения внутри \(\ImH\) и далее нам нужна лишь для контраста.
+
+\section{D-поворот в плоскости \texorpdfstring{\(\mathrm{span}\{1,\uu\}\)}{span\{1,u\}}}
+Определим \emph{вещественно-мнимый} поворот (D-поворот) как
+\begin{equation}
+  Z \mapsto Z' = \Sand{r}{Z} = r\,Z\,r,\qquad
+  r:=e^{\frac{\alpha}{2}\,\uu}=\cos\frac{\alpha}{2}+\uu\sin\frac{\alpha}{2},\quad |r|=1.
+\end{equation}
+Так как \(|r|=1\), норма сохраняется: \(|Z'|=|Z|\) для любого \(Z\in\HH\).
+
+\medskip
+\noindent\textbf{Действие на мнимые векторы.}
+Возьмём \(X\in\ImH\) и разложим \(X=X_\parallel+X_\perp\), где
+\(X_\parallel=(X\!\cdot\!\uu)\,\uu\), \(X_\perp\perp\uu\).
+Тогда
+\begin{equation}\label{eq:D-on-imag}
+  \boxed{\ \Im(\Sand{r}{X}) \;=\; X_\parallel \;+\; \cos\alpha\,X_\perp\ },\qquad
+  \Scal(\Sand{r}{X}) \;=\; -\,\sin\alpha\ (X\!\cdot\!\uu).
+\end{equation}
+\emph{Доказательство (эскиз).}
+Достаточно проверить \eqref{eq:D-on-imag} на базисе
+\(\{\,\uu,\ \mathbf e_1,\ \mathbf e_2\,\}\) при \(\mathbf e_{1,2}\perp\uu\),
+используя линейность и явные тождества для \(r\,\uu\,r\) и \(r\,\mathbf e_i\,r\).
+\(\square\)
+
+\medskip
+\noindent Итак, пара \((1,\uu)\) поворачивается на угол \(\alpha\) (как в комплексном случае),
+а \emph{вся} плоскость \(\uu^\perp\subset\ImH\) \emph{изотропно масштабируется} в \(\cos\alpha\).
+
+\section{Связь D-угла с «скоростью»}
+Положим
+\begin{equation}
+  \tan\alpha=\beta,\qquad
+  \cos\alpha=\frac{1}{\gamma},\qquad
+  \sin\alpha=\frac{\beta}{\gamma}.
+\end{equation}
+Тогда формула \eqref{eq:D-on-imag} переписывается как
+\begin{equation}\label{eq:gamma-squeeze}
+  \Im(\Sand{r}{X}) \;=\; X_\parallel \;+\; \frac{1}{\gamma}\,X_\perp.
+\end{equation}
+То есть D-поворот \emph{сжимает} всё мнимое 3-пространство в направлениях,
+ортогональных оси \(\uu\), с фактором \(1/\gamma\), и именно это мы трактуем
+как «модель изменения геометрии \(\ImH\) при наличии скорости \(\beta\)».
+
+\section{Как меняется \texorpdfstring{\(\chi\)}{chi} и проективные координаты}
+Для \(\chi=\tilde S+\uu\tilde L\) имеем
+\begin{equation}
+  \chi'=\Sand{r}{\chi} \quad\Longleftrightarrow\quad
+  \begin{pmatrix}\tilde S'\\ \tilde L'\end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\alpha & -\sin\alpha\\
+    \sin\alpha & \ \cos\alpha
+  \end{pmatrix}
+  \begin{pmatrix}\tilde S\\ \tilde L\end{pmatrix},\qquad
+  \tilde H'=|\chi'|=\tilde H.
+\end{equation}
+В проективных координатах \([\tilde S:\tilde L]\in\mathbb{RP}^1\) это просто поворот на \(\alpha\),
+то есть «смена долей» временной и пространственной компонент при фиксированном \(\tilde H\).
+
+\section{Мини-пример (ось по \texorpdfstring{\(z\)}{z})}
+Пусть \(\uu=\mathbf e_z\), \(X=(\sin\Theta\cos\Phi,\sin\Theta\sin\Phi,\cos\Theta)\).
+Тогда из \eqref{eq:gamma-squeeze}:
+\begin{equation}
+  X'=\Im(\Sand{r}{X})
+  = \Big(\frac{1}{\gamma}\sin\Theta\cos\Phi,\ \frac{1}{\gamma}\sin\Theta\sin\Phi,\ \cos\Theta\Big),
+  \quad\text{после нормировки } \frac{X'}{\|X'\|}.
+\end{equation}
+Специальные случаи: (i) \(X\parallel\uu\Rightarrow X'=X\);
+(ii) \(X\perp\uu\Rightarrow X'=\frac{1}{\gamma}X\) (до нормировки).
+Это и есть геометрический «аберрационный» эффект в \(\ImH\), индуцируемый D-поворотом.
+
+\section{Замечания}
+\begin{itemize}
+  \item Обычный поворот \(\Snd{q}{X}\) и D-поворот \(\Sand{r}{Z}\) оба изометричны по норме
+  (так как \(|q|=|r|=1\)), но действуют на разные подструктуры: первый --- внутри \(\ImH\),
+  второй --- в смешанной плоскости \(\mathrm{span}\{1,\uu\}\).
+  \item Выбор связи \(\tan\alpha=\beta\) удобен тем, что \(\cos\alpha=1/\gamma\) появляется
+  прямо как фактор «сжатия» \(\uu^\perp\).
+  \item При желании можно связать калибровки энергии/импульса с проекциями
+  \(\tilde S=\tilde H\cos\theta\), \(\tilde L=\tilde H\sin\theta\), не вводя дополнительных объектов.
+\end{itemize}
+
+\end{document}
