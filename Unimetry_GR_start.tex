@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[hidelinks]{hyperref}
+
+% --- Notation (narrow tildes) ---
+\newcommand{\tH}{\tilde{H}}
+\newcommand{\tS}{\tilde{S}}
+\newcommand{\tL}{\tilde{L}}
+\newcommand{\tchi}{\tilde{\chi}}
+\newcommand{\tzeta}{\tilde{\zeta}}
+
+% convenience
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+
+\begin{document}
+
+% \title{~} % intentionally left empty for now
+% \author{}
+% \date{}
+% \maketitle
+
+\section*{1.\;Time normalization as a function of phase speed}
+
+Consider the 3--sphere $S^3_R\subset\R^4$ in Hopf coordinates $(\xi_0,\xi_1,\xi_2)$:
+\[
+x_1=R\cos\xi_0\cos\xi_1,\quad
+x_2=R\cos\xi_0\sin\xi_1,\quad
+x_3=R\sin\xi_0\cos\xi_2,\quad
+x_4=R\sin\xi_0\sin\xi_2.
+\]
+Fixing $\xi_0=\xi_0^\star$ yields a flat torus $\T^2$ with radii
+\[
+R_1=R\cos\xi_0^\star,\qquad R_2=R\sin\xi_0^\star,
+\]
+and metric $ds^2=R_1^2\,\dd\xi_1^2+R_2^2\,\dd\xi_2^2$.
+Introduce arc--lengths along the two circles,
+\[
+\chi:=R_1\xi_1,\qquad \zeta:=R_2\xi_2,
+\]
+with $\dot\chi=R_1\dot\xi_1$ and $\dot\zeta=R_2\dot\xi_2$. 
+Free (geodesic) motion on $\T^2$ has Lagrangian $L=\tfrac12(R_1^2\dot\xi_1^2+R_2^2\dot\xi_2^2)$, hence conserved momenta
+\[
+p_1=R_1^2\dot\xi_1=\text{const},\qquad p_2=R_2^2\dot\xi_2=\text{const}.
+\]
+Define the phase speed in local time $\omega_\chi:=\dd\chi/\dd\tau=\dot\chi$ and the inter--fiber (``proto'') speed $\tH:=\dd\zeta/\dd\chi$. Then
+\[
+\frac{p_1}{p_2}=\frac{R_1^2\dot\xi_1}{R_2^2\dot\xi_2}
+=\frac{R_1}{R_2}\frac{\dot\chi}{\dot\zeta}
+=\frac{R_1}{R_2}\frac{\omega_\chi}{\dot\zeta}
+=\frac{R_1}{R_2}\frac{\omega_\chi}{\tH\,\omega_\chi}
+=\frac{R_1}{R_2}\frac{1}{\tH}.
+\]
+Equivalently,
+\begin{equation}\label{eq:omega_kH}
+\boxed{\ \omega_\chi \;=\; k\,\tH,\qquad k:=\frac{p_1}{p_2}\frac{R_1}{R_2}\ }.
+\end{equation}
+The \emph{time--normalization factor} (a 1--form) is, therefore,
+\begin{equation}\label{eq:Theta}
+\boxed{\ \Theta_\chi:=\frac{\dd\tau}{\dd\chi}=\frac{1}{\omega_\chi}=\frac{1}{k\,\tH}\ }.
+\end{equation}
+
+\section*{2.\;Equivalence of gauges (no contradictions)}
+
+There are two natural, but mutually exclusive, gauge choices:
+\[
+\text{(}\chi\text{-gauge)}\quad \tH\equiv c,
+\qquad
+(\tau\text{-gauge})\quad \dot H\equiv c\quad (H\equiv\zeta).
+\]
+They are related by the invariant identity
+\begin{equation}\label{eq:dotH_master}
+\boxed{\ \dot H \;=\; \tH\,\dot\chi \;=\; k\,\tH^2\ }.
+\end{equation}
+Thus one must not set $c$ for both $\tH$ and $\dot H$ simultaneously (except in the special $k=1$ case). From \eqref{eq:dotH_master}:
+\[
+\begin{cases}
+\text{$\chi$-gauge: } \tH\equiv c \ \Rightarrow\ \dot H = k\,c^2,\\[1mm]
+\text{$\tau$-gauge: } \dot H\equiv c \ \Rightarrow\ \tH = \sqrt{c/k}.
+\end{cases}
+\]
+
+\section*{3.\;Flow speed and energy in both gauges}
+
+Define the \emph{phase--space energy} as the gauge--invariant scalar
+\begin{equation}\label{eq:Energy_def}
+\boxed{\ E \;:=\; k\,\tH^2\ }.
+\end{equation}
+Using \eqref{eq:dotH_master} we have $E=\dot H$ precisely in the $\chi$-gauge, while in the $\tau$-gauge $E=k\,c^2$:
+\[
+\begin{cases}
+\text{$\chi$-gauge: } \tH\equiv c \ \Rightarrow\ E=k\,c^2=\dot H,\\[1mm]
+\text{$\tau$-gauge: } \dot H\equiv c \ \Rightarrow\ E=k\,c^2,\ \ \dot H=c.
+\end{cases}
+\]
+Hence $E=kc^2$ in either gauge, and $E$ is independent of which variable is held fixed by convention.
+
+\paragraph{Interpretation.}
+$k$ plays the role of an invariant mass scalar (winding/structure on the Hopf torus), while $c$ is the fixed inter--fiber speed. The observable flux along the time fiber is $\dot H$; it equals $E$ only in the $\chi$-gauge.
+
+\section*{4.\;Generalized energy in phase space}
+
+In curved or inhomogeneous settings $k$ and $\tH$ may vary with position along the flow on $S^3$; the local energy field is
+\begin{equation}\label{eq:E_field}
+\boxed{\ E(x)=k(x)\,\tH(x)^2\ }.
+\end{equation}
+For simple (photon--like) flows one has $k=0$; the energy is then carried by the phase frequency $\omega_\chi=\dd\chi/\dd\tau$. Introducing an action constant $\sigma$ (to be calibrated empirically),
+\begin{equation}\label{eq:photon_branch}
+\boxed{\ E_\gamma \;=\; \sigma\,\omega_\chi \ },
+\end{equation}
+so that the massive and simple branches are recovered as the limits of the unified ansatz
+\begin{equation}\label{eq:unified_energy}
+\boxed{\ E \;=\; k\,\tH^2 \;+\; \sigma\,\omega_\chi \ }.
+\end{equation}
+In the massive regime the first term dominates; for $k=0$ we get the pure frequency law $E_\gamma=\sigma\omega_\chi$.
+
+% Optional remark: geodesic Hamiltonian on \T^2
+\paragraph{Remark.}
+The geodesic Hamiltonian on $\T^2$ reads $\mathscr{H}=\tfrac12(\dot\chi^2+\dot\zeta^2)=\tfrac12(1+k^2)\tH^2$, which is a kinematic invariant of the free motion; it should not be confused with the physical energy scalar $E$ in \eqref{eq:Energy_def}.
+\end{document}

@@ -1,0 +1,42 @@
+% === Object with gravitational action via D-rotation (half-dilation) ===
+\paragraph{Definition (object as flow + action).}
+An object is the pair
+\[
+\mathcal O := \big(\,R_{\rm self},\,\kappa\,\big)\ \ \text{with a gravitational action field}\ \
+\mathcal R_{\rm grav}[x_o\leftarrow x_e] := \mathcal P\exp\!\int_{x_e}^{x_o}\!\Big(\tfrac{1}{2}\,\Omega_\mu\,dx^\mu\ +\ \tfrac{1}{2}\,\zeta_{,\mu}\,dx^\mu\,D\Big),
+\]
+where $R_{\rm self}$ is the object's kinematic rotor (boost in $(\tilde S,\tilde L)$), 
+$\kappa$ is the structural mass coefficient, $\Omega_\mu$ a bivector (Lorentz) connection 
+and $D$ is the generator of half–dilation:
+\[
+e^{\frac{\zeta}{2}D}:\quad \theta^0\mapsto e^{-\zeta/2}\theta^0,\qquad \theta^i\mapsto e^{+\zeta/2}\theta^i.
+\]
+The action on a probe state $R_{\rm probe}$ transported from emission $x_e$ to observation $x_o$ is
+\[
+R_{\rm out} \;=\; \mathcal R_{\rm grav}[x_o\leftarrow x_e]\; R_{\rm self}(x_e)\; R_{\rm probe}.
+\]
+
+\paragraph{Calibration of the D–rotation.}
+For static metrics $ds^2=-L^2(x)\,dt^2 + \cdots$ (lapse $L=\sqrt{-g_{tt}}$), choose
+\[
+\Delta\zeta\,(x_o\!\leftarrow\! x_e) \;:=\; \ln\frac{L(x_o)}{L(x_e)} \quad\Rightarrow\quad
+\frac{\omega_o}{\omega_e}=e^{\Delta\zeta}=\frac{L(x_o)}{L(x_e)}.
+\]
+Schwarzschild:\ \ $L(r)=\sqrt{1-\frac{2GM}{rc^2}}$, hence 
+$\displaystyle \Delta\zeta=\tfrac{1}{2}\ln\frac{1-\frac{2GM}{r_o c^2}}{1-\frac{2GM}{r_e c^2}}
+\approx \frac{\Phi_o-\Phi_e}{c^2}$ (weak field).
+
+FRW (half–dilation tetrad):\ \ $ds^2=a(t)\,(-(\theta^0)^2+(\theta^i)^2)$ with 
+$\theta^0=a^{-1/2}dt,\ \theta^i=a^{+1/2}dx^i$.
+Set $\Delta\zeta=\ln\frac{a_o}{a_e}$, then $e^{\frac{\Delta\zeta}{2}D}$ yields
+\[
+\frac{\lambda_o}{\lambda_e}=e^{\Delta\zeta}=\frac{a_o}{a_e},\qquad \omega\propto e^{-\Delta\zeta}=a^{-1}.
+\]
+
+\paragraph{One operator for both effects.}
+Along a general path in a slowly varying field, the net frequency shift of a null probe is
+\[
+1+z \;=\; \exp\!\Big(\int\limits_{\text{path}}\tfrac{1}{2}\,\zeta_{,\mu}\,dx^\mu\Big)\ \times\ \text{(pure Lorentz projection factor from }\Omega_\mu\text{ if any)}.
+\]
+In the comoving FRW case the Lorentz part is trivial ($\Omega_\mu\to0$ along the comoving congruence), 
+so the redshift is purely $D$–rotational; in static fields it reduces to the lapse ratio $L_o/L_e$.
