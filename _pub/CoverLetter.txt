@@ -1,0 +1,6 @@
+Dear Editors,
+we submit “Unimetry: A Phase-Space Reformulation of Special Relativity.” The work shows that Lorentz kinematics arises from Euclidean rotations of a constant-norm phase flow in an internal plane; the Minkowski interval appears as a conserved quadratic projection. We reproduce time dilation, the Lorentz factor, velocity addition and the Doppler shift in closed form, and outline a natural extension to curved backgrounds via local tetrads/accelerated frames, including a simple treatment of gravitational redshift.
+We believe the conceptual and technical connection to GR foundations and accelerated observers makes the manuscript suitable for GRG (Letter format). The work is original and not under consideration elsewhere. Data Availability and Declarations are included.
+ChatGPT was of course used and helped wastly in working on the topic.
+Sincerely,
+Timur Abizgeldin
