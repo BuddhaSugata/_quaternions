@@ -1,0 +1,577 @@
+# Содержание:
+1. Фаза и прото-пространство.
+2. Кватернионное представление.
+3. Кватернионные роторы: R-поворот и D-буст.
+4. Вращение Вигнера.
+5. Прецессия Томаса.
+6. Перепараметризация времени
+7. Шпаргалка.
+8. Алгоритм и пример.
+9. Контроль по классической формуле.
+10. Заключение.
+
+Эта статья - [продолжение](https://habr.com/ru/articles/941306/) разработки теории представления специальной теории относительности через вращение векторов градиента фазы в евклидовом фазовом пространстве с поледующей перепараметризацией времени.
+
+# 1. Фаза и прото-пространство
+
+В самом общем смысле станем полагать фазу изменением скалярного поля в евклидовом пространстве неограниченной размерности. Эффекты наблюдаемого 3-пространственного характера тогда будут выражаться как изменение проекций вектора градиента фазы на пространственные оси наблюдателя, а проекция на остальные оси даст совокупно течение фазы объекта по времени.  
+Так как каждый объект сам является фазовым потоком, включая любого наблюдателя, то имеет смысл работать не с координатами $x^\mu$, а с ортонормированным тетрадом наблюдателя.
+**Формально.** Фазовое «прото-пространство» - евклидово (гильбертово) пространство $\mathcal{E}$, $\langle X,Y \rangle$ - евклидово скалярное произведение, $\|X\|^2=\langle X,X\rangle$.
+Фазовый поток задаётся **вектором** $\boldsymbol\chi\in\mathcal E$.
+Наблюдатель фиксирует ортонормированную тройку пространственных осей
+$$
+\mathbf e_1,\ \mathbf e_2,\ \mathbf e_3\in\mathcal E,\qquad \langle \mathbf e_i,\mathbf e_j\rangle=\delta_{ij},
+$$
+и соответствующее подпространство $S=\operatorname{span}\{\mathbf e_1,\mathbf e_2,\mathbf e_3\}$ с ортогональными проекторами $P_S$ и $P_{S^\perp}$.
+Разложим фазовый вектор:
+$$
+\boldsymbol\chi = \boldsymbol\chi_S + \boldsymbol\chi_\perp,\qquad
+\boldsymbol\chi_S:=P_S\boldsymbol\chi,\ \ \boldsymbol\chi_\perp:=P_{S^\perp}\boldsymbol\chi.
+$$
+Наблюдаемая 3-компонента:
+$$
+l_i:=\langle \boldsymbol\chi,\mathbf e_i\rangle,\qquad
+\mathbf l:=l_1\,\mathbf i+l_2\,\mathbf j+l_3\,\mathbf k.
+$$
+Остальные (ненаблюдаемые) компоненты суммируем по Пифагору в **скаляр**
+$$
+t:=\|\boldsymbol\chi_\perp\|=\sqrt{\ \|\boldsymbol\chi\|^2-\|\boldsymbol\chi_S\|^2\ }.
+$$
+Для ориентации вводим единичный
+$$
+\mathbf{e}_t := \dfrac{\boldsymbol\chi_\perp}{\|\boldsymbol\chi_\perp\|}, & \|\boldsymbol\chi_\perp\|>0 
+$$
+
+# 2. Кватернионное представление
+Тогда кватернионное представление просто:
+$$
+q:=t+\mathbf{l} =\ t+l_1\,\mathbf i+l_2\,\mathbf j+l_3\,\mathbf k,
+\qquad
+|q|^2=t^2+\|\mathbf{l}\|^2=\|\boldsymbol\chi\|^2. 
+$$
+
+# 3. Кватернионные роторы: R-поворот и D-буст
+
+**R-поворот** вокруг $\hat{\mathbf n}$ на угол $\varphi$:
+$$
+r=\cos\frac{\varphi}{2}+\hat{\mathbf n}\,\sin\frac{\varphi}{2},\qquad 
+q\ \mapsto\ r\,q\,r^{-1}
+$$
+поворачивает только в $S$.
+
+**D-вращение (буст)** вдоль $\hat{\mathbf u}$ на угол $\psi$ - обычный 2D-поворот в плоскости $\operatorname{span}\{\mathbf e_t,\hat{\mathbf u}\}$:
+$$
+d=\cos\frac{\psi}{2}+\hat{\mathbf u}\,\sin\frac{\psi}{2},\qquad 
+q\ \mapsto\ q'=d\,q\,d.
+$$
+Разложив $\mathbf r=\mathbf r_\parallel+\mathbf r_\perp$ по $\hat{\mathbf u}$ (где $r_\parallel=\mathbf r\!\cdot\!\hat{\mathbf u}$), получаем
+$$
+\begin{aligned}
+t'&=t\cos\psi + r_\parallel\sin\psi,\\
+r'_\parallel&=t\sin\psi + r_\parallel\cos\psi,\\
+\mathbf r'_\perp&=\mathbf r_\perp.
+\end{aligned}
+$$
+[Здесь](https://habr.com/ru/articles/585542/) геометрия дотошно.
+Удобная связь с кинематикой:
+$$
+\beta=\frac{v}{c}=\sin\psi,\qquad \gamma=\frac{1}{\cos\psi},\qquad
+\tan\frac{\psi}{2}=\frac{\gamma\beta}{\gamma+1}.
+$$
+[Здесь](https://habr.com/ru/articles/941306/) подробно объяснена связь со специальной теорией относительности.
+
+**Скорость ⇄ D-ротор**
+
+**Формулы.** Пусть $\mathbf v\in\mathbb R^3$, $\beta=\|\mathbf v\|/c\in[0,1)$, $\hat{\mathbf u}=\mathbf v/\|\mathbf v\|$. Тогда
+$$
+\tan\frac{\psi}{2}=\frac{\gamma\beta}{\gamma+1},\quad 
+\beta=\sin\psi,\quad \gamma=\frac{1}{\cos\psi},\qquad 
+d=\cos\frac{\psi}{2}+\hat{\mathbf u}\,\sin\frac{\psi}{2}.
+$$
+Обратно, для единичного кватерниона $d=[w,\mathbf v_d]$:
+$$
+\psi=2\arctan2\big(\|\mathbf v_d\|,\,w\big),\quad 
+\hat{\mathbf u}=\frac{\mathbf v_d}{\|\mathbf v_d\|}\ (\|\mathbf v_d\|>0),\quad 
+\beta=\sin\psi,\quad \mathbf v=c\,\beta\,\hat{\mathbf u}.
+$$
+
+# 4. Вращение Вигнера
+
+Для двух D-роторoв $d_1,d_2$ положим
+$$
+L_{12}=d_2d_1,\qquad L_{21}=d_1d_2.
+$$
+Они в общем случае не коммутируют. Выделим суммарный D-вклад $d_{12}$ как тот, который воспроизводит «наклон» временной оси:
+$$
+d_{12} \ \mathbf{e}_t \ d_{12} = L_{12} \ \mathbf{e}_t \ L_{21}, \qquad \Re(d_{12}) \geqslant 0
+$$
+Тогда **ротор Вигнера** - остаточный чистый R-поворот:
+$$
+\boxed{
+r_W=\bar d_{12}\,L_{12}=L_{21}\,\bar d_{12},\qquad 
+L_{12}=d_{12}\,r_W,\ \ L_{21}=r_W^{-1}\,d_{12}
+}
+$$
+и наблюдаемое действие после компенсации $d_{12}$:
+$$
+\bar d_{12}\,q'\,\bar d_{12}=r_W\,q\,r_W^{-1}.
+$$
+
+**Ось и угол.** Пусть $\cos\theta=\hat{\mathbf u}_2\!\cdot\!\hat{\mathbf u}_1$ - мера коллинеарности бустов. Тогда
+$$
+\hat{\mathbf n}_W\ \parallel\ \hat{\mathbf u}_2\times\hat{\mathbf u}_1,\qquad
+\tan\frac{\phi}{2}=
+\frac{\tan\frac{\psi_1}{2}\,\tan\frac{\psi_2}{2}\,\sin\theta}
+{1+\tan\frac{\psi_1}{2}\,\tan\frac{\psi_2}{2}\,\cos\theta}.
+$$
+
+# 5. Прецессия Томаса
+
+При медленно меняющемся направлении $\hat{\mathbf u}(t)$ накопление D-вращений даёт угловую скорость
+$$
+\boldsymbol{\omega}_T=(\gamma-1)\,(\hat{\mathbf u}\times \dot{\hat{\mathbf u}})\;=\;
+\frac{\gamma^2}{\gamma+1}\,\frac{\mathbf a\times \mathbf v}{c^2},\qquad
+\gamma=\frac{1}{\cos\psi}.
+$$
+Для равномерной окружности: $\ |\boldsymbol{\omega}_T|=(\gamma-1)\,\Omega$.
+
+# 6. Перепараметризация времени
+
+Геометрия роторов не меняется - меняется только «какие часы» ведут эволюцию. Достаточно выбрать параметр и использовать один из вариантов.
+
+**Варианты эволюции**
+
+1) **По собственному времени** $\tau$:
+$$
+\beta=\sin\psi,\qquad \gamma=\frac{1}{\cos\psi},\qquad dt=\gamma\,d\tau.
+$$
+
+2) **По лабораторному времени** t:
+$$
+d\tau=\frac{dt}{\gamma}=\cos\psi\,dt,\qquad \beta=\frac{d\ell}{dt}=\sin\psi.
+$$
+
+3) **По фазовой дуге** $\sigma$ (евклидова норма в прото-пространстве):
+$$
+d\tau=\cos\psi\,d\sigma,\qquad d\ell=\sin\psi\,d\sigma,\qquad \frac{d\ell}{d\tau}=\tan\psi.
+$$
+
+**Гиперболическая запись СТО** 
+Для перехода к псевдоевклидовой метрике пространства Минковского:
+$$
+\sin\psi\ \mapsto\ \tanh\eta,\qquad
+\cos\psi\ \mapsto\ \operatorname{sech}\eta,\qquad
+\tan\frac{\psi}{2}\ \mapsto\ \tanh\frac{\eta}{2},
+$$
+где
+$$
+\tanh\eta=\beta,\qquad \cosh\eta=\gamma.
+$$
+
+> Любые формулы с роторами $r$ и $d$ (включая Вигнера и Томаса) остаются теми же; меняются только $d\tau,dt,d\sigma$ согласно выбранному режиму.
+
+# 7. Шпаргалка
+
+- $q=t+\mathbf r$, где $t=\|\boldsymbol\chi_\perp\|$, $\ \mathbf l=\sum_i \langle\boldsymbol\chi,\mathbf e_i\rangle\,\mathbf e_i$.
+- R: $q\mapsto rqr^{-1}$, $r=\cos\frac{\varphi}{2}+\hat{\mathbf n}\sin\frac{\varphi}{2}$.
+- D: $q\mapsto dqd$, $d=\cos\frac{\psi}{2}+\hat{\mathbf u}\sin\frac{\psi}{2}$, $\beta=\sin\psi$, $\gamma=1/\cos\psi$.
+- Вигнер: $L_{12}=d_2d_1$, $d_{12}\mathbf e_t d_{12}=L_{12}\mathbf e_t L_{21}$, $r_W=\bar d_{12}L_{12}=L_{21}\bar d_{12}$.
+- Томас: $\boldsymbol{\omega}_T=(\gamma-1)(\hat{\mathbf u}\times\dot{\hat{\mathbf u}})=\dfrac{\gamma^2}{\gamma+1}\dfrac{\mathbf a\times\mathbf v}{c^2}$.
+
+# 8. Алгоритм и пример
+
+Пусть D-роторы
+$$
+d_1=\cos\frac{\psi_1}{2}+\hat{\mathbf u}_1\sin\frac{\psi_1}{2},\qquad 
+d_2=\cos\frac{\psi_2}{2}+\hat{\mathbf u}_2\sin\frac{\psi_2}{2}.
+$$
+
+Тогда
+$$
+L_{12} = d_2 d_1, \quad L_{21} = d_1d_2, \quad d_{12}= \sqrt{ L_{12} L_{21} } \ (\Re d_{12} \geqslant 0), \quad 
+\boxed{r_W=\bar{d}_{12}L_{12}}.
+$$
+
+<spoiler title="Пояснение кватернионного корня">
+
+Здесь $\sqrt{\ \cdot\ }$ - главная (principal) кватернионная корень-квадрат с неотрицательной скалярной частью; для единичного $q=(w,\mathbf v)$ берём:
+$$
+\sqrt{q} = \Big( \sqrt{ \frac{1+w}{2} }, \frac{\mathbf{v}}{ \sqrt{2(1+w)} }\Big) \quad (w \ne -1).
+$$
+
+**Правильный principal-root для $d_{12}=\sqrt{L_{12}L_{21}}$ **
+
+**Определение.** Ищем корень \(d_{12}\) из \(d_{12}^2=T\) с условием \(\Re(d_{12})\ge 0\), где \(T=L_{12}L_{21}\) (для нашего алгоритма \(e_t\equiv1\Rightarrow d_{12}^2=L_{12}L_{21}\)).
+
+**Надёжная формула через \(\log/\exp\).** Для единичного кватерниона \(q=\cos\frac{\theta}{2}+\hat{\mathbf n}\sin\frac{\theta}{2}\):
+$$
+\log q = \Big[\,0,\ \hat{\mathbf n}\,\frac{\theta}{2}\,\Big],\qquad
+\sqrt{q} = \exp\!\Big(\tfrac12\log q\Big) = \cos\frac{\theta}{4} + \hat{\mathbf n}\,\sin\frac{\theta}{4}.
+$$
+Это устойчиво даже при \(w\approx -1\) (то есть \(\theta\approx\pi\)).
+
+**Код (principal root + fallback):**
+```python
+import numpy as np
+
+def qnormalize(q, eps=1e-15):
+    n = np.linalg.norm(q)
+    return q if n < eps else q/n
+
+def qlog_unit(q, eps=1e-15):
+    """Логарифм единичного кватерниона: возвращает [0, v_log]."""
+    q = qnormalize(q)
+    w, x, y, z = q
+    v = np.array([x, y, z], float)
+    vn = np.linalg.norm(v)
+    theta = 2.0*np.arctan2(vn, w)           # угол в [0, 2π)
+    if vn < eps:
+        return np.array([0.0, 0.0, 0.0, 0.0])
+    return np.array([0.0, *(v * (theta/(2.0*vn)) )])
+
+def qexp_pure(qv):
+    """Экспонента чисто-векторного кватерниона [0, v]."""
+    _, x, y, z = qv
+    v = np.array([x, y, z], float)
+    vn = np.linalg.norm(v)
+    if vn == 0.0:
+        return np.array([1.0, 0.0, 0.0, 0.0])
+    return np.array([np.cos(vn), *(np.sin(vn) * (v/vn))])
+
+def qsqrt_unit(q):
+    """Principal sqrt: d = exp( (1/2) log q ), Re(d) >= 0."""
+    half_log = 0.5 * qlog_unit(q)
+    d = qexp_pure(half_log)
+    if d[0] < 0:                             # форсируем Re>=0
+        d = -d
+    return qnormalize(d)
+```
+</spoiler>
+
+<spoiler title="Python-скрипт (NumPy)">
+
+```python  
+
+import numpy as np
+
+# Кватернионы как массивы [w, x, y, z]; единичные роторы -> |q|=1
+
+def qmul(a, b):
+    w1, x1, y1, z1 = a
+    w2, x2, y2, z2 = b
+    return np.array([
+        w1*w2 - x1*x2 - y1*y2 - z1*z2,
+        w1*x2 + x1*w2 + y1*z2 - z1*y2,
+        w1*y2 - x1*z2 + y1*w2 + z1*x2,
+        w1*z2 + x1*y2 - y1*x2 + z1*w2,
+    ])
+
+def qconj(q):  # сопряжение (для единичных это же и обратный)
+    w, x, y, z = q
+    return np.array([w, -x, -y, -z])
+
+def qnorm(q):
+    return np.linalg.norm(q)
+
+def qnormalize(q, eps=1e-15):
+    n = qnorm(q)
+    return q if n < eps else q / n
+
+def qsqrt_unit(q, eps=1e-15):
+    """
+    Главная ветвь квадр. корня от единичного кватерниона q = [w, v].
+    Возвращает s, такое что s*s == q и Re(s) >= 0.
+    """
+    w, x, y, z = q
+    w = float(w)
+    v = np.array([x, y, z], dtype=float)
+    n = qnorm(q)
+    if abs(n - 1.0) > 1e-9:
+        # На всякий случай нормируем
+        w, v = (w/n), (v/n)
+    if w > -1 + eps:
+        s = np.sqrt(0.5*(1.0 + w))
+        if s < eps:
+            # чисто векторный случай близко к w = -1 (редкий/неустойчивый)
+            # выберем ось v/|v| и полуугол = pi/2
+            axis = v / (np.linalg.norm(v) + eps)
+            return np.array([0.0, *(axis)])  # полуугол = pi/2 => [0, axis]
+        vec = v / (2.0*s)
+        return qnormalize(np.array([s, *vec]))
+    else:
+        # w ~ -1: корень почти чисто векторный; выберем ось v
+        axis = v / (np.linalg.norm(v) + eps)
+        return np.array([0.0, *(axis)])
+
+def drotor(u, psi):
+    """
+    D-ротор: d = cos(psi/2) + u * sin(psi/2), где u - единичный 3-вектор.
+    Возвращает кватернион [w, x, y, z].
+    """
+    u = np.array(u, dtype=float)
+    un = u / (np.linalg.norm(u) + 1e-15)
+    c, s = np.cos(psi/2.0), np.sin(psi/2.0)
+    return np.array([c, *(s*un)])
+
+def raxis_angle(r, eps=1e-15):
+    """
+    Из ротора r (единичный кватернион) достать ось (3-вектор) и угол (рад).
+    Для r = [w, v], угол = 2*atan2(|v|, w); ось = v/|v|.
+    """
+    r = qnormalize(r)
+    w, vx, vy, vz = r
+    v = np.array([vx, vy, vz])
+    vnorm = np.linalg.norm(v)
+    angle = 2.0*np.arctan2(vnorm, w)
+    axis = np.array([1.0, 0.0, 0.0]) if vnorm < eps else v / vnorm
+    return axis, angle
+
+def wigner_rotor(u1, psi1, u2, psi2):
+    """
+    Главная функция: по двум D-бустам вернуть ротор Вигнера r_W
+    и промежуточный суммарный D-ротор d_12.
+    """
+    d1 = drotor(u1, psi1)
+    d2 = drotor(u2, psi2)
+    L12 = qmul(d2, d1)
+    L21 = qmul(d1, d2)
+    T = qmul(L12, L21)            # T = L12 * L21  (т.к. e_t = 1 => d e_t d = d^2)
+    d12 = qsqrt_unit(T)           # principal sqrt, Re(d12) >= 0
+    rW  = qmul(qconj(d12), L12)   # r_W = \bar d12 * L12
+    return qnormalize(rW), qnormalize(d12)
+
+# Пример использования
+if __name__ == "__main__":
+    deg = np.deg2rad
+    u1, psi1 = [1, 0, 0], deg(40)   # буст 1: ось X, угол 40°
+    u2, psi2 = [0, 1, 0], deg(30)   # буст 2: ось Y, угол 30°
+
+    rW, d12 = wigner_rotor(u1, psi1, u2, psi2)
+    axis, angle = raxis_angle(rW)
+
+    print("d12 (sum D-rotor) =", d12)
+    print("rW  (Wigner)      =", rW)
+    print("axis =", axis, "angle_deg =", np.rad2deg(angle))
+
+    # sanity-check: L12 == d12 * rW, L21 == rW^{-1} * d12  (с точностью до числ. погрешности)
+    d1 = drotor(u1, psi1)
+    d2 = drotor(u2, psi2)
+    L12 = qmul(d2, d1)
+    L21 = qmul(d1, d2)
+    lhs1 = L12
+    rhs1 = qmul(d12, rW)
+    lhs2 = L21
+    rhs2 = qmul(qconj(rW), d12)
+    print("||L12 - d12*rW|| =", qnorm(lhs1 - rhs1))
+    print("||L21 - rW^{-1}*d12|| =", qnorm(lhs2 - rhs2))  
+```
+</spoiler>
+
+# 9. Контроль по классической формуле: формулы + Python-проверка
+
+**Классическая формула угла Вигнера (в рапидитах).**  
+Пусть даны две скорости $\mathbf v_1,\mathbf v_2$ с модулями $v_i<c$ и направлениями $\hat{\mathbf u}_i=\mathbf v_i/\|\mathbf v_i\|$.  
+Введём рапидиты $\eta_i=\operatorname{artanh}\beta_i$, где $\beta_i=v_i/c$, $\gamma_i=\cosh\eta_i$.  
+Угол между направлениями: $\cos\theta=\hat{\mathbf u}_2\!\cdot\!\hat{\mathbf u}_1$.
+
+Тогда ось Вигнера:
+$$
+\hat{\mathbf n}_W\ \parallel\ \hat{\mathbf u}_2\times\hat{\mathbf u}_1,
+$$
+а угол:
+$$
+\tan\frac{\phi}{2}
+=\frac{\sinh\frac{\eta_1}{2}\,\sinh\frac{\eta_2}{2}\,\sin\theta}
+{\cosh\frac{\eta_1}{2}\,\cosh\frac{\eta_2}{2}+\sinh\frac{\eta_1}{2}\,\sinh\frac{\eta_2}{2}\,\cos\theta}.
+$$
+
+Ниже - код, который:
+1) строит $r_W$ по униметрическому алгоритму (кватернионы/роторы),  
+2) считает $\phi_{\text{classic}}$ по формуле выше,  
+3) сравнивает ось/угол.
+
+<spoiler title="Python-скрипт (NumPy)">
+
+```python
+
+import numpy as np
+
+# ----- базовая кватернионная алгебра -----
+
+def qmul(a, b):
+    w1, x1, y1, z1 = a
+    w2, x2, y2, z2 = b
+    return np.array([
+        w1*w2 - x1*x2 - y1*y2 - z1*z2,
+        w1*x2 + x1*w2 + y1*z2 - z1*y2,
+        w1*y2 - x1*z2 + y1*w2 + z1*x2,
+        w1*z2 + x1*y2 - y1*x2 + z1*w2,
+    ])
+
+def qconj(q):
+    w, x, y, z = q
+    return np.array([w, -x, -y, -z])
+
+def qnorm(q):
+    return np.linalg.norm(q)
+
+def qnormalize(q, eps=1e-15):
+    n = qnorm(q)
+    return q if n < eps else q/n
+
+def qsqrt_unit(q, eps=1e-15):
+    """
+    Главная ветвь sqrt для единичного кватерниона q=[w,v], Re>=0.
+    """
+    q = qnormalize(q)
+    w, vx, vy, vz = q
+    v = np.array([vx, vy, vz])
+    vnorm = np.linalg.norm(v)
+    if w >= 0:
+        s = np.sqrt(0.5*(1.0 + w))
+        vec = v/(2.0*s) if s > eps else (v/(vnorm+eps))
+        return qnormalize(np.array([s, *vec]))
+    else:
+        # w ~ отриц., корень почти чисто-векторный
+        axis = v/(vnorm+eps) if vnorm > eps else np.array([1.0,0.0,0.0])
+        return np.array([0.0, *axis])
+
+def raxis_angle(r, eps=1e-15):
+    r = qnormalize(r)
+    w, x, y, z = r
+    v = np.array([x, y, z])
+    vnorm = np.linalg.norm(v)
+    angle = 2.0*np.arctan2(vnorm, w)
+    axis = np.array([1.0,0.0,0.0]) if vnorm < eps else v/vnorm
+    return axis, angle
+
+# ----- параметризация D-ротора -----
+
+def psi_from_beta(beta):
+    """
+    Униметрический угол psi из β:  β=sinψ,  γ=1/cosψ.
+    Численно устойчиво через полуугол: tan(ψ/2) = γβ/(γ+1).
+    """
+    beta = float(beta)
+    if not (0 <= beta < 1):
+        raise ValueError("beta must be in [0,1)")
+    gamma = 1.0/np.sqrt(1.0 - beta*beta)
+    t = (gamma*beta)/(gamma+1.0)
+    return 2.0*np.arctan(t)
+
+def drotor_from_velocity(v, c=1.0):
+    v = np.array(v, dtype=float)
+    speed = np.linalg.norm(v)
+    if speed == 0:
+        return np.array([1.0, 0.0, 0.0, 0.0])
+    u = v/speed
+    beta = speed/float(c)
+    psi = psi_from_beta(beta)
+    c2, s2 = np.cos(psi/2.0), np.sin(psi/2.0)
+    return np.array([c2, *(s2*u)])
+
+# ----- Wigner из двух скоростей по униметрии -----
+
+def wigner_rotor_from_velocities(v1, v2, c=1.0):
+    d1 = drotor_from_velocity(v1, c)
+    d2 = drotor_from_velocity(v2, c)
+    L12 = qmul(d2, d1)
+    L21 = qmul(d1, d2)
+    # из условия d12 * e_t * d12 = L12 * e_t * L21, где e_t ≡ 1, получаем d12^2 = L12 L21
+    d12 = qsqrt_unit(qmul(L12, L21))
+    rW  = qmul(qconj(d12), L12)
+    return qnormalize(rW)
+
+# ----- Классическая формула угла -----
+
+def wigner_angle_classic(v1, v2, c=1.0):
+    v1 = np.array(v1, float); v2 = np.array(v2, float)
+    u1 = v1/np.linalg.norm(v1) if np.linalg.norm(v1) > 0 else np.array([1.0,0.0,0.0])
+    u2 = v2/np.linalg.norm(v2) if np.linalg.norm(v2) > 0 else np.array([1.0,0.0,0.0])
+    cos_th = float(np.clip(np.dot(u2, u1), -1.0, 1.0))
+    sin_th = np.sqrt(1.0 - cos_th*cos_th)
+
+    beta1 = np.linalg.norm(v1)/float(c)
+    beta2 = np.linalg.norm(v2)/float(c)
+    eta1  = np.arctanh(beta1)  # rapidities
+    eta2  = np.arctanh(beta2)
+
+    sh1 = np.sinh(eta1/2.0); ch1 = np.cosh(eta1/2.0)
+    sh2 = np.sinh(eta2/2.0); ch2 = np.cosh(eta2/2.0)
+
+    num = sin_th * sh1 * sh2
+    den = ch1*ch2 + cos_th * sh1 * sh2
+    return 2.0 * np.arctan2(num, den)
+
+def axis_classic(v1, v2):
+    v1 = np.array(v1, float); v2 = np.array(v2, float)
+    u1 = v1/np.linalg.norm(v1) if np.linalg.norm(v1) > 0 else np.array([1.0,0.0,0.0])
+    u2 = v2/np.linalg.norm(v2) if np.linalg.norm(v2) > 0 else np.array([1.0,0.0,0.0])
+    a = np.cross(u2, u1)
+    n = np.linalg.norm(a)
+    return a/n if n > 0 else np.array([1.0,0.0,0.0])
+
+# ----- Демонстрация -----
+
+if __name__ == "__main__":
+    c = 1.0
+    v1 = np.array([0.6, 0.0, 0.0]) * c     # 0.6c по X
+    v2 = np.array([0.0, 0.5, 0.0]) * c     # 0.5c по Y
+
+    # униметрический расчёт
+    rW = wigner_rotor_from_velocities(v1, v2, c)
+    axis_u, phi_u = raxis_angle(rW)
+
+    # классическая формула
+    phi_cl = wigner_angle_classic(v1, v2, c)
+    axis_cl = axis_classic(v1, v2)
+
+    # сравнение (ось - до знака; сравниваем |dot|)
+    axis_align = abs(np.dot(axis_u, axis_cl))
+    angle_err  = abs(phi_u - phi_cl)
+
+    print(f"phi_unimetry (deg) = {np.rad2deg(phi_u):.8f}")
+    print(f"phi_classic (deg)  = {np.rad2deg(phi_cl):.8f}")
+    print(f"|axis dot|         = {axis_align:.12f}   (1.0 = совпало)")
+    print(f"|angle diff| (deg) = {np.rad2deg(angle_err):.12e}")
+
+    # простая проверка точности
+    assert axis_align > 1 - 1e-10, "Оси не совпадают (с точностью до знака)."
+    assert angle_err < 1e-10, "Углы не совпали в пределах машинной точности."
+```  
+</spoiler>
+
+# 10. Заключение
+Выгоды использования кватернионной алгебры для рассчётов:
+**1) Концептуально проще**
+- Один объект для всего. R-повороты и D-«бусты» - это единичные кватернионы, различаются только плоскостью/осью действия; композиция - обычное умножение.
+- Вигнер получается «по определению»: остаток после компенсации суммарного D-вклада - сразу ротор  
+  $$ d_{12}=\sqrt{L_{12}L_{21}}, \qquad r_W=\bar{d}_{12}\,L_{12}. $$
+- Ось и угол берутся из одного ротора $r=[w,\mathbf v]$:  
+  $\hat{\mathbf n}=\mathbf v/\|\mathbf v\|,\quad \phi=2\arctan2(\|\mathbf v\|,w)$ - без матриц и диагонализаций.
+
+**2) Алгоритмически короче**
+- «Одна строка» реально работает (см. выше). Для матриц Лоренца пришлось бы городить полярную/QR-факторизацию.
+- Стоимость операций: умножение кватернионов - $\sim$16 умножений + 12 сложений; умножение $4 \times 4$ - $\sim$ 64 умножений + 48 сложений.
+- Память: 4 числа вместо 16.
+
+**3) Численно устойчивее**
+- Нет сингулярностей Эйлера (gimbal lock), малые углы считаются стабильно.
+- Нормализация - одно деление на норму; «дрейф» ортогональности у матриц требует дорогой реортогонализации.
+- Корень «правильной ветви» фиксируется условием $\Re(d_{12})\ge 0$, без эвристик.
+
+**4) Прямой мост к «классике» SR**
+- Вся геометрия - в евклидовой $\mathbb R\oplus\mathbb R^3$; «гиперболическая» запись - это просто замена параметра  
+  $\sin\psi\!\to\!\tanh\eta,\ \cos\psi\!\to\!\operatorname{sech}\eta,\ \tan\frac{\psi}{2}\!\to\!\tanh\frac{\eta}{2}$,
+  где $\tanh\eta=\beta,\ \cosh\eta=\gamma$.
+- Сверка с классической формулой Вигнера - одна арктангента (см. блок «Контроль по классике»).
+
+**5) Инженерные плюсы**
+- Легко векторизуется и GPU-дружелюбно: пачки роторных умножений тривиально параллелятся.
+- Инкрементальные расчёты (накопление малых D-вращений и $r_W$) стабильны: нормализуешь каждый шаг - и готово.
+- Удобные градиенты по параметрам ротора (ось/полуугол) для оптимизаций и фильтров.
+
+> Итог: кватернионные роторы сводят кинематику Лоренца к паре дешёвых, устойчивых операций «умножение + нормализация», а Вигнер и Томас получаются буквально в несколько строк.
+
+Естественно, при написании статьи вежливо экплуатировался ChatGPT.  
+Этот пост — продолжение популярного изложения статьи, текст которой доступен как препринт: Unimetry: A Phase-Space Reformulation of Special Relativity ([скачать](https://zenodo.org/records/17143555/files/Unimetry%20A%20Phase-Space%20Reformulation%20of%20Special%20Relativity.pdf?download=1)), Zenodo ([открыть](https://zenodo.org/records/17143555)), DOI:10.5281/zenodo.17143555. Материал адаптирован из препринта по лицензии CC-BY 4.0. Пожалуйста, цитируйте оригинальный препринт.
