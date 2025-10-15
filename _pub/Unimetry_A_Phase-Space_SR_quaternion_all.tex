@@ -1,0 +1,676 @@
+\documentclass[11pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+
+
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{hyperref}
+
+\numberwithin{equation}{section}
+
+\title{Unimetry: A Phase-Space Reformulation of Special Relativity}
+\author{Timur Abizgeldin\\ \small Independent researcher, Austria\\ \small \texttt{timurabizgeldin@gmail.com}}
+\date{\today}
+
+
+% --- Quaternion basis & rotor macros ---
+\providecommand{\bi}{\mathbf{i}}
+\providecommand{\bj}{\mathbf{j}}
+\providecommand{\bk}{\mathbf{k}}
+\providecommand{\uhat}{\hat{\mathbf u}}
+\providecommand{\rotor}[2]{\cos\frac{#2}{2} + #1\,\sin\frac{#2}{2}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We propose a compact reformulation of special relativity in which spacetime units (time and length) are treated as \emph{phase velocities}---directional derivatives of a single underlying parameter, the phase $\vec{\chi}\in\mathbb{C}$. The observable Minkowski interval emerges as a conserved quantity under a change of parameter from the hidden phase coordinate $\chi$ to the observer's proper time $\tau$. In this \emph{unimetry} formalism, familiar relativistic effects---time dilation, Lorentz factor, Doppler shift, and relativistic velocity composition---arise as elementary projections and rotations in a Euclidean phase plane. Hyperbolic features of Lorentz kinematics reappear after a reparameterization of time, yielding the standard relations without altering empirical content. We provide closed-form derivations of the longitudinal/transverse Doppler factors, identify a simple lemma equating the total phase speed to the conserved Minkowski norm, and outline connections to gauge phases, rapidity, and a cosmological time gauge.
+\end{abstract}
+
+\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; Lorentz factor; phase parameterization.
+
+\paragraph{MSC/PhCS:} 83A05; 83-10; 70A05.
+
+\section{Introduction}
+We usually take time and space as primitive. The \emph{phase formalism} introduced here suggests a different viewpoint: time and space are \emph{derived projections} of a single parameter $\vec{\chi}\in\mathbb{C}$ (``phase''). In this picture, relativistic effects such as time dilation and the Doppler shift are geometric consequences of phase-flow rotations.
+
+The proposal does not modify physics; it reorganizes familiar relations in a simpler language. In spirit it is akin to Lagrangian/Hamiltonian re-descriptions of classical mechanics: same empirical content, different coordinates. Throughout, Greek $\theta$ will denote the \emph{external} rotation angle associated with relative motion, while $\zeta$ denotes an \emph{internal} angle associated with the object's intrinsic state (mass/density heuristic). We emphasize that no modification of Einstein's dynamics is proposed; all results are kinematical identities obtained by a change of parameter.
+
+\paragraph{Notation.} Tildes, dots and primes indicate derivatives with respect to the phase parameter, proper time, and spatial arclength:
+\[
+\tilde{X}:=\frac{dX}{d\chi},\qquad \dot{X}:=\frac{dX}{d\tau},\qquad X':=\frac{dX}{dl}.
+\]
+We use $\mathtt{c}$ for the speed of light; $\beta:=V/\mathtt{c}$, $\gamma:=1/\sqrt{1-\beta^2}$, rapidity $\tanh\eta=\beta$. The subscript $l$ in $dx_l$ denotes spatial components, with $l=1,2,3$ a Cartesian index.
+
+\section{Time and space as phase derivatives}
+\paragraph{Quaternionic phase (replacing the quaternionic ansatz).}
+Henceforth the phase is \emph{quaternionic}, not quaternionic. We write a unit rotor as
+\begin{equation}
+d(\hat{\mathbf u},\psi)=\cos\frac{\psi}{2}+\hat{\mathbf u}\,\sin\frac{\psi}{2},
+\end{equation}
+with a unit pure quaternion $\hat{\mathbf u}$ (spatial direction) built from the basis
+$\{\mathbf i,\mathbf j,\mathbf k\}$; the scalar part encodes the temporal projection,
+the vector part encodes the spatial projection. Any previous appearances of
+$\bigl[\cos(\psi)+\uhat\,\sin(\psi)\bigr]$ or ``quaternionic phase'' are to be understood as their quaternionic
+counterparts via this rotor representation.
+
+Let $\vec{\chi}\in\mathbb{C}$ be a variable whose change generates observable time-space effects. We treat the time and space units as directional derivatives (phase velocities) along the real and imaginary directions of a quaternionic basis $(\hat{h},\mathbf{l})$:
+\begin{equation}
+\hat{h}\,dx_0=\frac{\partial\vec{\chi}}{\partial\chi_h}\frac{d\chi_h}{d\chi}\,d\chi
+=\tilde{H}\,d\chi,\qquad
+\mathbf{l}\,dx_l=\frac{\partial\vec{\chi}}{\partial\chi_l}\frac{d\chi_l}{d\chi}\,d\chi
+=\tilde{L}\,d\chi,\quad l=1,2,3.
+\label{eq:11}
+\end{equation}
+
+\paragraph{Cheat sheet (actions \& axes).}
+\emph{D-rotation (boost):} $d=\cos\frac{\psi}{2}+\hat{\mathbf u}\sin\frac{\psi}{2}$,\quad
+$\displaystyle \mathbf q \mapsto d\,\mathbf q\,d$ (tilts the time axis to the 3-velocity).
+
+\emph{R-rotation (spatial):} $r=\cos\frac{\varphi}{2}+\hat{\mathbf n}\sin\frac{\varphi}{2}$,\quad
+$\displaystyle \mathbf q \mapsto r\,\mathbf q\,r^{-1}$ (fixes the scalar/time axis).
+
+\emph{Pullback to the observer's curvature:} for observer rotor $u$,
+$\displaystyle \mathbf q \mapsto \bar u\, \mathbf q\, u$.
+
+
+Introduce the phase speed of the SR interval $ds=\tilde{S}\,d\chi$. The interval conservation takes the form
+\begin{equation}
+\tilde{S}^2=\frac{ds^2}{d\chi^2}
+=\frac{g_{ij}\,dx^i dx^j}{d\chi^2}
+=\tilde{H}^2-\tilde{L}^2,
+\label{eq:12}
+\end{equation}
+equivalently
+\begin{equation}
+\tilde{H}^2=\tilde{S}^2+\tilde{L}^2.
+\label{eq:13}
+\end{equation}
+Writing 
+\begin{equation}
+\tilde{S}=\tilde{H}\cos\theta,\qquad \tilde{L}=\tilde{H}\sin\theta,
+\label{eq:14}
+\end{equation}
+where $\theta$ is the angle of the phase speed relative to the real axis. Algebraically, \eqref{eq:13} is a Euclidean decomposition of a single speed into orthogonal projections; physically, we will see that under reparameterization the \emph{projection} $\tilde{S}$, not the Euclidean norm $\tilde{H}$, is the conserved Minkowski quantity.
+
+\section{Phase space (\textit{kh\={o}ra})}
+Let the phase vector space (``\emph{kh\={o}ra}'', after Plato) be $\mathbb{C}$ with orthonormal basis $(\hat{h},\mathbf{l})$. For a phase vector $\vec{\chi}=R\,e^{\theta\mathbf{l}}$ with $\theta\in[-\pi,\pi]$,
+\begin{equation}
+\tilde{H}=R,\qquad \tilde{S}=R\cos\theta,\qquad \tilde{L}=R\,\mathbf{l}\sin\theta.
+\label{eq:21}
+\end{equation}
+Choosing coordinates where the projectors onto $(\hat{h},\mathbf{l})$ are unit, \eqref{eq:11} simplifies to
+\begin{equation}
+\hat{h}\,dx_0=\frac{d\chi_h}{d\chi}\,d\chi=\tilde{H}\,d\chi,\qquad
+\mathbf{l}\,dx_l=\frac{d\chi_l}{d\chi}\,d\chi=\tilde{L}\,d\chi.
+\label{eq:22}
+\end{equation}
+The map from phase to observables is an integral transform:
+\begin{equation}
+x^i(\chi)=x^i(\chi_0)+\int_{\chi_0}^{\chi}\tilde{X}^i(u)\,du,\qquad i=0,1,2,3,
+\label{eq:23}
+\end{equation}
+where $\tilde{X}^i$ are projections of $d\vec{\chi}/d\chi$ onto $(\hat{h},\mathbf{l})$ and $x^i(\chi_0)$ fix initial conditions.
+
+\section{Objects}
+A \emph{fundamental particle} is an \emph{elementary object} with nonzero phase $\vec{\chi}\neq0$. Composite \emph{objects} are phase configurations; to represent them \emph{in phase space} one may require additional dimensions, except for the \emph{photon}, whose phase is always aligned with the imaginary axis:
+\begin{equation}
+\mathbf{p}=\frac{d\vec{\chi}}{d\chi_l}=p\,\mathbf{l}\in\Im.
+\label{eq:31}
+\end{equation}
+Non-photonic phenomena are associated with nonzero real projection and nonzero mass. A quaternionic object can be identified with an \emph{event} or worldline; the photon corresponds to a null-interval point encoding information about the event.
+
+Any object's phase can be rotated to the \emph{zero} (purely real) direction,
+\begin{equation}
+\vec{\chi}_0=R\in\Re.
+\label{eq:32}
+\end{equation}
+An object $A$ moving with speed $V$ relative to a rest observer has
+\begin{equation}
+\vec{\chi}_A=R\,e^{\theta_A\mathbf{l}},\qquad
+\sin\theta_A=\frac{V}{\mathtt{c}}\equiv\beta.
+\label{eq:33}
+\end{equation}
+
+\subsection{Space as a symmetric phase pair}
+From \eqref{eq:14}, a naive zero-angle limit would remove the imaginary projection, contradicting observability. We enforce a nonvanishing spatial projection by pairing opposite-phase tilts:
+\begin{equation}
+\vec{\chi}^{\pm}=R\,e^{\pm\zeta\,\mathbf{l}},\qquad
+\vec{\chi}_l:=\frac{\vec{\chi}^+-\vec{\chi}^-}{2}=R\,\mathbf{l}\sin\zeta,
+\label{eq:311}
+\end{equation}
+where $\zeta$ is an \emph{internal angle} (intrinsic to the object; heuristically linked to mass/density). The local decomposition is
+\begin{equation}
+\vec{\chi}_0=\vec{\chi}_\tau+\vec{\chi}_l
+=R\cos\zeta+R\,\mathbf{l}\sin\zeta,
+\label{eq:312}
+\end{equation}
+with unit components (normalized by $R$): the real component is $\cos\zeta$ and the imaginary component is $\sin\zeta$.
+
+\subsection{Absolute, local, and observed time}
+Define \emph{absolute} time $t=t(\tilde{H})$ at the zero phase direction; it is the fastest clock and useful for normalization between different phase speeds. Along the local real direction,
+\begin{equation}
+dx_0=\frac{d}{d\chi}\Re(\vec{\chi})\,d\chi
+=\frac{\vec{\chi}^+ + \vec{\chi}^-}{2}\,d\chi
+=\cos\zeta\,d\chi
+=:d\tau.
+\label{eq:321}
+\end{equation}
+Here $d\chi_0:=\cos\zeta\,d\chi$ is the projection of $d\chi$ onto the local real axis; in Sec.~\ref{sec:norm} we calibrate $d\tau=(1/\nu_0)\,d\chi_0$. The observed proper time of $A$ relative to the rest observer is
+\begin{equation}
+\tilde{H}_A=\Re\!\left(\frac{d\vec{\chi}_A}{d\vec{\chi}_0}\right)
+=\cos\theta_A
+=\sqrt{1-\sin^2\theta_A}
+=\sqrt{1-\frac{V^2}{\mathtt{c}^2}}
+=\frac{1}{\gamma}.
+\label{eq:322}
+\end{equation}
+
+\subsection{Normalization}\label{sec:norm}
+Let local time be parameterized by \emph{phase}; introduce a reference frequency $\nu_0$ and set
+\begin{equation}
+d\tau=\frac{1}{\nu_0}\,d\chi_0.
+\label{eq:331}
+\end{equation}
+By the chain rule,
+\begin{equation}
+dx_0=\tilde{H}\,d\chi
+=\frac{dx_0}{d\chi_0}\frac{d\chi_0}{d\tau}\,d\tau
+=\tilde{H}\,\dot{\chi}\,d\tau
+=: \dot{H}\,d\tau,
+\label{eq:332}
+\end{equation}
+where $\nu:=d\chi/d\tau$, $\dot{\chi}:=\nu/\nu_0$, and $\dot{H}:=\tilde{H}\,\dot{\chi}$. Choosing the calibration $\dot{H}\equiv \mathtt{c}$ gives $dx_0=\mathtt{c}\,d\tau$. Similarly for space,
+\begin{equation}
+dx_l=\tilde{L}\,d\chi
+=\frac{dx_l}{d\chi_0}\frac{d\chi_0}{dl}\,dl
+=\tilde{L}\,\chi'\,dl
+=:L'\,dl,\qquad \chi':=\frac{d\chi}{dl}.
+\label{eq:333}
+\end{equation}
+From $dx_0=dx_l$ for light one gets
+\begin{equation}
+\mathtt{c}=\tilde{L}'\,\frac{dl}{d\tau},
+\label{eq:334}
+\end{equation}
+hence with temporal calibration to $\mathtt{c}$ the spatial scale becomes unit: $\tilde{L}'=1$.
+
+\subsection{\texorpdfstring{Light and $\mathtt{c}$ as a calibration constant}{Light and c as a calibration constant}}
+From the normalized forms,
+\begin{equation}
+\frac{\mathtt{c}}{\dot{\chi}}\,d\chi=\frac{1}{\chi'}\,d\chi
+\quad\Rightarrow\quad
+\mathtt{c}=\frac{\dot{\chi}}{\chi'}=\frac{dl}{d\tau},
+\label{eq:341}
+\end{equation}
+i.e.\ $\mathtt{c}$ is a \emph{calibration constant} tying temporal and spatial measures, independent of local phase variation. Equation \eqref{eq:341} also reads
+\begin{equation}
+\mathtt{c}=\left(\frac{d\chi}{d\tau}\right)\!\left[\frac{dl}{d\chi}\right]\sim (\nu)\,[\lambda],
+\label{eq:343}
+\end{equation}
+matching frequency and wavelength of a photon, with $\chi$ as its phase. For a lightlike trajectory,
+\begin{equation}
+ds^2=\mathtt{c}^2\!\left(\frac{d\chi^2}{\dot{\chi}^2}-\frac{d\chi^2}{\dot{\chi}^2}\right)=0.
+\label{eq:344}
+\end{equation}
+At unit frequency, $\tau=\chi$: the photon's ``proper time'' is its phase, and the length of its phase-speed vector equals its wavelength, $\tilde{H}_p=\lambda$. Finally, the kinematic slope in phase coordinates is
+\begin{equation}
+\frac{dx_l}{dx_0}
+=\frac{\tilde{L}\,d\chi}{\tilde{H}\,d\chi}
+=\sin\theta
+=\frac{V}{\mathtt{c}}
+\equiv \beta,
+\label{eq:345}
+\end{equation}
+so $\theta=\pi/2$ implies $V=\mathtt{c}$.
+
+\subsection{Lorentz factor via reparameterization}
+A change of direction of the phase speed transforms
+\begin{equation}
+\tilde{H}^2=\tilde{S}^2+\tilde{L}^2 \;\longmapsto\;
+\dot{H}^2=\dot{S}^2+\dot{L}^2.
+\label{eq:351}
+\end{equation}
+\textbf{Lemma (parameter-change identity).} The transition $\tilde{H}\to\dot{S}$ is the manifestation of evolving phase speed under the parameter change $\chi\mapsto \tau(\chi)$, with local Jacobian
+\begin{equation}
+\frac{d\tau}{d\chi}=\cos\zeta(\chi)\cos\theta(\chi)
+\quad\Rightarrow\quad
+\mathcal{J}(\zeta,\theta):=\frac{d\chi}{d\tau}=\frac{1}{\cos\zeta\,\cos\theta}.
+\label{eq:353}
+\end{equation}
+Then
+\begin{equation}
+\dot{H}=\tilde{H}\,\mathcal{J},\qquad \dot{L}=\tilde{L}\,\mathcal{J}.
+\label{eq:354}
+\end{equation}
+In differential form,
+\begin{equation}
+d\ln\dot{H}=d\ln\mathcal{J}=\tan\zeta\,d\zeta+\tan\theta\,d\theta.
+\label{eq:355}
+\end{equation}
+For a \emph{pure boost} ($d\zeta=0$) one has $d\dot{H}=\dot{H}\tan\theta\,d\theta$. Absorbing a constant $\cos\zeta$ into the calibration (set $\zeta=0$ henceforth), we obtain
+\begin{equation}
+\tilde{H}^2=\dot{H}^2-\dot{L}^2=\sec^2\theta\,(\tilde{H}^2-\tilde{L}^2)=\gamma^2(\tilde{H}^2-\tilde{L}^2).
+\label{eq:356}
+\end{equation}
+\textbf{Corollary.} In phase space the Euclidean norm $\tilde{H}$ is conserved; in observed time the Minkowski norm $\dot{S}$ is conserved; they are identical as quantities:
+\begin{equation}
+\boxed{\ \tilde{H}=\dot{S}\ }.
+\label{eq:357}
+\end{equation}
+
+\subsection{Rapidity and the phase angle}
+By definition,
+\begin{equation}
+\beta=\frac{V}{\mathtt{c}}=\sin\theta,\qquad \tanh\eta=\beta,\qquad
+d\eta=\frac{d\beta}{1-\beta^2}.
+\label{eq:361}
+\end{equation}
+With $d\beta=\cos\theta\,d\theta$ and $1-\beta^2=\cos^2\theta$,
+\begin{equation}
+d\eta=\sec\theta\,d\theta,\qquad
+\eta(\theta)=\int\sec\theta\,d\theta
+=\ln|\sec\theta+\tan\theta|
+=\tfrac12\ln\frac{|1+\sin\theta|}{|1-\sin\theta|}.
+\label{eq:364}
+\end{equation}
+Fixing $\eta(0)=0$,
+\begin{equation}
+e^{\eta(\theta)}=\sqrt{\frac{1+\sin\theta}{1-\sin\theta}},\qquad
+\gamma=\frac{1}{\sqrt{1-\beta^2}}=\sec\theta=\cosh\eta.
+\label{eq:365}
+\end{equation}
+
+\paragraph{Remark (groups).} Observables satisfy $\beta=\sin\theta=\tanh\eta$ and $\gamma=\sec\theta=\cosh\eta$. Thus Euclidean rotations in the phase circle (\,$U(1)$ with angle $\theta$\,) reproduce the numerical factors of hyperbolic boosts in $SO^+(1,1)$ (rapidity $\eta$) \emph{after} reparameterizing time. We do not claim an isomorphism $U(1)\cong SO(1,1)$; only the equality of observable combinations under the change of parameter.
+
+
+\subsection{Velocity addition}
+\label{sec:vel-addition}
+
+\paragraph{Notation.}
+In the unimetry formalism, an inertial boost is a \emph{D-rotation}
+\begin{equation}
+\mathcal{B}(\hat{\mathbf u},\psi):\quad \mathbf q \;\mapsto\; d\,\mathbf q\,d,
+\qquad
+d=\cos\frac{\psi}{2}+\hat{\mathbf u}\,\sin\frac{\psi}{2},
+\label{eq:uni-boost}
+\end{equation}
+and a spatial rotation is an \emph{R-rotation}
+\begin{equation}
+\mathcal{R}(\hat{\mathbf n},\varphi):\quad \mathbf q \;\mapsto\; r\,\mathbf q\,r^{-1},
+\qquad
+r=\cos\frac{\varphi}{2}+\hat{\mathbf n}\,\sin\frac{\varphi}{2}.
+\label{eq:uni-rot}
+\end{equation}
+We parametrize kinematics by the unimetry angle $\psi$ via
+\begin{equation}
+\beta\equiv v/c=\sin\psi,\qquad \gamma=\frac{1}{\cos\psi},\qquad
+\tan\frac{\psi}{2}=\frac{\sin\psi}{1+\cos\psi}=\frac{\gamma\beta}{\gamma+1}.
+\label{eq:psi-mapping}
+\end{equation}
+(Recovering the standard SR formulas is achieved by the replacement
+$\sin\!\leftrightarrow\sinh$, $\cos\!\leftrightarrow\cosh$.)
+
+\subsubsection{Wigner rotation}
+\label{subsec:wigner}
+
+\paragraph{Statement (boost composition).}
+The composition of two non-collinear unimetry boosts factorizes into a net boost
+followed by a spatial rotation (the Wigner rotation):
+\begin{equation}
+\boxed{\;
+\mathcal{B}(\hat{\mathbf u}_2,\psi_2)\;\mathcal{B}(\hat{\mathbf u}_1,\psi_1)
+\;=\;
+\mathcal{R}(\hat{\mathbf n}_W,\phi_U)\;\mathcal{B}(\hat{\mathbf u}_{12},\psi_{12})
+\;}
+\label{eq:wigner-factorization}
+\end{equation}
+
+
+\paragraph{Quaternionic pullback (observer's curvature).}
+Let $u$ denote the observer's $D$-rotor (so that passing to the observer's curvature
+amounts to the sandwich $X\mapsto \bar u\,X\,u$). Consider two boosts with rotors
+$d_i=\cos\frac{\psi_i}{2}+\hat{\mathbf u}_i\sin\frac{\psi_i}{2}$ and let
+\begin{equation}
+L \;\equiv\; d_2 d_1, \qquad
+L_u \;\equiv\; \bar u\, L\, u \;=\; \bar u\, d_2 d_1\, u,
+\label{eq:Lu-def}
+\end{equation}
+be the composed transformation as \emph{seen by the observer}. Let $d^{(u)}_{12}$ be
+the unique unimetry boost obtained from the velocity-addition rule in the observer
+frame, i.e.
+\begin{equation}
+d^{(u)}_{12}=\cos\frac{\psi_{12}}{2}+\hat{\mathbf u}_{12}\,\sin\frac{\psi_{12}}{2},
+\label{eq:du12-def}
+\end{equation}
+with $(\hat{\mathbf u}_{12},\psi_{12})$ computed from $(\hat{\mathbf u}_1,\psi_1)$,
+$(\hat{\mathbf u}_2,\psi_2)$ in \S\ref{sec:vel-addition} but expressed in the
+observer's frame. Then the \emph{observed} Wigner rotation is simply the residual
+rotor in the polar factorization of $L_u$:
+\begin{equation}
+\boxed{\;
+r_W^{(u)} \;=\; L_u \,\bigl(d^{(u)}_{12}\bigr)^{-1} \;=\;
+\bar u\, d_2 d_1\, u \;\bigl(\cos\frac{\psi_{12}}{2}-\hat{\mathbf u}_{12}\,\sin\frac{\psi_{12}}{2}\bigr)
+\;}
+\label{eq:wigner-pullback}
+\end{equation}
+(a unit quaternion). It is purely spatial in the observer frame, i.e. it fixes the
+scalar subspace: $r_W^{(u)}\,\lambda\,\bigl(r_W^{(u)}\bigr)^{-1}=\lambda$ for all
+scalars $\lambda$. Writing
+$r_W^{(u)}=\cos\frac{\phi_U}{2}+\hat{\mathbf n}_W^{(u)}\sin\frac{\phi_U}{2}$
+identifies the observed axis $\hat{\mathbf n}_W^{(u)}$ and angle $\phi_U$.
+
+\emph{Proof sketch.} In the observer frame, $d^{(u)}_{12}$ is the unique $D$-rotor
+that maps the time axis to the composed 3-velocity (Sec.~\ref{sec:vel-addition}).
+Therefore $L_u\bigl(d^{(u)}_{12}\bigr)^{-1}$ must leave the time axis invariant and
+hence is a pure $R$-rotation---the Wigner rotation.
+
+with the Wigner axis along the cross product of the boost directions:
+\begin{equation}
+\hat{\mathbf n}_W=\frac{\hat{\mathbf u}_2\times \hat{\mathbf u}_1}{\sin\theta},
+\qquad
+\cos\theta=\hat{\mathbf u}_2\!\cdot\!\hat{\mathbf u}_1.
+\label{eq:wigner-axis}
+\end{equation}
+
+\paragraph{Angle (unimetry half-angles).}
+In terms of unimetry half-angles, the Wigner angle is
+\begin{equation}
+\boxed{\;
+\tan\frac{\phi_U}{2}=
+\frac{\tan\frac{\psi_1}{2}\;\tan\frac{\psi_2}{2}\;\sin\theta}
+{1+\tan\frac{\psi_1}{2}\;\tan\frac{\psi_2}{2}\;\cos\theta}
+\;}
+\label{eq:wigner-angle-tan}
+\end{equation}
+equivalently,
+\begin{equation}
+\tan\frac{\phi_U}{2}=
+\frac{\sin\frac{\psi_1}{2}\sin\frac{\psi_2}{2}\,\sin\theta}
+{\cos\frac{\psi_1}{2}\cos\frac{\psi_2}{2}+\sin\frac{\psi_1}{2}\sin\frac{\psi_2}{2}\,\cos\theta}.
+\label{eq:wigner-angle-sincos}
+\end{equation}
+Limits: for collinear boosts $\theta=0$ one has $\phi_U=0$; for $\beta\ll1$,
+\begin{equation}
+\phi_U \;\approx\; \tfrac{1}{2}\,\bigl\lvert \boldsymbol{\beta}_2\times \boldsymbol{\beta}_1 \bigr\rvert,
+\qquad \boldsymbol{\beta}_i\equiv \beta_i\,\hat{\mathbf u}_i.
+\label{eq:wigner-smallbeta}
+\end{equation}
+
+\paragraph{Operator form.}
+If $d_i=\cos\frac{\psi_i}{2}+\hat{\mathbf u}_i\sin\frac{\psi_i}{2}$, then
+\begin{equation}
+d_2\,d_1 \;=\; r_W\,d_{12},\qquad
+r_W=\cos\frac{\phi_U}{2}+\hat{\mathbf n}_W\sin\frac{\phi_U}{2},
+\label{eq:wigner-operator}
+\end{equation}
+and the action on any unimetry 4-object is
+\begin{equation}
+\mathbf q' \;=\; r_W\,\bigl(d_{12}\,\mathbf q\,d_{12}\bigr)\,r_W^{-1}.
+\label{eq:wigner-action}
+
+\paragraph{Quaternionic pullback as angle compensation.}
+Let $d_1$ and $d_2$ be the $D$-rotors of two successive boosts. Their raw action on any
+unimetry 4-object is
+\begin{equation}
+\mathbf q' \;=\; d_2 d_1\, \mathbf q\, d_1 d_2 .
+\label{eq:raw-two-boosts}
+\end{equation}
+Let $d_{12}$ denote the unique $D$-rotor that reproduces the combined space--time tilt
+(the change of the spatio--temporal angle) of $d_2 d_1$, i.e.\ it maps the time axis to
+the composite 3-velocity given by the velocity-addition law in \S\ref{sec:vel-addition}.
+Pulling back by the conjugate rotor $\bar d_{12}$ on both sides removes this tilt:
+\begin{equation}
+\mathbf q^{(u)} \;=\; \bar d_{12}\, \mathbf q' \,\bar d_{12}
+\;=\; (\bar d_{12} d_2 d_1)\, \mathbf q\, (d_1 d_2 \bar d_{12}).
+\label{eq:pullback-angle-comp}
+\end{equation}
+Define the residual rotor
+\begin{equation}
+\boxed{\, r_W \;\equiv\; \bar d_{12}\, d_2 d_1 \,}
+\qquad\Rightarrow\qquad
+\mathbf q^{(u)} \;=\; r_W\, \mathbf q\, r_W^{-1},
+\label{eq:rW-def}
+\end{equation}
+
+\paragraph{Uniqueness of $d_{12}$ and factorization lemma.}
+Let $\mathbf e_t$ denote the unit temporal basis (observer's time axis). The composite
+$D$-rotor $d_{12}$ is uniquely fixed by requiring it to map the time axis to that of the
+product $d_2 d_1$,
+\begin{equation}
+d_{12}\,\mathbf e_t\, d_{12} \;=\; d_2 d_1\, \mathbf e_t\, d_1 d_2,
+\qquad \text{with }\ \Re(d_{12})\ge 0,
+\label{eq:d12-uniqueness}
+\end{equation}
+(the sign choice $\Re(d_{12})\ge 0$ removes the trivial two-fold ambiguity $d\to -d$).
+
+\paragraph{Lemma (D--R factorization).}
+For any product of $D$-rotors $L=d_2 d_1$ there exist unique rotors
+$d_{12}$ (of type $D$) and $r_W$ (of type $R$) such that
+\begin{equation}
+\boxed{\; L \;=\; d_{12}\, r_W \;},\qquad
+r_W \;=\; \bar d_{12}\, L \;=\; \bar d_{12}\, d_2 d_1.
+\label{eq:DR-polar}
+\end{equation}
+
+\paragraph{Order dependence (noncommutativity).}
+Write
+\begin{equation}
+L_{12}\equiv d_2 d_1 \;=\; d_{12}\, r_W,\qquad
+L_{21}\equiv d_1 d_2 \;=\; d_{21}\, r_W^{-1},
+\label{eq:order-L}
+\end{equation}
+where $d_{12}$ and $d_{21}$ are the unique $D$-rotors specified by
+\eqref{eq:d12-uniqueness} for $L_{12}$ and $L_{21}$, respectively, and $r_W$ is the
+Wigner rotor defined in \eqref{eq:rW-def}. In general,
+\begin{equation}
+d_{12}\neq d_{21},\qquad r_W^{-1}\neq r_W,
+\end{equation}
+except for the collinear (or trivial) case. Swapping the order flips the Wigner
+rotation ($r_W\mapsto r_W^{-1}$) and changes the net 3-velocity, reflecting the
+noncommutativity of velocity addition ($\mathbf v_2\oplus \mathbf v_1\neq
+\mathbf v_1\oplus \mathbf v_2$). The quaternionic compensation picture remains the
+same: for the $(1\!\to\!2)$ order the observed map is $r_W\,\mathbf q\,r_W^{-1}$,
+for $(2\!\to\!1)$ it is $r_W^{-1}\,\mathbf q\,r_W$.
+
+
+
+\begin{center}
+\fbox{\begin{minipage}{0.94\linewidth}
+\textbf{One-line algorithm for $r_W$.}
+Compute $L=d_2 d_1$, find the unique $d_{12}$ by
+$d_{12}\,\mathbf e_t\, d_{12}=L\,\mathbf e_t\,L$ with $\Re(d_{12})\ge 0$,
+then $r_W=\bar d_{12}\,L$ and the observed action is
+$\mathbf q \mapsto r_W\,\mathbf q\,r_W^{-1}$.
+\end{minipage}}
+\end{center}
+
+
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[>=Latex, node distance=32mm]
+  \node (q) {$\mathbf q$};
+  \node (d1) [right=of q] {$d_1\,\mathbf q\,d_1$};
+  \node (d2) [right=of d1] {$d_2 d_1\,\mathbf q\,d_1 d_2$};
+  \node (rw) [below=20mm of d2] {$r_W\,\mathbf q\,r_W^{-1}$};
+
+  \draw[->] (q) -- node[above] {$d_1$} (d1);
+  \draw[->] (d1) -- node[above] {$d_2$} (d2);
+  \draw[->] (d2) -- node[right] {$\bar d_{12}$ on both sides} (rw);
+  \draw[->, dashed, bend left=12] (q) to node[above] {$d_{12}$} (d2);
+\end{tikzpicture}
+\caption{Two successive D-rotations (boosts) and compensation of the net spatio--temporal angle by the conjugate of $d_{12}$, leaving a pure R-rotation $r_W$.}
+\label{fig:tikz-wigner-pullback}
+\end{figure}
+
+
+
+\paragraph{Passive vs active actions (disambiguation).}
+\begin{center}
+\begin{tabular}{l l l c}
+\hline
+\textbf{Name} & \textbf{Map on $\mathbf q$} & \textbf{Meaning} & \textbf{Fixes time?} \\
+\hline
+Passive pullback & $\bar u\,\mathbf q\,u$ & change of frame / curvature (observer's view) & yes \\
+Active D-cancel  & $\bar u\,\mathbf q\,\bar u$ & undo D-tilt (acts on the object) & no \\
+R-rotation       & $r\,\mathbf q\,r^{-1}$ & pure spatial rotation & yes \\
+D-rotation       & $d\,\mathbf q\,d$ & boost (tilt of time axis) & no \\
+\hline
+\end{tabular}
+\end{center}
+
+
+With this choice, $r_W$ fixes $\mathbf e_t$ and acts as a pure spatial rotation in the
+observer frame, reproducing the Wigner rotation with axis/angle given by
+\eqref{eq:wigner-axis}--\eqref{eq:wigner-angle-sincos}.
+
+
+so the \emph{observed} transformation is a pure spatial rotation. Writing
+$r_W=\cos\frac{\phi_U}{2}+\hat{\mathbf n}_W \sin\frac{\phi_U}{2}$ recovers the axis and
+angle formulas \eqref{eq:wigner-axis}--\eqref{eq:wigner-angle-sincos}. This exhibits the
+Wigner rotation as the quaternionic \emph{compensation} of the net spatio--temporal angle.
+\end{equation}
+
+\subsubsection{Thomas precession}
+\label{subsec:thomas}
+
+\paragraph{Definition (continuous limit of Wigner rotation).}
+For a worldline with time-dependent velocity direction $\hat{\mathbf u}(t)$,
+Thomas precession is the instantaneous angular velocity of the Wigner rotation
+accumulated by the sequence of infinitesimal boosts:
+\begin{equation}
+\boxed{\;
+\boldsymbol{\omega}_T
+\;=\;
+(\gamma-1)\,\bigl(\hat{\mathbf u}\times \dot{\hat{\mathbf u}}\bigr)
+\;=\;
+\frac{\gamma^2}{\gamma+1}\,\frac{\mathbf a\times \mathbf v}{c^2}
+\;}
+\label{eq:thomas-omega}
+\end{equation}
+where $\mathbf v=v\,\hat{\mathbf u}$, $\mathbf a=\dot{\mathbf v}$, and
+$\gamma=1/\cos\psi$.
+Equivalently, in pure unimetry variables,
+\begin{equation}
+\boldsymbol{\omega}_T
+=
+\frac{1-\cos\psi}{\cos\psi}\,\bigl(\hat{\mathbf u}\times \dot{\hat{\mathbf u}}\bigr).
+\label{eq:thomas-unimetry}
+\end{equation}
+
+\paragraph{Special cases and limits.}
+For uniform circular motion ($|\mathbf v|=\mathrm{const}$) with orbital angular
+velocity $\boldsymbol{\Omega}$ (defined by $\dot{\hat{\mathbf u}}=\boldsymbol{\Omega}\times\hat{\mathbf u}$),
+\begin{equation}
+\boxed{\;
+\lvert \boldsymbol{\omega}_T\rvert=(\gamma-1)\,\Omega
+\;}
+\qquad
+\text{(axis opposite to $\boldsymbol{\Omega}$ in the standard convention).}
+\label{eq:thomas-uniform}
+\end{equation}
+In the nonrelativistic limit $\beta\ll1$,
+\begin{equation}
+\boldsymbol{\omega}_T \;\approx\; \tfrac{1}{2}\,\frac{\mathbf a\times \mathbf v}{c^2}.
+\label{eq:thomas-smallbeta}
+\end{equation}
+
+\paragraph{Remark on placement.}
+Since Thomas precession is the differential (continuous) limit of the Wigner
+rotation for a sequence of infinitesimal non-collinear boosts, it is natural to
+present \S\ref{subsec:wigner} first and then \S\ref{subsec:thomas}.
+\subsection{Doppler shift}
+Define the observed frequency as the phase growth rate in the observer's proper time:
+\begin{equation}
+\nu:=\frac{d\chi}{d\tau}.
+\label{eq:381}
+\end{equation}
+For two successive wavefronts the phase increment is identical, hence
+\begin{equation}
+\frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{src}}}
+=\frac{d\chi/d\tau_{\mathrm{obs}}}{d\chi/d\tau_{\mathrm{src}}}
+=\frac{d\tau_{\mathrm{src}}}{d\tau_{\mathrm{obs}}}.
+\label{eq:382}
+\end{equation}
+Longitudinal case: during $\gamma\,d\tau_{\mathrm{src}}$ in the observer frame the source displaces by $\pm V\,\gamma\,d\tau_{\mathrm{src}}$ (``$+$'' receding, ``$-$'' approaching). Then
+\begin{equation}
+d\tau_{\mathrm{obs}}=\gamma\,d\tau_{\mathrm{src}}(1\pm\beta),\qquad
+\Rightarrow\quad
+\boxed{\ \frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{src}}}=\frac{1}{\gamma(1\pm\beta)}\ }.
+\label{eq:384}
+\end{equation}
+Equivalent forms (with $\beta=\sin\theta$, $\gamma=\sec\theta$ and rapidity $\eta$):
+\begin{equation}
+\frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{src}}}
+=\sqrt{\frac{1\mp\beta}{1\pm\beta}}
+=\sec\theta\,(1\mp\sin\theta)
+=e^{\mp\eta}.
+\label{eq:385}
+\end{equation}
+Transverse Doppler ($\varphi=90^\circ$ in the observer's frame):
+\begin{equation}
+\frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{src}}}=\frac{1}{\gamma}=\cos\theta.
+\label{eq:389}
+\end{equation}
+General line-of-sight (LOS) angle $\varphi$ in the observer's frame:
+\begin{equation}
+\boxed{\ \frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{src}}}=\gamma\,(1-\beta\cos\varphi)\ }.
+\label{eq:3810}
+\end{equation}
+Wavelength ratios are inverse to frequency ratios.
+
+
+
+\paragraph{Differential pullback and Thomas precession.}
+Let $d(t)$ be the instantaneous boost rotor and fix the observer's $u(t)$ as
+instantaneously comoving. Over a small interval $\Delta t$ the observed residual
+rotation is
+\begin{equation}
+r_W^{(u)}(\Delta t)\;=\;
+\bar u(t)\, d(t+\Delta t)\,d(t)\, u(t)\; \Bigl(d^{(u)}_{12}(t,\Delta t)\Bigr)^{-1},
+\end{equation}
+whose first-order expansion is $r_W^{(u)}(\Delta t)\simeq
+1-\tfrac{1}{2}\,(\boldsymbol{\omega}_T\,\Delta t)\!\cdot\!\hat{\mathbf N}$, yielding
+\eqref{eq:thomas-omega}--\eqref{eq:thomas-smallbeta} with
+$\boldsymbol{\omega}_T=(\gamma-1)\,\hat{\mathbf u}\times\dot{\hat{\mathbf u}}$.
+This makes explicit that the Thomas precession is the differential limit of the
+quaternionic pullback residual rotation.
+
+\section{Discussion: links to known structures}
+\paragraph{Gauge phases.} A global shift $\chi\mapsto\chi+\chi_0$ is unobservable. Allowing local reparameterizations $\chi\mapsto\chi+\alpha(x)$ induces a connection when comparing phases at different points. On wavefunctions $\psi\sim \bigl[\cos(\chi)+\uhat\,\sin(\chi)\bigr]$ this is the familiar $U(1)$ gauge freedom $\psi\to \bigl[\cos(\alpha(x))+\uhat\,\sin(\alpha(x))\bigr]\psi$ with $D_\mu=\partial_\mu-iA_\mu$ as the \emph{phase-transport connection}.
+
+\paragraph{Mass and the internal angle.} With the decomposition by $\zeta$, mass heuristically correlates with an irreducible real projection: massless objects have $\zeta=\pm\pi/2$ (no proper time; photon subspace), while massive objects have $|\zeta|<\pi/2$ (proper time exists). In the present paper we set $\zeta=0$ in boost kinematics by calibration; a detailed mass-generation mechanism is left for future work.
+
+\paragraph{Cosmological gauge.} A natural global calibration of ``absolute'' time is the comoving frame with vanishing CMB dipole. This fixes a cosmological time $t$ (FLRW) as a gauge, without affecting local Lorentz invariance; Doppler factors are then operationally referenced to that frame.
+
+\section{Conclusion}
+In unimetry, time and space are integrals of phase velocities; the Minkowski interval appears as a conserved quantity under parameter change. The core relations of SR---$\gamma$, rapidity, velocity addition, and Doppler factors---follow from elementary phase-plane geometry with a single rotation angle $\theta$, while hyperbolic structure re-emerges upon reparameterizing time. The formalism is empirically equivalent to standard SR but can clarify causality and composition by treating all effects as projections of a single flow.
+
+\paragraph{Outlook.} Future directions include (i) a more explicit group-theoretic embedding, (ii) a rigorous treatment of the internal angle $\zeta$ and its relation to mass, and (iii) exploration of curved metrics as spatially varying Jacobians $\mathcal{J}(x)$ in the phase-to-observable map.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+
+\bibitem{Einstein1905}
+A.~Einstein.
+\newblock Zur Elektrodynamik bewegter K\"{o}rper.
+\newblock {\em Annalen der Physik}, 17:891--921, 1905.
+(English translation: On the electrodynamics of moving bodies.)
+
+\bibitem{Rindler}
+W.~Rindler.
+\newblock {\em Relativity: Special, General, and Cosmological}.
+\newblock Oxford University Press, 2nd ed., 2006.
+
+\bibitem{TaylorWheeler}
+E.~F. Taylor and J.~A. Wheeler.
+\newblock {\em Spacetime Physics}.
+\newblock W. H. Freeman, 2nd ed., 1992.
+
+\end{thebibliography}
+
+\end{document}

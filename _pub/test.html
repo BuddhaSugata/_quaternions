@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Униметрия — визуализация орбиты, дилатации времени и прецессии Томаса</title>
+<style>
+  :root {
+    --bg: #0b1020;
+    --fg: #e8eefc;
+    --muted: #9fb0d1;
+    --accent: #5ad1ff;
+    --accent2: #8bf18b;
+    --accent3: #ffbd68;
+    --warn: #ff6b6b;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Noto Color Emoji;
+  }
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 16px;
+    height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  canvas {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0b1020 0%, #0c1428 100%);
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .card {
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #0f1a33;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; }
+  .row + .row { margin-top: 8px; }
+  .slider {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+  .small { font-size: 12px; color: var(--muted); }
+  .val { font-variant-numeric: tabular-nums; }
+  .btns { display: flex; gap: 8px; }
+  button {
+    background: #14244a;
+    color: var(--fg);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 8px 10px;
+    cursor: pointer;
+  }
+  button:hover { filter: brightness(1.1); }
+  code.k { background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 6px; }
+  .legend-dot { display:inline-block; width:10px; height:10px; border-radius:999px; vertical-align:middle; margin-right:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="scene" width="1100" height="720"></canvas>
+  <div class="panel">
+    <div class="card">
+      <div class="row">
+        <div><strong>Скорость спутника</strong> <span class="small">(в долях <em>c</em>)</span></div>
+        <div class="val"><span id="betaVal">0.50</span></div>
+      </div>
+      <div class="slider">
+        <div class="small">β</div>
+        <input id="beta" type="range" min="0" max="0.99" step="0.001" value="0.50" />
+      </div>
+      <div class="row small">
+        <div>Лоренц-фактор γ</div>
+        <div class="val" id="gammaVal">1.154700</div>
+      </div>
+      <div class="row small">
+        <div>Орбитальная угл. скорость Ω (рад/с)</div>
+        <div class="val" id="omegaVal">—</div>
+      </div>
+      <div class="row small">
+        <div>Прецессия Томаса ω<sub>T</sub> = (γ−1)Ω (рад/с)</div>
+        <div class="val" id="omegaTVal">—</div>
+      </div>
+      <div class="row small">
+        <div>Секундный круг: <span class="legend-dot" style="background:var(--accent)"></span>Земля, <span class="legend-dot" style="background:var(--accent2)"></span>Спутник</div>
+        <div></div>
+      </div>
+      <div class="btns">
+        <button id="pauseBtn">⏸ Пауза</button>
+        <button id="resetBtn">↺ Сброс</button>
+      </div>
+      <div class="small">Примечание: в модели <code class="k">c = 240&nbsp;px/с</code>, радиус орбиты фиксирован <code class="k">R = 220&nbsp;px</code>, так что Ω = v/R.</div>
+    </div>
+
+    <div class="card small">
+      <div style="margin-bottom:6px;"><strong>Идея визуализации</strong></div>
+      <ul style="margin:6px 0 0 18px;">
+        <li>В центре — Земля с «секундным» кругом: дуга длиной 2π соответствует 1&nbsp;с.</li>
+        <li>У спутника — такой же круг, но идёт с замедлением по $\tau$: $d\tau = dt/\gamma$.</li>
+        <li>Ось на спутнике прецессирует с $\omega_T=(\gamma-1)\Omega$ (ретроградно).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // ---------- параметры сцены ----------
+  const canvas = document.getElementById('scene');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = Math.floor(W * 0.46), cy = Math.floor(H * 0.52);
+
+  const R = 220;                 // радиус орбиты (px)
+  const c_px = 240;              // скорость света в px/s (масштаб визуализации)
+  const earthR = 90;             // радиус Земли (px)
+  const satSize = 14;            // "корпус" спутника (px)
+  const clockR_earth = earthR + 26; // радиус секундного круга Земли
+  const clockR_sat = 26;         // радиус секундного круга на спутнике
+
+  // ---------- UI ----------
+  const betaSlider = document.getElementById('beta');
+  const betaVal = document.getElementById('betaVal');
+  const gammaVal = document.getElementById('gammaVal');
+  const omegaVal = document.getElementById('omegaVal');
+  const omegaTVal = document.getElementById('omegaTVal');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  // ---------- состояние симуляции ----------
+  let beta = parseFloat(betaSlider.value);
+  let gamma = 1 / Math.sqrt(1 - beta*beta);
+  let v = beta * c_px;             // px/s
+  let Omega = (R > 0 ? v / R : 0); // рад/с
+  let omegaT = (gamma - 1) * Omega; // рад/с (ретроградная)
+  let paused = false;
+
+  // "физическое" время Земли и собственное время спутника (интегрируем по dt/γ)
+  let tEarth = 0;    // секунды
+  let tauSat = 0;    // секунды
+
+  // орбитальный угол и ориентация оси спутника (инерциальная)
+  let theta = 0;     // положение спутника на орбите
+  let phiSpin = 0;   // ориентация оси (показываем прецессию Томаса), ω_T берём со знаком минус (ретроградно)
+  let lastTs = performance.now();
+
+  // ---------- helpers ----------
+  function lerp(a,b,t){ return a + (b-a)*t; }
+
+  function drawRingArc(x, y, r, frac, color, width=8) {
+    const start = -Math.PI/2; // сверху (12 часов)
+    const end = start + 2*Math.PI * frac;
+    ctx.save();
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = width;
+    ctx.lineCap = 'round';
+    ctx.arc(x, y, r, start, end, false);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawCircle(x, y, r, fill, stroke, lw=1) {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI*2);
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.lineWidth = lw; ctx.strokeStyle = stroke; ctx.stroke(); }
+  }
+
+  function drawOrbit() {
+    // орбита
+    ctx.setLineDash([6, 8]);
+    ctx.lineDashOffset = - (tEarth * 40) % 14; // легкая анимация пунктирчика
+    ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  function drawEarth() {
+    // земля
+    const grd = ctx.createRadialGradient(cx-20, cy-18, 12, cx, cy, earthR+8);
+    grd.addColorStop(0, '#2e6cf6');
+    grd.addColorStop(1, '#103060');
+    drawCircle(cx, cy, earthR, grd, 'rgba(255,255,255,0.12)', 1.2);
+    // "меридианы"
+    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx.lineWidth = 1;
+    for (let i=0;i<6;i++){
+      ctx.beginPath();
+      ctx.arc(cx, cy, earthR * (0.2 + i*0.12), 0, Math.PI*2);
+      ctx.stroke();
+    }
+    // часовой круг Земли: 2π = 1 сек
+    const fracE = (tEarth % 1 + 1) % 1;
+    drawRingArc(cx, cy, clockR_earth, fracE, getComputedStyle(document.documentElement).getPropertyValue('--accent'), 9);
+  }
+
+  function drawSatellite(x, y) {
+    // корпус
+    ctx.save();
+    ctx.translate(x, y);
+    // тень/подсветка
+    const grad = ctx.createRadialGradient(-6, -6, 2, 0, 0, satSize+8);
+    grad.addColorStop(0, '#b6fffb');
+    grad.addColorStop(1, '#205a7a');
+    drawCircle(0, 0, satSize, grad, 'rgba(255,255,255,0.2)', 1);
+
+    // ось (прецессия Томаса): от центра — стрелка длиной ~1.4*satSize
+    const L = satSize * 1.5;
+    ctx.rotate(phiSpin); // ориентация оси в инерциальной системе
+    ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(L, 0);
+    ctx.stroke();
+    // наконечник
+    ctx.beginPath();
+    ctx.moveTo(L, 0);
+    ctx.lineTo(L-7, 3.5);
+    ctx.lineTo(L-7, -3.5);
+    ctx.closePath();
+    ctx.fillStyle = '#ffffff';
+    ctx.fill();
+    ctx.restore();
+
+    // местный секундный круг (по τ): 2π = 1 сек собств. времени
+    const fracTau = (tauSat % 1 + 1) % 1;
+    drawRingArc(x, y, clockR_sat, fracTau, getComputedStyle(document.documentElement).getPropertyValue('--accent2'), 5);
+
+    // тонкий контур
+    drawCircle(x, y, clockR_sat+7, null, 'rgba(255,255,255,0.08)', 1);
+  }
+
+  function drawHUD() {
+    ctx.font = '12px ui-sans-serif, system-ui, -apple-system, Segoe UI';
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.textAlign = 'left';
+    ctx.fillText(`t (Земля) = ${tEarth.toFixed(2)} c`, 12, 20);
+    ctx.fillText(`τ (Спутник) = ${tauSat.toFixed(2)} c`, 12, 38);
+    ctx.fillText(`β = ${beta.toFixed(3)}   γ = ${gamma.toFixed(6)}`, 12, 56);
+    ctx.fillText(`Ω = ${Omega.toFixed(4)} рад/с   ωₜ = ${(omegaT).toFixed(4)} рад/с`, 12, 74);
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.fillText('2π = 1 сек (для обеих шкал)', 12, 92);
+  }
+
+  // ---------- main loop ----------
+  function step(ts) {
+    const now = ts || performance.now();
+    const dt = Math.min(0.05, (now - lastTs) / 1000); // сек (clamp для стабильности)
+    lastTs = now;
+    if (!paused) {
+      // интегрируем времена и углы
+      tEarth += dt;
+      // если β меняется на лету — τ интегрируем корректно
+      tauSat += dt / gamma;
+      theta += Omega * dt;             // положение на орбите
+      phiSpin += - omegaT * dt;        // прецессия Томаса (ретроградная)
+    }
+
+    // очистка
+    ctx.clearRect(0, 0, W, H);
+
+    // орбита + земля
+    drawOrbit();
+    drawEarth();
+
+    // позиция спутника
+    const sx = cx + R * Math.cos(theta);
+    const sy = cy + R * Math.sin(theta);
+
+    // линия от земли к спутнику (радиус-вектор)
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(sx, sy);
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    drawSatellite(sx, sy);
+    drawHUD();
+
+    requestAnimationFrame(step);
+  }
+
+  // ---------- UI handlers ----------
+  function updateDerived() {
+    beta = parseFloat(betaSlider.value);
+    gamma = 1 / Math.sqrt(1 - beta*beta);
+    v = beta * c_px;
+    Omega = (R > 0 ? v / R : 0);
+    omegaT = (gamma - 1) * Omega; // Thomas precession magnitude
+    betaVal.textContent = beta.toFixed(2);
+    gammaVal.textContent = gamma.toFixed(6);
+    omegaVal.textContent = isFinite(Omega) ? Omega.toFixed(6) : '—';
+    omegaTVal.textContent = isFinite(omegaT) ? omegaT.toFixed(6) : '—';
+  }
+
+  betaSlider.addEventListener('input', updateDerived);
+
+  pauseBtn.addEventListener('click', () => {
+    paused = !paused;
+    pauseBtn.textContent = paused ? '▶ Продолжить' : '⏸ Пауза';
+  });
+
+  resetBtn.addEventListener('click', () => {
+    tEarth = 0;
+    tauSat = 0;
+    theta = 0;
+    phiSpin = 0;
+  });
+
+  // init
+  updateDerived();
+  requestAnimationFrame(step);
+})();
+</script>
+</body>
+</html>
