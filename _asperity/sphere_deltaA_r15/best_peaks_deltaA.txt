@@ -1,0 +1,20 @@
+Global fit: Om=0.3685, M=-0.0842, chi2_red=0.418
+Frame=gal, grid=fibonacci, R=15.0°, contrast=complement, J=1pz
+z∈[0.03,0.8], minN_in=25, minN_out=100, tests M=658
+
+Top local peaks by |SNR_Δ| (with multiplicity corrections):
+  center=(202.37,-43.51)  N_in=29  N_out=1174  ΔA=-1.24827±0.47298  SNR_Δ=-2.64  p_local=0.00831  p_bonf=1  q_fdr=0.995
+  center=(200.56,-39.09)  N_in=25  N_out=1178  ΔA=-1.32414±0.52098  SNR_Δ=-2.54  p_local=0.011  p_bonf=1  q_fdr=0.995
+  center=(38.94,-49.99)  N_in=47  N_out=1156  ΔA=+0.82674±0.37387  SNR_Δ=2.21  p_local=0.027  p_bonf=1  q_fdr=0.995
+  center=(173.95,-33.76)  N_in=40  N_out=1163  ΔA=-0.81548±0.38539  SNR_Δ=-2.12  p_local=0.0343  p_bonf=1  q_fdr=0.995
+  center=(1.32,-80.40)  N_in=37  N_out=1166  ΔA=-0.75874±0.36349  SNR_Δ=-2.09  p_local=0.0369  p_bonf=1  q_fdr=0.995
+  center=(321.20,-85.15)  N_in=35  N_out=1168  ΔA=-1.20564±0.59630  SNR_Δ=-2.02  p_local=0.0432  p_bonf=1  q_fdr=0.995
+  center=(42.56,-61.86)  N_in=50  N_out=1153  ΔA=+0.57369±0.29930  SNR_Δ=1.92  p_local=0.0553  p_bonf=1  q_fdr=0.995
+  center=(274.53,-67.93)  N_in=30  N_out=1173  ΔA=-1.63717±0.90108  SNR_Δ=-1.82  p_local=0.0692  p_bonf=1  q_fdr=0.995
+  center=(22.50,-62.50)  N_in=47  N_out=1156  ΔA=+0.75780±0.41829  SNR_Δ=1.81  p_local=0.07  p_bonf=1  q_fdr=0.995
+  center=(171.72,-48.00)  N_in=267  N_out=936  ΔA=-0.31974±0.18323  SNR_Δ=-1.75  p_local=0.081  p_bonf=1  q_fdr=0.995
+  center=(185.92,-54.05)  N_in=255  N_out=948  ΔA=-0.33515±0.19382  SNR_Δ=-1.73  p_local=0.0838  p_bonf=1  q_fdr=0.995
+  center=(263.94,-77.48)  N_in=34  N_out=1169  ΔA=-1.51936±0.88679  SNR_Δ=-1.71  p_local=0.0867  p_bonf=1  q_fdr=0.995
+  center=(309.91,-63.41)  N_in=34  N_out=1169  ΔA=-1.51936±0.88679  SNR_Δ=-1.71  p_local=0.0867  p_bonf=1  q_fdr=0.995
+  center=(297.52,-62.34)  N_in=34  N_out=1169  ΔA=-1.51936±0.88679  SNR_Δ=-1.71  p_local=0.0867  p_bonf=1  q_fdr=0.995
+  center=(296.40,-78.38)  N_in=34  N_out=1169  ΔA=-1.51936±0.88679  SNR_Δ=-1.71  p_local=0.0867  p_bonf=1  q_fdr=0.995

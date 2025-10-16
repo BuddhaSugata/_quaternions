@@ -1,0 +1,8 @@
+SUMMARY (zeta_sigma_out3):
+Total caps: 4096
+Valid fits: 2400
+sigma_ζ (deg): median=0.0642, 16–84% = [0.0443, 0.0787], median(rad)=0.001121
+Slope b: median=0.08227, expected ~ 0.08333, median residual=-0.00107
+Fraction |b - 1/12| < 0.02 : 1.000
+Fraction |b - 1/12| < 0.01 : 1.000
+Fraction with SNR(σ) > 3 : 0.690

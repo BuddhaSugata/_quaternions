@@ -320,7 +320,7 @@ def main():
                          n_widths=nused, n_windows=total_windows))
 
         # optional: save Y vs Δζ^2 diagnostic for a few caps
-        if args.save-examples and example_count < args.save_examples:
+        if args.save_examples and example_count < args.save_examples:
             example_count += 1
             xx = np.array(X); yy = np.array(Y); ee = np.array(SE)
             xfit = np.linspace(0, xx.max()*1.05, 100)

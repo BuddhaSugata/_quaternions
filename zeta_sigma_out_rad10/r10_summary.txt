@@ -1,0 +1,9 @@
+SUMMARY (radius=10°)
+Total caps: 4096
+Valid fits: 1986
+sigma_zeta (deg): median=0.1109, 16–84% = [0.0530, 0.1493], median(rad)=0.001936
+Slope b: median=0.08172, expected ~ 0.08333, median residual=-0.00162
+Fraction |b - 1/12| < 0.02 : 1.000
+Fraction |b - 1/12| < 0.01 : 1.000
+Fraction with SNR(sigma)>3 : 0.577
+Spearman corr(sigma_deg, Ncap): -0.003
