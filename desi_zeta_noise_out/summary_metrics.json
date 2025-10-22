@@ -1,0 +1,49 @@
+{
+  "bp_like": {
+    "z": {
+      "stat": 5347667.243598026,
+      "R2": 0.9512006620395073
+    },
+    "zeta": {
+      "stat": 4306410.373191414,
+      "R2": 0.7659901432530836
+    }
+  },
+  "config": {
+    "input": "DESI_DR1_RA_DEC_Z.csv",
+    "sep": ",",
+    "col_ra": "RA",
+    "col_dec": "DEC",
+    "col_z": "Z",
+    "nbins": 30,
+    "ra_bins": 48,
+    "dec_bins": 24,
+    "outdir": "desi_zeta_noise_out"
+  },
+  "shell_stats": [
+    {
+      "zmin": 0.4000003418878489,
+      "zmax": 0.8162570178284102,
+      "mean_var_zeta": 0.003365167592720022,
+      "nonempty_cells": 336
+    },
+    {
+      "zmin": 0.8162570178284102,
+      "zmax": 1.0079786239685946,
+      "mean_var_zeta": 0.0003069342330718336,
+      "nonempty_cells": 335
+    },
+    {
+      "zmin": 1.0079786239685946,
+      "zmax": 1.3345328193425785,
+      "mean_var_zeta": 0.0005450350803997243,
+      "nonempty_cells": 335
+    },
+    {
+      "zmin": 1.3345328193425785,
+      "zmax": 2.499996803547661,
+      "mean_var_zeta": 0.001908898220713973,
+      "nonempty_cells": 336
+    }
+  ]
+}

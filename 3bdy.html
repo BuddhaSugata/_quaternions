@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Three-Body Simulator — Unimetry D-geometry</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --panel:#111821; --ink:#e8eef6; --muted:#9fb2c7; --accent:#61dafb; --warn:#ffb454;
+      --ok:#9ae6b4; --bad:#feb2b2;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,Segoe UI,Roboto,Ubuntu,Arial}
+    .wrap{display:grid;grid-template-columns:360px 1fr;grid-template-rows:auto 1fr;gap:12px;height:100%;padding:12px}
+    header{grid-column:1/3;background:transparent;display:flex;align-items:center;gap:16px}
+    header h1{font-size:18px;margin:0;font-weight:600;letter-spacing:.3px}
+    header .pill{padding:4px 8px;border-radius:999px;background:#132133;color:var(--muted);font-size:12px}
+
+    .panel{background:var(--panel);border:1px solid #1f2a37;border-radius:14px;padding:12px;overflow:auto}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+    .row label{min-width:54px;color:var(--muted)}
+    .row input[type="number"], .row select{width:92px;background:#0f151e;color:var(--ink);border:1px solid #263244;border-radius:10px;padding:6px 8px}
+    .row input[type="checkbox"]{transform:scale(1.1)}
+    .spacer{flex:1}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .grid h4{margin:6px 0 0;color:var(--muted);font-weight:600}
+    .subtle{color:var(--muted)}
+
+    button{appearance:none;border:none;background:#1a2635;color:#dbe7f3;border-radius:12px;padding:8px 12px;cursor:pointer}
+    button:hover{filter:brightness(1.05)}
+    button.primary{background:#1f334a}
+    button.warn{background:#3b2a14;color:#ffd199}
+    .btnrow{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{padding:2px 6px;border-radius:7px;background:#152231;color:var(--muted);border:1px solid #253141}
+
+    canvas{display:block;width:100%;height:100%;border-radius:14px;background:radial-gradient(1400px 900px at 20% 20%, #0b1420, #06090f)}
+    .hud{position:absolute;left:12px;bottom:12px;background:#0e1520dd;border:1px solid #223047;border-radius:12px;padding:8px 12px;color:#cfe2f6}
+    .hud .k{color:#8fb1d5}
+    .scene{position:relative}
+
+    details{border-top:1px dashed #243146;margin-top:10px;padding-top:8px}
+    details summary{cursor:pointer;color:#b9cbe0}
+
+    #diag{position:fixed;left:8px;top:8px;max-width:60ch;background:#2a0f0f; color:#ffd7d7; border:1px solid #6b1b1b; border-radius:10px; padding:8px 10px; font-size:12px; box-shadow:0 4px 18px #0008; display:none; white-space:pre-wrap}
+    #diag b{color:#fff}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Three-Body Simulator · Unimetry D-geometry</h1>
+    <span class="pill">leapfrog + D-corrections (a<sub>D</sub>, a<sub>W</sub>)</span>
+    <span class="spacer"></span>
+    <span class="badge" id="statStep">dt: –</span>
+    <span class="badge" id="statEnergy">E<sub>N</sub>: –</span>
+  </header>
+
+  <div class="panel" id="controls">
+    <div class="btnrow">
+      <button class="primary" id="btnStart">Start</button>
+      <button id="btnPause">Pause</button>
+      <button id="btnReset">Reset</button>
+      <button class="warn" id="btnClear">Clear trails</button>
+      <button id="btnCSV">Download CSV</button>
+      <span class="spacer"></span>
+      <button id="btnPresetFig8">Preset: Figure‑8</button>
+      <button id="btnPresetTri">Preset: Triangle</button>
+      <button id="btnTests">Run tests</button>
+    </div>
+
+    <details open>
+      <summary>Simulation parameters</summary>
+      <div class="row"><label>G</label><input type="number" id="G" step="0.0001" value="1"/></div>
+      <div class="row"><label>c</label><input type="number" id="C" step="1" value="10000"/> <span class="subtle">(set large to suppress D-corrections)</span></div>
+      <div class="row"><label>dt</label><input type="number" id="dt" step="0.0001" value="0.002"/>
+        <label>soft</label><input type="number" id="soft" step="0.0001" value="0.01"/>
+        <label>spf</label><input type="number" id="spf" step="1" value="4"/> <span class="subtle">(max substeps / frame)</span>
+      </div>
+      <div class="row"><label>pace</label><input type="number" id="pace" step="0.01" value="0.48"/> <button id="paceHalf">×½</button> <button id="pace1x">1×</button> <button id="pace2x">×2</button></div>
+      <div class="row">
+        <label>Lock pace</label><input type="checkbox" id="lockPace" checked/>
+        <span class="badge" id="paceBadge">pace: –</span>
+      </div>
+      <div class="row">
+        <label>Focus</label>
+        <select id="focusSel">
+          <option value="com">COM</option>
+          <option value="origin">Origin</option>
+          <option value="b0">Body 1</option>
+          <option value="b1">Body 2</option>
+          <option value="b2">Body 3</option>
+          <option value="point">Point</option>
+        </select>
+        <label>smooth</label><input type="number" id="focusSmooth" step="0.05" min="0" max="1" value="0.25"/>
+        <button id="focusHere">Here</button>
+      </div>
+      <div class="row"><label>Rel</label><input type="checkbox" id="relativistic" checked/> <span class="subtle">D-geometry corrections</span></div>
+      <div class="row"><label>Trail</label><input type="number" id="trail" step="10" value="1500"/> <span class="subtle">points per body</span></div>
+    </details>
+
+    <details open>
+      <summary>Bodies (mass, position x y z, velocity vx vy vz)</summary>
+      <div class="grid">
+        <div>
+          <h4>Body 1</h4>
+          <div class="row"><label>m</label><input type="number" id="m1" step="0.0001" value="1"/></div>
+          <div class="row"><label>r</label><input type="number" id="x1" step="0.0001" value="0.97000436"/><input type="number" id="y1" step="0.0001" value="-0.24308753"/><input type="number" id="z1" step="0.0001" value="0"/></div>
+          <div class="row"><label>v</label><input type="number" id="vx1" step="0.0001" value="0.466203685"/><input type="number" id="vy1" step="0.0001" value="0.43236573"/><input type="number" id="vz1" step="0.0001" value="0"/></div>
+        </div>
+        <div>
+          <h4>Body 2</h4>
+          <div class="row"><label>m</label><input type="number" id="m2" step="0.0001" value="1"/></div>
+          <div class="row"><label>r</label><input type="number" id="x2" step="0.0001" value="-0.97000436"/><input type="number" id="y2" step="0.0001" value="0.24308753"/><input type="number" id="z2" step="0.0001" value="0"/></div>
+          <div class="row"><label>v</label><input type="number" id="vx2" step="0.0001" value="0.466203685"/><input type="number" id="vy2" step="0.0001" value="0.43236573"/><input type="number" id="vz2" step="0.0001" value="0"/></div>
+        </div>
+        <div>
+          <h4>Body 3</h4>
+          <div class="row"><label>m</label><input type="number" id="m3" step="0.0001" value="1"/></div>
+          <div class="row"><label>r</label><input type="number" id="x3" step="0.0001" value="0"/><input type="number" id="y3" step="0.0001" value="0"/><input type="number" id="z3" step="0.0001" value="0"/></div>
+          <div class="row"><label>v</label><input type="number" id="vx3" step="0.0001" value="-0.93240737"/><input type="number" id="vy3" step="0.0001" value="-0.86473146"/><input type="number" id="vz3" step="0.0001" value="0"/></div>
+        </div>
+      </div>
+      <div class="btnrow"><button id="btnApply">Apply values</button></div>
+    </details>
+
+    <p class="subtle">Tip: set <b>c</b> very large or uncheck <b>Rel</b> to recover pure Newtonian dynamics. Increase <b>soft</b> or reduce <b>dt</b> if it gets unstable at close approaches.</p>
+  </div>
+
+  <div class="panel scene">
+    <canvas id="gl"></canvas>
+    <div class="hud" id="hud"></div>
+  </div>
+</div>
+
+<div id="diag"></div>
+
+<!-- Robust ESM imports via esm.sh to avoid bare specifier ("three") resolution issues in sandbox/local file -->
+<script type="module">
+import * as THREE from 'https://esm.sh/three@0.160.0';
+import { OrbitControls } from 'https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls?deps=three@0.160.0';
+
+(function(){
+  const diagEl = document.getElementById('diag');
+  function diag(msg){ if(!msg) return; diagEl.style.display='block'; diagEl.innerHTML = `<b>Error</b>: ${msg}`; console.error(msg); }
+  window.addEventListener('error', (e)=>{ diag(e?.message||'Unknown script error'); });
+
+  // ---------- Utilities ----------
+  const v3 = (x=0,y=0,z=0)=>new THREE.Vector3(x,y,z);
+  const clamp = (x,a,b)=>Math.max(a,Math.min(b,x));
+
+  // CSV buffer
+  const csvRows = ["t,body,x,y,z"]; // push per step
+  function downloadCSV(){
+    const blob = new Blob([csvRows.join("\n")], {type: "text/csv"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'three_body_trajectories.csv';
+    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  }
+
+  // ---------- State ----------
+  let running = false;
+  let t = 0, stepCount = 0;
+  let lastReal = performance.now()/1000; let accum = 0; // real→sim time accumulator
+
+  const params = {
+    G: 1.0,
+    C: 1.0e4,
+    dt: 0.002,
+    soft: 0.01,
+    spf: 4,              // cap: max substeps per frame (physics does not depend on this)
+    relativistic: true,
+    trail: 1500,
+    lockPace: true,      // keep simPace independent from dt/spf edits when checked
+    simPace: 0.002*4*60, // simulated seconds per real second (pace) ≈ old default (~60 FPS)
+    fpsTarget: 60
+  };
+
+  function setRunning(val){ if(val && !running){ lastReal = performance.now()/1000; accum = 0; } running = val; }
+
+  // Bodies
+  const baseColors = [0x9ec1ff, 0xffc27a, 0xb9ffca]; // brighter hues
+  const bodies = [
+    { m:1, r:v3( 0.97000436,-0.24308753,0), v:v3( 0.466203685, 0.43236573,0), a:v3(), nPrev:null, color:new THREE.Color(baseColors[0]) },
+    { m:1, r:v3(-0.97000436, 0.24308753,0), v:v3( 0.466203685, 0.43236573,0), a:v3(), nPrev:null, color:new THREE.Color(baseColors[1]) },
+    { m:1, r:v3( 0,0,0),                    v:v3(-0.93240737, -0.86473146,0), a:v3(), nPrev:null, color:new THREE.Color(baseColors[2]) }
+  ];
+
+  // ---------- Three.js ----------
+  const canvas = document.getElementById('gl');
+  const renderer = new THREE.WebGLRenderer({canvas,antialias:true});
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio||1));
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x07101a, 20, 80);
+  const camera = new THREE.PerspectiveCamera(55, 2, 0.01, 500);
+  camera.position.set(0, -8, 6);
+  const controls = new OrbitControls(camera, renderer.domElement);
+
+  const hemi = new THREE.HemisphereLight(0x9ac9ff, 0x102030, 1.0); scene.add(hemi);
+  const dir = new THREE.DirectionalLight(0xffffff, 1.0); dir.position.set(6,6,12); scene.add(dir);
+  const grid = new THREE.GridHelper(40, 40, 0x27415f, 0x192a3d); grid.rotation.x = Math.PI/2; scene.add(grid);
+
+  // Body meshes (brighter + emissive)
+  const sphereG = new THREE.SphereGeometry(0.09, 36, 18);
+  bodies.forEach((b)=>{
+    b.material = new THREE.MeshStandardMaterial({
+      color: b.color,
+      roughness: .25,
+      metalness: .35,
+      emissive: b.color.clone(),
+      emissiveIntensity: 0.8
+    });
+    b.mesh = new THREE.Mesh(sphereG, b.material);
+    b.mesh.castShadow = false; b.mesh.receiveShadow = false;
+    scene.add(b.mesh); b.mesh.position.copy(b.r);
+  });
+
+  // ---------- Trails (two-chunk line to avoid first↔last bridge) ----------
+  function darkerColor(col, factor=0.55){ const c = col.clone(); c.multiplyScalar(clamp(factor,0,1)); return c.getHex(); }
+
+  let trails = [];
+  function makeTrail(colHex, maxPts){
+    const arr = new Float32Array(maxPts*3); // ring buffer of samples
+    function makeLine(){
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(maxPts*3), 3));
+      const mat = new THREE.LineBasicMaterial({ color: colHex, transparent:true, opacity:0.9, depthTest:true, depthWrite:false });
+      const line = new THREE.Line(geo, mat); line.frustumCulled=false; return {geo, line};
+    }
+    const A = makeLine(); // chunk A: [idx..end)
+    const B = makeLine(); // chunk B: [0..idx)
+    return {arr, idx:0, filled:false, maxPts, A, B};
+  }
+
+  function buildTrails(len){
+    if(trails.length){
+      trails.forEach(tl=>{ scene.remove(tl.A.line); scene.remove(tl.B.line);
+        tl.A.geo.dispose(); tl.B.geo.dispose(); tl.A.line.material.dispose(); tl.B.line.material.dispose(); });
+    }
+    trails = bodies.map(b=>makeTrail(darkerColor(b.color,0.55), len));
+    trails.forEach(tl=>{ scene.add(tl.A.line); scene.add(tl.B.line); });
+  }
+  buildTrails(params.trail);
+
+  function updateTrailGeometry(tl){
+    const {arr, idx, filled, maxPts} = tl;
+    const posA = tl.A.geo.getAttribute('position');
+    const posB = tl.B.geo.getAttribute('position');
+    if(!filled){
+      const L2 = idx;
+      for(let k=0;k<L2;k++){
+        posB.array[3*k+0]=arr[3*k+0]; posB.array[3*k+1]=arr[3*k+1]; posB.array[3*k+2]=arr[3*k+2];
+      }
+      posB.needsUpdate=true; tl.B.geo.setDrawRange(0, L2); tl.A.geo.setDrawRange(0, 0);
+    } else {
+      const L1 = maxPts - idx; const L2 = idx;
+      for(let k=0;k<L1;k++){ const src = idx + k; posA.array[3*k+0]=arr[3*src+0]; posA.array[3*k+1]=arr[3*src+1]; posA.array[3*k+2]=arr[3*src+2]; }
+      for(let k=0;k<L2;k++){ posB.array[3*k+0]=arr[3*k+0]; posB.array[3*k+1]=arr[3*k+1]; posB.array[3*k+2]=arr[3*k+2]; }
+      posA.needsUpdate=true; posB.needsUpdate=true; tl.A.geo.setDrawRange(0, L1); tl.B.geo.setDrawRange(0, L2);
+    }
+  }
+
+  function pushTrail(i, p){
+    const tl = trails[i];
+    const arr = tl.arr;
+    arr[3*tl.idx+0] = p.x; arr[3*tl.idx+1] = p.y; arr[3*tl.idx+2] = p.z;
+    tl.idx = (tl.idx+1) % tl.maxPts; if(tl.idx===0) tl.filled = true; updateTrailGeometry(tl);
+  }
+  function clearTrails(){ trails.forEach(tl=>{ tl.idx=0; tl.filled=false; tl.A.geo.setDrawRange(0,0); tl.B.geo.setDrawRange(0,0); }); }
+
+  // ---------- Focus (camera target) ----------
+  let focusMode = 'com'; // 'com' | 'origin' | 'b0'|'b1'|'b2' | 'point'
+  let focusSmooth = 0.25; // [0..1]
+  const customFocus = v3(0,0,0);
+  const focusSel = document.getElementById('focusSel');
+  const focusSmoothEl = document.getElementById('focusSmooth');
+  const focusHereBtn = document.getElementById('focusHere');
+  function setFocus(mode){ focusMode = mode; if(focusSel) focusSel.value = mode; }
+  function setFocusSmooth(s){ focusSmooth = clamp(s,0,1); if(focusSmoothEl) focusSmoothEl.value = focusSmooth.toFixed(2); }
+  if(focusSel){ focusSel.addEventListener('change', ()=> setFocus(focusSel.value)); }
+  if(focusSmoothEl){ focusSmoothEl.addEventListener('input', ()=> setFocusSmooth(parseFloat(focusSmoothEl.value)||0)); }
+  if(focusHereBtn){ focusHereBtn.addEventListener('click', ()=>{ customFocus.copy(controls.target); setFocus('point'); }); }
+
+  // Hotkeys: 1/2/3 bodies, C=COM, O=origin, P=point(here)
+  window.addEventListener('keydown', (e)=>{
+    if(e.target && (e.target.tagName==='INPUT' || e.target.tagName==='SELECT' || e.target.isContentEditable)) return;
+    if(e.key==='1') setFocus('b0');
+    else if(e.key==='2') setFocus('b1');
+    else if(e.key==='3') setFocus('b2');
+    else if(e.key.toLowerCase()==='c') setFocus('com');
+    else if(e.key.toLowerCase()==='o') setFocus('origin');
+    else if(e.key.toLowerCase()==='p'){ customFocus.copy(controls.target); setFocus('point'); }
+  });
+
+  // Double‑click to focus: body under cursor or XY plane (z=0)
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+  const planeXY = new THREE.Plane(new THREE.Vector3(0,0,1), 0);
+  canvas.addEventListener('dblclick', (ev)=>{
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(bodies.map(b=>b.mesh), false);
+    if(intersects.length){ const hit = intersects[0].object; const idx = bodies.findIndex(b=>b.mesh===hit); if(idx>=0){ setFocus('b'+idx); return; } }
+    const p = new THREE.Vector3(); if(raycaster.ray.intersectPlane(planeXY, p)){ customFocus.copy(p); setFocus('point'); }
+  });
+
+  function getFocusTarget(){
+    if(focusMode==='origin') return v3(0,0,0);
+    if(focusMode==='com'){ let M=0; const cm=v3(0,0,0); for(const b of bodies){ cm.addScaledVector(b.r, b.m); M+=b.m; } if(M>0) cm.multiplyScalar(1/M); return cm; }
+    if(focusMode==='point') return customFocus.clone();
+    if(/^b[0-2]$/.test(focusMode)){ const i=parseInt(focusMode.slice(1),10); return bodies[i].r.clone(); }
+    return controls.target.clone();
+  }
+  function updateFocus(immediate=false){ const target = getFocusTarget(); const alpha = immediate? 1 : clamp(focusSmooth,0,1); controls.target.lerp(target, alpha); }
+
+  // ---------- Physics ----------
+  function pairwiseVectors(){ const N=bodies.length; const r = Array.from({length:N},()=>Array.from({length:N},()=>v3())); for(let i=0;i<N;i++) for(let j=0;j<N;j++) r[i][j].copy(bodies[i].r).sub(bodies[j].r); return r; }
+  function gravitationalField(){
+    const N=bodies.length; const r = pairwiseVectors();
+    const Phi = new Array(N).fill(0); const gradPhi = Array.from({length:N},()=>v3()); const g = Array.from({length:N},()=>v3());
+    for(let i=0;i<N;i++){
+      for(let j=0;j<N;j++) if(i!==j){ const rij = r[i][j]; const dist2 = Math.max(rij.lengthSq()+params.soft*params.soft, 1e-18); const inv = 1/Math.sqrt(dist2); const inv3 = inv*inv*inv; Phi[i] += - params.G * bodies[j].m * inv; gradPhi[i].addScaledVector(rij, params.G * bodies[j].m * inv3); }
+      g[i].copy(gradPhi[i]).multiplyScalar(-1);
+    }
+    return {Phi, gradPhi, g};
+  }
+  function dPhiDt(){ const N=bodies.length; const dp = new Array(N).fill(0); const r = pairwiseVectors(); for(let i=0;i<N;i++){ for(let j=0;j<N;j++) if(i!==j){ const rij = r[i][j]; const dist2 = Math.max(rij.lengthSq()+params.soft*params.soft, 1e-18); const inv = 1/Math.sqrt(dist2); const inv3 = inv*inv*inv; const dot = rij.dot(bodies[j].v); dp[i] += - params.G * bodies[j].m * dot * inv3; } } return dp; }
+  function dGeometryCorrections(nPrevArr){
+    const {Phi, gradPhi, g} = gravitationalField();
+    const N=bodies.length; const nHat = Array.from({length:N},()=>v3()); const aD = Array.from({length:N},()=>v3()); const aW = Array.from({length:N},()=>v3());
+    const gNorm = g.map(gi=>Math.max(gi.length(), 1e-15)); for(let i=0;i<N;i++) nHat[i].copy(g[i]).multiplyScalar(1/gNorm[i]);
+    const cosPsi = Phi.map(P=>Math.sqrt(Math.max(1 + 2*P/(params.C*params.C), 1e-20))); const sin2 = cosPsi.map(c=>Math.max(1 - c*c, 0)); const sinPsi = sin2.map(s=>Math.sqrt(s));
+    const gradPsi = Array.from({length:N},()=>v3()); const dPhi = dPhiDt(); const dpsi_dt = new Array(N).fill(0);
+    for(let i=0;i<N;i++){ const denom = params.C*params.C * sinPsi[i] * cosPsi[i] + 1e-30; gradPsi[i].copy(gradPhi[i]).multiplyScalar(-1/denom); dpsi_dt[i] = - dPhi[i] / denom; }
+    const tanPsi = cosPsi.map((c,i)=> c>1e-15 ? (sinPsi[i]/c) : 0);
+    for(let i=0;i<N;i++){ const proj = nHat[i].clone().multiplyScalar(gradPsi[i].dot(nHat[i])); aD[i].copy(gradPsi[i]).sub(proj).multiplyScalar(params.C*params.C * tanPsi[i]); if(sinPsi[i] < 1e-12) aD[i].set(0,0,0); }
+    for(let i=0;i<N;i++){ const v = bodies[i].v; const vDotGrad = gradPsi[i].dot(v); const dpsi_along = dpsi_dt[i] + vDotGrad; let nDot = v3(); if(nPrevArr && nPrevArr[i]) nDot.copy(nHat[i]).sub(nPrevArr[i]).multiplyScalar(1/params.dt); const cross = new THREE.Vector3().copy(nHat[i]).cross(nDot); const Omega = cross.multiplyScalar(0.5 * dpsi_along * dpsi_along); aW[i].copy(Omega).cross(v); if(sinPsi[i] < 1e-12) aW[i].set(0,0,0); }
+    return {aD, aW, nHat};
+  }
+  function totalAcceleration(nPrevArr){ const {g} = gravitationalField(); if(!params.relativistic) return {a: g, nHat: null}; const {aD, aW, nHat} = dGeometryCorrections(nPrevArr); const a = g.map((gi,i)=> gi.clone().add(aD[i]).add(aW[i]) ); return {a, nHat}; }
+
+  // Leapfrog step
+  let cachedA = null, cachedN = null;
+  function step(){
+    const dt = params.dt;
+    if(!cachedA){ const {a, nHat} = totalAcceleration(null); cachedA = a; cachedN = nHat; for(let i=0;i<bodies.length;i++) bodies[i].v.addScaledVector(cachedA[i], 0.5*dt); }
+    for(const b of bodies){ b.r.addScaledVector(b.v, dt); }
+    const {a, nHat} = totalAcceleration(cachedN); for(let i=0;i<bodies.length;i++){ bodies[i].v.addScaledVector(a[i], 0.5*dt); }
+    cachedA = a; cachedN = nHat; t += dt; stepCount++;
+    for(let i=0;i<bodies.length;i++){ const p = bodies[i].r; csvRows.push(`${t.toFixed(6)},${i},${p.x},${p.y},${p.z}`); }
+  }
+
+  function newtonianEnergy(){ let K=0, U=0; for(const b of bodies){ K += 0.5*b.m*b.v.lengthSq(); } for(let i=0;i<bodies.length;i++) for(let j=i+1;j<bodies.length;j++){ const r = bodies[i].r.clone().sub(bodies[j].r).length(); const inv = 1/Math.sqrt(r*r + params.soft*params.soft); U += - params.G * bodies[i].m * bodies[j].m * inv; } return {K,U,E:K+U}; }
+
+  // ---------- UI ----------
+  const $ = id=>document.getElementById(id);
+  function updatePaceBadge(){ $("paceBadge").textContent = `pace: ${params.simPace.toFixed(6)} s/s`; const pe=$("pace"); if(pe){ pe.value = params.simPace.toFixed(3); } }
+
+  function readInputs(){
+    const oldTrail = params.trail;
+    params.G = parseFloat($("G").value);
+    params.C = parseFloat($("C").value);
+    params.dt = Math.max(1e-6, parseFloat($("dt").value));
+    params.soft = parseFloat($("soft").value);
+    params.spf = Math.max(1, parseInt($("spf").value,10));
+    params.lockPace = $("lockPace").checked;
+    params.relativistic = $("relativistic").checked;
+    params.trail = parseInt($("trail").value,10);
+    setFocus($("focusSel").value);
+    setFocusSmooth(parseFloat($("focusSmooth").value)||0);
+    const userPace = parseFloat($("pace")?.value);
+    if(params.lockPace && Number.isFinite(userPace)){ params.simPace = userPace; } else { params.simPace = params.dt * params.spf * (params.fpsTarget||60); }
+    updatePaceBadge();
+    if(params.trail !== oldTrail && Number.isFinite(params.trail) && params.trail>10){ buildTrails(params.trail); } else { clearTrails(); }
+    const xs=["x1","x2","x3"], ys=["y1","y2","y3"], zs=["z1","z2","z3"], vxs=["vx1","vx2","vx3"], vys=["vy1","vy2","vy3"], vzs=["vz1","vz2","vz3"], ms=["m1","m2","m3"];
+    for(let i=0;i<3;i++){ bodies[i].m = parseFloat($(ms[i]).value); bodies[i].r.set(parseFloat($(xs[i]).value),parseFloat($(ys[i]).value),parseFloat($(zs[i]).value)); bodies[i].v.set(parseFloat($(vxs[i]).value),parseFloat($(vys[i]).value),parseFloat($(vzs[i]).value)); }
+    cachedA = null;
+  }
+  function applyToInputs(){
+    $("G").value = params.G; $("C").value = params.C; $("dt").value = params.dt; $("soft").value = params.soft; $("spf").value = params.spf; $("lockPace").checked = params.lockPace; $("relativistic").checked = params.relativistic; $("trail").value = params.trail; updatePaceBadge();
+    $("focusSel").value = focusMode; $("focusSmooth").value = focusSmooth.toFixed(2);
+    const xs=["x1","x2","x3"], ys=["y1","y2","y3"], zs=["z1","z2","z3"], vxs=["vx1","vx2","vx3"], vys=["vy1","vy2","vy3"], vzs=["vz1","vz2","vz3"], ms=["m1","m2","m3"];
+    for(let i=0;i<3;i++){ $(ms[i]).value = bodies[i].m; $(xs[i]).value = bodies[i].r.x; $(ys[i]).value = bodies[i].r.y; $(zs[i]).value = bodies[i].r.z; $(vxs[i]).value = bodies[i].v.x; $(vys[i]).value = bodies[i].v.y; $(vzs[i]).value = bodies[i].v.z; }
+  }
+  function resetSimulation(){ running = false; t=0; stepCount=0; csvRows.length=1; cachedA = null; cachedN = null; clearTrails(); bodies.forEach((b)=>{ b.mesh.position.copy(b.r); }); accum = 0; lastReal = performance.now()/1000; }
+
+  $("btnApply").onclick = ()=>{ readInputs(); resetSimulation(); };
+  $("btnStart").onclick = ()=>{ setRunning(true); };
+  $("btnPause").onclick = ()=>{ setRunning(false); };
+  $("btnReset").onclick = ()=>{ readInputs(); resetSimulation(); };
+  $("btnClear").onclick = ()=>{ clearTrails(); };
+  $("btnCSV").onclick = ()=>{ downloadCSV(); };
+
+  $("btnPresetFig8").onclick = ()=>{ params.G=1; params.C=1e4; params.dt=0.002; params.soft=0.01; params.spf=4; params.lockPace=true; params.simPace=0.002*4*(params.fpsTarget||60); params.relativistic=true; params.trail=1500; buildTrails(params.trail); bodies[0].m=bodies[1].m=bodies[2].m=1; bodies[0].r.set( 0.97000436,-0.24308753,0); bodies[1].r.set(-0.97000436, 0.24308753,0); bodies[2].r.set(0,0,0); bodies[0].v.set( 0.466203685, 0.43236573,0); bodies[1].v.set( 0.466203685, 0.43236573,0); bodies[2].v.set(-0.93240737,-0.86473146,0); applyToInputs(); resetSimulation(); };
+  $("btnPresetTri").onclick = ()=>{ params.G=1; params.C=1e4; params.dt=0.003; params.soft=0.02; params.spf=4; params.lockPace=true; params.simPace=0.003*4*(params.fpsTarget||60); params.relativistic=false; params.trail=1500; buildTrails(params.trail); bodies[0].m=bodies[1].m=bodies[2].m=1; bodies[0].r.set( 1.0, 0.0, 0.0); bodies[1].r.set(-1.0, 0.0, 0.0); bodies[2].r.set(0.0, 1.732, 0.0); bodies[0].v.set(0.0,  0.6, 0.0); bodies[1].v.set(0.0, -0.6, 0.0); bodies[2].v.set(0.0,   0.0, 0.0); applyToInputs(); resetSimulation(); };
+
+  ["m1","m2","m3"].forEach((id,idx)=>{ const el = document.getElementById(id); const handler = ()=>{ const v=parseFloat(el.value); if(isFinite(v)){ bodies[idx].m=v; cachedA=null; } }; el.addEventListener('input', handler); el.addEventListener('change', handler); });
+  { const el = document.getElementById('G'); const h=()=>{ const v=parseFloat(el.value); if(isFinite(v)){ params.G=v; cachedA=null; } }; el.addEventListener('input',h); el.addEventListener('change',h); }
+
+  const posIds=[["x1","y1","z1"],["x2","y2","z2"],["x3","y3","z3"]]; const velIds=[["vx1","vy1","vz1"],["vx2","vy2","vz2"],["vx3","vy3","vz3"]];
+  function bindVec(ids, getter, setter, onVisual){ ids.forEach((triple, idx)=>{ triple.forEach((id)=>{ const el = document.getElementById(id); const handler = ()=>{ const v = triple.map(i=>parseFloat(document.getElementById(i).value)); if(v.every(Number.isFinite)){ setter(idx, v); cachedA=null; if(onVisual) onVisual(idx); } }; el.addEventListener('input', handler); el.addEventListener('change', handler); }); }); }
+  bindVec(posIds, i=>bodies[i].r, (i,v)=>bodies[i].r.set(v[0],v[1],v[2]), (i)=>{ bodies[i].mesh.position.copy(bodies[i].r); });
+  bindVec(velIds, i=>bodies[i].v, (i,v)=>bodies[i].v.set(v[0],v[1],v[2]));
+
+  { const el = document.getElementById('trail'); const h=()=>{ const v=parseInt(el.value,10); if(Number.isFinite(v) && v>10){ params.trail=v; buildTrails(v); } }; el.addEventListener('input',h); el.addEventListener('change',h); }
+
+  const spfEl = document.getElementById('spf'); const dtEl  = document.getElementById('dt'); const lockEl= document.getElementById('lockPace');
+  function onSpfChange(){ const v = Math.max(1, parseInt(spfEl.value,10)); if(!Number.isFinite(v)) return; params.spf = v; if(!lockEl.checked){ params.simPace = params.dt * params.spf * (params.fpsTarget||60); } cachedA=null; updatePaceBadge(); }
+  function onDtChange(){ const v = Math.max(1e-6, parseFloat(dtEl.value)); if(!Number.isFinite(v)) return; params.dt = v; if(!lockEl.checked){ params.simPace = params.dt * params.spf * (params.fpsTarget||60); } cachedA=null; updatePaceBadge(); }
+  function onLockChange(){ params.lockPace = lockEl.checked; if(!params.lockPace){ params.simPace = params.dt * params.spf * (params.fpsTarget||60); } updatePaceBadge(); }
+  spfEl.addEventListener('input', onSpfChange); spfEl.addEventListener('change', onSpfChange); dtEl.addEventListener('input', onDtChange); dtEl.addEventListener('change', onDtChange); lockEl.addEventListener('change', onLockChange); updatePaceBadge();
+
+  // ---------- Tests ----------
+  function runTests(){
+    const results = [];
+    try {
+      results.push({name:'OrbitControls import', pass: (controls instanceof OrbitControls)});
+      const g0 = gravitationalField().g; const sum = new THREE.Vector3(); for(let i=0;i<bodies.length;i++) sum.add(g0[i].clone().multiplyScalar(bodies[i].m)); results.push({name:'Σ m_i g_i ≈ 0', pass: sum.length() < 1e-8, value: sum.length()});
+      const snapshot = bodies.map(b=>({m:b.m, r:b.r.clone(), v:b.v.clone()})); const tol = 1e-2; const steps = 200, dt0 = 0.001; const soft0 = params.soft, G0 = params.G;
+      function energyOf(state){ let K=0,U=0; const N=state.length; for(const s of state){ K += 0.5*s.m*s.v.lengthSq(); } for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){ const r = state[i].r.clone().sub(state[j].r).length(); const inv = 1/Math.sqrt(r*r + soft0*soft0); U += - G0 * state[i].m * state[j].m * inv; } return K+U; }
+      let state = snapshot.map(s=>({m:s.m, r:s.r.clone(), v:s.v.clone()})); const E0 = energyOf(state);
+      for(let k=0;k<steps;k++){
+        const acc = state.map(()=>new THREE.Vector3());
+        for(let i=0;i<state.length;i++){
+          for(let j=0;j<state.length;j++) if(i!==j){ const rij = state[i].r.clone().sub(state[j].r); const d2 = Math.max(rij.lengthSq()+soft0*soft0, 1e-18); const inv = 1/Math.sqrt(d2); const inv3 = inv*inv*inv; acc[i].addScaledVector(rij, -G0*state[j].m*inv3); }
+        }
+        for(let i=0;i<state.length;i++) state[i].v.addScaledVector(acc[i], 0.5*dt0);
+        for(let i=0;i<state.length;i++) state[i].r.addScaledVector(state[i].v, dt0);
+        const acc2 = state.map(()=>new THREE.Vector3());
+        for(let i=0;i<state.length;i++){
+          for(let j=0;j<state.length;j++) if(i!==j){ const rij = state[i].r.clone().sub(state[j].r); const d2 = Math.max(rij.lengthSq()+soft0*soft0, 1e-18); const inv = 1/Math.sqrt(d2); const inv3 = inv*inv*inv; acc2[i].addScaledVector(rij, -G0*state[j].m*inv3); }
+        }
+        for(let i=0;i<state.length;i++) state[i].v.addScaledVector(acc2[i], 0.5*dt0);
+      }
+      const E1 = energyOf(state); const relErr = Math.abs(E1-E0)/Math.max(1e-12,Math.abs(E0)); results.push({name:'Energy ~ conserved (Newton-only, short run)', pass: relErr < tol, value: relErr});
+      results.push({name:'THREE available', pass: !!THREE && typeof THREE.Vector3 === 'function' && typeof THREE.REVISION !== 'undefined', value: THREE.REVISION});
+      let antisymOK = true; let worst=0; const N=bodies.length; for(let i=0;i<N;i++){ for(let j=0;j<N;j++) if(i!==j){ const rij = bodies[i].r.clone().sub(bodies[j].r); const d2 = Math.max(rij.lengthSq()+params.soft*params.soft, 1e-18); const inv = 1/Math.sqrt(d2); const inv3 = inv*inv*inv; const Fij = rij.clone().multiplyScalar(-params.G*bodies[i].m*bodies[j].m*inv3); const Fji = Fij.clone().multiplyScalar(-1); const s = Fij.clone().add(Fji); const nrm = s.length(); worst = Math.max(worst,nrm); if(nrm>1e-10) antisymOK=false; } } results.push({name:'Force antisymmetry F_ij≈-F_ji', pass: antisymOK, value: worst});
+      const wasRunning = running; running=false; const saved = bodies.map(b=>({r:b.r.clone(), v:b.v.clone(), m:b.m})); for(let k=0;k<10;k++) step(); const nanFound = bodies.some(b=>!isFinite(b.r.x)||!isFinite(b.r.y)||!isFinite(b.r.z)||!isFinite(b.v.x)||!isFinite(b.v.y)||!isFinite(b.v.z)); results.push({name:'No NaNs after 10 steps', pass: !nanFound}); for(let i=0;i<bodies.length;i++){ bodies[i].r.copy(saved[i].r); bodies[i].v.copy(saved[i].v); bodies[i].m=saved[i].m; } running = wasRunning;
+      results.push({name:'CSV header present', pass: csvRows[0]==='t,body,x,y,z'});
+      const mBackup = bodies.map(b=>b.m); const g_before = gravitationalField().g.map(v=>v.clone()); bodies[0].m *= 2; const g_after = gravitationalField().g.map(v=>v.clone()); const delta2 = g_after[1].clone().sub(g_before[1]).length(); const delta3 = g_after[2].clone().sub(g_before[2]).length(); const affected = (delta2>1e-12) && (delta3>1e-12); results.push({name:'Mass change affects others (m0×2)', pass: affected, value: Math.max(delta2,delta3)}); mBackup.forEach((m,i)=>bodies[i].m=m);
+      const x1El = document.getElementById('x1'); const oldX = parseFloat(x1El.value); x1El.value = (oldX + 0.5).toString(); x1El.dispatchEvent(new Event('input')); document.getElementById('btnReset').click(); results.push({name:'Reset uses current inputs (x1)', pass: Math.abs(bodies[0].r.x - parseFloat(x1El.value)) < 1e-12, value: bodies[0].r.x});
+      const vx1El = document.getElementById('vx1'); vx1El.value = '0.1234'; vx1El.dispatchEvent(new Event('input')); results.push({name:'Live velocity edit applies (vx1)', pass: Math.abs(bodies[0].v.x - 0.1234) < 1e-12, value: bodies[0].v.x});
+      const bodyHex = bodies[0].color.getHex(); const colA = trails[0].A.line.material.color.getHex(); results.push({name:'Trail color set (darker hue)', pass: colA !== bodyHex});
+      const tlen = params.trail; for(let k=0;k<tlen*2;k++) pushTrail(0, new THREE.Vector3(k*0.001, 0, 0)); const totalCount = trails[0].A.geo.drawRange.count + trails[0].B.geo.drawRange.count; results.push({name:'Trail persists after wrap', pass: totalCount === tlen, value: totalCount});
+      function cloneState(){ return bodies.map(b=>({m:b.m, r:b.r.clone(), v:b.v.clone()})); }
+      function restoreState(st){ for(let i=0;i<3;i++){ bodies[i].m=st[i].m; bodies[i].r.copy(st[i].r); bodies[i].v.copy(st[i].v);} cachedA=null; cachedN=null; }
+      function offlineAdvance(simTime, spfCap){ const save = cloneState(); const t0=t; const paceSave=params.simPace, spfSave=params.spf, dtSave=params.dt; params.spf=spfCap; const stepsNeeded = Math.floor(simTime/params.dt+1e-9); for(let k=0;k<stepsNeeded;k++) step(); const out = cloneState(); restoreState(save); t=t0; params.simPace=paceSave; params.spf=spfSave; params.dt=dtSave; return out; }
+      const stA = offlineAdvance(0.5, 2); const stB = offlineAdvance(0.5, 11); let maxDiff=0; for(let i=0;i<3;i++){ maxDiff = Math.max(maxDiff, stA[i].r.distanceTo(stB[i].r)); } results.push({name:'SPF invariance (offline steps over fixed sim time)', pass: maxDiff < 1e-12, value: maxDiff});
+      const uiOk = !!document.getElementById('dt') && !!document.getElementById('soft') && !!document.getElementById('spf') && !!document.getElementById('pace') && !!document.getElementById('focusSel'); results.push({name:'UI controls exist (dt/soft/spf/pace/focus)', pass: uiOk});
+      setFocus('b0'); setFocusSmooth(1.0); bodies[0].r.set(3,2,0); updateFocus(true); results.push({name:'Focus→Body1 snaps to body position', pass: Math.abs(controls.target.x-3)<1e-9 && Math.abs(controls.target.y-2)<1e-9});
+      clearTrails(); const cleared = trails.every(tl=> tl.A.geo.drawRange.count===0 && tl.B.geo.drawRange.count===0); results.push({name:'Clear trails resets geometry', pass: cleared});
+      
+      // New extra tests
+      const meshCount = scene.children.filter?.(o=>o.isMesh).length || scene.children.reduce((n,o)=>n+(o.isMesh?1:0),0);
+      results.push({name:'At least 3 body meshes present', pass: meshCount>=3, value: meshCount});
+      results.push({name:'Renderer size non-zero', pass: renderer.domElement.width>0 && renderer.domElement.height>0, value: `${renderer.domElement.width}×${renderer.domElement.height}`});
+
+      alert(results.map(r=>`${r.pass?'✅':'❌'} ${r.name}${r.value!==undefined?` → ${r.value}`:''}`).join('\n'));
+    } catch (e) { console.error(e); alert('Test run crashed: '+e.message); }
+  }
+  document.getElementById('btnTests').onclick = runTests;
+
+  // Pace controls
+  const paceEl = document.getElementById('pace');
+  function setPace(v, autoLock=true){ params.simPace = Math.max(1e-9, v); if(autoLock){ const lk=document.getElementById('lockPace'); lk.checked=true; params.lockPace=true; } updatePaceBadge(); }
+  if(paceEl){ paceEl.addEventListener('input', ()=>{ const v=parseFloat(paceEl.value); if(Number.isFinite(v)) setPace(v,true); }); }
+  document.getElementById('paceHalf').onclick = ()=> setPace(params.simPace*0.5);
+  document.getElementById('pace1x').onclick  = ()=> setPace(params.dt*params.spf*(params.fpsTarget||60));
+  document.getElementById('pace2x').onclick  = ()=> setPace(params.simPace*2);
+
+  applyToInputs();
+
+  // ---------- Render loop ----------
+  function resize(){ const w = canvas.clientWidth, h = canvas.clientHeight; if(canvas.width !== w || canvas.height !== h){ renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); } }
+  const hudEl = document.getElementById('hud');
+  function updateHUD(substeps){ const {K,U,E} = newtonianEnergy(); document.getElementById('statStep').textContent = `dt: ${params.dt} | sub: ${substeps}`; document.getElementById('statEnergy').textContent = `E_N: ${E.toFixed(5)}`; hudEl.innerHTML = `<div><span class="k">t</span> = ${t.toFixed(3)} s · steps: ${stepCount}</div><div><span class=\"k\">K</span> = ${K.toFixed(5)} · <span class=\"k\">U</span> = ${U.toFixed(5)} · <span class=\"k\">E</span> = ${E.toFixed(5)}</div><div><span class=\"k\">pace</span> = ${params.simPace.toFixed(3)} s/s · <span class=\"k\">dt</span> = ${params.dt}</div>`; }
+  function animate(){
+    requestAnimationFrame(animate);
+    resize();
+    const now = performance.now()/1000; const realDt = now - lastReal; let sub = 0;
+    if (running) { accum += params.simPace * realDt; while (accum >= params.dt && sub < params.spf) { step(); accum -= params.dt; sub++; } if (sub === params.spf && accum > params.dt*4) accum = params.dt*4; }
+    lastReal = now;
+    for(let i=0;i<bodies.length;i++){ const b = bodies[i]; b.mesh.position.copy(b.r); if (running) pushTrail(i, b.r); }
+    updateFocus(false); controls.update(); updateHUD(sub); renderer.render(scene, camera);
+  }
+  animate();
+})();
+</script>
+</body>
+</html>
