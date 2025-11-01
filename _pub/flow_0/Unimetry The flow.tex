@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{array,booktabs,tabularx}
+\usepackage{tikz}
+\usepackage{indentfirst}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{remark}
+\newtheorem*{proofsketch}{Proof sketch} % если хотите отдельное окружение
+
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\sech}{\operatorname{sech}}
+
+
+\numberwithin{equation}{section}
+
+\title{Unimetry: A Phase-Space Reformulation of Special Relativity}
+\author{Timur Abizgeldin\\ \small Independent researcher, Austria\\ \small \texttt{timurabizgeldin@gmail.com}}
+\date{\today}
+
+
+% --- Unimetry macros ---
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\providecommand{\bi}{\mathbf{i}}
+\providecommand{\bj}{\mathbf{j}}
+\providecommand{\bk}{\mathbf{k}}
+\providecommand{\uhat}{\hat{\mathbf u}}
+\providecommand{\rotor}[2]{\cos\frac{#2}{2} + #1\,\sin\frac{#2}{2}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We propose a compact reformulation of special relativity in which spacetime measures (time and length) are treated as phase velocities, defined as directional derivatives of a single underlying parameter, the flow $\boldsymbol{\chi}\in\mathbb{H}$. In this framework, the observable Minkowski interval emerges as a conserved quantity under a change of parameter from the phase coordinate $\chi$ to the observer’s proper time $\tau$. Familiar relativistic effects, such as time dilation, the Lorentz factor, the Doppler shift, and relativistic velocity composition, arise as elementary projections and rotations within a Euclidean phase plane. Hyperbolic features of Lorentz kinematics reappear after a reparametrization of time, yielding the classical relations without altering empirical content. We provide closed-form derivations for the longitudinal and transverse Doppler effects, prove a lemma equating the total flow speed to the conserved Minkowski norm, and outline connections to gauge phases, rapidity, and a cosmological time gauge. Composition of non-collinear boosts (quaternionic $d$-rotations in $\mathbb{H}$) yields a Wigner rotation; in the continuous limit, this gives Thomas precession. Both effects emerge as purely kinematical consequences of the quaternionic phase formalism. The approach is advantageous for applications – especially in modeling non-collinear acceleration of particle beams – where it replaces matrix diagonalizations with algebraic rotor compositions and improves numerical stability.
+\end{abstract}
+
+\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; Lorentz factor; Wigner rotation; Thomas precession; phase parametrization.
+
+\paragraph{MSC (2020):} 83A05; 70A05. % (Consider also PACS: 03.30.+p; 04.20.Cv.)
+
+%1 ====================================================================
+\subsection*{The tilt mechanism: changing frames as angle subtraction on the phase circle}
+
+\paragraph{Setup (recall).}
+In observer $A$’s split, let
+\[
+\widehat{\mathbf F}=\frac{\boldsymbol\chi}{\|\boldsymbol\chi\|}
+=\cos\vartheta_{|A}\,\mathbf e_t^A+\sin\vartheta_{|A}\,\mathbf u_{|A},
+\quad \mathbf u_{|A}\in S^A,\ \|\widehat{\mathbf F}\|=1.
+\]
+Here $\vartheta_{|A}$ is the \emph{observer–object angle}. It is \emph{not} your global phase angle $\Theta$
+(except in the co–moving case when the time directions coincide).
+
+\paragraph{Tilt operation (co–planar case).}
+A \emph{frame tilt by angle} $\alpha$ in the 2–plane spanned by $\{\mathbf e_t^A,\mathbf u_{|A}\}$ replaces $A$’s basis by
+\[
+\mathbf e_t^{A'}=\cos\alpha\,\mathbf e_t^{A}+\sin\alpha\,\mathbf u_{|A},
+\qquad
+\mathbf u_{|A'}=\cos\alpha\,\mathbf u_{|A}-\sin\alpha\,\mathbf e_t^{A}.
+\]
+Decomposing $\widehat{\mathbf F}$ in the new basis gives
+\[
+\cos\vartheta_{|A'}=\widehat{\mathbf F}\!\cdot\!\mathbf e_t^{A'}=\cos(\vartheta_{|A}-\alpha),
+\quad
+\sin\vartheta_{|A'}=\widehat{\mathbf F}\!\cdot\!\mathbf u_{|A'}=\sin(\vartheta_{|A}-\alpha).
+\]
+\emph{Mechanism in one line:}
+\[
+\boxed{\ \vartheta_{|A'}=\vartheta_{|A}-\alpha\ } \qquad\text{(tilt = angle subtraction on the phase circle).}
+\]
+
+\paragraph{Minkowski interval from the tilt mechanism.}
+Let $dt_{A'}$ be $A'$’s lab time, $d\mathbf x_{|A'}\in S^{A'}$ the measured spatial shift, and $d\tau$ the object’s proper time.
+By definition in each frame,
+\[
+\frac{d\tau}{dt_{A'}}=\cos\vartheta_{|A'},\qquad
+\frac{\|d\mathbf x_{|A'}\|}{c\,dt_{A'}}=\sin\vartheta_{|A'}.
+\]
+Using $\cos^2+\sin^2=1$,
+\[
+\boxed{\; c^2\,d\tau^2=c^2\,dt_{A'}^2-\|d\mathbf x_{|A'}\|^2 \;}
+\]
+holds automatically. Thus the \emph{tilt} changes what the observer reads (\(\vartheta\), $dt$, $d\mathbf x$), yet the
+Minkowski form stays invariant because the object’s $d\tau$ is the same and the pair \((\cos\vartheta,\sin\vartheta)\) simply rotates.
+
+\paragraph{Velocity and $\gamma$ update (dictionary).}
+In any frame $X$,
+\[
+\beta_{|X}=\sin\vartheta_{|X},\qquad \gamma_{|X}=\sec\vartheta_{|X},\qquad \frac{d\tau}{dt_X}=\cos\vartheta_{|X}.
+\]
+Under a tilt by $\alpha$ (co–planar case),
+\[
+\beta_{|A'}=\sin(\vartheta_{|A}-\alpha),\quad
+\gamma_{|A'}=\sec(\vartheta_{|A}-\alpha).
+\]
+Introduce half–angles $t=\tan(\vartheta_{|A}/2)$ and $s=\tan(\alpha/2)$.
+Then
+\[
+\tan\frac{\vartheta_{|A'}}{2}=\frac{t-s}{1+ts}.
+\]
+Reading back to $\beta$ yields the Einstein collinear velocity addition in circular clothes:
+\[
+\boxed{\ \beta_{|A'}=\frac{\beta_{|A}-\beta_{\rm tilt}}{1-\beta_{|A}\,\beta_{\rm tilt}}\ },\quad
+\beta_{\rm tilt}:=\sin\alpha.
+\]
+Equivalently, in “rapidity” $\eta$ (with $\tanh\eta=\beta$) the tilt is just \(\eta\mapsto \eta-\eta_{\rm tilt}\),
+using the gudermann relation $\tan(\vartheta/2)=\tanh(\eta/2)$.
+
+\paragraph{Two independent tilts (non–collinear) and the Wigner rotation.}
+Tilting by $\alpha_1$ along $\mathbf u_1$ and then by $\alpha_2$ along $\mathbf u_2$ gives a net
+\emph{tilt} plus a \emph{spatial rotation} about $\hat{\mathbf n}\parallel \mathbf u_2\times \mathbf u_1$
+(the Wigner--Thomas rotation).
+Let $t_i=\tan(\alpha_i/2)$ and let $\chi$ be the angle between $\mathbf u_1$ and $\mathbf u_2$.
+The rotation angle satisfies the half–angle identity
+\[
+\boxed{\ \tan\frac{\psi_W}{2}=\frac{\sin\chi\;t_1 t_2}{1+\cos\chi\;t_1 t_2}\ },
+\]
+while the net tilt in the plane spanned by the resultant spatial direction obeys the same
+half–angle addition rule as above. (All of this follows from rotating the phase pair
+\(\{\mathbf e_t,\mathbf u\}\) and then re-projecting.)
+
+\paragraph{Relation to the global phase angle $\Theta$.}
+Your $\Theta$ is defined from the object’s \emph{self} split (its own “time” direction built from $\boldsymbol\chi_\perp$),
+whereas $\vartheta_{|A}$ is the object’s angle \emph{in the observer’s split}.
+They coincide only when the observer’s time axis aligns with the object’s self time axis.
+The tilt mechanism above is exactly “how to move between splits.”
+
+\paragraph{Optical readout (if the medium changes).}
+If time is read by EM propagation in a medium with $n(\omega)=\sec\zeta(\omega)$,
+use $dt_{\rm ph}=n\,dt$; then
+\[
+\frac{d\tau}{dt_{\rm ph}}=\cos\vartheta_{|X}\,\cos\zeta(\omega),
+\]
+so \emph{tilt} controls kinematics (\(\vartheta\)), while \emph{refractivity} rescales the clock (\(\zeta\)).
+They are distinct mechanisms and compose multiplicatively.
+
+
+
+\end{document}
