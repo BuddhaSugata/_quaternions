@@ -33,6 +33,19 @@
 \usepackage{indentfirst}
 \usetikzlibrary{arrows.meta,calc,angles,quotes}
 
+% ===== PREAMBLE ADD-ON (put in the preamble) ==========================
+% A lightweight, breakable tech-box environment
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox} % loads needed TikZ libs internally
+\tcbset{
+  colback=gray!3, colframe=black!50, boxrule=0.35pt, arc=2mm,
+  left=6pt,right=6pt,top=6pt,bottom=6pt, enhanced, breakable,
+  fonttitle=\bfseries
+}
+\newtcolorbox{techbox}[2][]{title={#2},#1}
+% ======================================================================
+
+
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcommand{\sech}{\operatorname{sech}}
 
@@ -56,8 +69,17 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We propose a compact reformulation of special relativity in which spacetime measures (time and length) are treated as phase velocities, defined as directional derivatives of a single underlying parameter, the flow $\boldsymbol{\chi}\in\mathbb{H}$. In this framework, the observable Minkowski interval emerges as a conserved quantity under a change of parameter from the phase coordinate $\chi$ to the observer’s proper time $\tau$. Familiar relativistic effects, such as time dilation, the Lorentz factor, the Doppler shift, and relativistic velocity composition, arise as elementary projections and rotations within a Euclidean phase plane. Hyperbolic features of Lorentz kinematics reappear after a reparametrization of time, yielding the classical relations without altering empirical content. We provide closed-form derivations for the longitudinal and transverse Doppler effects, prove a lemma equating the total flow speed to the conserved Minkowski norm, and outline connections to gauge phases, rapidity, and a cosmological time gauge. Composition of non-collinear boosts (quaternionic $d$-rotations in $\mathbb{H}$) yields a Wigner rotation; in the continuous limit, this gives Thomas precession. Both effects emerge as purely kinematical consequences of the quaternionic phase formalism. The approach is advantageous for applications – especially in modeling non-collinear acceleration of particle beams – where it replaces matrix diagonalizations with algebraic rotor compositions and improves numerical stability.
+We recast special-relativistic kinematics as geometry of a single phase–flow variable on a quaternionic slice $\mathbb C_{\mathbf u}\subset\mathbb H$.
+A unit rotor $\widehat q(\vartheta,\mathbf u)=\cos\vartheta+\mathbf u\sin\vartheta$ encodes motion by a \emph{circular} angle $\vartheta$, establishing the dictionary
+$\beta=\sin\vartheta$, $\gamma=\sec\vartheta$, and
+$k_{\rm Doppler}=\frac{1+\tan(\vartheta/2)}{1-\tan(\vartheta/2)}$.
+We prove that phase-derivative invariants coincide with Minkowski invariants; longitudinal Doppler and velocity addition follow from rotor composition; and non-collinear compositions reproduce the Wigner rotation and Thomas precession. Photons appear as null proper-time flows with the phase parameter $\chi$ serving as an affine counter.
+
+Extending to curved backgrounds, we introduce a gravitational \emph{clock angle} $\phi$ via the tetrad time leg ($\cos\phi=\sqrt{-g_{00}}$ in stationary cases) and obtain a unified time-rate factorization
+$\displaystyle d\tau/dt=\cos\phi\,\cos\vartheta$,
+which cleanly separates gravitational and kinematic effects and admits an optical-length representation of time-of-flight, including the Shapiro delay. The formulation is strictly equivalent to SR/GR kinematics yet replaces hyperbolic rapidities by compact phase angles, unifying rotations and boosts within a single rotor calculus. Besides conceptual economy, the circular parametrization improves numerical behavior near $|\beta|\to 1$ and simplifies symbolic manipulations.
 \end{abstract}
+
 
 \paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; Lorentz factor; Wigner rotation; Thomas precession; phase parametrization.
 
@@ -166,7 +188,7 @@ $\mathbf u:=\mathbf l/\|\mathbf l\|$ & Unit spatial direction of the flow (defin
 
 In the flow-based description an object is a collection of elementary “streamlets” (fragments of total object phase flow). Each streamlet admits a co-moving frame in which its spatial projection vanishes and its budget angle equals zero in that frame (``self time'' direction).
 
-Larger stable streamlets combinations are Newtonian bodies, which are formed by multiple “self time” flows equally spreaded over the body's 3-surface. Therefore, unlike streamlets bodies have generalized time axis - their time flow isn't already geometric phenomenon.
+Larger stable streamlets combinations are Newtonian bodies, which are formed by multiple “self time” flows equally spread over the body's 3-surface. Therefore, unlike streamlets bodies have generalized time axis – their time flow is no longer a single geometric direction.
 
 \emph{Postulate}. From the ability of bodies to preserve a place within the observable space, we conclude the cyclical nature of streamlets' flows in $\mathcal E$:
 
@@ -253,7 +275,7 @@ For any elementary flow, the Euclidean split gives $\|\boldsymbol\chi\|^2=\|\bol
 $\|\boldsymbol\chi\|=\|\boldsymbol\chi_S\|=\|d\boldsymbol\ell\|/d\chi$; combining with
 \eqref{eq:calib-null} fixes the flow-norm gauge
 \begin{equation}
-\boxed{\ \|\boldsymbol\chi\|\equiv \mathtt c\ }.
+\boxed{\ \|\boldsymbol\chi\|\equiv \clight\ }.
 \label{eq:flow-norm-c}
 \end{equation}
 Consequently, for any decomposition angle $\Theta$ introduced in \S\;Flow and phase 1-form,
@@ -464,7 +486,7 @@ rulers. Swapping “who projects whom” exchanges the splits $(\mathbf e_t^A,S^
 \label{subsec-1-2-why-quaternion-algebra}
 Quaternions form the minimal non-commutative algebra that (i) double-covers $SO(3)$ for rigid 3D rotations; (ii) carries the Hopf fibration $S^3\to S^2$, separating an internal $S^{1}$ time fiber from spatial orientations; and (iii) encodes the non-commutativity responsible for Wigner–Thomas rotations (residual spatial rotations from composing non-collinear boosts) \cite{Hopf1931,Wigner1939,Thomas1926}.
 
-Simply put one standard sandwich operation in $\mathbb{H}$ of the kind: $\hat{q} \rightarrow \hat{r}_1\hat{q}\hat{r}_2$; is sufficient to perform any possible rotation on $S^3$; the quaternion algebra then simplifies operations on flows relative to the lab triad.
+Simply put one standard sandwich operation in $\mathbb{H}$ of the kind $\hat{q} \rightarrow \hat{r}_1\hat{q}\hat{r}_2$ is sufficient to perform any possible rotation on $S^3$; the quaternion algebra then simplifies operations on flows relative to the lab triad.
 
 \paragraph{Why a complex slice of a quaternion?}
 For local kinematics any unit direction $\hat{\mathbf u}$ singles out the two-dimensional subalgebra $\mathrm{Span}\{1,\hat{\mathbf u}\}\cong\mathbb{C}\subset\mathbb{H}$. Working in this complex slice preserves the boost/rotation algebra along $\hat{\mathbf u}$ while keeping formulas elementary. When the direction changes, the slice is updated; the full quaternionic structure is retained.
@@ -521,7 +543,7 @@ equivalently,
 \end{equation}
 Hence the observed map after compensating the tilt is $\,\bar d_{12}\,\mathbf q'\,\bar d_{12}=r_W\,\mathbf q\,r_W^{-1}$.
 \begin{figure}[!ht] \centering
-\begin{tikzpicture}[>=Latex, node distance=32mm] \node (q) {$\mathbf q$}; \node (d1) [right=of q] {$d_1\,\mathbf q\,d_1$}; \node (d2) [right=of d1] {$d_2 d_1\,\mathbf q\,d_1 d_2$}; \node (rw) [below=20mm of d2] {$r_W\,\mathbf q\,r_W^{-1}$}; \draw[->] (q) -- node[above] {$d_1$} (d1); \draw[->] (d1) -- node[above] {$d_2$} (d2); \draw[->] (d2) -- node[right] {$\bar d_{12}$ on both sides} (rw); \draw[->, dashed, bend left=12] (q) to node[above] {$d_{12}$} (d2); \end{tikzpicture} \caption{Two successive D-rotations (boosts) and compensation of the net spatio--temporal angle by the conjugate of $d_{12}$, leaving a pure R-rotation $r_W$.} \label{fig:tikz-wigner-pullback} \end{figure} \subsubsection{Thomas precession} \label{subsec:thomas} The continuous limit of Wigner rotation for a time-dependent velocity direction $\uhat(t)$ yields \begin{equation} \label{eq:auto:38} \boldsymbol{\omega}_T=(\gamma-1)\,\bigl(\uhat\times \dot{\uhat}\bigr) =\frac{\gamma^2}{\gamma+1}\,\frac{\mathbf a\times \mathbf v}{c^2},\qquad \gamma=\frac{1}{\cos\psi}. \end{equation} For uniform circular motion ($|\mathbf v|=\mathrm{const}$) with $\dot{\uhat}=\boldsymbol{\Omega}\times\uhat$ one has $\lvert\boldsymbol{\omega}_T\rvert=(\gamma-1)\,\Omega$.
+\begin{tikzpicture}[>=Latex, node distance=32mm] \node (q) {$\mathbf q$}; \node (d1) [right=of q] {$d_1\,\mathbf q\,d_1$}; \node (d2) [right=of d1] {$d_2 d_1\,\mathbf q\,d_1 d_2$}; \node (rw) [below=20mm of d2] {$r_W\,\mathbf q\,r_W^{-1}$}; \draw[->] (q) -- node[above] {$d_1$} (d1); \draw[->] (d1) -- node[above] {$d_2$} (d2); \draw[->] (d2) -- node[right] {$\bar d_{12}$ on both sides} (rw); \draw[->, dashed, bend left=12] (q) to node[above] {$d_{12}$} (d2); \end{tikzpicture} \caption{Two successive D-rotations (boosts) and compensation of the net spatio--temporal angle by the conjugate of $d_{12}$, leaving a pure R-rotation $r_W$.} \label{fig:tikz-wigner-pullback} \end{figure} \subsubsection{Thomas precession} \label{subsec:thomas} The continuous limit of Wigner rotation for a time-dependent velocity direction $\uhat(t)$ yields \begin{equation} \label{eq:auto:38} \boldsymbol{\omega}_T=(\gamma-1)\,\bigl(\uhat\times \dot{\uhat}\bigr) =\frac{\gamma^2}{\gamma+1}\,\frac{\mathbf a\times \mathbf v}{\clight^2},\qquad \gamma=\frac{1}{\cos\psi}. \end{equation} For uniform circular motion ($|\mathbf v|=\mathrm{const}$) with $\dot{\uhat}=\boldsymbol{\Omega}\times\uhat$ one has $\lvert\boldsymbol{\omega}_T\rvert=(\gamma-1)\,\Omega$.
 
 
 \subsection{Time fiber, Hopf fibration, and the Bloch/Poincaré spheres.}
@@ -566,7 +588,34 @@ Left–conjugation $v\mapsto q\,v\,q^{-1}$ rotates lab vectors (changes the \emp
 %3 ===================================================================
 
 \section{\texorpdfstring{Phase: operational definition and physical meaning}{Phase: operational definition and physical meaning}}\label{sec:operational-phase}
-% --- patch: angle motivation ---
+
+% ===== AXIOMS BOX: place near the start of "Phase: operational definition..." ===
+\begin{techbox}{Axioms: Phase–flow kinematics (operational)}
+\begin{enumerate}[label=\textbf{A\arabic*.}, itemsep=2pt, topsep=2pt, wide, labelsep=0.5em, leftmargin=*]
+  \item \textbf{Dimensionless phase.}
+        The scalar phase $\Phi$ is dimensionless. Its differential $\alpha:=d\Phi$ is the
+        phase 1-form on the proto-space.
+  \item \textbf{Flow from phase.}
+        The (proto-)flow is aligned with the phase gradient:
+        $\boldsymbol{\chi}\propto\nabla\Phi$. All observable rates are projections of $\boldsymbol{\chi}$.
+  \item \textbf{Quaternionic working slice.}
+        Fix a spatial director $\mathbf u\in S^2$ and work on the quaternionic slice
+        $\mathbb C_{\mathbf u}:=\mathrm{span}\{1,\mathbf u\}\subset\mathbb H$.
+  \item \textbf{Calibration.}
+        Choose the scale so that the flow norm is $\,\|\boldsymbol{\chi}\|=c\,$ (or, equivalently,
+        absorb $c$ into the definition of $\Phi$).
+  \item \textbf{Circular kinematics.}
+        Parametrize motion by a circular angle $\vartheta$ on $\mathbb C_{\mathbf u}$ via the unit rotor
+        $\widehat q(\vartheta,\mathbf u)=\cos\vartheta+\mathbf u\sin\vartheta$ and use the dictionary
+        $\beta=\sin\vartheta,\;\gamma=\sec\vartheta$.
+  \item \textbf{Domain.}
+        Work with $\vartheta\in(-\tfrac{\pi}{2},\tfrac{\pi}{2})$ so that $|\beta|<1$ and the map
+        $\vartheta\mapsto\beta$ is monotone; the photon limit corresponds to $|\vartheta|\to\tfrac{\pi}{2}$.
+\end{enumerate}
+\end{techbox}
+% ======================================================================
+
+
 We will systematically replace hyperbolic functions and nested square roots by the circular trigonometry of a single \emph{phase angle} $\vartheta$, interpreting $\cos\vartheta$ as the temporal projection and $\sin\vartheta$ as the spatial one. This keeps all kinematic identities while avoiding hyperbolic parametrization.  
 
 \emph{Convention.} In this section we track a single body, so $\tau\equiv\tau_B$.
@@ -655,7 +704,7 @@ Temporal projection & $\sech\eta$ & $\cos\vartheta$ \\
 
   % оси (вне clip, чтобы надписи не резались)
   \draw[->] (-1.05,0) -- (1.05,0) node[below right] {$\beta=\sin\vartheta$};
-  \draw[->] (0,0) -- (0,\ymax) node[left] {$\frac{\cos\vartheta}{ \gamma}$};
+  \draw[->] (0,0) -- (0,\ymax) node[left] {$\gamma=\sec\vartheta$};
 
   \begin{scope}
     \clip (-1.05,0) rectangle (1.95,\ymax);
@@ -860,7 +909,7 @@ $ds_B^2=0$ (\S\ref{sec:calibration-c}), hence the body-level proper increment va
 Nevertheless the phase parameter $\chi$ advances and serves as an \emph{affine} parameter along
 the ray. With the calibration \eqref{eq:calib-null} we have
 \begin{equation}
-\frac{\|d\boldsymbol\ell\|}{d\chi}=\mathtt c,\qquad
+\frac{\|d\boldsymbol\ell\|}{d\chi}=\clight,\qquad
 \Rightarrow\quad \chi=\text{(cycle counter)}.
 \label{eq:photon-affine}
 \end{equation}
@@ -1058,13 +1107,31 @@ and the total redshift factorizes into kinematic and gravitational parts:
 
 For static emitter/observer ($\vartheta_{\rm em}=\vartheta_{\rm obs}=0$) one recovers the standard gravitational redshift 
 $1+z_g=\sqrt{\frac{-g_{00}(x_{\rm obs})}{-g_{00}(x_{\rm em})}}$.
-In the weak-field limit $g_{00}\simeq-(1+2\Phi/c^2)$ this gives $z_g\simeq(\Phi_{\rm obs}-\Phi_{\rm em})/c^2$.
+In the weak-field limit $g_{00}\simeq-(1+2\Phi/ \clight^2)$ this gives $z_g\simeq(\Phi_{\rm obs}-\Phi_{\rm em})/c^2$.
 
 \paragraph{Beyond static fields.}
-In a $3\!+\!1$ split $ds^2=-N^2 c^2 dt^2 + h_{ij}(dx^i+N^i dt)(dx^j+N^j dt)$ one may identify $\cos\phi:=N$ in the observer's tetrad, which keeps \eqref{eq:tau-factorization}–\eqref{eq:z-factorization} coordinate-agnostic.
+In a $3\!+\!1$ split $ds^2=-N^2 \clight^2 dt^2 + h_{ij}(dx^i+N^i dt)(dx^j+N^j dt)$ one may identify $\cos\phi:=N$ in the observer's tetrad, which keeps \eqref{eq:tau-factorization}–\eqref{eq:z-factorization} coordinate-agnostic.
 Uniform acceleration (Rindler) accumulates phase according to $d\vartheta=\kappa\,dt$ inside the local slice, consistently reproducing accelerated-frame kinematics when combined with the clock angle $\phi$.
 
 %9 ===================================================================
+
+\section{Discussion}
+
+The phase-space reformulation of special relativity presented in this work provides an original and conceptually unifying framework, recasting all standard kinematic effects as geometric projections and rotations within a Euclidean (as opposed to pseudo-Euclidean) phase space structured by the algebra of quaternions. This approach enables closed-form derivations of time dilation, Lorentz contraction, all Doppler effects, and the composition of boosts—including the emergence of Wigner and Thomas rotations—as pure consequences of phase kinematics and composition rules for rotors. Notably, the speed of light appears not as a postulate but as a derived invariant: the magnitude of the calibrated flow.
+
+One of the main strengths of the unimetry approach is its ability to coherently and transparently separate intrinsic, gravitational, and kinematic effects through the introduction of independent angular parameters. This structural modularity allows for clear generalizations beyond the regime of special relativity (SR). The use of quaternionic algebra naturally incorporates the noncommutative composition of boosts (and hence Wigner rotation), and the direct operational mapping from phase parameters to observable quantities avoids the hyperbolic constructs and nested root expressions traditional to the Lorentzian metric, potentially offering both conceptual and computational simplifications.
+
+The revisit of the kinematical foundations of relativity within a Euclidean metric is reminiscent of various efforts to find deeper group-theoretic or geometric underpinnings for known physics, such as the reinterpretation of quantum spinors, twistors, or the generalized use of Clifford and quaternionic structures. 
+
+Despite these advantages, there are several limitations and open issues:
+\begin{itemize}
+    \item The present work, while offering a full reformulation of SR, leaves the dynamical aspects---especially those tied to gravitational fields and interactions---outside its direct scope. The approach to gravity as a phase tilt field is promising, but it will require a precise translation of Einsteinian field dynamics into the quaternionic, phase-based language.
+    \item Similarly, the connection to quantum mechanics, though structurally motivated by the phase-space formulation and inherent links to phase and geometric quantization, remains undeveloped at the level of operator theory or Hilbert space structures. Concrete examples or models connecting unimetry directly to quantum phenomena would reinforce the physical scope and relevance of the approach.
+    \item A key question for future study is the physical interpretability and experimental accessibility of the various angular parameters (intrinsic, gravitational, kinematic) in more complex, curved, or quantum-influenced scenarios.
+    \item The mathematical tools used---particularly the phase decomposition and modularization---have strong implications for the construction of algorithms in numerical relativity and simulation of accelerated particle beams, but explicit comparisons with existing computational methods remain to be presented.
+\end{itemize}
+
+
 \section*{Outlook}
 
 The unimetry framework developed here provides a versatile foundation for future theoretical developments in both relativity and quantum physics. The following directions emerge as particularly promising:
@@ -1083,10 +1150,6 @@ The unimetry framework developed here provides a versatile foundation for future
 \end{itemize}
 
 In summary, by replacing the traditional spacetime paradigm with a geometric flow in phase space, unimetry opens avenues for new mathematical structures and connections among relativity, geometry, and quantum theory. Its broader success will depend on future progress in developing the gravitational and quantum sectors and on the demonstration of concrete computational and experimental advantages.
-
-
-
-
 
 \bibliographystyle{plain}
 \begin{thebibliography}{9}
@@ -1146,8 +1209,6 @@ C.~Doran and A.~Lasenby,
 \end{thebibliography}
 
 
-
-
 \appendix
 \section{Equivalence to the classical Wigner rotation}
 \label{app:1}
@@ -1187,91 +1248,5 @@ becomes the textbook Wigner angle:
 {\cosh\frac{\eta_1}{2}\,\cosh\frac{\eta_2}{2}+\sinh\frac{\eta_1}{2}\,\sinh\frac{\eta_2}{2}\,\cos\theta},
 \end{equation}
 with axis along $\uhat_2\times\uhat_1$. This circular--hyperbolic correspondence is classical; cf.\ Gudermann~\cite{Gudermann1830}.
-
-\section{A worked example — Wigner angle in hyperbolic vs phase parametrizations with a stability note}\label{app:wigner}
-\label{app:2}
-
-\paragraph{Closed-form formulae.}
-Let $\boldsymbol\beta_i$ ($i=1,2$) be two non-collinear boost velocities with magnitudes $\beta_i=\|\boldsymbol\beta_i\|<1$ and let $\chi$ be the angle between their \emph{directions}.
-The Thomas–Wigner rotation $R_W$ generated by the composition of boosts has axis
-$\hat{\mathbf n}\parallel \hat{\boldsymbol\beta}_2\times \hat{\boldsymbol\beta}_1$
-and angle $\psi_W$ given by either of the following equivalent half–angle forms:
-\begin{align}
-\tan\frac{\psi_W}{2}
-&=\frac{\sin\chi\;\tanh\!\frac{\eta_1}{2}\;\tanh\!\frac{\eta_2}{2}}
-       {1+\cos\chi\;\tanh\!\frac{\eta_1}{2}\;\tanh\!\frac{\eta_2}{2}} ,
-\qquad \beta_i=\tanh\eta_i ,
-\label{eq:wigner-hyp}\\[4pt]
-\tan\frac{\psi_W}{2}
-&=\frac{\sin\chi\;\tan\!\frac{\vartheta_1}{2}\;\tan\!\frac{\vartheta_2}{2}}
-       {1+\cos\chi\;\tan\!\frac{\vartheta_1}{2}\;\tan\!\frac{\vartheta_2}{2}} ,
-\qquad \beta_i=\sin\vartheta_i .
-\label{eq:wigner-phase}
-\end{align}
-Numerically stable and parametrization–agnostic is the identity
-\begin{equation}
-\tanh\!\frac{\eta_i}{2}=\tan\!\frac{\vartheta_i}{2}
-=\frac{\gamma_i\beta_i}{1+\gamma_i}
-=\frac{\beta_i}{\,1+\sqrt{1-\beta_i^2}\,}
-=:t_i ,
-\qquad \gamma_i=(1-\beta_i^2)^{-1/2}.
-\label{eq:half-angle-t}
-\end{equation}
-With $t_i$ from \eqref{eq:half-angle-t}, both \eqref{eq:wigner-hyp}–\eqref{eq:wigner-phase} reduce to
-\begin{equation}
-\psi_W
-=2\,\operatorname{atan2}\!\Big(\sin\chi\,t_1t_2,\;1+\cos\chi\,t_1t_2\Big),
-\label{eq:wigner-atan2}
-\end{equation}
-which avoids overflow/underflow and ensures the correct quadrant.
-
-\paragraph{Example A (orthogonal boosts, moderate $\gamma$).}
-Take $\boldsymbol\beta_1=(0.8,0,0)$ and $\boldsymbol\beta_2=(0,0.6,0)$, so $\chi=\pi/2$.
-From \eqref{eq:half-angle-t} one finds $t_1=\tfrac{1}{2}$ and $t_2=\tfrac{1}{3}$ exactly,
-hence $\tan(\psi_W/2)=t_1t_2=\tfrac{1}{6}$ and
-\[
-\boxed{\;\psi_W
-=2\arctan\!\frac{1}{6}
-=0.3302973548292537~\text{rad}
-=18.924644416051237^\circ\;}
-\]
-Both parametrizations \eqref{eq:wigner-hyp} and \eqref{eq:wigner-phase} coincide to machine precision.
-A direct $4{\times}4$ Lorentz–matrix composition followed by polar decomposition of the spatial block
-recovers $\psi_W=0.3302973548292533$ rad (agreement to $<5{\times}10^{-16}$ rad).
-
-\paragraph{Example B (ultra–relativistic, small inter–direction angle).}
-Let $\boldsymbol\beta_1=(0.999999,0,0)$ and
-$\boldsymbol\beta_2=0.9999(\cos 1^\circ,\sin 1^\circ,0)$ so that $\chi=1^\circ$.
-Then \eqref{eq:half-angle-t} gives $t_1=0.9985867853779378$, $t_2=0.9859568136154433$ and
-\[
-\boxed{\;\psi_W
-=2\,\operatorname{atan2}\!\big( \sin1^\circ\;t_1t_2,\;1+\cos1^\circ\;t_1t_2\big)
-=0.0173175319077011~\text{rad}
-=0.9922214898944112^\circ\;}
-\]
-The same value is obtained from either \eqref{eq:wigner-hyp} or \eqref{eq:wigner-phase}.
-A double–precision Lorentz–matrix calculation with orthonormalization of the spatial block yields
-$\psi_W=0.0173175044768120$ rad (agreement to $\sim 3{\times}10^{-8}$ rad; the residual is purely numerical).
-
-\paragraph{Stability and accumulated error (practical note).}
-\begin{itemize}
-\item \textbf{Half–angle is key.} Computing via \eqref{eq:half-angle-t} and \eqref{eq:wigner-atan2} is markedly more stable than
-naively evaluating $\eta_i=\operatorname{artanh}\beta_i$ followed by $\sinh(\eta_i/2),\cosh(\eta_i/2)$,
-especially for $\gamma\gtrsim 10^2$ or tiny $\chi$ where subtractive cancellation appears in the denominator of \eqref{eq:wigner-hyp}.
-\item \textbf{Single vs double precision.}
-For Example~A, all routes (phase/hyperbolic/matrix) agree within $\sim 10^{-7}$ rad even in single precision.
-For Example~B, the analytic half–angle formula \eqref{eq:wigner-atan2} remains well-behaved in single precision
-($\psi_W=0.01731725$ rad; deviation $\sim 3{\times}10^{-7}$ rad),
-while a direct $4{\times}4$ matrix composition in single precision becomes ill–conditioned (eigen–based orthonormalization fails to converge), a manifestation of catastrophic rounding at $\gamma\sim 10^3$.
-\item \textbf{Error accumulation under repetitions.}
-If the same pair of boosts is applied repeatedly, the rotation axis $\hat{\mathbf n}$ is fixed and the angle adds linearly mod $2\pi$.
-In finite precision, composing dense Lorentz matrices $N$ times amplifies roundoff roughly linearly in $N$,
-whereas evaluating \eqref{eq:wigner-atan2} per step and accumulating the angle avoids the growth of matrix–multiplication conditioning.
-\end{itemize}
-
-\paragraph{Recommendation (for reproducible numerics).}
-Use \eqref{eq:half-angle-t} to form $t_i$ directly from $\beta_i$, then evaluate \eqref{eq:wigner-atan2} with \texttt{atan2}.
-When a matrix route is unavoidable, extract the spatial rotation by removing the net boost and projecting the $3{\times}3$ block to $\mathrm{SO}(3)$ via a polar decomposition before reading off $\psi_W$.
-
 
 \end{document}
