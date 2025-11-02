@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  29 OCT 2025 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  2 NOV 2025 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -643,8 +643,9 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 brarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
-(d:/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty
-Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+(d:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 (d:/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.cod
 e.tex
@@ -655,8 +656,48 @@ File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfarrowlinewidth=\dimen292
 )
 (d:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
-brarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+brarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(d:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.pathreplacing.code.tex
+(d:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.code.tex
+(d:/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.t
+ex
+\pgfdecoratedcompleteddistance=\dimen293
+\pgfdecoratedremainingdistance=\dimen294
+\pgfdecoratedinputsegmentcompleteddistance=\dimen295
+\pgfdecoratedinputsegmentremainingdistance=\dimen296
+\pgf@decorate@distancetomove=\dimen297
+\pgf@decorate@repeatstate=\count315
+\pgfdecorationsegmentamplitude=\dimen298
+\pgfdecorationsegmentlength=\dimen299
+)
+\tikz@lib@dec@box=\box69
+)
+(d:/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
+orations.pathreplacing.code.tex))
+(d:/texlive/2022/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: include cross-reference names in hyperlinks on input lin
+e 7836.
+Package cleveref Info: include cross-reference names in hyperlinks on input lin
+e 7852.
+)
+(d:/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 (d:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 braryangles.code.tex
@@ -666,37 +707,36 @@ File: tikzlibraryangles.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 braryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
-brarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
+
+Package array Warning: Column L is already defined on input line 36.
+
 (d:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count315
-\l__pdf_internal_box=\box69
+\l__color_backend_stack_int=\count316
+\l__pdf_internal_box=\box70
 )
 (./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).aux)
 \openout1 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.2
 ).aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -732,18 +772,18 @@ LaTeX Font Info:    ... okay on input line 36.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 36.
-Package microtype Info: Applying patch `item' on input line 36.
-Package microtype Info: Applying patch `toc' on input line 36.
-Package microtype Info: Applying patch `eqnum' on input line 36.
-Package microtype Info: Applying patch `footnote' on input line 36.
+LaTeX Info: Redefining \microtypecontext on input line 56.
+Package microtype Info: Applying patch `item' on input line 56.
+Package microtype Info: Applying patch `toc' on input line 56.
+Package microtype Info: Applying patch `eqnum' on input line 56.
+Package microtype Info: Applying patch `footnote' on input line 56.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 36.
+LaTeX Info: Redefining \showhyphens on input line 56.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -751,7 +791,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 36.
+Package hyperref Info: Link coloring OFF on input line 56.
 
 (./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).out)
 (./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).out)
@@ -762,16 +802,16 @@ Package hyperref Info: Link coloring OFF on input line 36.
 
 (d:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count316
-\scratchdimen=\dimen293
-\scratchbox=\box70
-\nofMPsegments=\count317
-\nofMParguments=\count318
+\scratchcounter=\count317
+\scratchdimen=\dimen300
+\scratchbox=\box71
+\nofMPsegments=\count318
+\nofMParguments=\count319
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count319
-\MPscratchDim=\dimen294
-\MPnumerator=\count320
-\makeMPintoPDFobject=\count321
+\MPscratchCnt=\count320
+\MPscratchDim=\dimen301
+\MPnumerator=\count321
+\makeMPintoPDFobject=\count322
 \everyMPtoPDFconversion=\toks41
 ) (d:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -782,7 +822,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
 
 
 (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -791,7 +831,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (d:/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
 
 
 (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -811,73 +851,80 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.119 
-      ] [3] [4]
-
-LaTeX Warning: Reference `sec:symmetry' on page 5 undefined on input line 257.
-
-[5]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 339
+l.168 
+      ] [3
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.190 \begin{equation}
+                      ] [4] [5] [6] [7] [8]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 552
 .
- (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
+
+(d:/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 (d:/texlive/2022/texmf-dist/tex/latex/microtype/mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
-) [6]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 370.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\zeta' on input line 370.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 370.
-
-[7] [8] [9
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.571 \end{equation}
-                    
+) [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.571 \end{equation}
-                    ] [10] [11] [12] [13] [14
+l.563 
+      ] [10] [11
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.713 \end{equation}
+                    
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.945 \end{equation}
-                    ] [15] [16]
-Underfull \hbox (badness 1014) in paragraph at lines 1054--1055
+l.713 \end{equation}
+                    ] [12] [13
+pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.870 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.870 
+      ] [14]
+
+LaTeX Warning: Reference `eq:doppler-finite-deriv' on page 15 undefined on inpu
+t line 966.
+
+[15] [16]
+Underfull \hbox (badness 1014) in paragraph at lines 1099--1100
 []\OT1/cmr/m/n/10.95 (+20) L. H. Thomas, ``The Mo-tion of the Spin-ning Elec-tr
 on,'' \OT1/cmr/m/it/10.95 (+20) Na-ture \OT1/cmr/bx/n/10.95 (+20) 117 \OT1/cmr/
 m/n/10.95 (+20) (1926) 514.
  []
 
-[17]
-Overfull \hbox (2.9989pt too wide) in paragraph at lines 1192--1196
+[17] [18]
+Overfull \hbox (2.9989pt too wide) in paragraph at lines 1237--1241
 \OT1/cmr/m/n/10.95 (-20) Both parametriza-tions [] and [] co-in-cide to ma-chin
 e pre-ci-sion. A di-rect $4[]4$ Lorentz{matrix
  []
 
 
-Overfull \hbox (10.21114pt too wide) in paragraph at lines 1192--1196
+Overfull \hbox (10.21114pt too wide) in paragraph at lines 1237--1241
 \OT1/cmr/m/n/10.95 (-20) com-po-si-tion fol-lowed by po-lar de-com-po-si-tion o
 f the spa-tial block re-cov-ers $\OML/cmm/m/it/10.95  [] \OT1/cmr/m/n/10.95 (-2
 0) = 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 (-20) 3302973548292533$
  []
 
-[18]
-Overfull \hbox (4.65459pt too wide) detected at line 1206
+
+Overfull \hbox (4.65459pt too wide) detected at line 1251
 []
  []
 
@@ -885,143 +932,46 @@ Overfull \hbox (4.65459pt too wide) detected at line 1206
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `"Unimetry A Phase-Space Reformulation of 
-Special Relativity (rev.2)".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Unimetry A Phase-Space Reformulati
-on of Special Relativity (rev.2)".out':
-(rerunfilecheck)             Before: FB3060F1332C3E2672C737BDDECD489D;6310
-(rerunfilecheck)             After:  241E32EF98A0AAD8CBFEAA2DB7164956;6323.
+Package rerunfilecheck Info: File `"Unimetry A Phase-Space Reformulation of Spe
+cial Relativity (rev.2)".out' has not changed.
+(rerunfilecheck)             Checksum: 672759D1C4B825B00C749ED011CBD395;6314.
  ) 
 Here is how much of TeX's memory you used:
- 24742 strings out of 478037
- 459583 string characters out of 5843053
- 780026 words of memory out of 5000000
- 42321 multiletter control sequences out of 15000+600000
- 495753 words of font info for 217 fonts, out of 8000000 for 9000
+ 26845 strings out of 478037
+ 514341 string characters out of 5843053
+ 818447 words of memory out of 5000000
+ 44427 multiletter control sequences out of 15000+600000
+ 493792 words of font info for 210 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,13n,104p,1652b,903s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{equation.10.3} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.10.2} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.8.12} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.6.4} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.2.3} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.12} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.8} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.8.7.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.8.7.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.7} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.6} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.5} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{d:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/texli
-ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2022/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2022/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2022/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public
-/amsfonts/cmextra/cmex8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
-<d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/texliv
-e/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><d:/texlive/2022/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/texlive/2022/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2022/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr6.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
-d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><d:/texlive/
-2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2022/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/texlive/2022/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy9.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mtt10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
-><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><d:/t
-exlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><d:/texli
-ve/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2
-022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+ 100i,18n,104p,1652b,912s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{d:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/tex
+live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2022
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2022/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2022/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/publ
+ic/amsfonts/cmextra/cmex8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/tex
+live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2022/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2022/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2022/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr6.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texli
+ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2022/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2022/texmf-dist
+/fonts/type1/public/amsfonts/euler/eufm10.pfb><d:/texlive/2022/texmf-dist/fonts
+/type1/public/amsfonts/symbols/msam10.pfb><d:/texlive/2022/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1095.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm1095.pfb>
 Output written on "Unimetry A Phase-Space Reformulation of Special Relativity (
-rev.2).pdf" (19 pages, 427317 bytes).
+rev.2).pdf" (19 pages, 403963 bytes).
 PDF statistics:
- 612 PDF objects out of 1000 (max. 8388607)
- 529 compressed objects within 6 object streams
- 204 named destinations out of 1000 (max. 500000)
- 46861 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 617 PDF objects out of 1000 (max. 8388607)
+ 542 compressed objects within 6 object streams
+ 186 named destinations out of 1000 (max. 500000)
+ 43781 words of extra memory for PDF output out of 51595 (max. 10000000)
 
