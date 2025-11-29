@@ -1,0 +1,281 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{a4paper,margin=2.5cm}
+
+\title{A Quaternionic Gravito--Electromagnetic Formulation in Unimetry}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+% TODO: Briefly describe the goal of the paper and the main idea:
+% quaternionic representation of flows in unimetry, dressed body quaternions,
+% bilinear forms A,B,C, D-rotors, static limit (Newton + Coulomb),
+% the role of C_{\text{phys}} = c\,\mathbf B and of G, \varepsilon_0, \mu_0, c.
+\end{abstract}
+
+\tableofcontents
+
+%==================== 1. Introduction ====================
+
+\section{Introduction}
+
+\subsection{Context and motivation}
+% TODO: Explain the general idea of unimetry as a phase/flow reformulation of SR,
+% and why it is natural to try to unify gravity and electromagnetism
+% in a single quaternionic formalism.
+
+\subsection{Relation to the base unimetry paper}
+% TODO: Briefly describe that the core phase/flow structure
+% is developed in "Unimetry: A phase-space reformulation of SR (rev.2)" (Paper I).
+% Clarify which elements are briefly recalled here, and which are only referenced.
+
+\subsection{Main results}
+% TODO: List the main technical results:
+% - metrically dressed body quaternions;
+% - forms A, B, C and their interpretation;
+% - static GEM (Newton + Coulomb) from a single scalar form;
+% - D-rotors and relativistic dynamics;
+% - calibration of E, B and the object C_{\text{phys}} = c\,\mathbf B.
+
+\subsection{Structure of the paper}
+% TODO: Briefly outline the structure of the paper section by section.
+
+%==================== 2. Quaternion algebra ====================
+
+\section{Quaternion algebra and bilinear forms}
+
+\subsection{Basic notation and conventions}
+% TODO: Define a quaternion q = T \hat h + \bm S (scalar + vector part),
+% conventions on signs, conjugation, norm, basis units,
+% and the identification of \bm S with vectors in \mathbb R^3.
+
+\subsection{Quaternion product and decomposition into A, B, C forms}
+% TODO: Write explicitly
+% q_1 q_2 = (T_1 T_2 - \bm S_1 \cdot \bm S_2)
+%         + (T_1 \bm S_2 + T_2 \bm S_1 + \bm S_1 \times \bm S_2).
+% Define
+% A(q_1,q_2), \bm B(q_1,q_2), \bm C(q_1,q_2).
+
+\subsection{Matrix representation of quaternions and forms}
+% TODO: Give a 2x2 complex matrix representation (as in quats.md),
+% and show how the product and the forms A,B,C appear in matrix language.
+
+\subsection{Geometric interpretation of A, B, C}
+% TODO: Explain A as a Minkowski-like invariant,
+% \bm B as a "current-like" symmetric channel,
+% and \bm C as a vorticity (axial) channel.
+
+%==================== 3. Phase proto-space in unimetry ====================
+
+\section{Phase proto-space and flow: brief unimetry overview}
+
+\subsection{Proto-space, phase potential and 1-form}
+% TODO: Introduce (\mathcal E,\langle\cdot,\cdot\rangle), the phase potential \Phi,
+% the phase 1-form \alpha = d\Phi, and the gradient \nabla\Phi.
+
+\subsection{Flow vector and normalization}
+% TODO: Introduce \widehat{\boldsymbol\chi} = \nabla\Phi / \|\nabla\Phi\|,
+% then \boldsymbol\chi = c\,\widehat{\boldsymbol\chi}, with \|\boldsymbol\chi\| = c.
+
+\subsection{Interval, proper time and correspondence with SR}
+% TODO: Briefly indicate how the flow \boldsymbol\chi gives rise to the interval,
+% proper time, and how this corresponds to the Minkowski metric in SR.
+
+\subsection{Notation table}
+% TODO: Insert a compact table of main symbols (\Phi, \alpha, \boldsymbol\chi, \zeta, etc.),
+% adapted from Paper I (rev.2).
+
+%==================== 4. Calibrations of the flow and energy ====================
+
+\section{Flow calibrations and energy-like functionals}
+
+\subsection{Phase (kinematic) calibration}
+% TODO: Describe calibration in terms of phase/velocity,
+% the relation between \zeta and \beta = v/c,
+% and how Lorentz boosts appear geometrically in this picture.
+
+\subsection{Proper-time (energetic) calibration}
+% TODO: Introduce calibration with respect to proper flow (proper time or phase parameter),
+% and relate it to an energy-like functional.
+
+\subsection{Energy of a flow and the self-form A(q,q)}
+% TODO: Show that A(q,q) naturally plays the role of a free Hamiltonian
+% / energy invariant for a single flow, and relate this to proper frequency
+% and to an E \sim \kappa c^3 scaling in unimetry.
+
+%==================== 5. Metrically dressed body quaternions ====================
+
+\section{Metrically dressed body quaternions}
+
+\subsection{Dimensionless flow quaternion and dressed body quaternion}
+% TODO: Distinguish between a dimensionless flow quaternion \widehat{\mathsf q}
+% and a metrically dressed body quaternion \widetilde{\mathsf q} with dimension of length.
+
+\subsection{Lengths L\_E and L\_G: definitions and dimensional analysis}
+% TODO: Define
+% L_{E,i} = \sqrt{G/(4\pi\varepsilon_0 c^4)}\,Q_i,
+% L_{G,i} = (G/c^2)\,m_i,
+% and discuss dimensions and physical meaning ("electric length" and gravitational radius).
+
+\subsection{Self-form of a dressed quaternion and rest energy}
+% TODO: Consider A(\widetilde{\mathsf q}_i,\widetilde{\mathsf q}_i)
+% and relate it to rest energy / the mass channel.
+
+%==================== 6. Bilinear forms and static GEM ====================
+
+\section{Bilinear forms for dressed bodies and static GEM}
+
+\subsection{Forms A, B, C for dressed body quaternions}
+% TODO: Write A,B,C explicitly for \widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2
+% and discuss the interpretation of each component in the dressed context.
+
+\subsection{Static interaction energy of two bodies}
+% TODO: Derive A_0 = A(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2),
+% define U(r) = (c^4/G)\,A_0 / r,
+% and show that this reproduces the Coulomb + Newton potentials.
+
+\subsection{Multi-body field and linear regime}
+% TODO: Discuss superposition of many sources and the linear classical limit.
+
+%==================== 7. Quaternionic GEM field in R^3 ====================
+
+\section{Quaternionic GEM field in the observable three-space}
+
+\subsection{Distance as a purely imaginary quaternion}
+% TODO: Introduce R_j(\bm x) = \bm r_j and R_j^{-1} = -\widehat{\bm r}_j / r_j.
+
+\subsection{Potential-like object \texorpdfstring{$\mathcal U_{\rm GEM}$}{U\_GEM}}
+% TODO: Define \mathcal U_{\rm GEM}(\bm x) = \sum_j R_j^{-1}\,\widetilde{\mathsf q}_j.
+
+\subsection{Field \texorpdfstring{$\mathcal F_{\rm GEM}$}{F\_GEM} and extraction of potentials}
+% TODO: Define \mathcal F_{\rm GEM}(\bm x) = \sum_j R_j^{-1}\,\widetilde{\mathsf q}_j\,R_j^{-1},
+% and explain how its A-channel yields the gravitational and electrostatic potentials.
+
+%==================== 8. D-rotors and dynamics ====================
+
+\section{D-rotors and relativistic dynamics of GEM}
+
+\subsection{Definition of the D-rotation and its action on a flow}
+% TODO: Introduce d(\zeta) = \cos(\zeta/2) + \widehat{\bm u}\sin(\zeta/2),
+% and the action q' = d q d,
+% with explicit formulas for T', S_u', \bm S_\perp'.
+
+\subsection{Spatial rotors and invariance of A}
+% TODO: Show that a purely spatial rotor R
+% leaves A(q_1,q_2) invariant,
+% while \bm B and \bm C transform as ordinary 3-vectors.
+
+\subsection{Mixing of A and B channels under a D-rotation}
+% TODO: Show how the pair (U,B_u) = (T_1T_2 - S_{u,1}S_{u,2}, B_u)
+% rotates by an angle 2\zeta in the (energy–current) plane,
+% and interpret this as the dynamical mixing of scalar and current-like channels.
+
+\subsection{Example configurations}
+% TODO: Discuss:
+% - a purely gravitational channel (L_E = 0),
+% - a purely electric channel (L_G \to 0),
+% - transverse motion of a charge and the emergence of a vortical EM part.
+
+%==================== 9. Calibration of E, B and C_phys ====================
+
+\section{Calibration of fields \texorpdfstring{$\bm E$}{E}, \texorpdfstring{$\bm B$}{B}
+and the phase-vortical object \texorpdfstring{$C_{\text{phys}}$}{Cphys}}
+
+\subsection{Electric field from the A-channel}
+% TODO: Derive \bm E(\bm r) = (1/(4\pi\varepsilon_0))\,Q\,\widehat{\bm r} / r^2
+% from the scalar A-channel in the static limit.
+
+\subsection{The vortical form C and the geometry of \texorpdfstring{$C_{\text{geom}}$}{Cgeom}}
+% TODO: Show that C_{\text{geom}} \sim (Q/r^2)\,\beta\,(\widehat{\bm v} \times \widehat{\bm r})
+% for a moving charge.
+
+\subsection{Definition of \texorpdfstring{$C_{\text{phys}}$}{Cphys} and relation to \texorpdfstring{$\bm B$}{B}}
+% TODO: Define C_{\text{phys}} := (1/(4\pi\varepsilon_0))\,C_{\text{geom}},
+% note that its dimension matches that of \bm E,
+% and write \bm B = C_{\text{phys}} / c in SI units.
+
+\subsection{Interpretation of \texorpdfstring{$\varepsilon_0$}{eps0}, \texorpdfstring{$\mu_0$}{mu0}
+and volumetric stiffness of the vacuum}
+% TODO: Discuss \mu_0 = 1/(\varepsilon_0 c^2)
+% and \mu_0/c = 1/(\varepsilon_0 c^3) as an effective "volumetric stiffness"
+% of the vortical channel of the vacuum.
+
+%==================== 10. Hamiltonians and Lagrangians ====================
+
+\section{Hamiltonians and Lagrangians of quaternionic GEM}
+
+\subsection{Free-body Hamiltonian}
+% TODO: Introduce H_{\rm free} = \kappa A(\widetilde{\mathsf q}_i,\widetilde{\mathsf q}_i),
+% and relate it to the rest energy and proper frequency of a body.
+
+\subsection{Interaction Hamiltonian}
+% TODO: Introduce H_{\rm int} = (c^4/G)\,A(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)/r
+% and decompose it into gravitational and EM contributions.
+
+\subsection{Field Lagrangian in terms of A, B, C}
+% TODO: Sketch a field Lagrangian in terms of A(Q,Q), \|B(Q,Q)\|^2, \|C(Q,Q)\|^2,
+% and relate it to the standard EM Lagrangian and linearized GEM.
+
+%==================== 11. Relation to Maxwell and GEM ====================
+
+\section{Relation to Maxwell's equations and linearized GEM}
+
+\subsection{Static equations and Poisson-type equations}
+% TODO: Show how Poisson's equation for \phi_{\rm EM}
+% and its gravitational analogue arise from the quaternionic field.
+
+\subsection{Quasi-stationary regime and continuity equations}
+% TODO: Show how, in the quasi-stationary regime,
+% one recovers \nabla \cdot \bm E, \nabla \times \bm B,
+% and continuity equations for charge and mass currents.
+
+\subsection{Comparison with the classical GEM formalism}
+% TODO: Discuss the limits L_E = 0 (pure gravity),
+% L_G = 0 (pure EM), and correspondence with standard GEM formulations.
+
+%==================== 12. Discussion and conclusions ====================
+
+\section{Discussion and conclusions}
+
+\subsection{Summary of results}
+% TODO: Summarize the main achievements and emphasize
+% the unified quaternionic language for gravity and EM.
+
+\subsection{Limitations and open questions}
+% TODO: Discuss assumptions (classical limit, linearity, etc.)
+% and highlight open problems.
+
+\subsection{Perspectives}
+% TODO: Sketch possible extensions:
+% inclusion of weak/strong interactions,
+% quantization of the quaternionic field,
+% links to cosmology and possible evolution of G, etc.
+
+%==================== Appendices ====================
+
+\appendix
+
+\section{Quaternion algebra and matrix representation (details)}
+% TODO: Provide more detailed algebraic and matrix derivations.
+
+\section{Extended notation table}
+% TODO: Full table of symbols used in the paper.
+
+\section{Dimensional analysis and numerical estimates}
+% TODO: Work out explicit examples for the electron, proton, etc.
+
+\section{D-rotors, Lorentz transformations and Wigner--Thomas rotation}
+% TODO: Show in detail how the D-rotor formalism reproduces Lorentz boosts
+% and the Wigner--Thomas rotation.
+
+\end{document}
