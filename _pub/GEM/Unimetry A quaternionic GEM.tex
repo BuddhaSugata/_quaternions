@@ -269,96 +269,65 @@ four-dimensional real vector space
 \[
   \mathbb{H} \simeq \mathbb{R}^4(\qh,\hat{\imath},\hat{\jmath},\hat{k}),
 \]
-where \(\qh\) is a distinguished real (``temporal'') basis element and
+where \(\qh\) is the distinguished scalar basis element and
 \(\hat{\imath},\hat{\jmath},\hat{k}\) are purely imaginary basis elements.
 A general quaternion is written as
 \[
-  q = T\,\qh + \bm S,
-  \qquad
-  \bm S = S^1 \hat{\imath} + S^2 \hat{\jmath} + S^3 \hat{k},
+  \mathbf{q} = x^\mu e_\mu
+  = x^0 \qh + x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k},
 \]
-with \(T\in\mathbb{R}\) and \(\bm S \in \Im\mathbb{H} \simeq \mathbb{R}^3\).
-We call \(T\) the scalar part and \(\bm S\) the vector part of \(q\).
+with real components \(x^\mu \in \mathbb{R}\) and basis
+\(e_0 := \qh\), \(e_1 := \hat{\imath}\), \(e_2 := \hat{\jmath}\),
+\(e_3 := \hat{k}\).
 
 The imaginary basis satisfies the usual quaternion relations
 \[
-  \hat{\imath}^2 = \hat{\jmath}^2 = \hat{k}^2
-  = \hat{\imath}\hat{\jmath}\hat{k} = -\qh,
+  \hat{\imath}^2 = \hat{\jmath}^2 = \hat{k}^2 = -\qh,
+  \qquad
+  \hat{\imath}\hat{\jmath}=\hat{k},\quad
+  \hat{\jmath}\hat{k}=\hat{\imath},\quad
+  \hat{k}\hat{\imath}=\hat{\jmath},
 \]
-and the mixed products reproduce the three-dimensional cross product structure,
-e.g.\ \(\hat{\imath}\hat{\jmath} = \hat{k}\), \(\hat{\jmath}\hat{k} = \hat{\imath}\),
-\(\hat{k}\hat{\imath} = \hat{\jmath}\), with antisymmetry under exchange of
-factors.
-We use the standard identification \(\Im\mathbb{H} \simeq \mathbb{R}^3\) with
-its Euclidean inner product \(\bm S_1\cdot\bm S_2\) and cross product
-\(\bm S_1\times\bm S_2\).
+with antisymmetry under exchange of factors.
+We identify \(\Im\mathbb{H}\simeq\mathbb{R}^3\) with its Euclidean inner
+product \(\bm x\cdot\bm y\) and cross product \(\bm x\times\bm y\), so that
+\[
+  \bm x = x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k}
+  \quad\longleftrightarrow\quad
+  (x^1,x^2,x^3) \in \mathbb{R}^3.
+\]
 
 Quaternionic conjugation is defined by
 \[
-  \overline{q} := T\,\qh - \bm S,
+  \overline{\mathbf{q}} := x^0 \qh - x^1 \hat{\imath} - x^2 \hat{\jmath}
+                           - x^3 \hat{k},
 \]
-and the norm is \(\|q\|^2 = q\,\overline{q} = \overline{q}\,q
-= T^2 + \|\bm S\|^2\).
-The real and imaginary parts are
-\[
-  \mathrm{Re}(q) = T,\qquad \mathrm{Im}(q) = \bm S.
-\]
+and the norm is \(\|\mathbf{q}\|^2 = \mathbf{q}\,\overline{\mathbf{q}}
+= \overline{\mathbf{q}}\,\mathbf{q} = (x^0)^2 + (x^1)^2 + (x^2)^2 + (x^3)^2\).
 
-In what follows we will systematically write
+When convenient we will write a quaternion as \(\mathbf{q}=(T,\bm S)\) with
 \[
-  q = (T,\bm S)
+  T := x^0,\qquad \bm S := x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k},
 \]
-when it is convenient to emphasize the split into scalar and vector parts.
-We will also denote vectors in \(\Im\mathbb{H}\) in boldface (e.g.\ \(\bm S\))
-and reserve \(\qh\) for the distinguished scalar basis element.
-This choice aligns with the unimetrical interpretation, where the scalar part
-will later be associated with the temporal channel of a flow, and the vector
-part with its spatial channel.
+emphasizing the split into scalar and vector parts.
 
 \subsection{Quaternion product and decomposition into A, B, C forms}
 
-Let \(\{e_\mu\}_{\mu=0}^3 = \{\qh,\hat{\imath},\hat{\jmath},\hat{k}\}\) be the
-standard quaternion basis, with
-\[
-  \qh^2 = \qh,\qquad
-  \hat{\imath}^2 = \hat{\jmath}^2 = \hat{k}^2 = -\qh,
-\]
-and the usual multiplication table
-\(\hat{\imath}\hat{\jmath}=\hat{k}\), \(\hat{\jmath}\hat{k}=\hat{\imath}\),
-\(\hat{k}\hat{\imath}=\hat{\jmath}\), with antisymmetry under exchange of
-factors.
-Any quaternion can be written as
-\[
-  q = x^\mu e_\mu
-  = x^0 \qh + x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k},
-\]
-with real components \(x^\mu \in \mathbb{R}\).
-
 Let
 \[
-  \mathbf{q}_1 = x^\mu e_\mu, \qquad
-  \mathbf{q}_2 = y^\nu e_\nu,
-  \qquad
-  \mathbf{q}_1,\mathbf{q}_2 \in \mathbb{H}.
+  \mathbf{q}_1 = x^\mu e_\mu
+  = x^0 \qh + x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k},
 \]
-Then their quaternion product can be expanded as
+\[
+  \mathbf{q}_2 = y^\nu e_\nu
+  = y^0 \qh + y^1 \hat{\imath} + y^2 \hat{\jmath} + y^3 \hat{k},
+\]
+with \(\mathbf{q}_1,\mathbf{q}_2 \in \mathbb{H}\).
+Their quaternion product can be expanded term by term as
 \begin{align}
   \mathbf{q}_1 \circ \mathbf{q}_2
   &= (x^0 \qh + x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k})
      (y^0 \qh + y^1 \hat{\imath} + y^2 \hat{\jmath} + y^3 \hat{k}) \nonumber\\
-  &= ( \mathbf{q}_1 * \mathbf{q}_2 )
-   + ( \mathbf{q}_1 \diamond \mathbf{q}_2 )
-   + ( \mathbf{q}_1 \times \mathbf{q}_2 ),
-\end{align}
-where we have grouped terms according to three bilinear structures:
-\begin{itemize}[leftmargin=*]
-  \item a scalar (``Minkowski-like'') channel \(\mathbf{q}_1 * \mathbf{q}_2\),
-  \item a symmetric vector channel \(\mathbf{q}_1 \diamond \mathbf{q}_2\),
-  \item an axial/vortical vector channel \(\mathbf{q}_1 \times \mathbf{q}_2\).
-\end{itemize}
-Explicitly,
-\begin{align}
-  \mathbf{q}_1 \circ \mathbf{q}_2
   &= (x^0 y^0 \qh^2 + x^1 y^1 \hat{\imath}^2 + x^2 y^2 \hat{\jmath}^2
       + x^3 y^3 \hat{k}^2) \nonumber\\
   &\quad
@@ -373,19 +342,78 @@ Explicitly,
       + x^2 y^3 \hat{\jmath} \hat{k}
       + x^3 y^1 \hat{k} \hat{\imath}
       + x^3 y^2 \hat{k} \hat{\jmath}).
-  \label{eq:q-product-expanded}
+  \label{eq:q-product-expanded-coords}
 \end{align}
-Using the multiplication rules, this can be written in a compact tensor-like form
+
+Using the multiplication rules, this can be organised into three bilinear
+contributions:
+\begin{align}
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  &= ( \mathbf{q}_1 * \mathbf{q}_2 )
+   + ( \mathbf{q}_1 \diamond \mathbf{q}_2 )
+   + ( \mathbf{q}_1 \times \mathbf{q}_2 ),
+\end{align}
+where:
+\begin{itemize}[leftmargin=*]
+  \item \(\mathbf{q}_1 * \mathbf{q}_2\) collects the purely scalar terms,
+  \item \(\mathbf{q}_1 \diamond \mathbf{q}_2\) collects the mixed scalar--vector
+  terms,
+  \item \(\mathbf{q}_1 \times \mathbf{q}_2\) collects the purely vector--vector
+  terms.
+\end{itemize}
+
+Explicitly, one finds the familiar invariant decomposition
+\begin{align}
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  &= \Bigl(
+       \color{red}{x^0 y^0 - x^1 y^1 - x^2 y^2 - x^3 y^3}
+     \Bigr)\,\qh
+   \nonumber\\
+  &\quad
+   + \color{green}{\bigl(x^0 \bm y + y^0 \bm x\bigr)}
+   + \color{blue}{\bigl(\bm x \times \bm y\bigr)},
+  \label{eq:q-product-ABC-coords}
+\end{align}
+where
+\[
+  \bm x := x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k},
+  \qquad
+  \bm y := y^1 \hat{\imath} + y^2 \hat{\jmath} + y^3 \hat{k}.
+\]
+This suggests three natural bilinear maps:
+\begin{align}
+  A(\mathbf{q}_1,\mathbf{q}_2)
+  &:= x^0 y^0 - x^1 y^1 - x^2 y^2 - x^3 y^3,
+  \label{eq:A-form-coords}\\
+  \bm B(\mathbf{q}_1,\mathbf{q}_2)
+  &:= x^0 \bm y + y^0 \bm x,
+  \label{eq:B-form-coords}\\
+  \bm C(\mathbf{q}_1,\mathbf{q}_2)
+  &:= \bm x \times \bm y.
+  \label{eq:C-form-coords}
+\end{align}
+In terms of these,
+\begin{equation}
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  = \bigl(\color{red}{A(\mathbf{q}_1,\mathbf{q}_2)}\bigr)\,\qh
+    + \color{green}{\bm B(\mathbf{q}_1,\mathbf{q}_2)}
+    + \color{blue}{\bm C(\mathbf{q}_1,\mathbf{q}_2)}.
+  \label{eq:q-product-ABC}
+\end{equation}
+
+It is often convenient to view \eqref{eq:q-product-ABC-coords} in a tensor-like
+form.
+We can write
 \[
   \mathbf{q}_1 \circ \mathbf{q}_2
   = \sum_{\mu,\nu=0}^3
-    \bigl(
+    \Bigl(
       \color{red}{A_{\mu\nu}}\,\qh
       + \color{green}{B_{\mu\nu}}
       + \color{blue}{C_{\mu\nu}}
-    \bigr)\,x^\mu y^\nu,
+    \Bigr)\,x^\mu y^\nu,
 \]
-where the three \(4\times 4\) coefficient matrices are
+with three \(4\times 4\) coefficient matrices:
 \begin{align}
   \color{red}{A_{\mu\nu}}
   &= \begin{pmatrix}
@@ -412,106 +440,525 @@ where the three \(4\times 4\) coefficient matrices are
      \end{pmatrix}.
   \label{eq:C-matrix}
 \end{align}
+Here \(\color{red}{A_{\mu\nu}}\) is the usual Minkowski-like bilinear form
+\(\mathrm{diag}(1,-1,-1,-1)\) acting on the coordinate components, while
+\(\color{green}{B_{\mu\nu}}\) and \(\color{blue}{C_{\mu\nu}}\) collect the
+symmetric and antisymmetric vector-valued pieces of the product.
 
-Equivalently, if we collect the scalar and vector parts explicitly, we recover
-the more familiar invariant decomposition
-\begin{align}
-  \mathbf{q}_1 \circ \mathbf{q}_2
-  &= \Bigl(
-       \color{red}{x^0 y^0 - x^1 y^1 - x^2 y^2 - x^3 y^3}
-     \Bigr)\,\qh
-   \nonumber\\
-  &\quad
-   + \color{green}{\bigl(x^0 \bm y + y^0 \bm x\bigr)}
-   + \color{blue}{\bigl(\bm x \times \bm y\bigr)},
-  \label{eq:q-product-ABC-coords}
-\end{align}
-where \(\bm x = (x^1,x^2,x^3)\), \(\bm y = (y^1,y^2,y^3)\),
-and the colour coding is as in \cref{eq:A-matrix,eq:B-matrix,eq:C-matrix}:
-\begin{itemize}[leftmargin=*]
-  \item \(\color{red}{A_{\mu\nu}}\) is the Minkowski-like bilinear form
-  \(\mathrm{diag}(1,-1,-1,-1)\) acting on the coordinate vectors \(x^\mu,y^\nu\);
-  \item \(\color{green}{B_{\mu\nu}}\) collects the symmetric mixed products
-  between the scalar and vector components;
-  \item \(\color{blue}{C_{\mu\nu}}\) collects the antisymmetric products between
-  the spatial components, encoding the cross product \(\bm x \times \bm y\).
-\end{itemize}
+\subsection{Geometric interpretation and tensor structure of A, B, C}
 
-This tensor-like presentation makes explicit that the quaternion product can be
-viewed as the contraction of a rank-\((0,2)\) object with two four-vectors:
+The decomposition \eqref{eq:q-product-ABC} and the matrices
+\eqref{eq:A-matrix}--\eqref{eq:C-matrix} make explicit that the quaternion
+product can be regarded as the contraction of a rank-\((0,2)\) object with two
+four-vectors:
 \[
   \mathbf{q}_1 \circ \mathbf{q}_2
-  = \bigl(\color{red}{A} + \color{green}{B} + \color{blue}{C}\bigr)_{\mu\nu}
-    x^\mu y^\nu,
+  = \bigl(
+      \color{red}{A} + \color{green}{B} + \color{blue}{C}
+    \bigr)_{\mu\nu}\,x^\mu y^\nu,
 \]
-with a scalar (red), a symmetric vector-valued (green), and an antisymmetric
-vector-valued (blue) block.
-In the unimetrical setting we will reinterpret the scalar block
-\(\color{red}{A_{\mu\nu}}\) as the basic energy-like invariant, the symmetric
-block \(\color{green}{B_{\mu\nu}}\) as a current-like coupling, and the
-antisymmetric block \(\color{blue}{C_{\mu\nu}}\) as the vortical channel that
-underlies magnetic and gravitomagnetic fields.
-
-\subsection{Geometric interpretation of A, B, C}
-
-The decomposition \eqref{eq:q-product-ABC} plays a central role in what
-follows:
+with three structurally distinct blocks:
 \begin{itemize}[leftmargin=*]
-  \item The scalar form \(\color{red}{A}\) is a symmetric bilinear form of
-  signature \((+,-,-,-)\) when restricted to suitable unimetrical subspaces and
-  will be used as the basic energy-like invariant.
-  In the dressed setting it will produce both Newtonian and Coulomb potentials
-  from a single scalar channel.
+  \item \(\color{red}{A_{\mu\nu}}\) is a symmetric scalar bilinear form of
+  signature \((+,-,-,-)\).
+  In the unimetrical context it will play the role of an energy-like invariant
+  and will generate both Newtonian and Coulomb potentials once we pass to
+  dressed body quaternions.
 
-  \item The symmetric vector form \(\color{green}{\bm B}\) behaves like a
-  current-like quantity: it is linear in each argument and symmetric under
-  exchange.
-  When applied to dressed body quaternions, it will encode the coupling between
-  scalar (temporal) and vector (spatial) parts, and will be directly related to
-  mass and charge currents in the GEM field.
+  \item \(\color{green}{B_{\mu\nu}}\) is symmetric and vector-valued; it couples
+  the scalar component to the spatial components.
+  It will later be interpreted as a current-like channel, encoding the coupling
+  between temporal and spatial parts of dressed flow quaternions.
 
-  \item The axial vector form \(\color{blue}{\bm C}\) is purely imaginary and
-  antisymmetric.
-  It is built from the cross product of the spatial parts and therefore encodes
-  vorticity-like structures.
-  In the GEM interpretation it will be responsible for the magnetic and
-  gravitomagnetic sectors.
-
+  \item \(\color{blue}{C_{\mu\nu}}\) is antisymmetric and vector-valued; it
+  encodes the cross product \(\bm x\times\bm y\) of the spatial parts and thus
+  represents a vorticity (axial) channel.
+  This will underlie the magnetic and gravitomagnetic sectors of the GEM field.
 \end{itemize}
 
-Thus the elementary quaternion product already contains, in a rigid algebraic
-way, the three channels that we will later reinterpret as (i) an energy-like
-scalar invariant, (ii) a current-like symmetric vector channel, and
-(iii) a vortical (axial) channel.
-In the next section we recall how unimetry associates physical flows and
-space--time structure to quaternions, so that the forms
-\(\color{red}{A}\), \(\color{green}{\bm B}\), and \(\color{blue}{\bm C}\) can
+In summary, the elementary quaternion product already contains, in a rigid
+algebraic way, the three channels that we will later reinterpret as
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+  \item an energy-like scalar invariant \(A\),
+  \item a current-like symmetric vector channel \(\bm B\),
+  \item a vortical (axial) vector channel \(\bm C\).
+\end{enumerate}
+In the next section we recall how unimetry associates physical flows and an
+effective space--time structure to quaternions, so that these three forms can
 be given a gravito--electromagnetic meaning.
+
 
 
 %==================== 3. Phase proto-space in unimetry ====================
 
 \section{Phase proto-space and flow: brief unimetry overview}
+\label{sec:phase-protospace}
 
-\subsection{Proto-space, phase potential and 1-form}
-% TODO: Introduce (\Espace,\langle\cdot,\cdot\rangle), the phase potential \Phi,
-% the phase 1-form \alpha = d\Phi, and the gradient \nabla\Phi.
+\subsection{Proto-space, phase potential and phase 1-form}
+
+In unimetry the basic kinematical arena is a Euclidean (or, more generally,
+Hilbert) proto-space \((\Espace,\langle\cdot,\cdot\rangle)\).
+Points of \(\Espace\) will be denoted by \(X\), and the inner product
+\(\langle\cdot,\cdot\rangle\) is used to identify tangent and cotangent spaces
+via the Riesz isomorphism.
+For the purposes of this paper one may think of \(\Espace\) as a finite- or
+countable-dimensional real Hilbert space.
+
+The fundamental scalar field of unimetry is a dimensionless \emph{phase
+potential}
+\[
+  \Phi : \Espace \to \mathbb{R}.
+\]
+From \(\Phi\) we obtain the \emph{phase 1-form}
+\[
+  \alpha := d\Phi,
+\]
+which is a smooth 1-form on \(\Espace\).
+At each point \(X\in\Espace\), the value \(\alpha_X\) is a linear functional on
+the tangent space \(T_X\Espace\):
+\[
+  \alpha_X : T_X\Espace \to \mathbb{R},
+  \qquad
+  \alpha_X(V) = d\Phi_X(V).
+\]
+Using the inner product, we define the gradient \(\nabla\Phi(X)\in T_X\Espace\)
+by the standard relation
+\[
+  \alpha_X(V)
+  = d\Phi_X(V)
+  = \langle \nabla\Phi(X), V\rangle,
+  \qquad
+  \forall\,V \in T_X\Espace.
+\]
+Thus \(\alpha\) and \(\nabla\Phi\) carry the same information; the former is
+covariant, the latter contravariant.
+
+Physically, the phase potential \(\Phi\) encodes the global phase structure of
+the underlying flow, while the phase 1-form \(\alpha\) and the gradient
+\(\nabla\Phi\) encode local directions in which the phase changes most rapidly.
+The key idea of unimetry is to use this structure to define a canonical flow
+through \(\Espace\).
 
 \subsection{Flow vector and normalization}
-% TODO: Introduce \widehat{\boldsymbol\chi} = \nabla\Phi / \|\nabla\Phi\|,
-% then \boldsymbol\chi = \clight\,\widehat{\boldsymbol\chi}, with \|\boldsymbol\chi\| = \clight.
+\label{subsec:flow-normalization}
 
-\subsection{Interval, proper time and correspondence with SR}
-% TODO: Briefly indicate how the flow \boldsymbol\chi gives rise to the interval,
-% proper time, and how this corresponds to the Minkowski metric in SR.
+Whenever \(\nabla\Phi(X)\neq 0\), we define the \emph{normalized flow direction}
+at \(X\) by
+\begin{equation}
+  \widehat{\boldsymbol\chi}(X)
+  := \frac{\nabla\Phi(X)}{\|\nabla\Phi(X)\|},
+  \qquad
+  \|\nabla\Phi(X)\|
+  := \sqrt{\langle\nabla\Phi(X),\nabla\Phi(X)\rangle}.
+  \label{eq:chi-hat-def}
+\end{equation}
+Thus \(\widehat{\boldsymbol\chi}(X)\) is a unit vector in \(T_X\Espace\) pointing
+along the steepest phase ascent.
+We then introduce the \emph{physical flow vector} by a global calibration
+\begin{equation}
+  \boldsymbol\chi(X)
+  := \clight\,\widehat{\boldsymbol\chi}(X),
+  \qquad
+  \|\boldsymbol\chi(X)\| \equiv \clight,
+  \label{eq:chi-phys-def}
+\end{equation}
+where \(\clight\) is the speed of light.
+In other words, in unimetry the physical flow is a unit-speed curve in
+\(\Espace\) with respect to the fixed scale \(\clight\).
+
+A flow line (or \emph{stream}) is then a curve
+\(\gamma : \lambda \mapsto X(\lambda)\in\Espace\) whose tangent vector is
+everywhere aligned with the physical flow:
+\begin{equation}
+  \dot{X}(\lambda)
+  := \frac{dX}{d\lambda}
+  = \boldsymbol\chi\bigl(X(\lambda)\bigr),
+  \qquad
+  \|\dot{X}(\lambda)\| = \clight.
+  \label{eq:flow-line-def}
+\end{equation}
+The parameter \(\lambda\) is a proto-space parameter, not yet identified with
+any observed time.
+The geometric content of \eqref{eq:flow-line-def} is simply that physical
+objects are represented by flows of constant Euclidean speed \(\clight\) in the
+proto-space.
+
+\subsection{Intrinsic angle, proper time and correspondence with SR}
+\label{subsec:interval-SR}
+
+In unimetry a macroscopic body \(B\) is represented not by a single flow line,
+but by an ensemble of streamlets with weights \(w_a\) and tilt angles
+\(\Theta_a\) relative to the body's self–time fibre.\footnote{For the detailed
+construction see Paper~I, \S\ref{sec:intrinsic-angle} there.}
+On this ensemble one defines the temporal second moment
+and the spatial shape tensor as
+\begin{equation}
+  T_B:=\sum_a w_a \cos^2\Theta_a,
+  \qquad
+  \mathbf C_B:=\sum_a w_a \sin^2\Theta_a\;
+               \mathbf u_a\!\otimes\!\mathbf u_a,
+  \label{eq:TB-CB-here}
+\end{equation}
+where \(0<T_B\le 1\), \(\mathbf C_B\) is a symmetric positive semidefinite
+tensor on the body's three-surface, and \(\mathbf u_a\) are unit spatial
+directions of the streamlets’ projections.
+Operationally, \(T_B\) captures the aggregate fraction of flow carried in the
+orthogonal (self–time) fibre, while \(\mathbf C_B\) encodes the anisotropic
+distribution of spatial projections across the body.
+
+From these second moments one can define an \emph{intrinsic angle}
+\(\zeta\in[0,\tfrac{\pi}{2}]\) as an effective statistical parameter of the
+ensemble.
+Introducing
+\[
+  C:=\sum_a w_a\cos 2\Theta_a,\qquad
+  S:=\sum_a w_a\sin 2\Theta_a,
+\]
+there exists a unique \(\zeta\) such that
+\begin{equation}
+  (\cos 2\zeta,\ \sin 2\zeta) = (C,S)
+  \quad\Longleftrightarrow\quad
+  T_B = \tfrac12(1+C) = \cos^2\!\zeta,
+  \qquad
+  \operatorname{tr}\mathbf C_B
+    = \tfrac12(1-C) = \sin^2\!\zeta .
+  \label{eq:zeta-def-here}
+\end{equation}
+We call \(\zeta\) the \emph{intrinsic angle} of the body.
+It aggregates the second–moment information \((T_B,\mathbf C_B)\) into a single
+scalar and should be thought of as a \emph{statistical} internal parameter:
+it is \emph{not} a geometric direction and is not attached to any particular
+flow line.
+
+The intrinsic angle controls the rate at which the body’s own proper time
+\(\tau_B\) accumulates with respect to the phase parameter \(\chi\) used to
+parametrize the flow in proto-space.
+In the calibrated gauge \(\|\boldsymbol\chi\|=\clight\), one has
+\begin{equation}
+  d\tau_B = \cos\zeta\,d\chi,
+  \label{eq:dtau-zeta}
+\end{equation}
+so that the temporal second moment \(T_B\) appears as
+\(T_B=\cos^2\!\zeta = (d\tau_B/d\chi)^2\).
+The corresponding intrinsic metric of the body,
+as a quadratic form on \((d\chi,d\boldsymbol\ell)\), reads
+\begin{equation}
+  ds_B^2
+  := \clight^2\,d\tau_B^2 - d\boldsymbol\ell^{\!\top}\mathbf C_B\,d\boldsymbol\ell
+   = \clight^2 T_B\,d\chi^2
+     - d\boldsymbol\ell^{\!\top}\mathbf C_B\,d\boldsymbol\ell .
+  \label{eq:body-metric-here}
+\end{equation}
+For an isotropic texture one has
+\(\mathbf C_B = \tfrac{\sin^2\!\zeta}{3}\,\mathbf I_S\), and with the rest
+gauge \(T_B\equiv 1\) this reduces to the familiar Minkowski form in the
+body’s rest frame (up to the overall phase gauge \(d\chi\)).
+
+In the full unimetrical construction the intrinsic angle \(\zeta\) is combined
+with a kinematic angle \(\vartheta\) (associated with the relative motion
+between bodies) and, when present, with a gravitational angle \(\phi\)
+(associated with an external tilt field).
+The resulting time-rate factor factorises into intrinsic, kinematic, and
+gravitational contributions.
+For the purposes of the present GEM paper, we only need the following
+structural facts:
+
+\begin{itemize}[leftmargin=*]
+  \item The intrinsic angle \(\zeta\) is a scalar \emph{second-moment} parameter
+  of a body, not a direction: it encodes how the flow budget is split between
+  self–time and spatial channels in the ensemble of streamlets.
+
+  \item The proper time \(\tau_B\) along the body’s worldline is related to the
+  phase parameter \(\chi\) by \eqref{eq:dtau-zeta}, and the body’s intrinsic
+  metric takes the Minkowski form \eqref{eq:body-metric-here} once the rest
+  gauge is fixed.
+
+  \item The relativistic kinematics of unimetry can therefore be formulated
+  entirely in terms of phase flow and second-moment data, with the usual SR
+  interval emerging as a derived object; we will reuse this structure when
+  interpreting the scalar form \(A\) as an energy-like invariant for dressed
+  quaternions.
+\end{itemize}
 
 \subsection{Notation table}
-% TODO: Insert a compact table of main symbols (\Phi, \alpha, \boldsymbol\chi, \zeta, etc.),
-% adapted from Paper I (rev.2).
+\label{subsec:notation-table}
+
+For reference, we collect here the main unimetrical symbols used in the
+remainder of the paper.  A more extensive table can be found in Paper~I; the
+subset below is chosen to make the present text self-contained.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ll}
+    \hline
+    Symbol & Meaning \\ \hline
+    \(\Espace\) & Euclidean/Hilbert proto-space with inner product
+                   \(\langle\cdot,\cdot\rangle\) \\
+    \(\Phi : \Espace\to\mathbb{R}\) & dimensionless phase potential \\
+    \(\alpha = d\Phi\) & phase 1-form, \(\alpha_X(V)=\langle\nabla\Phi(X),V\rangle\) \\
+    \(\nabla\Phi(X)\) & gradient of \(\Phi\) at \(X\), defined via the inner product \\
+    \(\widehat{\boldsymbol\chi}(X)\) &
+      normalized flow direction, \(\widehat{\boldsymbol\chi}=\nabla\Phi/\|\nabla\Phi\|\) \\
+    \(\boldsymbol\chi(X)\) &
+      physical flow vector, \(\boldsymbol\chi=\clight\,\widehat{\boldsymbol\chi}\),
+      \(\|\boldsymbol\chi\|=\clight\) \\
+    \(\gamma(\lambda)\) &
+      flow line in \(\Espace\) with tangent \(\dot{X}=\boldsymbol\chi\) \\
+    \(\widehat{\bm u}\) &
+      unit rest direction associated with an observer (local temporal axis) \\
+    \(\widehat{\bm n}\) &
+      unit spatial direction orthogonal to \(\widehat{\bm u}\) \\
+    \(\zeta\) &
+      flow angle between \(\boldsymbol\chi\) and \(\widehat{\bm u}\), see
+      \eqref{eq:chi-angle-decomp} \\
+    \(\delta T\) &
+      effective temporal increment for the observer, see \eqref{eq:deltaT-def} \\
+    \(\delta\bm x\) &
+      effective spatial increment in the observer's rest space,
+      see \eqref{eq:deltax-def} \\
+    \(\delta s^2\) &
+      effective interval, \(\delta s^2 = \clight^2\delta T^2 - \|\delta\bm x\|^2\),
+      see \eqref{eq:interval-zeta} \\
+    \hline
+  \end{tabular}
+  \caption{Key unimetrical quantities used in the quaternionic GEM construction.}
+  \label{tab:unimetry-notation}
+\end{table}
+
+In the next section we introduce two calibrations of the flow --- one
+kinematic and one energetic --- which will allow us to interpret the scalar
+form \(A\) as an energy-like invariant and to define metrically dressed body
+quaternions suitable for the gravito--electromagnetic setting.
+
 
 %==================== 4. Calibrations of the flow and energy ====================
 
 \section{Flow calibrations and energy-like functionals}
+\label{sec:flow-calibrations}
+
+In the previous section the phase proto-space \((\Espace,\langle\cdot,\cdot\rangle)\),
+the phase potential \(\Phi\) and the physical flow vector \(\boldsymbol\chi\)
+were introduced at a purely geometric level.
+In the unimetry convention we use here, the flow parameter \(\chi\) carries
+\emph{units of time} (seconds), while the phase potential \(\Phi\) is
+dimensionless and related to \(\chi\) through a frequency scale,
+\begin{equation}
+  \Phi = \omega_\chi\,\chi,
+  \qquad
+  [\omega_\chi] = \mathrm{s}^{-1},
+  \label{eq:phi-omega-chi}
+\end{equation}
+along a given worldline.
+More generally, \(\omega_\chi = d\Phi/d\chi\) may depend on the state, but the
+product \(\omega_\chi \chi\) is always dimensionless.
+
+To connect the flow structure to observable kinematics and to energy, unimetry
+uses two complementary calibrations of \(\chi\): a \emph{phase (kinematic)
+calibration}, in which \(\chi\) is tied to a coordinate time, and a
+\emph{proper-time (energetic) calibration}, in which \(\chi\) is tied to the
+body's proper time.
+Both will be important for the gravito--electromagnetic construction.
+
+\subsection{Phase (kinematic) calibration}
+\label{subsec:phase-calibration}
+
+Consider a macroscopic body \(B\) represented by an ensemble of streamlets
+in proto-space, as in \cref{subsec:interval-SR}.
+Let \(\chi\) be the flow parameter with units of time.
+In the phase (kinematic) calibration we choose \(\chi\) so that it coincides
+with the coordinate time \(t\) of a chosen inertial laboratory frame,
+\begin{equation}
+  \chi = t,
+  \qquad
+  \frac{d\chi}{dt} = 1.
+  \label{eq:chi-equals-t}
+\end{equation}
+Along the worldline we may then write the phase potential as
+\[
+  \Phi(t) = \omega_\chi\,\chi(t) = \omega_\chi\,t,
+\]
+with a frequency \(\omega_\chi = d\Phi/d\chi = d\Phi/dt\) in the lab frame.
+The product \(\omega_\chi t\) is dimensionless, as required.
+
+With this choice, the flow vector \(\boldsymbol\chi\) projected onto the lab
+frame splits into a temporal and a spatial component,
+\[
+  \boldsymbol\chi
+  = \clight\,\widehat{\boldsymbol\chi}
+  = \clight\bigl(
+      \cos\zeta\,\widehat{\bm u}
+      + \sin\zeta\,\widehat{\bm n}
+    \bigr),
+\]
+where \(\widehat{\bm u}\) is the lab-frame time direction and
+\(\widehat{\bm n}\) is a spatial unit vector.
+For an inertially moving body with constant lab three-velocity
+\(\bm v = d\bm x/dt\), we impose the calibration
+\begin{equation}
+  \sin\zeta = \beta := \frac{\|\bm v\|}{\clight},
+  \qquad
+  \cos\zeta = \sqrt{1-\beta^2}.
+  \label{eq:zeta-beta-calibration}
+\end{equation}
+This ensures that the spatial projection of the flow has magnitude
+\(\|\bm v\| = \clight\sin\zeta\), while the temporal second moment
+\(T_B = \cos^2\zeta\) coincides with the usual factor \(1-\beta^2\) that
+appears in time dilation.
+
+Using \eqref{eq:dtau-zeta} and \eqref{eq:chi-equals-t}, the connection
+to SR kinematics can be summarized as
+\[
+  \frac{d\tau_B}{dt}
+  = \frac{d\tau_B/d\chi}{dt/d\chi}
+  = \cos\zeta
+  = \sqrt{1-\beta^2},
+\]
+so that the body’s proper time \(\tau_B\) along its worldline satisfies
+\[
+  d\tau_B = \sqrt{1-\beta^2}\,dt
+\]
+in the usual way.
+The key point is that \(\zeta\) is now a function of the observable speed
+\(\beta\), and the flow parameter \(\chi\) is tied to a physical time
+coordinate, both measured in seconds.
+
+\subsection{Proper-time (energetic) calibration}
+\label{subsec:proper-time-calibration}
+
+In many situations it is more natural to parametrize the flow by the body’s
+proper time \(\tau_B\) rather than by an external coordinate time.
+The proper-time (energetic) calibration chooses \(\chi\) so that
+\begin{equation}
+  \chi = \chi(\tau_B),
+  \qquad
+  \frac{d\tau_B}{d\chi} = \cos\zeta,
+  \label{eq:chi-proper-time}
+\end{equation}
+as in \eqref{eq:dtau-zeta}.
+Both \(\chi\) and \(\tau_B\) carry units of time, so \(\cos\zeta\) is
+dimensionless, as it should be.
+Equivalently,
+\[
+  \frac{d\chi}{d\tau_B} = \frac{1}{\cos\zeta}.
+\]
+
+Along the body’s worldline we define a \emph{proper phase frequency}
+\(\omega_B\) by
+\begin{equation}
+  \omega_B
+  := \frac{d\Phi}{d\tau_B}
+  = \frac{d\Phi}{d\chi}\,\frac{d\chi}{d\tau_B}
+  = \omega_\chi\,\frac{1}{\cos\zeta},
+  \label{eq:proper-frequency}
+\end{equation}
+where \(\omega_\chi := d\Phi/d\chi\) has dimension \(\mathrm{s}^{-1}\).
+In the simplest gauge one may take \(\omega_\chi\) to be a constant reference
+frequency \(\omega_0\) characteristic of the body’s rest state, so that
+\(\omega_B = \omega_0/\cos\zeta\).
+More generally, \(\omega_\chi\) may encode additional internal structure of the
+body, but for the present GEM construction we only use the fact that
+\(\omega_B\) transforms as an inverse proper-time scale and is a monotone
+function of \(\zeta\).
+
+\subsection{Energy of a flow and the self-form \texorpdfstring{$A(q,q)$}{A(q,q)}}
+\label{subsec:energy-self-form}
+
+The quaternionic algebra introduced in \cref{sec:quat-algebra} provides a
+natural way to encode the split between temporal and spatial channels in a
+single object.
+For a normalized flow direction with intrinsic angle \(\zeta\) we define the
+associated \emph{dimensionless flow quaternion}
+\begin{equation}
+  \widehat{\mathsf q}
+  := \cos\zeta\,\qh + \sin\zeta\,\widehat{\bm n},
+  \qquad
+  \|\widehat{\bm n}\|=1,
+  \label{eq:flow-quaternion}
+\end{equation}
+which has no physical dimension.
+The scalar self-form \(\color{red}{A}\) introduced in
+\cref{eq:A-form-coords,eq:q-product-ABC} then yields
+\begin{equation}
+  A(\widehat{\mathsf q},\widehat{\mathsf q})
+  = \cos^2\zeta - \sin^2\zeta
+  = \cos 2\zeta,
+  \label{eq:A-self-flow}
+\end{equation}
+so \(A(\widehat{\mathsf q},\widehat{\mathsf q})\) is a pure number.
+All physical dimensions in the energy are carried by prefactors such as
+\(m_B\clight^2\) or a universal scale \(\kappa\), while \(A\) supplies the
+dimensionless kinematic factor.
+
+
+In the kinematic calibration \eqref{eq:zeta-beta-calibration} we have
+\(\cos\zeta = \sqrt{1-\beta^2}\), so
+\begin{equation}
+  A(\widehat{\mathsf q},\widehat{\mathsf q})
+  = 1 - 2\beta^2,
+  \qquad
+  1-\beta^2 = \frac{1 + A(\widehat{\mathsf q},\widehat{\mathsf q})}{2}.
+  \label{eq:A-and-beta}
+\end{equation}
+The Lorentz factor can then be expressed as
+\begin{equation}
+  \gamma(\beta)
+  = \frac{1}{\sqrt{1-\beta^2}}
+  = \sqrt{\frac{2}{1 + A(\widehat{\mathsf q},\widehat{\mathsf q})}}.
+  \label{eq:gamma-from-A}
+\end{equation}
+Conversely, given the scalar invariant
+\(A(\widehat{\mathsf q},\widehat{\mathsf q})\), one can reconstruct the usual
+relativistic energy per unit rest mass,
+\[
+  \frac{E_B}{m_B \clight^2}
+  = \gamma(\beta)
+  = \sqrt{\frac{2}{1 + A(\widehat{\mathsf q},\widehat{\mathsf q})}}.
+\]
+
+For small velocities \(\beta \ll 1\), one has
+\(A(\widehat{\mathsf q},\widehat{\mathsf q}) = 1 - 2\beta^2 + O(\beta^4)\),
+so that
+\begin{equation}
+  1 - A(\widehat{\mathsf q},\widehat{\mathsf q})
+  = 2\beta^2 + O(\beta^4).
+\end{equation}
+This suggests using the deviation of \(A\) from its rest value as a building
+block for an energy-like functional.
+For instance, for a body of rest mass \(m_B\) one may define a free-body
+Hamiltonian
+\begin{equation}
+  H_{\text{free}}[\widehat{\mathsf q}]
+  := m_B \clight^2
+     + \frac{m_B \clight^2}{4}\,
+       \bigl(1 - A(\widehat{\mathsf q},\widehat{\mathsf q})\bigr),
+  \label{eq:H-free-example}
+\end{equation}
+so that, in the non-relativistic limit,
+\[
+  H_{\text{free}}[\widehat{\mathsf q}]
+  = m_B \clight^2 + \tfrac12 m_B v^2 + O(\beta^4).
+\]
+The precise functional dependence on \(A\) is not unique; what matters for the
+present work is that:
+\begin{itemize}[leftmargin=*]
+  \item \(A(\widehat{\mathsf q},\widehat{\mathsf q})\) is a scalar invariant of
+  the flow direction, monotonically related to the intrinsic angle \(\zeta\)
+  and thus to the proper-time rate and Lorentz factor;
+  \item it can be used as a natural scalar argument in Hamiltonians and
+  Lagrangians, with the standard SR expressions recovered by an appropriate
+  calibration;
+  \item in the gravito--electromagnetic setting we will apply the same scalar
+  form \(A\) to \emph{metrically dressed} body quaternions, where it will
+  directly generate Newtonian and Coulomb potentials.
+\end{itemize}
+
+In the next section we introduce these metrically dressed body quaternions,
+which package mass and charge into an effective length split into a temporal
+and a spatial channel.
+The scalar form \(A\), together with the vector forms \(\bm B\) and \(\bm C\),
+will then be used to define gravito--electromagnetic interactions as bilinear
+functionals of dressed quaternions.
+
 
 \subsection{Phase (kinematic) calibration}
 % TODO: Describe calibration in terms of phase/velocity,
