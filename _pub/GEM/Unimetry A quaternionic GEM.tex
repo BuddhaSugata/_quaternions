@@ -31,6 +31,11 @@
   urlcolor=blue!60!black
 }
 
+\usepackage{amsthm} % если ещё не подключен
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section] % или без [section], как тебе надо
+
 \usepackage[nameinlink,capitalize]{cleveref}
 
 \usepackage{enumitem}
@@ -73,62 +78,76 @@
 
 \subsection{Context and motivation}
 
-Unimetry is a phase--space reformulation of special relativity (SR) in which the 
-fundamental objects are not worldlines in a pre-given Minkowski space, but 
-stationary flows in an underlying Euclidean proto-space \(\Espace\).
-A dimensionless scalar phase potential \(\Phi:\Espace\to\mathbb{R}\) and its 
-gradient define a normalized flow direction, while the familiar Minkowski metric 
-and relativistic kinematics emerge as effective descriptions of how this flow is 
-seen by observers tied to local ``rest frames'' of massive objects.
-In this sense, unimetry treats space--time not as a primitive arena, but as a 
-derived structure obtained from the orientation of a flow in phase space.
+Unimetry is a proposed phase--geometric framework in which physical systems are
+described in terms of stationary flows in an underlying Euclidean proto-space
+\(\Espace\).
+Rather than postulating space--time as a primary arena, unimetry treats the
+observed space--time geometry, relativistic kinematics, and field interactions
+as effective structures derived from the orientation and coupling of such flows.
+A dimensionless scalar phase potential \(\Phi:\Espace\to\mathbb{R}\) and its
+gradient define a normalized flow direction; the familiar Minkowski metric and
+Lorentzian phenomena then appear as particular projections of this underlying
+flow geometry.
 
-The present paper extends this viewpoint to the problem of unifying gravity and 
-electromagnetism (EM).
-At the classical level, gravito--electromagnetic (GEM) analogies are well known:
-in the weak-field, slow-motion limit of general relativity, the Einstein equations 
-can be written in a Maxwell-like form, and moving masses generate a 
+In this sense, special relativity (SR) is not the endpoint, but the first
+benchmark for the framework: unimetry aims at a unified phase-based description
+of kinematics, gravity and gauge interactions, with SR recovered as a specific
+limit of the general construction.
+The present paper develops one important sector of this programme, namely a
+quaternionic gravito--electromagnetic (GEM) formulation built on top of the
+unimetrical flow picture.
+
+At the classical level, gravito--electromagnetic analogies are well known:
+in the weak-field, slow-motion limit of general relativity, the Einstein
+equations can be cast into a Maxwell-like form, and moving masses generate a
 ``gravitomagnetic'' field.
-Similarly, quaternions and related formalisms have long been used to compactly 
-encode rotations and the Maxwell equations.
-What unimetry adds to this landscape is a concrete physical interpretation:
-a single quaternionic object encodes both the temporal and spatial parts of a 
-flow, and bilinear forms of such objects naturally split into scalar, symmetric 
-vector, and axial (vorticity-like) channels.
+Quaternions and related algebras have also long been used to encode rotations
+and the Maxwell equations in a compact way.
+What unimetry adds to this landscape is a concrete phase-geometric
+interpretation: a single quaternionic object encodes both the temporal and
+spatial parts of a flow, and bilinear forms of such objects naturally split into
+scalar, symmetric vector, and axial (vorticity-like) channels.
+This suggests that gravity and electromagnetism might be viewed as different
+faces of the same bilinear structure acting on suitably dressed flow
+quaternions.
 
-Our goal here is to exploit this structure to construct a quaternionic GEM 
-formulation in which gravitational and electromagnetic interactions arise from 
-the \emph{same} bilinear machinery acting on appropriately dressed ``body 
-quaternions''.
-In particular, we show that Newton and Coulomb potentials appear as two branches 
-of a single scalar form, while the magnetic and gravitomagnetic sectors are 
-associated with a vortical bilinear form whose physical calibration reveals a 
-natural role for the constants \(\epszero\), \(\muzero\), \(\GNewton\) and 
+Our goal here is to make this statement precise.
+We construct a quaternionic GEM formalism in which gravitational and
+electromagnetic interactions originate from the \emph{same} bilinear machinery
+applied to metrically dressed ``body quaternions''.
+In particular, we show that Newton and Coulomb potentials arise as two branches
+of a single scalar form, while the magnetic and gravitomagnetic sectors are
+associated with a vortical bilinear form whose physical calibration reveals a
+natural role for the constants \(\epszero\), \(\muzero\), \(\GNewton\) and
 \(\clight\).
-The resulting picture is entirely Euclidean at the level of the proto-space, yet 
-reproduces relativistic kinematics and GEM fields in the observable three-space.
+The resulting description remains Euclidean at the level of the proto-space,
+yet reproduces relativistic kinematics and GEM fields in the observable
+three-space.
 
 \subsection{Relation to the base unimetry paper}
 
-This work is a direct sequel to the base unimetry paper, 
+This work is a direct sequel to the base unimetry paper,
 \emph{``Unimetry: A Phase-Space Reformulation of Special Relativity''}
 (henceforth ``Paper~I'').
-In Paper~I the phase potential \(\Phi\), the phase 1-form \(\alpha = d\Phi\), the 
-normalized flow vector \(\widehat{\boldsymbol\chi}\), and the calibration 
-\(\boldsymbol\chi = \clight\,\widehat{\boldsymbol\chi}\) are introduced in 
-detail, together with the derivation of the Minkowski interval and standard SR 
-effects from a purely Euclidean proto-space.
-The unimetrical D-rotation, which encodes Lorentz boosts as Euclidean rotations 
-in a suitable plane of the proto-space, is also defined there.
+Paper~I develops the core phase/flow structure: the phase potential \(\Phi\),
+the phase 1-form \(\alpha = d\Phi\), the normalized flow
+\(\widehat{\boldsymbol\chi}\), and the calibration
+\(\boldsymbol\chi = \clight\,\widehat{\boldsymbol\chi}\), together with the
+derivation of the Minkowski interval and standard SR effects from a Euclidean
+proto-space.
+It also introduces the unimetrical D-rotation, which encodes Lorentz boosts as
+Euclidean rotations in a suitable plane of \(\Espace\).
 
-The present paper assumes familiarity with the conceptual framework of Paper~I, 
+From the unimetry viewpoint, however, these SR results are only the first 
+consistency test of a broader phase-based paradigm.
+The present paper assumes familiarity with the conceptual setting of Paper~I,
 but is written to be as self-contained as reasonably possible.
-We briefly recall the key definitions of the phase proto-space, the flow vector, 
-and the two calibrations of the flow that lead to kinematic and energetic 
+We briefly recall the key definitions of the phase proto-space, the flow vector,
+and the two calibrations of the flow that lead to kinematic and energetic
 interpretations.
-All proofs and derivations that are essential for the GEM construction are 
-reproduced or adapted here; more detailed discussions of SR and cosmological 
-applications remain in Paper~I and are only referenced when needed.
+All constructions that are essential for the GEM sector are reproduced or
+adapted here; more detailed discussions of SR and cosmological applications
+remain in Paper~I and are only referenced when needed.
 
 \subsection{Main results}
 
@@ -144,145 +163,331 @@ The main technical contributions of this paper can be summarized as follows.
     \qquad
     L_{G,i} = \frac{\GNewton}{\clight^2}\,m_i
   \]
-  encode the charge \(Q_i\) and mass \(m_i\) of the body in a unified geometric 
+  encode the charge \(Q_i\) and mass \(m_i\) of the body in a unified geometric
   fashion.
-  The unit vector \(\widehat{\bm n}_i\) represents the spatial flow direction 
+  The unit vector \(\widehat{\bm n}_i\) represents the spatial flow direction
   associated with the body.
-  
+
   \item We show that the scalar bilinear form
   \[
     A(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)
     = L_{E,1}L_{E,2} - \bm S_1\cdot\bm S_2
   \]
-  (with \(\bm S_i = L_{G,i}\widehat{\bm n}_i\)) yields, after a single global 
-  calibration by \(\clight^4/\GNewton\) and a geometric \(1/r\) factor, the 
+  (with \(\bm S_i = L_{G,i}\widehat{\bm n}_i\)) yields, after a single global
+  calibration by \(\clight^4/\GNewton\) and a geometric \(1/r\) factor, the
   combined Newton--Coulomb potential:
   \[
     U(r) = \frac{\clight^4}{\GNewton}\,\frac{A}{r}
     = \frac{1}{4\pi\epszero}\,\frac{Q_1 Q_2}{r}
       - \GNewton\,\frac{m_1 m_2}{r}.
   \]
-  Thus gravity and electrostatics arise as two channels of a single invariant 
+  Thus gravity and electrostatics arise as two channels of a single invariant
   scalar form.
 
-  \item We identify two vector-valued bilinear forms, 
-  \(\bm B(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)\) and 
-  \(\bm C(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)\), corresponding to 
+  \item We identify two vector-valued bilinear forms,
+  \(\bm B(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)\) and
+  \(\bm C(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)\), corresponding to
   the symmetric and axial parts of the quaternion product.
-  In the dressed setting these naturally describe current-like and vortical 
+  In the dressed setting these naturally describe current-like and vortical
   channels.
-  In particular, the vortical form \(\bm C\) reproduces the geometry of 
+  In particular, the vortical form \(\bm C\) reproduces the geometry of
   magnetic and gravitomagnetic fields generated by moving charges and masses.
 
-  \item We construct a quaternionic GEM field 
-  \(\mathcal F_{\rm GEM}(\bm x)\) over the observable three-space by combining 
+  \item We construct a quaternionic GEM field
+  \(\mathcal F_{\rm GEM}(\bm x)\) over the observable three-space by combining
   dressed source quaternions with purely imaginary distance quaternions.
-  Its scalar channel reproduces the gravitational and electrostatic potentials, 
-  while its vortical channel yields a physically natural ``phase-vortical'' 
+  Its scalar channel reproduces the gravitational and electrostatic potentials,
+  while its vortical channel yields a physically natural ``phase-vortical''
   field \(C_{\text{phys}}\) with the same dimension as \(\bm E\).
   The standard magnetic field \(\bm B\) in SI units then appears as
   \[
     \bm B = \frac{1}{\clight}\,C_{\text{phys}},
   \]
-  so that the familiar \(\muzero\) and \(\epszero\) can be interpreted in terms 
-  of linear and areal stiffness of the vacuum, combined into an effective 
+  so that the familiar \(\muzero\) and \(\epszero\) can be interpreted in terms
+  of linear and areal stiffness of the vacuum, combined into an effective
   volumetric stiffness proportional to \(1/(\epszero \clight^3)\).
 
-  \item We analyze the action of unimetrical D-rotations and ordinary spatial 
+  \item We analyze the action of unimetrical D-rotations and ordinary spatial
   rotors on dressed quaternions.
-  Pure spatial rotations act in the usual way on the vector channels and leave 
-  the scalar form \(A\) invariant, while D-rotations mix the scalar channel and 
-  the longitudinal component of \(\bm B\) in a two-dimensional 
+  Pure spatial rotations act in the usual way on the vector channels and leave
+  the scalar form \(A\) invariant, while D-rotations mix the scalar channel and
+  the longitudinal component of \(\bm B\) in a two-dimensional
   ``energy--current'' plane.
-  This provides a quaternionic encoding of relativistic kinematics in the GEM 
+  This provides a quaternionic encoding of relativistic kinematics in the GEM
   setting, with Lorentz-consistent transformation properties of the fields.
 
-  \item Finally, we outline a Hamiltonian and Lagrangian formulation of the 
-  quaternionic GEM theory in terms of the self-form \(A\) and the norm-squares 
-  of \(\bm B\) and \(\bm C\), and discuss how the standard Maxwell Lagrangian 
+  \item Finally, we outline a Hamiltonian and Lagrangian formulation of the
+  quaternionic GEM theory in terms of the self-form \(A\) and the norm-squares
+  of \(\bm B\) and \(\bm C\), and discuss how the standard Maxwell Lagrangian
   and linearized GEM equations arise in appropriate limits.
 \end{itemize}
 
 \subsection{Structure of the paper}
 
 The paper is organized as follows.
-In \cref{sec:quat-algebra} we recall the basic quaternion algebra and introduce 
-the bilinear forms \(A\), \(\bm B\), and \(\bm C\) that arise from the 
-quaternion product, together with their matrix representation and geometric 
+In \cref{sec:quat-algebra} we recall the basic quaternion algebra and introduce
+the bilinear forms \(A\), \(\bm B\), and \(\bm C\) that arise from the
+quaternion product, together with their matrix representation and geometric
 interpretation.
-\Cref{sec:phase-protospace} provides a brief overview of the unimetrical phase 
-proto-space, the phase potential, the flow vector, and the two calibrations of 
+\Cref{sec:phase-protospace} provides a brief overview of the unimetrical phase
+proto-space, the phase potential, the flow vector, and the two calibrations of
 the flow that lead to kinematic and energetic interpretations.
 
-In \cref{sec:dressed-quats} we introduce metrically dressed body quaternions and 
+In \cref{sec:dressed-quats} we introduce metrically dressed body quaternions and
 define the electric and gravitational lengths \(L_E\) and \(L_G\).
-\Cref{sec:bilinear-static-gem} shows how the scalar form \(A\) for dressed 
+\Cref{sec:bilinear-static-gem} shows how the scalar form \(A\) for dressed
 quaternions reproduces the static Newton and Coulomb potentials.
-In \cref{sec:quat-gem-field} we construct a quaternionic GEM field over the 
-observable three-space and identify the scalar and vortical channels with 
+In \cref{sec:quat-gem-field} we construct a quaternionic GEM field over the
+observable three-space and identify the scalar and vortical channels with
 gravitational, electric, and magnetic sectors.
 
-\Cref{sec:drotors-dynamics} analyzes the action of spatial rotors and D-rotors 
-on dressed quaternions and on the GEM field, clarifying the relativistic 
+\Cref{sec:drotors-dynamics} analyzes the action of spatial rotors and D-rotors
+on dressed quaternions and on the GEM field, clarifying the relativistic
 transformation properties of the scalar, current-like, and vortical channels.
-\Cref{sec:calibration-EB-Cphys} is devoted to the calibration of \(\bm E\) and 
-\(\bm B\), to the definition of the phase-vortical field \(C_{\text{phys}}\), 
-and to the interpretation of \(\epszero\), \(\muzero\), and \(\clight\) in 
+\Cref{sec:calibration-EB-Cphys} is devoted to the calibration of \(\bm E\) and
+\(\bm B\), to the definition of the phase-vortical field \(C_{\text{phys}}\),
+and to the interpretation of \(\epszero\), \(\muzero\), and \(\clight\) in
 terms of vacuum stiffness.
 
-In \cref{sec:hamiltonians-lagrangians} we outline Hamiltonian and Lagrangian 
-formulations of quaternionic GEM, and in 
-\cref{sec:maxwell-gem-comparison} we compare the resulting equations with the 
+In \cref{sec:hamiltonians-lagrangians} we outline Hamiltonian and Lagrangian
+formulations of quaternionic GEM, and in
+\cref{sec:maxwell-gem-comparison} we compare the resulting equations with the
 standard Maxwell and linearized GEM formalisms.
-Finally, \cref{sec:discussion-conclusions} discusses limitations and open 
-questions, and sketches possible extensions towards non-Abelian interactions 
+Finally, \cref{sec:discussion-conclusions} discusses limitations and open
+questions, and sketches possible extensions towards non-Abelian interactions
 and cosmological applications.
-
-\subsection{Context and motivation}
-% TODO: Explain the general idea of unimetry as a phase/flow reformulation of SR,
-% and why it is natural to try to unify gravity and electromagnetism
-% in a single quaternionic formalism.
-
-\subsection{Relation to the base unimetry paper}
-% TODO: Briefly describe that the core phase/flow structure
-% is developed in ``Unimetry: A Phase-Space Reformulation of Special Relativity (rev.2)''
-% (Paper~I). Clarify which elements are briefly recalled here, and which are only referenced.
-
-\subsection{Main results}
-% TODO: List the main technical results:
-% - metrically dressed body quaternions;
-% - forms A, B, C and their interpretation;
-% - static GEM (Newton + Coulomb) from a single scalar form;
-% - D-rotors and relativistic dynamics;
-% - calibration of \bm E, \bm B and the object C_{\text{phys}} = \clight\,\mathbf B.
-
-\subsection{Structure of the paper}
-% TODO: Briefly outline the structure of the paper section by section.
 
 %==================== 2. Quaternion algebra ====================
 
 \section{Quaternion algebra and bilinear forms}
+\label{sec:quat-algebra}
 
 \subsection{Basic notation and conventions}
-% TODO: Define a quaternion q = T \hat h + \bm S (scalar + vector part),
-% conventions on signs, conjugation, norm, basis units,
-% and the identification of \bm S with vectors in \mathbb R^3.
+
+We denote by \(\mathbb{H}\) the real quaternion algebra, viewed as a
+four-dimensional real vector space
+\[
+  \mathbb{H} \simeq \mathbb{R}^4(\qh,\hat{\imath},\hat{\jmath},\hat{k}),
+\]
+where \(\qh\) is a distinguished real (``temporal'') basis element and
+\(\hat{\imath},\hat{\jmath},\hat{k}\) are purely imaginary basis elements.
+A general quaternion is written as
+\[
+  q = T\,\qh + \bm S,
+  \qquad
+  \bm S = S^1 \hat{\imath} + S^2 \hat{\jmath} + S^3 \hat{k},
+\]
+with \(T\in\mathbb{R}\) and \(\bm S \in \Im\mathbb{H} \simeq \mathbb{R}^3\).
+We call \(T\) the scalar part and \(\bm S\) the vector part of \(q\).
+
+The imaginary basis satisfies the usual quaternion relations
+\[
+  \hat{\imath}^2 = \hat{\jmath}^2 = \hat{k}^2
+  = \hat{\imath}\hat{\jmath}\hat{k} = -\qh,
+\]
+and the mixed products reproduce the three-dimensional cross product structure,
+e.g.\ \(\hat{\imath}\hat{\jmath} = \hat{k}\), \(\hat{\jmath}\hat{k} = \hat{\imath}\),
+\(\hat{k}\hat{\imath} = \hat{\jmath}\), with antisymmetry under exchange of
+factors.
+We use the standard identification \(\Im\mathbb{H} \simeq \mathbb{R}^3\) with
+its Euclidean inner product \(\bm S_1\cdot\bm S_2\) and cross product
+\(\bm S_1\times\bm S_2\).
+
+Quaternionic conjugation is defined by
+\[
+  \overline{q} := T\,\qh - \bm S,
+\]
+and the norm is \(\|q\|^2 = q\,\overline{q} = \overline{q}\,q
+= T^2 + \|\bm S\|^2\).
+The real and imaginary parts are
+\[
+  \mathrm{Re}(q) = T,\qquad \mathrm{Im}(q) = \bm S.
+\]
+
+In what follows we will systematically write
+\[
+  q = (T,\bm S)
+\]
+when it is convenient to emphasize the split into scalar and vector parts.
+We will also denote vectors in \(\Im\mathbb{H}\) in boldface (e.g.\ \(\bm S\))
+and reserve \(\qh\) for the distinguished scalar basis element.
+This choice aligns with the unimetrical interpretation, where the scalar part
+will later be associated with the temporal channel of a flow, and the vector
+part with its spatial channel.
 
 \subsection{Quaternion product and decomposition into A, B, C forms}
-% TODO: Write explicitly
-% q_1 q_2 = (T_1 T_2 - \bm S_1 \cdot \bm S_2)
-%         + (T_1 \bm S_2 + T_2 \bm S_1 + \bm S_1 \times \bm S_2).
-% Define
-% A(q_1,q_2), \bm B(q_1,q_2), \bm C(q_1,q_2).
 
-\subsection{Matrix representation of quaternions and forms}
-% TODO: Give a 2x2 complex matrix representation (as in quats.md),
-% and show how the product and the forms A,B,C appear in matrix language.
+Let \(\{e_\mu\}_{\mu=0}^3 = \{\qh,\hat{\imath},\hat{\jmath},\hat{k}\}\) be the
+standard quaternion basis, with
+\[
+  \qh^2 = \qh,\qquad
+  \hat{\imath}^2 = \hat{\jmath}^2 = \hat{k}^2 = -\qh,
+\]
+and the usual multiplication table
+\(\hat{\imath}\hat{\jmath}=\hat{k}\), \(\hat{\jmath}\hat{k}=\hat{\imath}\),
+\(\hat{k}\hat{\imath}=\hat{\jmath}\), with antisymmetry under exchange of
+factors.
+Any quaternion can be written as
+\[
+  q = x^\mu e_\mu
+  = x^0 \qh + x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k},
+\]
+with real components \(x^\mu \in \mathbb{R}\).
+
+Let
+\[
+  \mathbf{q}_1 = x^\mu e_\mu, \qquad
+  \mathbf{q}_2 = y^\nu e_\nu,
+  \qquad
+  \mathbf{q}_1,\mathbf{q}_2 \in \mathbb{H}.
+\]
+Then their quaternion product can be expanded as
+\begin{align}
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  &= (x^0 \qh + x^1 \hat{\imath} + x^2 \hat{\jmath} + x^3 \hat{k})
+     (y^0 \qh + y^1 \hat{\imath} + y^2 \hat{\jmath} + y^3 \hat{k}) \nonumber\\
+  &= ( \mathbf{q}_1 * \mathbf{q}_2 )
+   + ( \mathbf{q}_1 \diamond \mathbf{q}_2 )
+   + ( \mathbf{q}_1 \times \mathbf{q}_2 ),
+\end{align}
+where we have grouped terms according to three bilinear structures:
+\begin{itemize}[leftmargin=*]
+  \item a scalar (``Minkowski-like'') channel \(\mathbf{q}_1 * \mathbf{q}_2\),
+  \item a symmetric vector channel \(\mathbf{q}_1 \diamond \mathbf{q}_2\),
+  \item an axial/vortical vector channel \(\mathbf{q}_1 \times \mathbf{q}_2\).
+\end{itemize}
+Explicitly,
+\begin{align}
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  &= (x^0 y^0 \qh^2 + x^1 y^1 \hat{\imath}^2 + x^2 y^2 \hat{\jmath}^2
+      + x^3 y^3 \hat{k}^2) \nonumber\\
+  &\quad
+   + (x^0 y^1 \qh \hat{\imath} + x^0 y^2 \qh \hat{\jmath}
+      + x^0 y^3 \qh \hat{k}
+      + x^1 y^0 \hat{\imath} \qh + x^2 y^0 \hat{\jmath} \qh
+      + x^3 y^0 \hat{k} \qh) \nonumber\\
+  &\quad
+   + (x^1 y^2 \hat{\imath} \hat{\jmath}
+      + x^1 y^3 \hat{\imath} \hat{k}
+      + x^2 y^1 \hat{\jmath} \hat{\imath}
+      + x^2 y^3 \hat{\jmath} \hat{k}
+      + x^3 y^1 \hat{k} \hat{\imath}
+      + x^3 y^2 \hat{k} \hat{\jmath}).
+  \label{eq:q-product-expanded}
+\end{align}
+Using the multiplication rules, this can be written in a compact tensor-like form
+\[
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  = \sum_{\mu,\nu=0}^3
+    \bigl(
+      \color{red}{A_{\mu\nu}}\,\qh
+      + \color{green}{B_{\mu\nu}}
+      + \color{blue}{C_{\mu\nu}}
+    \bigr)\,x^\mu y^\nu,
+\]
+where the three \(4\times 4\) coefficient matrices are
+\begin{align}
+  \color{red}{A_{\mu\nu}}
+  &= \begin{pmatrix}
+       1 & 0 & 0 & 0 \\
+       0 & -1 & 0 & 0 \\
+       0 & 0 & -1 & 0 \\
+       0 & 0 & 0 & -1
+     \end{pmatrix},
+  \label{eq:A-matrix}\\[0.5em]
+  \color{green}{B_{\mu\nu}}
+  &= \begin{pmatrix}
+       0 & \hat{\imath} & \hat{\jmath} & \hat{k} \\
+       \hat{\imath} & 0 & 0 & 0 \\
+       \hat{\jmath} & 0 & 0 & 0 \\
+       \hat{k} & 0 & 0 & 0
+     \end{pmatrix},
+  \label{eq:B-matrix}\\[0.5em]
+  \color{blue}{C_{\mu\nu}}
+  &= \begin{pmatrix}
+       0 & 0 & 0 & 0 \\
+       0 & 0 & \hat{k} & -\hat{\jmath} \\
+       0 & -\hat{k} & 0 & \hat{\imath} \\
+       0 & \hat{\jmath} & -\hat{\imath} & 0
+     \end{pmatrix}.
+  \label{eq:C-matrix}
+\end{align}
+
+Equivalently, if we collect the scalar and vector parts explicitly, we recover
+the more familiar invariant decomposition
+\begin{align}
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  &= \Bigl(
+       \color{red}{x^0 y^0 - x^1 y^1 - x^2 y^2 - x^3 y^3}
+     \Bigr)\,\qh
+   \nonumber\\
+  &\quad
+   + \color{green}{\bigl(x^0 \bm y + y^0 \bm x\bigr)}
+   + \color{blue}{\bigl(\bm x \times \bm y\bigr)},
+  \label{eq:q-product-ABC-coords}
+\end{align}
+where \(\bm x = (x^1,x^2,x^3)\), \(\bm y = (y^1,y^2,y^3)\),
+and the colour coding is as in \cref{eq:A-matrix,eq:B-matrix,eq:C-matrix}:
+\begin{itemize}[leftmargin=*]
+  \item \(\color{red}{A_{\mu\nu}}\) is the Minkowski-like bilinear form
+  \(\mathrm{diag}(1,-1,-1,-1)\) acting on the coordinate vectors \(x^\mu,y^\nu\);
+  \item \(\color{green}{B_{\mu\nu}}\) collects the symmetric mixed products
+  between the scalar and vector components;
+  \item \(\color{blue}{C_{\mu\nu}}\) collects the antisymmetric products between
+  the spatial components, encoding the cross product \(\bm x \times \bm y\).
+\end{itemize}
+
+This tensor-like presentation makes explicit that the quaternion product can be
+viewed as the contraction of a rank-\((0,2)\) object with two four-vectors:
+\[
+  \mathbf{q}_1 \circ \mathbf{q}_2
+  = \bigl(\color{red}{A} + \color{green}{B} + \color{blue}{C}\bigr)_{\mu\nu}
+    x^\mu y^\nu,
+\]
+with a scalar (red), a symmetric vector-valued (green), and an antisymmetric
+vector-valued (blue) block.
+In the unimetrical setting we will reinterpret the scalar block
+\(\color{red}{A_{\mu\nu}}\) as the basic energy-like invariant, the symmetric
+block \(\color{green}{B_{\mu\nu}}\) as a current-like coupling, and the
+antisymmetric block \(\color{blue}{C_{\mu\nu}}\) as the vortical channel that
+underlies magnetic and gravitomagnetic fields.
 
 \subsection{Geometric interpretation of A, B, C}
-% TODO: Explain A as a Minkowski-like invariant,
-% \bm B as a ``current-like'' symmetric channel,
-% and \bm C as a vorticity (axial) channel.
+
+The decomposition \eqref{eq:q-product-ABC} plays a central role in what
+follows:
+\begin{itemize}[leftmargin=*]
+  \item The scalar form \(\color{red}{A}\) is a symmetric bilinear form of
+  signature \((+,-,-,-)\) when restricted to suitable unimetrical subspaces and
+  will be used as the basic energy-like invariant.
+  In the dressed setting it will produce both Newtonian and Coulomb potentials
+  from a single scalar channel.
+
+  \item The symmetric vector form \(\color{green}{\bm B}\) behaves like a
+  current-like quantity: it is linear in each argument and symmetric under
+  exchange.
+  When applied to dressed body quaternions, it will encode the coupling between
+  scalar (temporal) and vector (spatial) parts, and will be directly related to
+  mass and charge currents in the GEM field.
+
+  \item The axial vector form \(\color{blue}{\bm C}\) is purely imaginary and
+  antisymmetric.
+  It is built from the cross product of the spatial parts and therefore encodes
+  vorticity-like structures.
+  In the GEM interpretation it will be responsible for the magnetic and
+  gravitomagnetic sectors.
+
+\end{itemize}
+
+Thus the elementary quaternion product already contains, in a rigid algebraic
+way, the three channels that we will later reinterpret as (i) an energy-like
+scalar invariant, (ii) a current-like symmetric vector channel, and
+(iii) a vortical (axial) channel.
+In the next section we recall how unimetry associates physical flows and
+space--time structure to quaternions, so that the forms
+\(\color{red}{A}\), \(\color{green}{\bm B}\), and \(\color{blue}{\bm C}\) can
+be given a gravito--electromagnetic meaning.
+
 
 %==================== 3. Phase proto-space in unimetry ====================
 
@@ -325,6 +530,92 @@ and cosmological applications.
 %==================== 5. Metrically dressed body quaternions ====================
 
 \section{Metrically dressed body quaternions}
+
+\subsection{Free unit imaginary vector for isotropic Newtonian bodies}
+\label{subsec:free-unit-vector}
+
+In the metrically dressed setting we write the spatial part of a body quaternion
+as
+\[
+  \bm S_i = L_{G,i}\,\widehat{\bm n}_i,
+\]
+where \(\widehat{\bm n}_i\) is a unit spatial direction associated with body \(i\).
+For charged bodies it is natural to interpret \(\widehat{\bm n}_i\) as an
+intrinsic flow direction (e.g.\ an orientation of the underlying streamlet
+structure), which will in general produce non-trivial contributions in both
+the symmetric vector form \(\bm B\) and the vortical form \(\bm C\).
+
+For purely Newtonian, isotropic mass distributions, however, we may and should
+distinguish between an intrinsic direction and the \emph{interaction} direction.
+To reflect this, we introduce the notion of a \emph{free unit imaginary vector}
+for the gravitational channel.
+
+\begin{definition}[Free unit imaginary vector]
+  A free unit imaginary vector is a unit spatial quaternion
+  \(\widehat{\bm u}\in \Im\mathbb H\) whose orientation is not fixed by the
+  internal structure of the body, but is freely assigned at the level of the
+  interaction.
+  For an isotropic Newtonian body \(i\) we take the gravitational spatial part
+  of its dressed quaternion to be
+  \[
+    \bm S^{(G)}_i(\bm x)
+    := L_{G,i}\,\widehat{\bm u}_i(\bm x),
+  \]
+  where, for a field point \(\bm x\), the free unit vector is chosen to be
+  aligned with the radius vector from the body to that point,
+  \[
+    \widehat{\bm u}_i(\bm x) := \widehat{\bm r}_i(\bm x)
+    = \frac{\bm x - \bm x_i}{\|\bm x - \bm x_i\|}.
+  \]
+\end{definition}
+
+In other words, for an isotropic Newtonian source the gravitational channel of
+the dressed quaternion is always taken to be \emph{radial} with respect to the
+field point, and carries no intrinsic ``spin'' information. This has an
+important structural consequence for the bilinear forms.
+
+Consider two isotropic masses \(m_1,m_2\) at positions \(\bm x_1,\bm x_2\), and
+evaluate their gravitational spatial parts at a common field point \(\bm x\).
+By construction,
+\[
+  \bm S^{(G)}_1(\bm x) \parallel \widehat{\bm r}_1(\bm x),
+  \qquad
+  \bm S^{(G)}_2(\bm x) \parallel \widehat{\bm r}_2(\bm x).
+\]
+In the static two-body configuration the interaction is along the line joining
+the bodies, so that effectively
+\[
+  \bm S^{(G)}_1 \parallel \bm S^{(G)}_2,
+\]
+and therefore their contribution to the vortical form
+\[
+  \bm C(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)
+  = \bm S_1 \times \bm S_2
+\]
+vanishes in the purely gravitational, isotropic limit:
+\[
+  \bm C^{(G)} = \bm S^{(G)}_1 \times \bm S^{(G)}_2 = \bm 0.
+\]
+
+Thus, by assigning the gravitational spatial part of an isotropic body to a
+free unit imaginary vector that is always chosen radial, we ensure that:
+\begin{itemize}[leftmargin=*]
+  \item the gravitational interaction of isotropic masses is purely scalar and
+  radial, as in Newtonian gravity;
+  \item there is \emph{no} spurious contribution of the gravitational channel
+  to the vortical form \(\bm C\) in the static limit;
+  \item all non-trivial vortical contributions in \(\bm C\) are genuinely
+  associated with anisotropy and/or motion (currents), i.e.\ with the EM and
+  gravitomagnetic sectors rather than with static isotropic gravity.
+\end{itemize}
+
+In contrast, for charged bodies we will keep an intrinsic unit direction
+\(\widehat{\bm n}_i\) in the electric channel, which can contribute to both the
+symmetric form \(\bm B\) and the vortical form \(\bm C\).
+This separation between a free gravitational direction and an intrinsic
+electromagnetic direction will be important when we analyze the GEM field and
+its magnetic and gravitomagnetic components in \cref{sec:quat-gem-field,sec:drotors-dynamics}.
+
 
 \subsection{Dimensionless flow quaternion and dressed body quaternion}
 % TODO: Distinguish between a dimensionless flow quaternion \widehat{\mathsf q}

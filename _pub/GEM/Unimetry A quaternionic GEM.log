@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  29 NOV 2025 12:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  29 NOV 2025 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -802,6 +802,20 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 32.
 
+(d:/texlive/2022/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks45
+\thm@bodyfont=\toks46
+\thm@headfont=\toks47
+\thm@notefont=\toks48
+\thm@headpunct=\toks49
+\thm@preskip=\skip60
+\thm@postskip=\skip61
+\thm@headsep=\skip62
+\dth@everypar=\toks50
+)
+\c@definition=\count333
+
 (d:/texlive/2022/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2370.
@@ -815,6 +829,7 @@ LaTeX Info: Redefining \cpagerefrange on input line 2370.
 LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `amsthm' support loaded on input line 3026.
 Package cleveref Info: always capitalise cross-reference names on input line 78
 30.
 Package cleveref Info: include cross-reference names in hyperlinks on input lin
@@ -826,18 +841,18 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 )
 (d:/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip60
+\labelindent=\skip63
 \enit@outerparindent=\dimen291
-\enit@toks=\toks45
+\enit@toks=\toks51
 \enit@inbox=\box76
-\enit@count@id=\count333
-\enitdp@description=\count334
+\enit@count@id=\count334
+\enitdp@description=\count335
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 56
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 61
 .
 
 (d:/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
@@ -846,36 +861,36 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (./Unimetry A quaternionic GEM.aux)
 \openout1 = `"Unimetry A quaternionic GEM.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Info: Redefining \microtypecontext on input line 56.
-Package microtype Info: Applying patch `item' on input line 56.
-Package microtype Info: Applying patch `toc' on input line 56.
-Package microtype Info: Applying patch `eqnum' on input line 56.
-Package microtype Info: Applying patch `footnote' on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Info: Redefining \microtypecontext on input line 61.
+Package microtype Info: Applying patch `item' on input line 61.
+Package microtype Info: Applying patch `toc' on input line 61.
+Package microtype Info: Applying patch `eqnum' on input line 61.
+Package microtype Info: Applying patch `footnote' on input line 61.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 56.
+LaTeX Info: Redefining \showhyphens on input line 61.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -936,20 +951,20 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 56.
+or `english'. on input line 61.
  (d:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
+\scratchcounter=\count336
 \scratchdimen=\dimen292
 \scratchbox=\box77
-\nofMPsegments=\count336
-\nofMParguments=\count337
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count338
+\nofMPsegments=\count337
+\nofMParguments=\count338
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count339
 \MPscratchDim=\dimen293
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
-\everyMPtoPDFconversion=\toks47
+\MPnumerator=\count340
+\makeMPintoPDFobject=\count341
+\everyMPtoPDFconversion=\toks53
 ) (d:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -959,43 +974,43 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 56.
+Package hyperref Info: Link coloring ON on input line 61.
 
 (./Unimetry A quaternionic GEM.out) (./Unimetry A quaternionic GEM.out)
 \@outlinefile=\write4
 \openout4 = `"Unimetry A quaternionic GEM.out"'.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
-9.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 6
+4.
 
 (d:/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
-9.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6
+4.
 
 (d:/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-59.
+64.
 
 (d:/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-59.
+64.
 
 (d:/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 59.
+(Font)              <12> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 59.
+(Font)              <8> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 59.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
+(Font)              <6> on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
 
 
 (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1004,7 +1019,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (d:/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
 
 
 (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1013,18 +1028,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (d:/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
-9.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
+4.
 
 (d:/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 59.
+(Font)              <9> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 59.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-9.
+(Font)              <5> on input line 64.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
+4.
 
 (d:/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1036,7 +1051,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 (./Unimetry A quaternionic GEM.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 3.
+(Font)              <10.95> on input line 4.
  [1
 
 {d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
@@ -1045,7 +1060,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
  [2]
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-139.
+158.
  (d:/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1055,58 +1070,71 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 [3]
 
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-09.
-
-
 LaTeX Warning: Reference `sec:phase-protospace' on page 1 undefined on input li
-ne 213.
+ne 232.
 
 
 LaTeX Warning: Reference `sec:dressed-quats' on page 1 undefined on input line 
-217.
+236.
 
 
 LaTeX Warning: Reference `sec:bilinear-static-gem' on page 1 undefined on input
- line 219.
+ line 238.
 
 
 LaTeX Warning: Reference `sec:quat-gem-field' on page 1 undefined on input line
- 221.
+ 240.
 
 
 LaTeX Warning: Reference `sec:drotors-dynamics' on page 1 undefined on input li
-ne 225.
+ne 244.
 
 
 LaTeX Warning: Reference `sec:calibration-EB-Cphys' on page 1 undefined on inpu
-t line 228.
+t line 247.
 
 
 LaTeX Warning: Reference `sec:hamiltonians-lagrangians' on page 1 undefined on 
-input line 233.
+input line 252.
 
 
 LaTeX Warning: Reference `sec:maxwell-gem-comparison' on page 1 undefined on in
-put line 235.
+put line 254.
 
 
 LaTeX Warning: Reference `sec:discussion-conclusions' on page 1 undefined on in
-put line 237.
+put line 256.
+
+[4] [5] [6]
+
+LaTeX Warning: Reference `eq:q-product-ABC' on page 7 undefined on input line 4
+57.
+
+[7] [8]
+
+LaTeX Warning: Reference `sec:drotors-dynamics' on page 1 undefined on input li
+ne 617.
+
+
+LaTeX Warning: Reference `sec:quat-gem-field' on page 1 undefined on input line
+ 617.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 401.
+(Font)              <14.4> on input line 692.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 401.
+(Font)              <10> on input line 692.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 401.
-[4] [5]
-Overfull \vbox (608.8097pt too high) has occurred while \output is active []
+(Font)              <7> on input line 692.
+[9] [10]
+Overfull \vbox (177.35979pt too high) has occurred while \output is active []
 
 
-[6] (./Unimetry A quaternionic GEM.aux)
+[11] (./Unimetry A quaternionic GEM.aux)
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
 Package rerunfilecheck Warning: File `"Unimetry A quaternionic GEM".out' has ch
@@ -1116,35 +1144,19 @@ anged.
 
 Package rerunfilecheck Info: Checksums for `"Unimetry A quaternionic GEM".out':
 
-(rerunfilecheck)             Before: B258A4940058922E08DB02DDD8CF7DDB;14777
-(rerunfilecheck)             After:  7845DC2AAC6650679473A90A57A9A61B;15610.
+(rerunfilecheck)             Before: 48405A2CD9FE5CEF55EA59F8042F5BE5;15254
+(rerunfilecheck)             After:  5BE85CFCF843D6383CDFFBBD75E8FCB7;14951.
  ) 
 Here is how much of TeX's memory you used:
- 32715 strings out of 478037
- 660120 string characters out of 5843053
- 975080 words of memory out of 5000000
- 50318 multiletter control sequences out of 15000+600000
- 618835 words of font info for 244 fonts, out of 8000000 for 9000
+ 32846 strings out of 478037
+ 662078 string characters out of 5843053
+ 981547 words of memory out of 5000000
+ 50417 multiletter control sequences out of 15000+600000
+ 619925 words of font info for 256 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,85p,1026b,1090s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,85p,1026b,1104s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{subsection.8.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.1} has been referenced but does not ex
+pdfTeX warning (dest): name{subsection.3.4} has been referenced but does not ex
 ist, replaced by a fixed one
 
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{d:/texlive/2022/t
@@ -1167,10 +1179,10 @@ texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb><d:/texlive/2022/texmf
 -dist/fonts/type1/public/lm/lmsy10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/
 public/lm/lmtt9.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on "Unimetry A quaternionic GEM.pdf" (6 pages, 345189 bytes).
+Output written on "Unimetry A quaternionic GEM.pdf" (11 pages, 370111 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 411 compressed objects within 5 object streams
- 75 named destinations out of 1000 (max. 500000)
- 91093 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 441 compressed objects within 5 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 91109 words of extra memory for PDF output out of 106986 (max. 10000000)
 
