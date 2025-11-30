@@ -17,47 +17,48 @@
 \contentsline {subsection}{\numberline {4.4}Notation table}{10}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Flow calibrations and energy-like functionals}{10}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Flow parameter and phase frequencies}{10}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Kinematic (phase) calibration}{11}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Structural parameter and volumetric coefficient}{11}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Proper-time calibration and energy factorization}{12}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}From flow vector to flow quaternion}{13}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Scalar self-form $A(q,q)$ as kinematic factor}{14}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Metrically dressed body quaternions}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Free unit imaginary vector for isotropic Newtonian bodies}{14}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Dimensionless flow quaternion and dressed body quaternion}{17}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Lengths L\_E and L\_G: definitions and dimensional analysis}{17}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Self-form of a dressed quaternion and rest energy}{17}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Bilinear forms for dressed bodies and static GEM}{17}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Forms A, B, C for dressed body quaternions}{17}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Static interaction energy of two bodies}{17}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Multi-body field and linear regime}{17}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Quaternionic GEM field in the observable three-space}{17}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Distance as a purely imaginary quaternion}{17}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Potential-like object $\mathcal U_{\rm GEM}$}{17}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Field $\mathcal F_{\rm GEM}$ and extraction of potentials}{17}{subsection.8.3}%
-\contentsline {section}{\numberline {9}D-rotors and relativistic dynamics of GEM}{17}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Definition of the D-rotation and its action on a flow}{17}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Spatial rotors and invariance of A}{17}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Mixing of A and B channels under a D-rotation}{17}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Example configurations}{17}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Calibration of fields $\bm {E}$, $\bm {B}$ and the phase-vortical object $C_{\text {phys}}$}{17}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Electric field from the A-channel}{17}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}The vortical form C and the geometry of $C_{\text {geom}}$}{17}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Definition of $C_{\text {phys}}$ and relation to $\bm {B}$}{17}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Interpretation of $\varepsilon _0$, $\mu _0$ and volumetric stiffness of the vacuum}{17}{subsection.10.4}%
-\contentsline {section}{\numberline {11}Hamiltonians and Lagrangians of quaternionic GEM}{17}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Free-body Hamiltonian}{17}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Interaction Hamiltonian}{17}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Field Lagrangian in terms of A, B, C}{17}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Relation to Maxwell's equations and linearized GEM}{17}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Static equations and Poisson-type equations}{17}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Quasi-stationary regime and continuity equations}{17}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Comparison with the classical GEM formalism}{17}{subsection.12.3}%
-\contentsline {section}{\numberline {13}Discussion and conclusions}{17}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Summary of results}{17}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Limitations and open questions}{17}{subsection.13.2}%
-\contentsline {subsection}{\numberline {13.3}Perspectives}{17}{subsection.13.3}%
-\contentsline {section}{\numberline {A}Quaternion algebra and matrix representation (details)}{17}{appendix.A}%
-\contentsline {section}{\numberline {B}Extended notation table}{17}{appendix.B}%
-\contentsline {section}{\numberline {C}Dimensional analysis and numerical estimates}{17}{appendix.C}%
-\contentsline {section}{\numberline {D}D-rotors, Lorentz transformations and Wigner--Thomas rotation}{17}{appendix.D}%
+\contentsline {subsection}{\numberline {5.2}Cyclic origin of local time and proto-parameter speed}{11}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Kinematic (phase) calibration}{12}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Structural parameter and volumetric coefficient}{13}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Proper-time calibration and energy factorization}{14}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}From flow vector to flow quaternion}{15}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Scalar self-form $A(q,q)$ as kinematic factor}{15}{subsection.5.7}%
+\contentsline {section}{\numberline {6}Metrically dressed body quaternions}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Free unit imaginary vector for isotropic Newtonian bodies}{16}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Dimensionless flow quaternion and dressed body quaternion}{19}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Lengths L\_E and L\_G: definitions and dimensional analysis}{19}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Self-form of a dressed quaternion and rest energy}{19}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Bilinear forms for dressed bodies and static GEM}{19}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Forms A, B, C for dressed body quaternions}{19}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Static interaction energy of two bodies}{19}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Multi-body field and linear regime}{19}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Quaternionic GEM field in the observable three-space}{19}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Distance as a purely imaginary quaternion}{19}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Potential-like object $\mathcal U_{\rm GEM}$}{19}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Field $\mathcal F_{\rm GEM}$ and extraction of potentials}{19}{subsection.8.3}%
+\contentsline {section}{\numberline {9}D-rotors and relativistic dynamics of GEM}{19}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Definition of the D-rotation and its action on a flow}{19}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Spatial rotors and invariance of A}{19}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Mixing of A and B channels under a D-rotation}{19}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Example configurations}{19}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Calibration of fields $\bm {E}$, $\bm {B}$ and the phase-vortical object $C_{\text {phys}}$}{19}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Electric field from the A-channel}{19}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}The vortical form C and the geometry of $C_{\text {geom}}$}{19}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Definition of $C_{\text {phys}}$ and relation to $\bm {B}$}{19}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Interpretation of $\varepsilon _0$, $\mu _0$ and volumetric stiffness of the vacuum}{19}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Hamiltonians and Lagrangians of quaternionic GEM}{19}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Free-body Hamiltonian}{19}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Interaction Hamiltonian}{19}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Field Lagrangian in terms of A, B, C}{19}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Relation to Maxwell's equations and linearized GEM}{19}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Static equations and Poisson-type equations}{19}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Quasi-stationary regime and continuity equations}{19}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Comparison with the classical GEM formalism}{19}{subsection.12.3}%
+\contentsline {section}{\numberline {13}Discussion and conclusions}{19}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Summary of results}{19}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Limitations and open questions}{19}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Perspectives}{19}{subsection.13.3}%
+\contentsline {section}{\numberline {A}Quaternion algebra and matrix representation (details)}{19}{appendix.A}%
+\contentsline {section}{\numberline {B}Extended notation table}{19}{appendix.B}%
+\contentsline {section}{\numberline {C}Dimensional analysis and numerical estimates}{19}{appendix.C}%
+\contentsline {section}{\numberline {D}D-rotors, Lorentz transformations and Wigner--Thomas rotation}{19}{appendix.D}%

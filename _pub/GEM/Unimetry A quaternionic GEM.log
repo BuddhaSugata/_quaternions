@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  30 NOV 2025 09:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  30 NOV 2025 10:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1125,37 +1125,46 @@ LaTeX Warning: Reference `eq:interval-zeta' on page 10 undefined on input line
 
 [10] [11] [12] [13] [14]
 
+LaTeX Warning: Reference `eq:E-theta-k' on page 15 undefined on input line 1244
+.
+
+
+LaTeX Warning: Reference `eq:E-theta-k' on page 15 undefined on input line 1279
+.
+
+[15] [16]
+
 LaTeX Warning: Reference `sec:drotors-dynamics' on page 1 undefined on input li
-ne 1279.
+ne 1396.
 
 
 LaTeX Warning: Reference `sec:quat-gem-field' on page 1 undefined on input line
- 1279.
+ 1396.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 1354.
+(Font)              <14.4> on input line 1471.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1354.
+(Font)              <10> on input line 1471.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1354.
-[15] [16]
+(Font)              <7> on input line 1471.
+[17] [18]
 Overfull \vbox (177.35979pt too high) has occurred while \output is active []
 
 
-[17] (./Unimetry A quaternionic GEM.aux)
+[19] (./Unimetry A quaternionic GEM.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `"Unimetry A quaternionic GEM".out' has not c
 hanged.
-(rerunfilecheck)             Checksum: 94D38ED41E8E95016C5085D248C3DA75;16008.
+(rerunfilecheck)             Checksum: 52BE24E5271674E0ABDE17095F8925F7;16352.
  ) 
 Here is how much of TeX's memory you used:
- 33068 strings out of 478037
- 665599 string characters out of 5843053
+ 33100 strings out of 478037
+ 666157 string characters out of 5843053
  980547 words of memory out of 5000000
- 50523 multiletter control sequences out of 15000+600000
- 631314 words of font info for 290 fonts, out of 8000000 for 9000
+ 50539 multiletter control sequences out of 15000+600000
+ 631350 words of font info for 291 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,85p,1026b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{d:/texlive/2022/tex
@@ -1179,10 +1188,10 @@ f-dist/fonts/type1/public/lm/lmss10.pfb><d:/texlive/2022/texmf-dist/fonts/type1
 /public/lm/lmsy10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.p
 fb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><d:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Unimetry A quaternionic GEM.pdf" (17 pages, 462531 bytes).
+Output written on "Unimetry A quaternionic GEM.pdf" (19 pages, 468984 bytes).
 PDF statistics:
- 632 PDF objects out of 1000 (max. 8388607)
- 557 compressed objects within 6 object streams
- 131 named destinations out of 1000 (max. 500000)
- 97269 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 659 PDF objects out of 1000 (max. 8388607)
+ 582 compressed objects within 6 object streams
+ 145 named destinations out of 1000 (max. 500000)
+ 97277 words of extra memory for PDF output out of 106986 (max. 10000000)
 
