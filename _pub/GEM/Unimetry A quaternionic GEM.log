@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  30 NOV 2025 09:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  30 NOV 2025 09:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1123,26 +1123,21 @@ LaTeX Warning: Reference `eq:deltax-def' on page 10 undefined on input line 751
 LaTeX Warning: Reference `eq:interval-zeta' on page 10 undefined on input line 
 754.
 
-[10] [11]
-
-LaTeX Warning: Reference `eq:E0-and-m0' on page 12 undefined on input line 963.
-
-
-[12] [13] [14]
+[10] [11] [12] [13] [14]
 
 LaTeX Warning: Reference `sec:drotors-dynamics' on page 1 undefined on input li
-ne 1223.
+ne 1279.
 
 
 LaTeX Warning: Reference `sec:quat-gem-field' on page 1 undefined on input line
- 1223.
+ 1279.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 1298.
+(Font)              <14.4> on input line 1354.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1298.
+(Font)              <10> on input line 1354.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1298.
+(Font)              <7> on input line 1354.
 [15] [16]
 Overfull \vbox (177.35979pt too high) has occurred while \output is active []
 
@@ -1156,11 +1151,11 @@ hanged.
 (rerunfilecheck)             Checksum: 94D38ED41E8E95016C5085D248C3DA75;16008.
  ) 
 Here is how much of TeX's memory you used:
- 33051 strings out of 478037
- 665347 string characters out of 5843053
+ 33068 strings out of 478037
+ 665599 string characters out of 5843053
  980547 words of memory out of 5000000
- 50516 multiletter control sequences out of 15000+600000
- 630971 words of font info for 287 fonts, out of 8000000 for 9000
+ 50523 multiletter control sequences out of 15000+600000
+ 631314 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,85p,1026b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{d:/texlive/2022/tex
@@ -1184,10 +1179,10 @@ f-dist/fonts/type1/public/lm/lmss10.pfb><d:/texlive/2022/texmf-dist/fonts/type1
 /public/lm/lmsy10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.p
 fb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><d:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Unimetry A quaternionic GEM.pdf" (17 pages, 458349 bytes).
+Output written on "Unimetry A quaternionic GEM.pdf" (17 pages, 462531 bytes).
 PDF statistics:
- 627 PDF objects out of 1000 (max. 8388607)
- 552 compressed objects within 6 object streams
- 127 named destinations out of 1000 (max. 500000)
+ 632 PDF objects out of 1000 (max. 8388607)
+ 557 compressed objects within 6 object streams
+ 131 named destinations out of 1000 (max. 500000)
  97269 words of extra memory for PDF output out of 106986 (max. 10000000)
 

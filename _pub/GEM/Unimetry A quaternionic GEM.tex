@@ -765,7 +765,6 @@ quaternions suitable for the gravito--electromagnetic setting.
 
 
 %==================== 4. Calibrations of the flow and energy ====================
-
 \section{Flow calibrations and energy-like functionals}
 \label{sec:flow-calibrations}
 
@@ -885,7 +884,7 @@ A convenient way to visualize this is to consider a pair of circles in the
   measures the size of a single phase step \(\Delta\chi\);
   \item a ``time circle'' of radius \(R_2\) in the \(\tau\)-direction, along
   which the flow executes a cyclic motion with some characteristic proper-time
-  frequency \(\omega_\ast\) (units \(\mathrm{s}^{-1}\)).
+  angular frequency \(\omega_\ast\) (units \(\mathrm{s}^{-1}\)).
 \end{itemize}
 
 One full turn on the phase circle corresponds to a phase increment
@@ -895,7 +894,7 @@ One full turn on the time circle corresponds to a proper-time increment
   \Delta\tau = \frac{2\pi R_2}{\omega_\ast},
 \end{equation}
 since the circumference is \(2\pi R_2\) and the ``speed'' along the time
-circle is set by the angular frequency \(\omega_\ast\).
+circle is set by \(\omega_\ast\).
 
 In the high-frequency limit, when the phase step becomes small
 (\(R_1\to 0\)) and many cycles are accumulated, the effective frequency of
@@ -924,44 +923,98 @@ parameter \(\chi\) is accumulated per unit proper time \(\tau\) as the product
 of a geometric ratio \(k\) and a characteristic internal proper-time
 frequency \(\omega_\ast\).
 
+We model the cumulative effect of this structural rescaling on energy by a
+\emph{volumetric structural coefficient} \(\kappa(k)\).
+Since a rescaling of a characteristic length by a factor \(k\) changes a
+three-dimensional volume by \(k^3\), we take
+\begin{equation}
+  \kappa(k)
+  = \kappa_* \left(\frac{k}{k_*}\right)^{\!3},
+  \label{eq:kappa-of-k}
+\end{equation}
+where \(\kappa_*\) is a reference value at some fiducial structural state
+\(k=k_*\).
+Dimensional analysis then dictates that \(\kappa\) has units
+\begin{equation}
+  [\kappa] = \mathrm{kg\,s\,m^{-1}},
+  \label{eq:kappa-dim}
+\end{equation}
+so that the combination \(\kappa c^3\) has the dimension of energy:
+\[
+  [\kappa c^3] = \mathrm{kg\,m^2\,s^{-2}} = \mathrm{J}.
+\]
+
+We therefore define the \emph{structural rest energy} and associated rest mass
+by
+\begin{equation}
+  E_0(k)
+  := \kappa(k)\,\clight^3,
+  \qquad
+  m_0(k) := \frac{E_0(k)}{\clight^2} = \kappa(k)\,\clight.
+  \label{eq:E0-and-m0}
+\end{equation}
+For a fixed structural state \(k\) these reduce to constants
+\(E_0=\kappa(k)\clight^3\), \(m_0=\kappa(k)\clight\), while spatial variations
+of \(k\) would correspond to variations of the local rest energy and rest mass
+scale.
 
 \subsection{Proper-time calibration and energy factorization}
 \label{subsec:E-factorization}
 
-In the \emph{proper-time} calibration we parametrize the flow by the body's
+In the \emph{proper-time calibration} we parametrize the flow by the body's
 proper time \(\tau_B\).
-The relation between \(\chi\) and \(\tau_B\) is
+In the general unimetrical framework the rate at which proper time accumulates
+with respect to the flow parameter \(\chi\) is controlled by the body's
+intrinsic angle \(\zeta_B\) introduced in \cref{subsec:interval-SR}:
 \begin{equation}
-  \chi = \chi(\tau_B),
+  d\tau_B = \cos\zeta_B\,d\chi,
   \qquad
-  \frac{d\tau_B}{d\chi} = \cos\zeta_B,
-  \label{eq:chi-proper-time}
+  \frac{d\tau_B}{d\chi} = \cos\zeta_B.
+  \label{eq:dtau-dchi-zetaB}
 \end{equation}
-where \(\zeta_B\) is the intrinsic angle of the body (see
-\cref{subsec:interval-SR}).
-In an isotropic, purely kinematic situation we may align the intrinsic and
-kinematic angles and write \(\zeta_B=\vartheta\).
+Both \(\chi\) and \(\tau_B\) carry units of time, so \(\cos\zeta_B\) is a
+dimensionless factor determined by the second-moment structure of the
+streamlet ensemble (temporal moment \(T_B\) and spatial shape tensor
+\(\mathbf C_B\)).
 
-Along the worldline the proper-time phase frequency is
+At the same time, the kinematic calibration of
+\cref{subsec:phase-calibration} relates proper time to the laboratory time
+\(t\) via the kinematic angle \(\vartheta\):
 \begin{equation}
-  \omega_B
-  := \frac{d\Phi}{d\tau_B}
-  = \frac{d\Phi}{d\chi}\,\frac{d\chi}{d\tau_B}
-  = \omega_\chi\,\frac{1}{\cos\zeta_B},
-  \label{eq:omegaB-def}
+  \frac{d\tau_B}{dt}
+  = \cos\vartheta
+  = \sqrt{1-\beta^2},
+  \qquad
+  \gamma(\vartheta) = \frac{1}{\cos\vartheta}.
+  \label{eq:dtau-dt-theta}
 \end{equation}
-with \(\omega_\chi\) defined in \eqref{eq:omega-chi-def}.
-In the aligned isotropic case \(\zeta_B=\vartheta\) this becomes
-\[
-  \omega_B(\vartheta,k)
-  = \frac{\omega_0(k)}{\cos\vartheta},
-\]
-if we take \(\omega_\chi\) to be a structural reference frequency
-\(\omega_0(k)\) depending only on \(k\).
+Here \(\vartheta\) encodes the tilt of the macroscopic flow relative to the lab
+frame and should \emph{not} be confused with \(\zeta_B\): the latter is an
+intrinsic, statistical characteristic of the body's internal flow texture,
+while \(\vartheta\) is purely kinematic.
 
-Motivated by the relativistic relation \(E=m c^2 \gamma\), and using the
-structural scale \eqref{eq:E0-and-m0}, we \emph{define} the energy of the body
-in the state \((\vartheta,k)\) as
+In the full unimetrical theory the factors \(\zeta_B\), \(\vartheta\) (and, if
+present, a gravitational angle \(\phi\)) enter the proper-time rate in a
+factorized way.
+For the purposes of the present paper we will not attempt to decompose
+\(\zeta_B\) into ``internal'' and ``kinematic'' pieces.
+Instead we proceed as follows:
+\begin{itemize}[leftmargin=*]
+  \item the slowly varying intrinsic contribution encoded in \(\zeta_B\) is
+  absorbed into the \emph{structural} scale \(E_0(k)\) via the coefficient
+  \(\kappa(k)\) of \cref{subsec:struct-kappa};
+  \item the explicit dependence on the laboratory velocity is kept in the
+  purely kinematic factor \(\gamma(\vartheta)\).
+\end{itemize}
+
+Using the structural rest-energy scale
+\begin{equation}
+  E_0(k) := \kappa(k)\,\clight^3,
+  \qquad
+  m_0(k) := \kappa(k)\,\clight,
+  \label{eq:E0-m0-repeat}
+\end{equation}
+we \emph{define} the energy of the body in the state \((\vartheta,k)\) as
 \begin{equation}
   E(\vartheta,k)
   := \gamma(\vartheta)\,E_0(k)
@@ -973,12 +1026,15 @@ or equivalently
   E(\vartheta,k)
   = \gamma(\vartheta)\,m_0(k)\,\clight^2.
 \]
-Thus the energy factorizes into a purely kinematic factor \(\gamma(\vartheta)\)
-and a purely structural factor \(E_0(k)=\kappa(k)c^3\).
+Thus the energy factorizes into a \emph{purely kinematic} factor
+\(\gamma(\vartheta)\), coming from the macroscopic tilt of the body's flow in
+the lab frame, and a \emph{purely structural} factor
+\(E_0(k)=\kappa(k)c^3\), which encodes the intrinsic second-moment structure
+(via \(\zeta_B\)) and the internal cyclic geometry (via \(k\)).
 
 For small velocities \(\beta\ll 1\), using
-\(\cos\vartheta=\sqrt{1-\beta^2}\) and \(\gamma(\vartheta)=1/\cos\vartheta\)
-we recover the usual expansion
+\(\cos\vartheta=\sqrt{1-\beta^2}\) and \(\gamma(\vartheta)=1/\cos\vartheta\) we
+recover the usual expansion
 \begin{equation}
   E(\vartheta,k)
   = m_0(k)\,\clight^2
@@ -988,9 +1044,10 @@ we recover the usual expansion
   v = \clight\sin\vartheta.
   \label{eq:E-expansion}
 \end{equation}
-Hence the structurally generalized energy \eqref{eq:E-theta-k} retains the
-standard non-relativistic limit, while allowing the rest energy scale to vary
-with the structural parameter \(k\).
+Hence the structurally generalized energy retains the standard
+non-relativistic limit, while allowing the rest energy scale to vary with the
+intrinsic flow texture (through \(\zeta_B\) folded into \(\kappa(k)\)) and with
+the internal cyclic geometry (through \(k\)).
 
 \subsection{From flow vector to flow quaternion}
 \label{subsec:flow-to-quat}
@@ -1125,13 +1182,12 @@ In the gravito--electromagnetic construction below we will apply the same
 scalar form \(A\) not to unit flow quaternions, but to \emph{metrically
 dressed} body quaternions \(\widetilde{\mathsf q}_i\) that package mass and
 charge into effective lengths.
-The role of \(\kappa(k)\) will then be taken over by the dressing itself,
-while \(A(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)\) will directly
-generate Newtonian and Coulomb potentials.
-The vector forms \(\bm B\) and \(\bm C\) will provide, respectively, the
+For isotropic Newtonian bodies the spatial parts of these quaternions will be
+further restricted to multiples of the universal unit imaginary \(\uhat\)
+introduced in \cref{sec:quat-algebra}, so that all interaction channels reduce
+to a single radial direction.
+The vector forms \(\bm B\) and \(\bm C\) will then provide, respectively, the
 current-like and vortical channels of the gravito--electromagnetic field.
-
-
 
 %==================== 5. Metrically dressed body quaternions ====================
 

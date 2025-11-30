@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {5.3}Structural parameter and volumetric coefficient}{11}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Proper-time calibration and energy factorization}{12}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}From flow vector to flow quaternion}{13}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Scalar self-form $A(q,q)$ as kinematic factor}{13}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.6}Scalar self-form $A(q,q)$ as kinematic factor}{14}{subsection.5.6}%
 \contentsline {section}{\numberline {6}Metrically dressed body quaternions}{14}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Free unit imaginary vector for isotropic Newtonian bodies}{14}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Dimensionless flow quaternion and dressed body quaternion}{17}{subsection.6.2}%
