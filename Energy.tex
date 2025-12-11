@@ -184,6 +184,188 @@ Treat $\kappa(k)$ as a density on internal phase: local conservation takes the f
 \end{equation}
 where $\bm{J}$ is a phase\textendash space current; energy emerges as the charge of $\tau$\textendash translations.
 
+\subsection{Gravitational field as a rotor-of-rotors}
+\label{sec:grav-rotor-of-rotors}
+
+In this subsection we temporarily switch off the charge channel and keep only the spatial (mass–gravitational) part of the dressed body quaternion. The aim is to formulate a unimetric analogue of the Einsteinian ``equivalence of acceleration and gravity'' in the language of D–rotations of the flow.
+
+\subsubsection*{Assumptions and notation}
+
+We work in the Euclidean proto-space $(\mathcal E,\langle\cdot,\cdot\rangle)$ introduced in \S\ref{sec:proto-space}, with the following assumptions:
+\begin{enumerate}
+  \item The fundamental object is the normalized flow direction
+  \[
+    \widehat{\boldsymbol\chi}(x)\in S^3\subset\mathbb H,\qquad
+    \|\widehat{\boldsymbol\chi}(x)\|=1,
+  \]
+  and the physical flow vector is $\boldsymbol\chi := \clight\,\widehat{\boldsymbol\chi}$.
+  \item Each massive body $B$ is represented by a (dimensionless) unit body quaternion $q_B(x)\in S^3$, whose temporal and spatial channels encode, respectively, the temporal coefficient $T_B(x)$ and the spatial shape tensor $\mathbf C_B(x)$ as described in \S\ref{sec:objects}.
+  \item In the dressed-quaternion picture of GEM, the gravitational channel is carried by the spatial part of
+  \begin{equation}
+    \label{eq:dressed-q-mass-only}
+    \mathsf q_m
+    := \frac{m}{\sqrt{4\pi\varepsilon_G}}\,\widehat{\mathbf n},
+    \qquad
+    \varepsilon_G := \frac{1}{4\pi G},
+  \end{equation}
+  where $\widehat{\mathbf n}$ is a unit spatial direction of the flow and the charge channel (the temporal part proportional to $Q$) is set to zero for the purely gravitational sector.
+\end{enumerate}
+
+\subsubsection*{D--rotation as kinematic relative motion}
+
+We briefly recall the D--rotation used in the SR reformulation in \S\ref{sec:D-rotation}.
+
+Let $\widehat{\mathbf u}$ be a unit 3--vector in the observed spatial 3--manifold and let $\vartheta\in(0,\pi/2)$ be the kinematic angle between the body's flow and the observer's time axis. The corresponding D--rotor is the unit quaternion
+\begin{equation}
+  \label{eq:D-rotor-def}
+  d(\widehat{\mathbf u},\vartheta)
+  := \cos\frac{\vartheta}{2}
+    + \widehat{\mathbf u}\,\sin\frac{\vartheta}{2},
+  \qquad \|d\|=1.
+\end{equation}
+For any quaternion $q = T\,\hat h + \mathbf S$ the D--rotation acts as
+\begin{equation}
+  q' = d\,q\,d,
+\end{equation}
+which implements a Lorentz boost in the $(\hat h,\widehat{\mathbf u})$–plane. The kinematic relations are
+\begin{equation}
+  \beta := \frac{\|\mathbf v\|}{\clight} = \sin\vartheta,
+  \qquad
+  \gamma = \frac{1}{\sqrt{1-\beta^2}} = \sec\vartheta,
+\end{equation}
+and for the temporal coefficient $T_B$ of a single-stream body one has
+\begin{equation}
+  T_B = \cos^2\vartheta,
+  \qquad
+  \frac{d\tau}{dt} = \cos\vartheta,
+\end{equation}
+so that the D--rotation reproduces the standard SR time dilation.
+
+In particular, for a body whose rest-time axis is represented by the pure temporal quaternion $\hat h$, its flow quaternion in the laboratory frame is
+\begin{equation}
+  \label{eq:q-from-D}
+  q_B(\tau) = D(\tau)\,\hat h\,D(\tau),
+\end{equation}
+where $D(\tau)$ is the D--rotor determined by the body's instantaneous relative velocity with respect to the laboratory frame at proper time~$\tau$.
+
+\subsubsection*{Gravitational field as a rotor acting on D--rotors}
+
+Einstein's equivalence principle states that, locally, a homogeneous gravitational field is indistinguishable from uniform acceleration. In the unimetric language we adopt the following formulation:
+
+\begin{quote}
+  \emph{The gravitational field is represented by a field of rotors that acts on the D--rotors describing kinematic motion.}
+\end{quote}
+
+More precisely, let $D(x)$ be the D--rotor that maps the local rest frame of a freely falling observer into the laboratory frame at point $x\in\mathcal E$. We define the \emph{gravitational rotor connection} as the quaternion--valued 1--form
+\begin{equation}
+  \label{eq:grav-connection}
+  \mathcal A_a(x)
+  := 2\,(\partial_a D(x))\,D(x)^{-1},
+\end{equation}
+where $a$ is an index in the proto-space (or, equivalently, in the induced 4--manifold) and $D(x)^{-1}=\overline{D(x)}$ since $D(x)$ is unit.
+
+Under an infinitesimal displacement $dx^a$ one has
+\begin{equation}
+  D(x+dx)
+  \approx \Big(1 + \tfrac12 \mathcal A_a(x)\,dx^a\Big)D(x),
+\end{equation}
+so that $\mathcal A_a$ plays the role of a ``rotor-of-rotors'': it rotates the D--rotor that encodes the local kinematic state.
+
+Along a timelike worldline $\gamma:\tau\mapsto x(\tau)$ the total change of the D--rotor is governed by the \emph{gravitational angular velocity} quaternion
+\begin{equation}
+  \label{eq:Omega-g-def}
+  \Omega_g(\tau)
+  := \mathcal A_a(x(\tau))\,\frac{dx^a}{d\tau},
+\end{equation}
+so that
+\begin{equation}
+  \frac{dD}{d\tau}
+  = \frac{1}{2}\,\Omega_g(\tau)\,D(\tau)
+\end{equation}
+in pure free fall. In the absence of gravitational field we have $\mathcal A_a\equiv 0$ and $D(\tau)$ is constant (uniform inertial motion).
+
+The equivalence principle is then expressed as the statement that in a sufficiently small neighbourhood of any point $x_0$ one can choose a freely falling frame $I(x)$ (another rotor field) such that
+\begin{equation}
+  D_{\rm loc}(x) := I(x)^{-1} D(x)
+\end{equation}
+satisfies
+\begin{equation}
+  \left.\frac{dD_{\rm loc}}{d\tau}\right|_{x_0} = 0,
+\end{equation}
+i.e.\ the gravitational contribution to $\Omega_g$ is locally gauged away by an appropriate choice of $I(x)$, leaving pure SR kinematics.
+
+The curvature of the gravitational rotor connection is given by the quaternion--valued 2--form
+\begin{equation}
+  \label{eq:grav-curv}
+  \mathcal F_{ab}
+  := \partial_a\mathcal A_b - \partial_b\mathcal A_a
+     + \frac{1}{2}\big[\mathcal A_a,\mathcal A_b\big],
+\end{equation}
+which encodes tidal effects and frame precession, in direct analogy with the Riemann tensor in the metric formulation and with field-strength tensors in gauge theory.
+
+\subsubsection*{Example: electron in a weak gravitational field}
+
+Consider an electron with rest mass $m_e$ and charge $Q_e=-e$. In the GEM picture its dressed quaternion is
+\begin{equation}
+  \mathsf q_e
+  = \frac{Q_e}{\sqrt{4\pi\varepsilon_0}}\,\hat h
+    + \frac{m_e}{\sqrt{4\pi\varepsilon_G}}\,\widehat{\mathbf n}_e,
+  \qquad \varepsilon_G = \frac{1}{4\pi G}.
+\end{equation}
+For the purely gravitational sector we ``switch off'' the charge interaction by setting $Q_e=0$ in the interaction bilinear, but the electron still carries its internal temporal channel in the rest frame through the intrinsic angle $\zeta_e$; in particular, its Compton frequency
+\begin{equation}
+  \omega_{0,e} = \frac{m_e \clight^2}{\hbar}
+\end{equation}
+sets the rest-frame phase flow of the corresponding streamlet.
+
+Let the electron move in a weak, static gravitational field described by a rotor connection $\mathcal A_a(x)$ that is purely ``vertical'' in some adapted chart (e.g.\ $\mathcal A_0\approx 0$, $\mathcal A_z\neq 0$). Along the electron worldline $x(\tau)$ the D--rotor $D(\tau)$ evolves according to
+\begin{equation}
+  \frac{dD}{d\tau}
+  = \frac{1}{2}\,\Omega_g(\tau)\,D(\tau),
+  \qquad
+  \Omega_g(\tau) = \mathcal A_a(x(\tau))\,\frac{dx^a}{d\tau}.
+\end{equation}
+The effective clock angle $\zeta(\tau)$ entering the temporal coefficient $T_B(\tau)=\cos^2\zeta(\tau)$ and the time-dilation relation
+\begin{equation}
+  \frac{d\tau}{dt} = \cos\zeta(\tau)
+\end{equation}
+is thus influenced by the gravitational rotor field via the evolution of $D(\tau)$. The electron's observed phase frequency in the laboratory frame is
+\begin{equation}
+  \omega_e^{\rm (lab)}(\tau)
+  = \omega_{0,e}\,\frac{d\tau}{dt}
+  = \omega_{0,e}\,\cos\zeta(\tau),
+\end{equation}
+so that the usual gravitational and kinematic time dilations are both realised as consequences of the rotation of the D--rotor under the action of $\Omega_g(\tau)$.
+
+\subsubsection*{Example: neutral massive body as a pure gravitational flow}
+
+Consider now a neutral macroscopic body of mass $m$ with no net charge, $Q=0$. Its dressed quaternion is purely spatial,
+\begin{equation}
+  \mathsf q_m
+  = \frac{m}{\sqrt{4\pi\varepsilon_G}}\,\widehat{\mathbf n}_m,
+\end{equation}
+and the GEM interaction bilinear reduces to the Newtonian term
+\begin{equation}
+  \mathcal I(\mathsf q_{m,1},\mathsf q_{m,2})
+  = -\,G\,m_1 m_2.
+\end{equation}
+
+Let the body be initially at rest in the laboratory frame, so that $D(\tau_0)=1$ and $q_B(\tau_0)=\hat h$. When the body is released in a gravitational field characterised by a rotor connection $\mathcal A_a(x)$, its D--rotor obeys
+\begin{equation}
+  \label{eq:free-fall-D}
+  \frac{dD}{d\tau}
+  = \frac{1}{2}\,\Omega_g(\tau)\,D(\tau),
+\end{equation}
+with $\Omega_g$ given by \eqref{eq:Omega-g-def}. The spatial projection of the flow quaternion
+\begin{equation}
+  q_B(\tau) = D(\tau)\,\hat h\,D(\tau)
+  = T_B(\tau)\,\hat h + \mathbf S_B(\tau)
+\end{equation}
+acquires a non-zero part $\mathbf S_B(\tau)$, which in the non-relativistic limit corresponds to the usual 3--velocity $\mathbf v(\tau)$ induced by gravitational acceleration.
+
+At the same time, the temporal coefficient $T_B(\tau)=\cos^2\zeta(\tau)$ decreases from its rest value, encoding the gravitational time dilation of the body's proper time. In this way, the entire effect of gravity on a neutral massive body is captured by the rotor field $\mathcal A_a(x)$ acting on the D--rotor $D(\tau)$, i.e.\ by a field of rotors acting on rotors, fully in the spirit of the equivalence principle.
+
+
 \section{Verification and Predictions}
 \begin{enumerate}
   \item High\textendash $Q$ cavity: trapped field energy and pressure ($T^{ii}$) increase weight by $(E+\text{pressure term})/c^2$.
