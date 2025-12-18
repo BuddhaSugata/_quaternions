@@ -5,6 +5,8 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{bm}
 \usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
 
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\ImH}{\mathrm{Im}\,\mathbb{H}}
@@ -14,7 +16,7 @@
 \newcommand{\Snd}[2]{#1\,#2\,#1^{-1}} % sandwich with inverse (ordinary)
 
 \title{\textbf{Unimetry: Quaternion Phase Space}\\
-{\large Extension to quaternions and two rotation types}}
+{\large The D-Rotation and Tangent Parametrization}}
 \author{}
 \date{}
 
@@ -22,107 +24,73 @@
 \maketitle
 
 \begin{abstract}
-We introduce a quaternion extension of the unimetry phase formalism. An object's proto-parameter is represented by a quaternion
-\(\chi=\tilde S+\uu\,\tilde L\in\HH\) with \(\|\uu\|=1\). We distinguish two sandwich actions: (i) the \emph{ordinary} rotation \(X\mapsto qXq^{-1}\), which rotates vectors within the imaginary quaternion 3-space \(\ImH\); and (ii) the \emph{real--imaginary} D-rotation \(Z\mapsto rZr\) in the plane \(\mathrm{span}\{1,\uu\}\). We show that D-rotation provides a simple model for how nonzero ``speed'' reshapes \(\ImH\): the subspace orthogonal to \(\uu\) is isotropically squeezed by a factor \(1/\gamma\) while the pair \((1,\uu)\) undergoes a standard planar rotation by angle \(\alpha\) with \(\tan\alpha=\beta\).
+We formulate the kinematic core of Unimetry using the quaternion D-rotation $Z \mapsto rZr$ acting on the phase state $\chi$.
+We adopt the \emph{tangent parametrization} $\beta = \tan\vartheta$, which maps the physical light cone to the geometric angle $\vartheta = \pi/4$.
+We demonstrate that the D-rotation naturally induces \textbf{longitudinal contraction} (scaling the axis of motion by $\cos\vartheta$) and \textbf{transverse invariance}, providing an algebraic realization of relativistic kinematics within a Euclidean phase space substrate.
 \end{abstract}
 
-\section{Quaternion phase space}
-Let \(\uu\in\ImH\) be a unit imaginary quaternion (\(\uu^2=-1\)). Represent the state (proto-parameter) of an object as
+\section{Quaternion Phase State}
+Let $\uu \in \ImH$ be a unit imaginary quaternion ($\uu^2 = -1$) representing the direction of motion.
+We represent the phase state (proto-parameter) as a quaternion:
 \begin{equation}
-  \chi \;=\; \tilde S + \uu\,\tilde L \;\in\; \HH,\qquad
-  \tilde H := |\chi| = \sqrt{\tilde S^2+\tilde L^2}.
+  \chi \;=\; \tilde S + \uu\,\tilde L \;\in\; \mathrm{span}\{1, \uu\} \subset \HH.
 \end{equation}
-Projectivizing forgets the overall scale \(\tilde H\): use homogeneous coordinates \([\tilde S:\tilde L]\in\mathbb{RP}^1\) and define
-\(\theta=\arctan(\tilde L/\tilde S)\). Convenient kinematic parameters are
+We define the kinematic angle $\vartheta$ via the projective slope of the state components:
 \begin{equation}
-  \beta := \sin\theta,\qquad
-  \gamma := \frac{1}{\cos\theta}.
+  \beta \;:=\; \tan\vartheta \;=\; \frac{\tilde L}{\tilde S}.
 \end{equation}
-It is also useful to set \(\tan\alpha=\beta\), so that \(\cos\alpha=1/\gamma\) and \(\sin\alpha=\beta/\gamma\).
+In this parametrization, the ``speed of light'' corresponds to $\beta=1$ ($\vartheta=\pi/4$), consistent with the null cone of the projector-based metric $g = 2NN - \delta$.
 
-\section{Ordinary rotation in \texorpdfstring{\(\ImH\)}{Im H}}
-Let \(q\in SU(2)=\{q\in\HH\mid |q|=1\}\), and \(X\in\ImH\).
-The ordinary (3D) rotation acts by the \emph{inverse} sandwich:
+\section{The D-Rotation}
+We distinguish two actions of unit quaternions on the algebra:
+\begin{enumerate}
+    \item \textbf{Ordinary Rotation (Form B):} $X \mapsto q X q^{-1}$. This rotates vectors within $\ImH$ and preserves the scalar part.
+    \item \textbf{D-Rotation (Form A):} $Z \mapsto r Z r$. This is a fundamental operation of the algebra that mixes scalar and vector parts.
+\end{enumerate}
+
+Let $r$ be the rotor encoding a boost of angle $\vartheta$:
 \begin{equation}
-  X \mapsto X' = \Snd{q}{X} = q\,X\,q^{-1},\qquad |X'|=|X|.
+  r(\vartheta) \;=\; e^{\frac{\vartheta}{2}\uu} \;=\; \cos\frac{\vartheta}{2} + \uu\sin\frac{\vartheta}{2}.
 \end{equation}
-Its (infinitesimal) generator is the imaginary quaternion \(\Omega_H=2\,q^{-1}\dot q\in\ImH\), yielding \(\dot X = \Omega_H\times X\).
-We include this branch only for contrast with the D-rotation below.
 
-\section{D-rotation in \texorpdfstring{\(\mathrm{span}\{1,\uu\}\)}{span\{1,u\}}}
-Define the \emph{real--imaginary} D-rotation as
+\section{Action on Space: Longitudinal Contraction}
+Consider a spatial vector $X \in \ImH$. Decompose it into longitudinal ($X_\parallel \parallel \uu$) and transverse ($X_\perp \perp \uu$) components.
+Applying the D-rotation $Z' = rZr$:
+
+\paragraph{1. Transverse Invariance}
+For any vector $X_\perp$ orthogonal to $\uu$, the action simplifies to identity:
 \begin{equation}
-  Z \mapsto Z' = \Sand{r}{Z} = r\,Z\,r,\qquad
-  r:=e^{\frac{\alpha}{2}\,\uu}=\cos\frac{\alpha}{2}+\uu\sin\frac{\alpha}{2},\quad |r|=1.
+  r X_\perp r \;=\; \left(\cos\tfrac{\vartheta}{2} + \uu\sin\tfrac{\vartheta}{2}\right) X_\perp \left(\cos\tfrac{\vartheta}{2} + \uu\sin\tfrac{\vartheta}{2}\right) \;=\; X_\perp.
 \end{equation}
-Since \(|r|=1\), the norm is preserved for any \(Z\in\HH\).
+(Using the anticommutation $\uu X_\perp = - X_\perp \uu$).
+Thus, \textbf{transverse lengths are invariant}, matching standard relativity.
 
-\medskip
-\noindent\textbf{Action on imaginary vectors.}
-Take \(X\in\ImH\) and decompose \(X=X_\parallel+X_\perp\), where
-\(X_\parallel=(X\!\cdot\!\uu)\,\uu\) and \(X_\perp\perp\uu\).
-Then
-\begin{equation}\label{eq:D-on-imag}
-  \boxed{\ \Im(\Sand{r}{X}) \;=\; X_\parallel \;+\; \cos\alpha\,X_\perp\ },\qquad
-  \Scal(\Sand{r}{X}) \;=\; -\,\sin\alpha\ (X\!\cdot\!\uu).
-\end{equation}
-\emph{Sketch.} Verify \eqref{eq:D-on-imag} on the basis
-\(\{\,\uu,\ \mathbf e_1,\ \mathbf e_2\,\}\) with \(\mathbf e_{1,2}\perp\uu\),
-using linearity and the closed-form identities for \(r\,\uu\,r\) and \(r\,\mathbf e_i\,r\).
-\(\square\)
-
-\medskip
-\noindent Thus the pair \((1,\uu)\) undergoes an ordinary planar rotation by \(\alpha\) (as in the complex case),
-while the entire orthogonal plane \(\uu^\perp\subset\ImH\) is \emph{isotropically scaled} by \(\cos\alpha\).
-
-\section{Relating D-angle to ``speed''}
-With
+\paragraph{2. Longitudinal Squeeze}
+For the parallel component $X_\parallel$ (commuting with $\uu$):
 \begin{equation}
-  \tan\alpha=\beta,\qquad
-  \cos\alpha=\frac{1}{\gamma},\qquad
-  \sin\alpha=\frac{\beta}{\gamma},
+  r X_\parallel r \;=\; X_\parallel r^2 \;=\; X_\parallel e^{\vartheta\uu} \;=\; X_\parallel (\cos\vartheta + \uu\sin\vartheta).
 \end{equation}
-formula \eqref{eq:D-on-imag} becomes
-\begin{equation}\label{eq:gamma-squeeze}
-  \Im(\Sand{r}{X}) \;=\; X_\parallel \;+\; \frac{1}{\gamma}\,X_\perp.
-\end{equation}
-Hence D-rotation \emph{squeezes} the imaginary quaternion 3-space in directions orthogonal to \(\uu\) by the factor \(1/\gamma\).
-This provides a minimal geometric model of how a nonzero ``speed'' reshapes \(\ImH\).
+Separating the result into vector and scalar parts:
+\begin{align}
+  \Im(\Sand{r}{X_\parallel}) \;&=\; X_\parallel \cos\vartheta, \\
+  \Scal(\Sand{r}{X_\parallel}) \;&=\; -\|X_\parallel\| \sin\vartheta.
+\end{align}
+The vector part undergoes \textbf{isotropic scaling} by $\cos\vartheta$.
 
-\section{Evolution of \texorpdfstring{\(\chi\)}{chi} and projective coordinates}
-For \(\chi=\tilde S+\uu\tilde L\),
+\paragraph{Summary of Spatial Action}
+The projection of the D-rotation onto the spatial section $\ImH$ is:
 \begin{equation}
-  \chi'=\Sand{r}{\chi} \quad\Longleftrightarrow\quad
-  \begin{pmatrix}\tilde S'\\ \tilde L'\end{pmatrix}
-  =
-  \begin{pmatrix}
-    \cos\alpha & -\sin\alpha\\
-    \sin\alpha & \ \cos\alpha
-  \end{pmatrix}
-  \begin{pmatrix}\tilde S\\ \tilde L\end{pmatrix},\qquad
-  \tilde H'=|\chi'|=\tilde H.
+  \boxed{\ \Im(rXr) \;=\; X_\perp \;+\; X_\parallel \cos\vartheta\ }.
 \end{equation}
-In projective coordinates \([\tilde S:\tilde L]\in\mathbb{RP}^1\), this is a rotation by \(\alpha\):
-it rebalances the temporal and spatial shares at fixed \(\tilde H\).
+This algebraically realizes \textbf{Lorentz contraction}: the dimension along the motion is squeezed, while perpendicular dimensions are preserved.
 
-\section{Minimal example (axis \texorpdfstring{\(z\)}{z})}
-Let \(\uu=\mathbf e_z\), and \(X=(\sin\Theta\cos\Phi,\sin\Theta\sin\Phi,\cos\Theta)\).
-From \eqref{eq:gamma-squeeze},
+\section{Correspondence to Physical Kinematics}
+The algebraic squeeze factor is $k = \cos\vartheta$.
+Using the tangent parametrization $\beta = \tan\vartheta$:
 \begin{equation}
-  X'=\Im(\Sand{r}{X})
-  = \Big(\frac{1}{\gamma}\sin\Theta\cos\Phi,\ \frac{1}{\gamma}\sin\Theta\sin\Phi,\ \cos\Theta\Big),
-  \quad\text{followed by normalization } \frac{X'}{\|X'\|}.
+  k \;=\; \cos\vartheta \;=\; \frac{1}{\sqrt{1+\beta^2}}.
 \end{equation}
-Special cases: (i) \(X\parallel\uu\Rightarrow X'=X\);
-(ii) \(X\perp\uu\Rightarrow X'=\frac{1}{\gamma}X\) (before normalization).
-This is precisely the ``aberration-like'' geometric effect in \(\ImH\) induced by D-rotation.
-
-\section{Remarks}
-\begin{itemize}
-  \item Both actions, \(\Snd{q}{X}\) and \(\Sand{r}{Z}\), are norm-preserving (since \(|q|=|r|=1\)), but they act on different structures:
-  the former rotates within \(\ImH\), the latter rotates the mixed plane \(\mathrm{span}\{1,\uu\}\) and scales \(\uu^\perp\).
-  \item Choosing \(\tan\alpha=\beta\) is convenient because \(\cos\alpha=1/\gamma\) appears directly as the squeeze factor of \(\uu^\perp\).
-  \item If desired, energy/momentum calibrations can be attached via \(\tilde S=\tilde H\cos\theta\) and \(\tilde L=\tilde H\sin\theta\) without introducing additional objects.
-\end{itemize}
+While standard SR predicts $k_{SR} = \sqrt{1-\beta^2}$, the D-rotation provides the correct \emph{geometric form} (longitudinal contraction).
+The exact Lorentz factor $\gamma_{SR}$ is recovered by considering the induced metric invariant $ds^2 \propto \cos 2\vartheta$, which implies a physical time dilation of $\sqrt{1-\tan^2\vartheta}$ relative to the Euclidean background.
 
 \end{document}

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  7 DEC 2025 13:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  8 DEC 2025 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).tex"
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).tex
+**"Unimetry A Phase-Space Reformulation of Special Relativity (rev.4).tex"
+(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.4).tex
 LaTeX2e <2022-06-01> patch level 3
 L3 programming layer <2022-06-16>
 (d:/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -845,8 +845,9 @@ File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count335
 \l__pdf_internal_box=\box85
 )
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).aux)
-\openout1 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.2
+No file "Unimetry A Phase-Space Reformulation of Special Relativity (rev.4)".au
+x.
+\openout1 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.4
 ).aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
@@ -867,7 +868,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
 LaTeX Font Info:    ... okay on input line 69.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
 LaTeX Font Info:    ... okay on input line 69.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -922,11 +922,8 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 Package hyperref Info: Link coloring OFF on input line 69.
-
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).out)
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).out)
 \@outlinefile=\write4
-\openout4 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.2
+\openout4 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.4
 ).out"'.
 
 
@@ -983,85 +980,408 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
  [1
 
-{d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+{d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Reference `eq:phase-gauge' on page 2 undefined on input line 142
+.
+
+
+LaTeX Warning: Reference `sec:calibration-c' on page 2 undefined on input line 
+163.
+
+[2
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.190 
-      ] [3
+l.167 \]
+        ] [3]
+
+LaTeX Warning: Reference `eq:body-self-metric' on page 4 undefined on input lin
+e 309.
+
+[4
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.212 \begin{equation}
-                      ] [4] [5] [6] [7] [8]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 574
+l.315 
+      ]
+
+LaTeX Warning: Reference `eq:body-self-metric' on page 5 undefined on input lin
+e 316.
+
+
+LaTeX Warning: Reference `eq:TB-CB' on page 5 undefined on input line 320.
+
+
+LaTeX Warning: Reference `eq:alpha-cycle' on page 5 undefined on input line 325
 .
 
-(d:/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
+
+LaTeX Warning: Reference `eq:calib-null' on page 5 undefined on input line 339.
+
+
+
+LaTeX Warning: Reference `eq:TB-CB' on page 5 undefined on input line 352.
+
+
+LaTeX Warning: Reference `eq:flow-norm-c' on page 5 undefined on input line 353
+.
+
+
+LaTeX Warning: Reference `eq:body-self-metric' on page 5 undefined on input lin
+e 358.
+
+
+LaTeX Warning: Reference `eq:calib-null' on page 5 undefined on input line 363.
+
+
+
+LaTeX Warning: Reference `sec:intrinsic-angle' on page 5 undefined on input lin
+e 374.
+
+
+LaTeX Warning: Reference `eq:flow-norm-c' on page 5 undefined on input line 375
+.
+
+
+LaTeX Warning: Reference `eq:proj-calibrated' on page 5 undefined on input line
+ 376.
+
+
+LaTeX Warning: Reference `eq:TB-CB' on page 5 undefined on input line 382.
+
+[5]
+
+LaTeX Warning: Reference `eq:body-self-metric' on page 6 undefined on input lin
+e 394.
+
+
+LaTeX Warning: Reference `eq:body-self-metric' on page 6 undefined on input lin
+e 422.
+
+
+LaTeX Warning: Reference `eq:zeta-tilt' on page 6 undefined on input line 422.
+
+
+LaTeX Warning: Reference `eq:TB-CB' on page 6 undefined on input line 438.
+
+
+LaTeX Warning: Reference `eq:zeta-def' on page 6 undefined on input line 441.
+
+
+LaTeX Warning: Reference `eq:zeta-tilt' on page 6 undefined on input line 442.
+
+
+LaTeX Warning: Reference `eq:zeta-def' on page 6 undefined on input line 454.
+
+
+LaTeX Warning: Reference `eq:zeta-tilt' on page 6 undefined on input line 466.
+
+[6]
+
+LaTeX Warning: Reference `sec:minkowski-derivation' on page 7 undefined on inpu
+t line 472.
+
+[7]
+
+LaTeX Warning: Citation `Hopf1931' on page 8 undefined on input line 565.
+
+
+LaTeX Warning: Citation `Wigner1939' on page 8 undefined on input line 565.
+
+
+LaTeX Warning: Citation `Thomas1926' on page 8 undefined on input line 565.
+
+[8]
+
+LaTeX Warning: Citation `Hamilton1844' on page 9 undefined on input line 606.
+
+
+LaTeX Warning: Citation `HestenesSobczyk1984' on page 9 undefined on input line
+ 606.
+
+
+LaTeX Warning: Citation `DoranLasenby2003' on page 9 undefined on input line 60
+6.
+
+[9]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 652
+.
+ (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 (d:/texlive/2022/texmf-dist/tex/latex/microtype/mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
-) [9
+) [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.585 
-      ] [10] [11
+l.667 \newpage
+              ]
+
+LaTeX Warning: Citation `Gudermann1830' on page 11 undefined on input line 720.
+
+
+[11]
+
+LaTeX Warning: Reference `subsec:wigner' on page 12 undefined on input line 751
+.
+
+
+LaTeX Warning: Reference `app:1' on page 12 undefined on input line 751.
+
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.731 \FloatBarrier
-                   ] [12
+l.822 \]
+        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.810 \subsection
-                 *{Canonical cases}] [13
+l.822 \]
+        ]
+
+LaTeX Warning: Reference `sec:calibration-c' on page 13 undefined on input line
+ 823.
+
+
+LaTeX Warning: Reference `sec:minkowski-derivation' on page 13 undefined on inp
+ut line 833.
+
+
+LaTeX Warning: Reference `eq:phase-rates' on page 13 undefined on input line 86
+3.
+
+
+LaTeX Warning: Reference `sec:intrinsic-angle' on page 13 undefined on input li
+ne 875.
+
+
+LaTeX Warning: Reference `eq:phase-rates' on page 13 undefined on input line 87
+6.
+
+
+LaTeX Warning: Reference `eq:phase-integral-map' on page 13 undefined on input 
+line 879.
+
+
+LaTeX Warning: Reference `sec:body' on page 13 undefined on input line 887.
+
+
+LaTeX Warning: Reference `sec:intrinsic-angle' on page 13 undefined on input li
+ne 887.
+
+
+LaTeX Warning: Reference `sec:calibration-c' on page 13 undefined on input line
+ 887.
+
+
+LaTeX Warning: Reference `sec:phase-deriv' on page 13 undefined on input line 8
+87.
+
+
+LaTeX Warning: Reference `eq:calib-null' on page 13 undefined on input line 891
+.
+
+
+LaTeX Warning: Reference `ch:optics' on page 13 undefined on input line 896.
+
+[13]
+
+LaTeX Warning: Reference `ch:optics' on page 14 undefined on input line 905.
+
+
+LaTeX Warning: Reference `eq:TB-CB' on page 14 undefined on input line 910.
+
+
+LaTeX Warning: Reference `subsec:wigner' on page 14 undefined on input line 914
+.
+
+
+LaTeX Warning: Reference `subsec:thomas' on page 14 undefined on input line 914
+.
+
+
+LaTeX Warning: Reference `sec:calibration-c' on page 14 undefined on input line
+ 924.
+
+
+LaTeX Warning: Reference `sec:minkowski-derivation' on page 14 undefined on inp
+ut line 924.
+
+
+LaTeX Warning: Reference `sec:phase-rates' on page 14 undefined on input line 9
+27.
+
+
+LaTeX Warning: Reference `eq:phase-rates' on page 14 undefined on input line 93
+3.
+
+
+LaTeX Warning: Reference `eq:phase-budget-identity' on page 14 undefined on inp
+ut line 941.
+
+
+LaTeX Warning: Reference `eq:param-change' on page 14 undefined on input line 9
+60.
+
+
+LaTeX Warning: Reference `subsec-1-5-sr-simplification' on page 14 undefined on
+ input line 970.
+
+
+LaTeX Warning: Reference `sec:operational-phase' on page 14 undefined on input 
+line 972.
+
+
+LaTeX Warning: Reference `eq:phase-minkowski-equality' on page 14 undefined on 
+input line 976.
+
+
+LaTeX Warning: Reference `sec:calibration-c' on page 14 undefined on input line
+ 983.
+
+[14
 pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.879 \end{equation}
+l.987 \end{equation}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.879 \end{equation}
-                    ] [14]
+l.987 \end{equation}
+                    ]
 
-LaTeX Warning: Reference `eq:doppler-finite-deriv' on page 15 undefined on inpu
-t line 1015.
+LaTeX Warning: Reference `eq:calib-null' on page 15 undefined on input line 989
+.
 
-[15] [16] [17]
-Underfull \hbox (badness 1014) in paragraph at lines 1162--1163
+
+LaTeX Warning: Reference `eq:photon-null' on page 15 undefined on input line 10
+01.
+
+
+LaTeX Warning: Reference `eq:doppler-core-master' on page 15 undefined on input
+ line 1042.
+
+
+LaTeX Warning: Reference `eq:gudermann' on page 15 undefined on input line 1051
+.
+
+[15]
+
+LaTeX Warning: Reference `eq:z-factorization' on page 16 undefined on input lin
+e 1082.
+
+
+LaTeX Warning: Reference `eq:doppler-core-los' on page 16 undefined on input li
+ne 1083.
+
+
+LaTeX Warning: Reference `eq:doppler-core-long' on page 16 undefined on input l
+ine 1094.
+
+
+LaTeX Warning: Reference `eq:doppler-inf-long' on page 16 undefined on input li
+ne 1095.
+
+
+LaTeX Warning: Reference `eq:phase-minkowski-equality' on page 16 undefined on 
+input line 1117.
+
+
+LaTeX Warning: Reference `eq:photon-null' on page 16 undefined on input line 11
+17.
+
+
+LaTeX Warning: Reference `eq:photon-affine' on page 16 undefined on input line 
+1117.
+
+
+LaTeX Warning: Reference `eq:doppler-inf-long' on page 16 undefined on input li
+ne 1118.
+
+
+LaTeX Warning: Reference `eq:doppler-inf-los' on page 16 undefined on input lin
+e 1118.
+
+
+LaTeX Warning: Reference `eq:time-rate-factor' on page 16 undefined on input li
+ne 1147.
+
+
+LaTeX Warning: Reference `eq:optical-length' on page 16 undefined on input line
+ 1147.
+
+[16]
+
+LaTeX Warning: Reference `eq:optical-length' on page 17 undefined on input line
+ 1152.
+
+
+LaTeX Warning: Reference `eq:time-rate-factor' on page 17 undefined on input li
+ne 1157.
+
+
+LaTeX Warning: Reference `eq:time-rate-factor' on page 17 undefined on input li
+ne 1159.
+
+
+LaTeX Warning: Reference `eq:tau-factorization' on page 17 undefined on input l
+ine 1192.
+
+
+LaTeX Warning: Reference `eq:z-factorization' on page 17 undefined on input lin
+e 1192.
+
+[17] [18]
+Underfull \hbox (badness 1014) in paragraph at lines 1241--1242
 []\OT1/cmr/m/n/10.95 (+20) L. H. Thomas, ``The Mo-tion of the Spin-ning Elec-tr
 on,'' \OT1/cmr/m/it/10.95 (+20) Na-ture \OT1/cmr/bx/n/10.95 (+20) 117 \OT1/cmr/
 m/n/10.95 (+20) (1926) 514.
  []
 
-[18] [19]
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.2).aux)
+[19]
+
+LaTeX Warning: Reference `eq:uni-phi' on page 20 undefined on input line 1321.
+
+
+LaTeX Warning: Citation `Gudermann1830' on page 20 undefined on input line 1329
+.
+
+[20] (./Unimetry A Phase-Space Reformulation of Special Relativity (rev.4).aux)
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `"Unimetry A Phase-Space Reformulation of Spe
-cial Relativity (rev.2)".out' has not changed.
-(rerunfilecheck)             Checksum: DD3B089E1D815437E06903E15CC5A966;5854.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `"Unimetry A Phase-Space Reformulation of 
+Special Relativity (rev.4)".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Unimetry A Phase-Space Reformulati
+on of Special Relativity (rev.4)".out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  DD3B089E1D815437E06903E15CC5A966;5854.
  ) 
 Here is how much of TeX's memory you used:
- 33655 strings out of 478037
- 683270 string characters out of 5843053
- 1017948 words of memory out of 5000000
- 51138 multiletter control sequences out of 15000+600000
- 492189 words of font info for 206 fonts, out of 8000000 for 9000
+ 33620 strings out of 478037
+ 682285 string characters out of 5843053
+ 1010174 words of memory out of 5000000
+ 51105 multiletter control sequences out of 15000+600000
+ 491728 words of font info for 206 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,18n,104p,1369b,947s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/tex
@@ -1091,10 +1411,10 @@ cmtt10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10
 /texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/texlive/2
 022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
 Output written on "Unimetry A Phase-Space Reformulation of Special Relativity (
-rev.2).pdf" (19 pages, 437894 bytes).
+rev.4).pdf" (20 pages, 435523 bytes).
 PDF statistics:
- 654 PDF objects out of 1000 (max. 8388607)
- 547 compressed objects within 6 object streams
- 183 named destinations out of 1000 (max. 500000)
- 44437 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 484 PDF objects out of 1000 (max. 8388607)
+ 378 compressed objects within 4 object streams
+ 185 named destinations out of 1000 (max. 500000)
+ 42141 words of extra memory for PDF output out of 42996 (max. 10000000)
 

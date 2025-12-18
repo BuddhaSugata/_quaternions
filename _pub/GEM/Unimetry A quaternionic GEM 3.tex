@@ -764,60 +764,32 @@ quaternions suitable for the gravito--electromagnetic setting.
 
 
 %==================== 4. Calibrations of the flow and energy ====================
+
 \section{Flow calibrations and energy-like functionals}
 \label{sec:flow-calibrations}
 
-In the unimetrical picture a physical body \(B\) is represented by a flow line
-\(\gamma_B:\chi\mapsto X(\chi)\) in the Euclidean proto--space \(\Espace\).
-The proto--parameter \(\chi\) is taken to have the dimension of time,
+In the unimetrical picture, physical bodies are represented by flows of
+constant Euclidean speed \(\clight\) in the proto-space \(\Espace\), while the
+phase potential \(\Phi\) provides a dimensionless scalar structure along these
+flows.
+To connect this geometric description to observable kinematics and to
+energy-like quantities, we need to relate the flow parameter to time
+coordinates and to introduce a structural scale.
+This section introduces two complementary calibrations of the flow parameter
+and shows how they lead to a factorized expression for energy, which will later
+be recast in quaternionic terms.
+
+\subsection{Flow parameter and phase frequencies}
+\label{subsec:chi-and-phi}
+
+Let \(\gamma:\chi\mapsto X(\chi)\) be a flow line in \(\Espace\).
+We take the flow parameter \(\chi\) to have units of time,
 \[
   [\chi] = \mathrm{s},
 \]
-and the geometric flow vector
-\[
-  \boldsymbol\chi := \frac{dX}{d\chi}
-\]
-has Euclidean norm \(\|\boldsymbol\chi\|=\clight\).
-Thus each body is a curve of \emph{constant Euclidean speed}~\(\clight\) in
-\(\Espace\); only the direction of the flow can vary.
-
-On top of this geometric flow we introduce a dimensionless scalar field
-(the \emph{phase potential}) \(\Phi\) pulled back to each flow line.
-Taken together, \((X(\chi),\Phi(\chi))\) will be used to reconstruct both
-observable kinematics and energy--like quantities.
-
-From the unimetrical point of view it is convenient to isolate two scalar
-invariants associated with the flow:
-
-\begin{enumerate}
-  \item the \emph{geometric invariant}, namely the Euclidean norm of the
-        normalized proto--velocity
-        \(\widehat{\boldsymbol\chi}:=\boldsymbol\chi/\clight\), which is fixed
-        to \(\|\widehat{\boldsymbol\chi}\|\equiv 1\);
-  \item the \emph{scalar flow invariant}, namely a scalar quantity
-        \(H_B(\chi)\) accumulated along the flow whose rate
-        \(\dot H_B := dH_B/d\tau_B\) with respect to the body's proper time
-        \(\tau_B\) is invariant under unimetrical \(D\)--rotations.
-\end{enumerate}
-
-The first invariant is purely geometric and underlies the appearance of the
-Minkowski metric and of standard Lorentz kinematics.
-The second is structural: it depends on the internal streamlet content of the
-body and will supply the absolute energy scale (rest energy and mass) for that
-body.
-
-The goal of this section is to make these two invariants explicit and to show
-how two complementary calibrations of the flow --- a \emph{geometric
-(kinematic)} calibration and a \emph{structural (cyclic)} calibration ---
-lead to a factorized expression for energy.
-Later this expression will be rewritten in quaternionic form.
-
-\subsection{Flow parameter, phase potential, and phase frequency}
-\label{subsec:chi-and-phi}
-
-Along a given flow line \(\gamma_B\) we assume that the phase potential
-\(\Phi\) is a smooth function of the proto--parameter~\(\chi\).
-We define the \emph{phase frequency} per unit~\(\chi\) by
+and we assume that along the worldline of a given body \(B\) the phase
+potential \(\Phi\) depends smoothly on \(\chi\).
+We define the \emph{phase frequency} per unit \(\chi\) by
 \begin{equation}
   \omega_\chi(\chi)
   := \frac{d\Phi}{d\chi},
@@ -825,221 +797,238 @@ We define the \emph{phase frequency} per unit~\(\chi\) by
   [\omega_\chi] = \mathrm{s}^{-1}.
   \label{eq:omega-chi-def}
 \end{equation}
-In a convenient gauge one may regard \(\omega_\chi\) as constant along the
-worldline of \(B\), so that \(\Phi(\chi)=\omega_\chi\chi\), but no particular
-gauge choice is needed in what follows.
-The product \(\omega_\chi\chi\) is always dimensionless.
+In many situations it is convenient to consider a gauge in which
+\(\omega_\chi\) is constant along the worldline of a given body; in that case
+\(\Phi(\chi)=\omega_\chi\,\chi\).
+The product \(\omega_\chi \chi\) is always dimensionless.
 
-To keep track of the ``amount of flow'' accumulated along \(\gamma_B\) we also
-introduce a scalar function \(H_B(\chi)\) and define it by
-\[
-  \frac{dH_B}{d\chi} := \widetilde{\mathcal H}_B(\chi),
-\]
-where the \emph{proto--space speed per unit~\(\chi\)} is
-\[
-  \widetilde{\mathcal H}_B(\chi)
-  := \bigl\|\widehat{\boldsymbol\chi}(\chi)\bigr\|
-  = 1.
-\]
-The last equality is simply the unimetrical normalization of the flow.
-With this choice,
-\[
-  H_B(\chi) = \chi + \text{const},
-\]
-so that \(H_B\) and \(\chi\) carry the same dimension and differ only by an
-irrelevant additive constant.
-It is nevertheless convenient to keep \(H_B\) explicit, because its
-\emph{proper--time} rate
-\[
-  \dot H_B := \frac{dH_B}{d\tau_B}
-\]
-will be used as the second invariant of the body \(B\).
+The geometric flow vector \(\boldsymbol\chi\) is normalized by
+\(\|\boldsymbol\chi\|\equiv\clight\), cf.\ \eqref{eq:chi-phys-def}, so that the
+flow is a unit-speed (with respect to \(\clight\)) curve in proto-space.
+The different calibrations introduced below relate \(\chi\) to observable
+time parameters and thus furnish a bridge between the proto-space flow and
+physical time measurements.
 
-\subsection{Geometric vs structural calibration of the flow}
+\subsection{Kinematic vs structural calibration of the flow}
 \label{subsec:kin-vs-struct}
 
-The two scalar invariants just described admit two complementary ways of
-``calibrating'' the flow.
+The unimetrical framework admits two complementary ways of calibrating the
+flow, which correspond to two different physical questions.
 
-\paragraph{Geometric (kinematic) calibration.}
-In the geometric calibration we fix the magnitude of the proto--velocity by
-\[
-  \bigl\|\boldsymbol\chi\bigr\|
-  = \clight,
-\]
-or equivalently \(\|\widehat{\boldsymbol\chi}\|\equiv 1\), and we regard
-only its \emph{direction} in \(T_X\Espace\) as dynamical.
-Choosing a temporal axis \(\hat{\bm u}\) for a given observer, the direction
-of the flow is then characterized by a kinematic angle \(\vartheta\) between
-\(\widehat{\boldsymbol\chi}\) and \(\hat{\bm u}\).
-As reviewed below, the associated family of unimetrical \(D\)--rotations
-reproduces standard Lorentz kinematics: time dilation, length contraction,
-and Wigner--Thomas rotations.
+\paragraph{Kinematic calibration.}
+In the first calibration we fix the magnitude of the flow vector in proto-space
+by \eqref{eq:chi-phys-def}.
 
-In this calibration the internal streamlet content of a Newtonian body is not
-resolved.
-The body is treated as a featureless point flow of fixed Euclidean speed
-\(\clight\), and only the redistribution of that speed between the temporal
-axis and one spatial direction is taken into account.
+Geometrically this means that the flow moves with Euclidean speed \(c\) in
+\(\Espace\), and only its direction is allowed to change.
+The kinematic angle \(\vartheta\) then describes how the flow is tilted between
+the temporal axis and a single spatial direction, and the resulting family of
+quaternionic \(D\)-rotations reproduces the usual Lorentz kinematics of special
+relativity: time dilation, length contraction, and Wigner--Thomas rotations.
 
-\paragraph{Structural (cyclic) calibration.}
-In the structural calibration we probe the internal architecture of the body.
-Rather than using the magnitude of \(\boldsymbol\chi\) as our reference, we
-use the scalar flow \(H_B\) and its proper--time rate \(\dot H_B\).
+This calibration effectively collapses the internal structure of a Newtonian
+body: the body is treated as a featureless point flow.
+We see how the total flow is redistributed between ``time'' and one spatial
+direction, but we do not resolve the internal ensemble of streamlets inside the
+body.
 
-Conceptually, we picture the body as an ensemble of streamlets whose
-normalized proto--velocities are distributed around the body's own temporal
-axis.
-The second moment of this distribution defines an \emph{intrinsic
-angle}~\(\zeta_B\) and an associated temporal share
-\(\widetilde X_0^2 = \cos^2\zeta_B\) of the unit flow, as discussed in
-\cref{subsec:interval-SR}.
-The same internal structure also supports two cyclic coordinates extracted
-from the flow: a global phase coordinate~\(\chi\) and the body's proper
-time~\(\tau_B\).
+\paragraph{Structural (energetic) calibration.}
+To access the internal structure of a Newtonian body --- viewed as a collection
+of streamlets --- we adopt a different calibration.
+Instead of fixing $\|\boldsymbol\chi\|$, we treat the full \emph{cyclic flow}
+of the body as invariant and let the geometry of its internal cycle vary.
 
-In this cyclic picture the scalar flow rate \(\dot H_B\) is fixed by the
-geometry of the internal cycles and by the temporal share of the flow:
-\[
-  \dot H_B
-  = \frac{dH_B}{d\tau_B}
-  = \frac{dH_B}{d\chi}\,\frac{d\chi}{d\tau_B}
-  = \widetilde{\mathcal H}_B\,\frac{d\chi}{d\tau_B}
-  = \frac{d\chi}{d\tau_B},
-\]
-where we used \(dH_B/d\chi = \widetilde{\mathcal H}_B\equiv 1\).
-Thus in the structural calibration the second invariant of the body is
-equivalently the rate \(\dot\chi_B := d\chi/d\tau_B\) at which the global
-phase parameter accumulates with respect to proper time.
+Conceptually, one may introduce a primary flow parameter $s$ along the
+streamlets. The global phase $\chi=\chi(s)$ and the proper time
+$\tau=\tau(s)$ are then two cyclic coordinates extracted from the same flow.
+In the cyclic picture there are two characteristic radii: a ``phase''
+radius $R_1$ for the $\chi$--cycle and a ``temporal'' radius $R_2$ for the
+local-time cycle. The normalized proto-velocity has temporal share
+$\widetilde X_0=\cos\zeta_B$, so that the component of the flow tangent to
+either cycle is proportional to $\widetilde X_0$.
 
-The next subsection makes this cyclic construction explicit and expresses
-\(\dot\chi_B\) in terms of a geometric ratio \(k_B\) and the temporal share
-\(\widetilde X_0^2 = \cos^2\zeta_B\) of the flow.
+Operationally, local time is defined through the rate at which the
+phase coordinate advances:
+\begin{equation}
+  \dot\chi := \frac{d\chi}{d\tau}
+  = \frac{d\chi/ds}{d\tau/ds},
+\end{equation}
+where $\tau$ is the body's proper time.
+When both the phase cycle and the time cycle are taken along the flow
+direction, the same projection factor $\widetilde X_0$ affects them in
+\emph{dual} ways:
+
+\begin{itemize}
+  \item the phase increment per full flow loop scales as
+        $\Delta\chi \propto R_1\,\widetilde X_0$, because the angular
+        speed along the phase circle is proportional to the tangential
+        component of the proto-velocity;
+  \item the proper-time increment is defined as the \emph{period} of the
+        internal clock, $\Delta\tau = 1/\nu$, with frequency
+        $\nu \propto \widetilde X_0$; hence
+        $\Delta\tau \propto R_2 / \widetilde X_0$.
+\end{itemize}
+
+Taking the ratio we obtain
+\begin{equation}
+  \dot\chi
+  = \frac{d\chi}{d\tau}
+  \sim \frac{\Delta\chi}{\Delta\tau}
+  \propto
+  \frac{R_1\,\widetilde X_0}{R_2/\widetilde X_0}
+  = \frac{R_1}{R_2}\,\widetilde X_0^2.
+\end{equation}
+Thus, in the structural calibration we write
+\begin{equation}
+  \dot\chi = k\,\widetilde X_0^2,
+\end{equation}
+where the dimensionless structural parameter
+$k := R_1/R_2$ characterizes the geometry of the internal cycle.
+The quantity $\dot\chi$ measures how many ``phase steps'' $\chi$ are
+performed per unit proper time and serves as a natural structural invariant
+of the body.
+
+We now demand that the full magnitude of the flow in local time,
+$\dot{\mathcal H}$, remain invariant under changes of the temporal projection
+$\widetilde X_0$ of the proto-velocity.
+This condition fixes the relation between $k$ and $\widetilde X_0$ and allows
+us to interpret $\dot\chi$ (up to a universal conversion factor) as a
+mass-like parameter of the body.
+The kinematic redistribution of the flow between temporal and spatial
+directions of observer is then encoded by the $D$-rotations, while the structural
+parameter $\dot\chi$ captures the invariant ``cyclic strength'' of the
+Newtonian body.
+
+In the quaternionic language that follows, this calibration is reflected in the
+fact that the scalar self-form $A(q,q)$ on a dressed body quaternion plays
+the role of a Lagrangian-like functional, whereas the Euclidean self-form
+$E(q,q)$ yields a Hamiltonian-like functional, i.e.\ the full energy of the
+body in this structural channel.
+
+
 
 \subsection{Cyclic origin of local time and proto-parameter speed}
 \label{subsec:cyclic-time}
 
-We now make explicit the unimetrical assumption that local time arises from a
-cyclic action of the flow along a compactified temporal axis.
-For simplicity we model the geometry of this internal motion by two circles in
-the \((\chi,\tau_B)\)-plane.
+We now make explicit a key unimetrical assumption: local time arises from a
+cyclic action of the flow along a compactified temporal axis \(x_0\).
+For simplicity we model the geometry of this axis by a circle of variable
+radius and show how the ratio between the proto-parameter \(\chi\) and the
+proper time \(\tau\) emerges as a frequency.
 
+Consider two circles in the \((\chi,\tau)\)-plane:
 \begin{itemize}[leftmargin=*]
-  \item A \emph{phase circle} of radius \(R_1\) in the \(\chi\)-direction.
-        One full turn corresponds to a phase increment
-        \(\Delta\chi = 2\pi R_1\).
-  \item A \emph{time circle} of radius \(R_2\) in the \(\tau_B\)-direction.
-        Along this circle the flow executes a cyclic motion with some
-        characteristic proper--time angular frequency \(\omega_\ast\)
-        (units \(\mathrm{s}^{-1}\)).
-        One full turn corresponds to a proper--time increment
-\begin{equation}
-  \Delta\tau_B = \frac{2\pi R_2}{\omega_\ast}.
-\end{equation}
+  \item a ``phase circle'' of radius \(R_1\) in the \(\chi\)-direction,
+  representing one phase step \(\Delta\chi = 2\pi R_1\);
+  \item a ``time circle'' of radius \(R_2\) in the \(\tau\)-direction, along
+  which the flow advances with a characteristic proto-space speed
+  component \(\widetilde X_0\) along the temporal axis.
 \end{itemize}
-
-The discrete frequency of phase ticks with respect to proper time is then
+One full turn along the time circle then corresponds to a proper-time
+increment
+\begin{equation}
+  \Delta\tau = \frac{2\pi R_2}{\widetilde X_0}.
+\end{equation}
+The frequency of phase ticks with respect to proper time is
 \begin{equation}
   \nu
-  := \frac{\Delta\chi}{\Delta\tau_B}
-   = \frac{2\pi R_1}{2\pi R_2/\omega_\ast}
-   = \underbrace{\frac{R_1}{R_2}}_{=:k_B}\,\omega_\ast.
-  \label{eq:nu-k-omega}
-\end{equation}
-Here \(k_B:=R_1/R_2\) is a dimensionless \emph{structural ratio} that encodes
-the geometry of the conjugate cycles of body \(B\):
-\begin{equation}
-  k_B := \frac{R_1}{R_2}.
-  \label{eq:k-R1-R2}
-\end{equation}
-In the high--frequency limit \(R_1\to 0\), when many cycles are accumulated,
-the discrete ratio becomes a derivative and we obtain
-\begin{equation}
-  \nu \;\xrightarrow{R_1\to 0}\;
-  \frac{d\chi}{d\tau_B}
-  =: \dot\chi_B
-  = k_B\,\omega_\ast.
-  \label{eq:chi-dot-k-omega}
-\end{equation}
-
-To connect \(\omega_\ast\) to the internal flow structure we now use the
-streamlet picture.
-In the rest frame of \(B\) the normalized proto--velocity of each streamlet
-has temporal component
-\[
-  \widetilde X_0 = \cos\zeta_B,
-\]
-where the intrinsic angle \(\zeta_B\) is defined from the second moment of the
-streamlet ensemble, see \cref{subsec:interval-SR}.
-The simplest isotropic ansatz is that the proper--time angular frequency of
-the internal cycle is proportional to the \emph{temporal share of the unit
-flow},
-\[
-  \omega_\ast \propto \widetilde X_0^2 = \cos^2\zeta_B.
-\]
-Choosing the proportionality constant as part of the definition of \(k_B\), we
-can write
-\begin{equation}
-  \omega_\ast = \widetilde X_0^2 = \cos^2\zeta_B,
-\end{equation}
-so that \eqref{eq:chi-dot-k-omega} becomes
-\begin{equation}
-  \dot\chi_B
-  = \frac{d\chi}{d\tau_B}
-  = k_B\,\widetilde X_0^2
-  = k_B\cos^2\zeta_B.
-  \label{eq:chi-dot-k-X0tilde}
-\end{equation}
-Equivalently, at the discrete level
-\begin{equation}
-  \nu
-  := \frac{\Delta\chi}{\Delta\tau_B}
-  = k_B\,\widetilde X_0^2
-  = k_B\cos^2\zeta_B.
+  := \frac{\Delta\chi}{\Delta\tau}
+   = \frac{2\pi R_1}{2\pi R_2/\widetilde X_0}
+   = \underbrace{\frac{R_1}{R_2}}_{=:k}\,\widetilde X_0.
   \label{eq:nu-k-X0tilde}
 \end{equation}
-
-Since \(dH_B/d\chi\equiv 1\), the proper--time rate of the scalar flow is
+In the high-frequency limit \(R_1\to 0\) the discrete ratio becomes a
+derivative and we obtain
 \begin{equation}
-  \dot H_B
-  := \frac{dH_B}{d\tau_B}
-   = \frac{dH_B}{d\chi}\,\frac{d\chi}{d\tau_B}
-   = \dot\chi_B
-   = k_B\,\widetilde X_0^2
-   = k_B\cos^2\zeta_B.
+  \nu \;\xrightarrow{R_1\to 0}\;
+  \frac{d\chi}{d\tau}
+  =: \dot\chi
+  \quad\Rightarrow\quad
+  \boxed{\dot\chi = k\,\widetilde X_0},
+  \label{eq:chi-dot-k-X0tilde}
+\end{equation}
+with dimensionless rate \(\dot\chi\) and dimensionless structural ratio
+\(k=R_1/R_2\).
+This is the fundamental relation between the accumulation of the proto-parameter
+\(\chi\) and the proper time \(\tau\): local time is the frequency of phase
+ticks generated by the cyclic flow along the compactified temporal axis.
+
+The same geometric picture yields a conversion factor between proto-space
+velocities (measured per unit \(\chi\)) and velocities measured per unit
+proper time.
+Let \(\widetilde{\mathcal H}\) be the Euclidean norm of the proto-space flow
+per unit \(\chi\), with components \(\widetilde X_\mu\).
+Using the chain rule we have
+\begin{equation}
+  \dot{\mathcal H}
+  := \frac{d\mathcal H}{d\tau}
+   = \frac{d\mathcal H}{d\chi}\,\frac{d\chi}{d\tau}
+   = \widetilde{\mathcal H}\,\dot\chi.
   \label{eq:Hdot-chain-rule}
 \end{equation}
-Thus in the structural calibration the second invariant of body \(B\) can be
-written in several equivalent ways:
+Imposing the unimetrical calibration in which the magnitude of the proto-space
+flow equals its temporal component,
 \begin{equation}
-  \boxed{
-  \dot H_B
-  = \dot\chi_B
-  = k_B\,\widetilde X_0^2
-  = k_B\cos^2\zeta_B
-  =: \Lambda_B,
-  }
+  \widetilde{\mathcal H} = \widetilde X_0,
+\end{equation}
+and using \eqref{eq:chi-dot-k-X0tilde} we obtain
+\begin{equation}
+  \dot{\mathcal H}
+  = k\,\widetilde X_0^2.
   \label{eq:Hdot-k-X0tilde2}
 \end{equation}
-where the last equality merely introduces a convenient shorthand
-\(\Lambda_B\) for the invariant scalar flow rate.
-By construction this quantity is unchanged under unimetrical \(D\)--rotations
-between observers:
+This quantity \(\dot{\mathcal H}\) can be interpreted as the full flow
+magnitude in local time: it measures how fast the flow advances in proto-space
+per unit proper time.
+
+Requiring that the full magnitude of the flow in local time be preserved under
+rotations of the proto-space velocity (i.e.\ under changes of the temporal
+projection \(\widetilde X_0\)) leads to the constraint
 \begin{equation}
-  \Lambda_B
-  = k_B\,\widetilde X_0^2
-  = \text{const for body }B.
+  k = \widetilde X_0^{-2},
   \label{eq:k-X0tilde-invariance}
 \end{equation}
+so that \(\dot{\mathcal H}\) becomes a universal constant.
+In physical units this constant is identified with the speed of light:
+\begin{equation}
+  \dot{\mathcal H} = \clight
+  \quad\Longleftrightarrow\quad
+  \text{the speed of light is the invariant magnitude of the flow in local
+  time.}
+\end{equation}
+In this sense the constancy of \(\clight\) is reinterpreted as the constancy
+of the Euclidean flow speed in proto-space, while variations of its projection
+between temporal and spatial directions are captured by the kinematic angle
+\(\vartheta\).
+
+The relation
+\begin{equation}
+  d\chi = k\,\widetilde X_0\,d\tau
+\end{equation}
+shows that the proto-parameter \(\chi\) plays the role of a global invariant
+for transformations mixing temporal and spatial channels.
+Expressing the interval \(dS^2\) in terms of \(d\chi\) and the components
+\(\widetilde X_\mu\) one recovers the Minkowski form
+\begin{equation}
+  dS^2 = \dot X_0^2\,d\tau^2
+          - dx_1^2 - dx_2^2 - dx_3^2,
+\end{equation}
+i.e.\ the ``inverted'' Euclidean norm of the flow once the temporal geometry
+is taken into account.
+For a body of fixed structural complexity (fixed \(k\)) the quantity
+\(\widetilde X_0\) must compensate changes in the local rate of time, whereas
+for a fixed full magnitude \(\dot{\mathcal H}\) the ratio \(k\) must adjust so
+that the cyclic construction of time remains compatible with the invariance of
+the interval.
+
 
 \subsection{Kinematic (phase) calibration}
 \label{subsec:phase-calibration}
 
-We now describe the geometric (kinematic) calibration more explicitly.
-Fix an inertial laboratory frame with coordinate time \(t\) and three--position
-\(\bm x\).
-In the \emph{kinematic calibration} we identify the proto--parameter with the
-laboratory time,
+Let us choose an inertial laboratory frame with coordinate time \(t\) and
+three-position \(\bm x\).
+In the \emph{kinematic calibration} we identify the flow parameter \(\chi\)
+with the lab time:
 \begin{equation}
   \chi = t,
   \qquad
@@ -1048,12 +1037,12 @@ laboratory time,
 \end{equation}
 Along the worldline of a body \(B\) we may then write
 \[
-  \Phi(t) = \omega_\chi\,t
+  \Phi(t) = \omega_\chi\,t,
 \]
 with \(\omega_\chi = d\Phi/dt\) in that frame.
 
-The normalized flow direction can be decomposed with respect to the lab--frame
-temporal unit vector \(\widehat{\bm u}\) and a spatial unit vector
+The normalized flow direction can be decomposed with respect to the
+lab-frame temporal unit vector \(\widehat{\bm u}\) and a spatial unit vector
 \(\widehat{\bm n}\) in the rest space:
 \begin{equation}
   \widehat{\boldsymbol\chi}
@@ -1064,7 +1053,7 @@ temporal unit vector \(\widehat{\bm u}\) and a spatial unit vector
   \label{eq:chi-split-theta}
 \end{equation}
 where \(\vartheta\in[0,\pi/2]\) is a \emph{kinematic angle}.
-For a body moving with constant lab three--velocity
+For a body moving with constant lab three-velocity
 \(\bm v = d\bm x/dt\) we impose
 \begin{equation}
   \sin\vartheta = \beta := \frac{\|\bm v\|}{\clight},
@@ -1076,192 +1065,220 @@ This calibration ensures that the spatial projection of the flow has magnitude
 \(\|\bm v\|=\clight\sin\vartheta\), while the temporal projection matches the
 usual factor \(\sqrt{1-\beta^2}\) that appears in time dilation.
 
-Using the standard relation between proper time and laboratory time,
+Using \eqref{eq:dtau-zeta} specialized to the kinematic sector and
+\eqref{eq:chi-equals-t}, we obtain the standard relation between proper time
+\(\tau_B\) and lab time:
 \[
   \frac{d\tau_B}{dt}
+  = \cos\vartheta
   = \sqrt{1-\beta^2},
 \]
-we recover
+with
 \begin{equation}
-  \frac{d\tau_B}{dt}
-  = \cos\vartheta,
-  \qquad
   \gamma(\vartheta)
   := \frac{1}{\sqrt{1-\beta^2}}
-   = \frac{1}{\cos\vartheta},
+   = \frac{1}{\cos\vartheta}
   \label{eq:gamma-theta}
 \end{equation}
-with \(\gamma(\vartheta)\) the usual Lorentz factor.
+the usual Lorentz factor.
 Thus the kinematic angle \(\vartheta\) encodes the purely kinematic tilt of the
 flow relative to the chosen inertial frame.
-
-It is important that the structural invariant \(\Lambda_B\) defined in
-\eqref{eq:Hdot-k-X0tilde2} does \emph{not} depend on \(\vartheta\).
-Kinematic \(D\)--rotations change only the split of the unit flow between
-temporal and spatial directions in a given frame; they leave the internal
-streamlet structure (and hence \(k_B,\zeta_B,\dot H_B\)) untouched.
 
 \subsection{Structural parameter and volumetric coefficient}
 \label{subsec:struct-kappa}
 
-The structural invariant \(\Lambda_B = \dot H_B\) encodes \emph{how fast} the
-internal cyclic flow of \(B\) proceeds in proper time.
-To turn this rate into an energy scale we need one additional scalar, which
-captures \emph{how much} flow is involved in the internal cyclic motion.
+Besides kinematic tilts, unimetry allows for an internal rescaling of the
+cyclic structure of the flow.
+A convenient way to visualize this is to consider a pair of circles in the
+\((\chi,\tau)\)-plane:
 
-In the streamlet picture this information is contained in the spatial second
-moment tensor of the ensemble and in its invariants (trace, determinant, \dots).
-For the purposes of this paper we collapse this detailed information into a
-single scalar \emph{structural coefficient} \(\kappa_B\).
-Concretely, we model \(\kappa_B\) as a function of the structural ratio \(k_B\)
-and, more generally, of the second--moment invariants:
-\[
-  \kappa_B = \kappa(k_B;\,\mathbf C_B).
-\]
-In the simplest isotropic ansatz it is natural to treat \(k_B\) as a
-characteristic length scale of the internal cycle.
-Rescaling this length by a factor \(k_B/k_\ast\) changes a three--dimensional
-volume by \((k_B/k_\ast)^3\), so we take
+\begin{itemize}[leftmargin=*]
+  \item a ``phase circle'' of radius \(R_1\) in the \(\chi\)-direction, which
+  measures the size of a single phase step \(\Delta\chi\);
+  \item a ``time circle'' of radius \(R_2\) in the \(\tau\)-direction, along
+  which the flow executes a cyclic motion with some characteristic proper-time
+  angular frequency \(\omega_\ast\) (units \(\mathrm{s}^{-1}\)).
+\end{itemize}
+
+One full turn on the phase circle corresponds to a phase increment
+\(\Delta\chi = 2\pi R_1\).
+One full turn on the time circle corresponds to a proper-time increment
 \begin{equation}
-  \kappa(k_B)
-  = \kappa_* \left(\frac{k_B}{k_*}\right)^{\!3},
+  \Delta\tau = \frac{2\pi R_2}{\omega_\ast},
+\end{equation}
+since the circumference is \(2\pi R_2\) and the ``speed'' along the time
+circle is set by \(\omega_\ast\).
+
+In the high-frequency limit, when the phase step becomes small
+(\(R_1\to 0\)) and many cycles are accumulated, the effective frequency of
+phase ticks with respect to proper time is
+\begin{equation}
+  \nu
+  := \frac{\Delta\chi}{\Delta\tau}
+   = \frac{2\pi R_1}{2\pi R_2/\omega_\ast}
+   = \underbrace{\frac{R_1}{R_2}}_{=:k}\,\omega_\ast.
+  \label{eq:nu-k-omega}
+\end{equation}
+Passing to the differential limit, this gives
+\begin{equation}
+  \dot\chi
+  := \frac{d\chi}{d\tau}
+  = k\,\omega_\ast,
+  \label{eq:chi-dot-k-omega}
+\end{equation}
+with a dimensionless structural parameter
+\begin{equation}
+  k := \frac{R_1}{R_2}.
+  \label{eq:k-R1-R2}
+\end{equation}
+Equation \eqref{eq:chi-dot-k-omega} expresses the rate at which the flow
+parameter \(\chi\) is accumulated per unit proper time \(\tau\) as the product
+of a geometric ratio \(k\) and a characteristic internal proper-time
+frequency \(\omega_\ast\).
+
+We model the cumulative effect of this structural rescaling on energy by a
+\emph{volumetric structural coefficient} \(\kappa(k)\).
+Since a rescaling of a characteristic length by a factor \(k\) changes a
+three-dimensional volume by \(k^3\), we take
+\begin{equation}
+  \kappa(k)
+  = \kappa_* \left(\frac{k}{k_*}\right)^{\!3},
   \label{eq:kappa-of-k}
 \end{equation}
 where \(\kappa_*\) is a reference value at some fiducial structural state
-\(k_B=k_*\).
+\(k=k_*\).
 Dimensional analysis then dictates that \(\kappa\) has units
 \begin{equation}
   [\kappa] = \mathrm{kg\,s\,m^{-1}},
   \label{eq:kappa-dim}
 \end{equation}
-so that the combination \(\kappa\clight^3\) has the dimension of energy:
+so that the combination \(\kappa c^3\) has the dimension of energy:
 \[
-  [\kappa \clight^3] = \mathrm{kg\,m^2\,s^{-2}} = \mathrm{J}.
+  [\kappa c^3] = \mathrm{kg\,m^2\,s^{-2}} = \mathrm{J}.
 \]
 
 We therefore define the \emph{structural rest energy} and associated rest mass
-of body \(B\) by
+by
 \begin{equation}
-  E_0(\zeta_B,k_B)
-  := \kappa(\zeta_B,k_B)\,\clight^3,
+  E_0(k)
+  := \kappa(k)\,\clight^3,
   \qquad
-  m_0(\zeta_B,k_B) := \frac{E_0(\zeta_B,k_B)}{\clight^2}
-                    = \kappa(\zeta_B,k_B)\,\clight.
-  \label{eq:E0-m0-zetaB}
+  m_0(k) := \frac{E_0(k)}{\clight^2} = \kappa(k)\,\clight.
+  \label{eq:E0-and-m0}
 \end{equation}
-In the simple volumetric model one may set
-\(\kappa(\zeta_B,k_B)\equiv\kappa(k_B)\), so that the dependence on the
-intrinsic angle \(\zeta_B\) enters only through the invariant rate
-\(\Lambda_B=k_B\cos^2\zeta_B\).
-More refined models can promote \(\kappa\) to a functional of the full spatial
-second moment \(\mathbf C_B\), but the factorized structure
-\(\{k_B,\zeta_B\}\mapsto (\kappa_B,\Lambda_B)\) will be kept throughout.
+For a fixed structural state \(k\) these reduce to constants
+\(E_0=\kappa(k)\clight^3\), \(m_0=\kappa(k)\clight\), while spatial variations
+of \(k\) would correspond to variations of the local rest energy and rest mass
+scale.
 
 \subsection{Proper-time calibration and energy factorization}
 \label{subsec:E-factorization}
 
-In the \emph{proper--time calibration} we parametrize the flow of \(B\) by its
-own proper time \(\tau_B\).
-The internal structure of the body is encoded in two dimensionless quantities:
-
-\begin{itemize}[leftmargin=*]
-  \item the intrinsic angle \(\zeta_B\), extracted from the second moment of
-        the streamlet ensemble and fixing the temporal share
-        \(\widetilde X_0^2 = \cos^2\zeta_B\) of the unit flow;
-  \item the structural ratio \(k_B = R_1/R_2\), which characterizes the
-        relative size of the phase and time cycles.
-\end{itemize}
-
-In the absence of dissipation or radiation exchange we assume these structural
-parameters to be fixed for a given body,
-\[
-  \zeta_B = \text{const},
-  \qquad
-  k_B = \text{const}.
-\]
-Combining the cyclic construction of \cref{subsec:cyclic-time} with the
-definition of \(\Lambda_B\) we can write the relation between the phase
-parameter and proper time in the compact form
+In the \emph{proper-time calibration} we parametrize the flow by the body's
+proper time \(\tau_B\).
+In the unimetrical framework the rate at which proper time accumulates with
+respect to the flow parameter \(\chi\) is controlled by the body's intrinsic
+angle \(\zeta_B\), introduced in \cref{subsec:interval-SR} as a characteristic
+of the second-moment structure of the streamlet ensemble:
 \begin{equation}
-  \frac{d\chi}{d\tau_B}
-  = \dot\chi_B
-  = k_B\cos^2\zeta_B
-  = \Lambda_B,
+  d\tau_B = \cos\zeta_B\,d\chi,
+  \qquad
+  \frac{d\tau_B}{d\chi} = \cos\zeta_B.
   \label{eq:dtau-dchi-zetaB}
 \end{equation}
-which is simply a restatement of \eqref{eq:Hdot-k-X0tilde2}.
+Both \(\chi\) and \(\tau_B\) carry units of time, so \(\cos\zeta_B\) is a
+dimensionless factor determined by the internal flow texture of the body.
+
+A key assumption of unimetry in this paper is that, in the body's own rest
+frame and in the absence of dissipation or absorption/emission of radiation,
+the intrinsic angle \(\zeta_B\) is \emph{fixed}:
+\begin{equation}
+  \zeta_B = \mathrm{const}
+  \quad\text{for a given body with fixed internal energy.}
+  \label{eq:zetaB-const}
+\end{equation}
+In other words, purely kinematic changes of motion relative to an external
+observer do not alter \(\zeta_B\); they act ``outside'' the internal flow
+texture.
 
 By contrast, the kinematic calibration of \cref{subsec:phase-calibration}
-relates proper time to the laboratory time \(t\) by the usual time--dilation
-formula
+relates proper time to the laboratory time \(t\) via the kinematic angle
+\(\vartheta\):
 \begin{equation}
   \frac{d\tau_B}{dt}
   = \cos\vartheta
   = \sqrt{1-\beta^2},
   \qquad
-  \gamma(\vartheta) = \frac{1}{\cos\vartheta},
+  \gamma(\vartheta) = \frac{1}{\cos\vartheta}.
   \label{eq:dtau-dt-theta}
 \end{equation}
-where \(\vartheta\) is the kinematic angle of the flow in the lab frame and
-\(\beta = \|\bm v\|/\clight\).
-The angle \(\vartheta\) is purely kinematic: it describes the relative motion
-between frames and is conceptually distinct from the intrinsic angle
-\(\zeta_B\).
+Here \(\vartheta\) encodes the tilt of the macroscopic body flow relative to
+the lab frame and is meaningful only for an external observer.
+It is conceptually distinct from \(\zeta_B\): the intrinsic angle describes
+the internal streamlet ensemble in the body's own frame, whereas
+\(\vartheta\) describes relative motion between frames.
 
-Using the structural rest--energy scale \eqref{eq:E0-m0-zetaB} we \emph{define}
-the energy of the body in the state \((\vartheta;\zeta_B,k_B)\) as
+Using the structural rest-energy scale
 \begin{equation}
-  E(\vartheta;\zeta_B,k_B)
-  := \gamma(\vartheta)\,E_0(\zeta_B,k_B)
-   = \frac{1}{\cos\vartheta}\,\kappa(\zeta_B,k_B)\,\clight^3,
+  E_0(\zeta_B,k) := \kappa(k;\zeta_B)\,\clight^3,
+  \qquad
+  m_0(\zeta_B,k) := \kappa(k;\zeta_B)\,\clight,
+  \label{eq:E0-m0-zetaB}
+\end{equation}
+we \emph{define} the energy of the body in the state \((\vartheta;\zeta_B,k)\)
+as
+\begin{equation}
+  E(\vartheta;\zeta_B,k)
+  := \gamma(\vartheta)\,E_0(\zeta_B,k)
+   = \frac{1}{\cos\vartheta}\,\kappa(k;\zeta_B)\,\clight^3,
   \label{eq:E-theta-zetaB-k}
 \end{equation}
 or equivalently
 \[
-  E(\vartheta;\zeta_B,k_B)
-  = \gamma(\vartheta)\,m_0(\zeta_B,k_B)\,\clight^2.
+  E(\vartheta;\zeta_B,k)
+  = \gamma(\vartheta)\,m_0(\zeta_B,k)\,\clight^2.
 \]
-Thus energy factorizes into a \emph{purely kinematic} multiplier
-\(\gamma(\vartheta)\), arising from the macroscopic tilt of the body's flow in
-the laboratory frame, and a \emph{purely intrinsic--structural} factor
-\(E_0(\zeta_B,k_B)=\kappa(\zeta_B,k_B)\clight^3\), which encodes the internal
-flow texture (via \(\zeta_B\)) and the internal cyclic geometry (via \(k_B\))
-in the body's own frame.
+Thus the energy factorizes into a \emph{purely kinematic} factor
+\(\gamma(\vartheta)\), coming from the macroscopic tilt of the body's flow in
+the laboratory frame, and a \emph{purely intrinsic-structural} factor
+\(E_0(\zeta_B,k)=\kappa(k;\zeta_B)c^3\), which encodes the internal flow
+texture (via \(\zeta_B\)) and the internal cyclic geometry (via \(k\)) in the
+body's own frame.
 
 For small velocities \(\beta\ll 1\), using
 \(\cos\vartheta=\sqrt{1-\beta^2}\) and \(\gamma(\vartheta)=1/\cos\vartheta\) we
-recover the standard expansion
+recover the usual expansion
 \begin{equation}
-  E(\vartheta;\zeta_B,k_B)
-  = m_0(\zeta_B,k_B)\,\clight^2
-    + \tfrac12 m_0(\zeta_B,k_B)\,v^2
+  E(\vartheta;\zeta_B,k)
+  = m_0(\zeta_B,k)\,\clight^2
+    + \tfrac12 m_0(\zeta_B,k)\,v^2
     + O(\beta^4),
   \qquad
   v = \clight\sin\vartheta.
   \label{eq:E-expansion-zetaB}
 \end{equation}
-Hence the structurally generalized energy retains the usual nonrelativistic
-limit, while allowing the rest--energy scale to vary with the intrinsic flow
-texture (through \(\zeta_B\)) and with the internal cyclic geometry (through
-\(k_B\)), without ever identifying \(\zeta_B\) with the kinematic angle
-\(\vartheta\).
+Hence the structurally generalized energy retains the standard
+non-relativistic limit, while allowing the rest energy scale to vary with the
+intrinsic flow texture (through \(\zeta_B\)) and with the internal cyclic
+geometry (through \(k\)), without ever identifying \(\zeta_B\) with the
+kinematic angle \(\vartheta\).
+
 
 \subsection{From flow vector to flow quaternion}
 \label{subsec:flow-to-quat}
 
-Up to this point the flow has been represented by the unit vector
-\(\widehat{\boldsymbol\chi}\in T_X\Espace\) together with its split into
-temporal and spatial channels controlled by the kinematic angle \(\vartheta\),
-cf.~\eqref{eq:chi-split-theta}.
-To connect this description with the quaternion algebra of
-\cref{sec:quat-algebra} we now introduce a simple representation map from flow
-directions to unit quaternions.
+So far the flow has been represented as a unit vector
+\(\widehat{\boldsymbol\chi}\in T_X\Espace\) with a split into temporal and
+spatial channels controlled by the kinematic angle \(\vartheta\), see
+\eqref{eq:chi-split-theta}.
+To connect this to the quaternion algebra of \cref{sec:quat-algebra}, we now
+introduce a simple representation map from flow directions to unit quaternions.
 
 Fix a body \(B\) and a local observer comoving with \(B\).
 At a point \(X\in\Espace\) on the body's flow choose an orthonormal frame
 \(\{\widehat{\bm u},\widehat{\bm e}_1,\widehat{\bm e}_2,\widehat{\bm e}_3\}\)
 in \(T_X\Espace\), where \(\widehat{\bm u}\) is the observer's temporal
-direction and \(\widehat{\bm e}_i\) span the three--dimensional rest space.
+direction and \(\widehat{\bm e}_i\) span the three-dimensional rest space.
 The normalized flow direction can then be written as
 \begin{equation}
   \widehat{\boldsymbol\chi}
@@ -1277,7 +1294,7 @@ The normalized flow direction can then be written as
   \label{eq:chi-decomp-frame}
 \end{equation}
 
-On the quaternion side we use the basis
+On the quaternion side we have the basis
 \(\{\qh,\hat{\imath},\hat{\jmath},\hat{k}\}\) introduced in
 \cref{sec:quat-algebra}.
 We fix a local identification between the observer's frame and the quaternion
@@ -1291,11 +1308,10 @@ basis by declaring
   \{\hat{\imath},\hat{\jmath},\hat{k}\}.
   \label{eq:frame-to-quat-basis}
 \end{equation}
-In the simplest case one may align
-\(\widehat{\bm e}_1,\widehat{\bm e}_2,\widehat{\bm e}_3\) with
-\(\hat{\imath},\hat{\jmath},\hat{k}\) respectively, so that the spatial unit
-vector \(\widehat{\bm n}\) is represented by a unit imaginary quaternion with
-the same components \(n^i\).
+In the simplest case one may align \(\widehat{\bm e}_1,\widehat{\bm e}_2,
+\widehat{\bm e}_3\) with \(\hat{\imath},\hat{\jmath},\hat{k}\) respectively,
+so that the spatial unit vector \(\widehat{\bm n}\) is represented by a unit
+imaginary quaternion with the same components \(n^i\).
 
 \begin{definition}[Flow quaternion]
   Given a normalized flow direction \(\widehat{\boldsymbol\chi}\) with
@@ -1319,11 +1335,12 @@ Different choices of the spatial orthonormal frame correspond to spatial
 rotations of the imaginary basis and do not affect scalar invariants such as
 \(A(\widehat{\mathsf q},\widehat{\mathsf q})\).
 
-\subsection{Scalar self-form \texorpdfstring{$A(q,q)$}{A(q,q)} as kinematic factor}
+\subsection{Scalar self-form \texorpdfstring{$A(q,q)$}{A(q,q)} as kinematic
+factor}
 \label{subsec:A-kinematic-factor}
 
-We can now express the kinematic factor in \eqref{eq:E-theta-zetaB-k} in terms
-of the quaternionic self--form \(A(q,q)\) introduced in
+We can now relate the kinematic factor in \eqref{eq:E-theta-k} to the
+quaternionic self-form \(A(q,q)\) introduced in
 \cref{sec:quat-algebra}.
 For brevity we suppress the explicit dependence on \(\widehat{\bm n}\) and
 write \(\widehat{\mathsf q}(\vartheta)\) when no confusion can arise:
@@ -1333,7 +1350,7 @@ write \(\widehat{\mathsf q}(\vartheta)\) when no confusion can arise:
   \qquad
   \|\widehat{\bm n}\|=1.
 \]
-The scalar self--form \(A\) applied to this unit quaternion gives
+The scalar self-form \(\color{red}{A}\) applied to this unit quaternion gives
 \begin{equation}
   A\bigl(\widehat{\mathsf q}(\vartheta),
          \widehat{\mathsf q}(\vartheta)\bigr)
@@ -1357,25 +1374,23 @@ and hence the Lorentz factor can be expressed as
 \end{equation}
 
 Substituting \eqref{eq:gamma-from-A} into the factorized energy
-\eqref{eq:E-theta-zetaB-k}, and suppressing the explicit dependence of
-\(E_0\) on \((\zeta_B,k_B)\) for brevity, we find
+\eqref{eq:E-theta-k}, we find
 \begin{equation}
-  E(\widehat{\mathsf q},k_B)
-  = \gamma(\vartheta)\,E_0
+  E(\widehat{\mathsf q},k)
+  = \gamma(\vartheta)\,E_0(k)
   = \sqrt{\frac{2}{1 + A(\widehat{\mathsf q},\widehat{\mathsf q})}}\;
-    \kappa(k_B)\,\clight^3.
+    \kappa(k)\,\clight^3.
   \label{eq:E-from-A-and-k}
 \end{equation}
 Thus:
 \begin{itemize}[leftmargin=*]
-  \item the scalar self--form \(A(\widehat{\mathsf q},\widehat{\mathsf q})\)
-        is a \emph{purely kinematic, dimensionless} invariant of the flow
-        quaternion;
-  \item the structural coefficient \(\kappa(k_B)\) (or more generally
-        \(\kappa(\zeta_B,k_B)\)) carries the absolute energy scale, via
-        \(E_0(\zeta_B,k_B)=\kappa(\zeta_B,k_B)\clight^3\);
-  \item energy emerges as the product of a quaternionic kinematic factor
-        (a function of \(A\)) and a structural scale.
+  \item the scalar self-form \(A(\widehat{\mathsf q},\widehat{\mathsf q})\)
+  is a \emph{purely kinematic, dimensionless} invariant of the flow
+  quaternion;
+  \item the structural coefficient \(\kappa(k)\) carries the absolute energy
+  scale, via \(E_0(k)=\kappa(k)\clight^3\);
+  \item energy emerges as the product of a quaternionic kinematic factor (a
+  function of \(A\)) and a structural scale.
 \end{itemize}
 
 In the gravito--electromagnetic construction below we will apply the same
@@ -1387,8 +1402,7 @@ further restricted to multiples of the universal unit imaginary \(\uhat\)
 introduced in \cref{sec:quat-algebra}, so that all interaction channels reduce
 to a single radial direction.
 The vector forms \(\bm B\) and \(\bm C\) will then provide, respectively, the
-current--like and vortical channels of the gravito--electromagnetic field.
-
+current-like and vortical channels of the gravito--electromagnetic field.
 
 %==================== 5. Metrically dressed body quaternions ====================
 
@@ -1407,228 +1421,6 @@ In this section we introduce \emph{metrically dressed} body quaternions,
 whose components carry the dimension of length, and show how the scalar and
 vector self-forms \(A,B,C,E\) generate GEM-like interaction channels in the
 static and slowly moving regimes.
-
-\subsection{Streamlet picture of gravitation and electric charge}
-\label{subsec:streamlet-picture-grav-EM}
-
-Before turning to the metric dressing and the static bilinear
-interaction, it is useful to summarise the qualitative unimetry picture
-of gravitation and electric charge purely in terms of streamlets. This
-will motivate the splitting of channels in the dressed body quaternion
-and prepare the ground for the trigonometric Schwarzschild
-parametrization in \cref{subsec:trig_schwarzschild_streamlets}.
-
-\subsubsection{Streamlet ensemble and flow budget}
-
-In unimetry a massive body is described as an ensemble of streamlets:
-closed flow lines in proto--space $\Espace$, each streamlet carrying a
-unit proto--flow velocity $\tilde{\boldsymbol\chi}_a$ and a weight
-$w_a$, $\sum_a w_a = 1$.
-At a given event we choose a local temporal axis $\hat e_\tau$ and an
-orthonormal spatial triad $\{\hat e_i\}$ and decompose
-\begin{equation}
-  \tilde{\boldsymbol\chi}_a
-  = \tilde X^0_a\,\hat e_\tau + \tilde{\mathbf X}_a,
-  \qquad
-  \|\tilde{\boldsymbol\chi}_a\|^2
-  = (\tilde X^0_a)^2 + \|\tilde{\mathbf X}_a\|^2
-  = 1.
-\end{equation}
-The ensemble is characterised by the first and second moments of these
-components. In particular, we define
-\begin{equation}
-  T_B := \big\langle (\tilde X^0)^2 \big\rangle,
-  \qquad
-  \mathbf C_B := \big\langle \tilde{\mathbf X}\otimes\tilde{\mathbf X} \big\rangle,
-\end{equation}
-where the average is taken with weights $w_a$. As shown in the
-``mass from streamlets'' construction, one can introduce an intrinsic
-angle $\zeta$ such that
-\begin{equation}
-  T_B = \cos^2\zeta,
-  \qquad
-  \mathrm{tr}\,\mathbf C_B = \sin^2\zeta,
-  \label{eq:flow-budget-zeta}
-\end{equation}
-so that
-\begin{itemize}
-  \item $\cos^2\zeta$ is the fraction of the unit flow magnitude aligned
-    with the local temporal direction $\hat e_\tau$;
-  \item $\sin^2\zeta$ is the fraction stored in spatial loops and
-    anisotropies encoded by $\mathbf C_B$.
-\end{itemize}
-This is a purely geometric flow budget: it does not yet involve the
-observed mass or charge; those appear only after calibration.
-
-\subsubsection{Gravitation as exclusion of intersecting streamlet paths}
-
-Far from any matter the ensemble of streamlets crossing a small region
-of space is approximately isotropic in direction: for every incoming
-direction on the unit sphere there are streamlets whose trajectories
-realise that direction, and any small solid angle $\Omega$ in
-direction space is populated equally.
-
-A massive body corresponds, in this picture, to a region where many
-streamlets are tightly packed into short, bound cycles. These bound
-streamlets occupy a finite region in proto--space, and the trajectories
-of other streamlets cannot freely intersect this region without being
-captured or strongly deflected.
-In other words, for a dense body there is a whole family of would–be
-trajectories which are \emph{forbidden}: any streamlet whose path would
-pass through the interior of the body is removed from the free ensemble.
-
-Seen from a point at radius $r$ outside the body, this removal appears
-as a \emph{directional deficit} on the unit sphere of possible
-streamlet directions. Among all directions $\hat n$, those for which
-the straight segment from the observation point along $\hat n$ would
-intersect the dense region are underpopulated or empty in the ensemble
-of free streamlets. The union of these directions forms a deficit cone
-around the line of sight towards the centre of the body.
-
-A test body at that point is itself an ensemble of streamlets.
-In the absence of external sources its internal streamlets can close
-into cycles in any direction with equal probability; the external
-ensemble that crosses it is isotropic, and the averaged proto--flow
-direction of its streamlets remains aligned with $\hat e_\tau$ (apart
-from its own internal $\zeta$).
-
-In the presence of the directional deficit created by another mass, the
-situation changes. The set of available external trajectories from the
-direction of the source is reduced: there are fewer free streamlets
-arriving from that side, because many of the corresponding worldlines
-would have to intersect the dense core and are thus excluded or
-re-routed around it.
-As a result, the ensemble of trajectories intersecting the test body
-becomes slightly biased: there are more available directions ``from
-outside'' than from the side of the source. The net effect is that
-the averaged proto--flow direction of the test body streamlets tilts
-slightly towards the source.
-
-In the continuum limit this shows up as a small radial component in the
-ensemble-averaged spatial velocity,
-\begin{equation}
-  \big\langle \tilde{\mathbf X} \big\rangle
-  = \tilde V_r(r)\,\hat e_r,
-  \qquad
-  |\tilde V_r(r)| \ll 1,
-\end{equation}
-and one can encode this tilt by a \emph{gravitational angle}
-$\phi(r)$ such that
-\begin{equation}
-  \tilde X^0_{\rm eff}(r) = \cos\phi(r),
-  \qquad
-  \|\tilde{\mathbf X}_{\rm eff}(r)\| = \sin\phi(r),
-\end{equation}
-for an effective streamlet representing the averaged state of the test
-body. Qualitatively, $\sin^2\phi(r)$ measures the fraction of the unit
-flow that has been deflected into the radial direction because other
-directions, whose trajectories intersect the dense body, are not
-available to free streamlets.
-
-The detailed trigonometric calibration
-\begin{equation}
-  \sin^2\phi(r) = \frac{2u}{r},
-  \qquad
-  u = \frac{\GNewton M}{\clight^2},
-\end{equation}
-is chosen so that:
-\begin{itemize}
-  \item for large $r$ the deficit cone is small, $\phi(r)\ll 1$, and
-    one recovers the linear Newtonian potential;
-  \item for $r\downarrow r_{\rm s}=2u$ the available radial directions
-    saturate, $\phi(r)\to\pi/2$, and one recovers the full
-    Schwarzschild metric coefficients, see
-    \cref{subsec:trig_schwarzschild_streamlets}.
-\end{itemize}
-Thus gravitation is interpreted as the effect of excluded and
-rearranged streamlet trajectories in direction space, with the
-gravitational angle $\phi(r)$ parametrising how strongly the local
-ensemble is tilted by this exclusion.
-
-\subsubsection{Electric charge as a temporal orientation imbalance}
-
-The same streamlet ensemble admits another, complementary type of
-deformation. Instead of tilting more flow into a particular spatial
-direction, one can bias the \emph{sign} of the temporal component
-$\tilde X^0_a$ along $\hat e_\tau$.
-
-At a fixed spatial position consider two families of streamlets with
-the same spatial structure $\tilde{\mathbf X}_a$ but opposite temporal
-signs, $\tilde X^0_a = \pm\cos\Theta_a$. A perfectly ``electrically
-neutral'' configuration has symmetric families: for every streamlet with
-$\tilde X^0_a = +\cos\Theta_a$ there is one with
-$\tilde X^0_a = -\cos\Theta_a$, so that the ensemble-averaged temporal
-component vanishes,
-\begin{equation}
-  \big\langle \tilde X^0 \big\rangle = 0,
-\end{equation}
-even though the temporal share $T_B = \langle(\tilde X^0)^2\rangle$ may
-be nonzero. By contrast, a net \emph{electric charge} corresponds to a
-nonzero temporal orientation of the flow,
-\begin{equation}
-  \big\langle \tilde X^0 \big\rangle \neq 0,
-\end{equation}
-while the spatial second moment $\mathbf C_B$ (and therefore the
-gravitational mass) can remain essentially unchanged.
-
-This suggests the identification:
-\begin{itemize}
-  \item gravitational charge (mass) is encoded in the \emph{magnitude}
-    of the spatial second moments, i.e. in the eigenvalues of
-    $\mathbf C_B$ and hence in $\sin^2\zeta$ from
-    \eqref{eq:flow-budget-zeta};
-  \item electric charge is encoded in the \emph{sign} and magnitude of
-    the first temporal moment $\langle \tilde X^0 \rangle$, i.e. in the
-    net orientation of the temporal share of the flow along $\hat e_\tau$.
-\end{itemize}
-Positivity of mass reflects the fact that a second moment cannot change
-sign, while the existence of positive and negative electric charges
-reflects the two possible orientations of the temporal component.
-
-\subsubsection{Temporal direction of charge in dressed body quaternions}
-
-The metrically dressed body quaternion
-$\widetilde{\mathsf q}_B = T_B + \qh\,S_B$ used in the static sector
-packages this flow information into a single quaternionic object.
-In the isotropic case one can write
-\begin{equation}
-  T_B = \lambda_E\,q,
-  \qquad
-  S_B = \lambda_G\,m,
-\end{equation}
-where $q$ is the electric charge and $m$ the gravitational mass of the
-body, while $\lambda_E$ and $\lambda_G$ are dimensionful calibration
-constants (with dimensions of length per unit charge and length per unit
-mass, respectively).
-
-
-From the streamlet picture above this assignment has a direct meaning:
-\begin{itemize}
-  \item the \emph{spatial} magnitude $S_B$ inherits information about
-    $\mathbf C_B$ and therefore represents gravitational charge $m$;
-  \item the \emph{temporal} component $T_B$ inherits the sign and
-    magnitude of $\langle \tilde X^0\rangle$ and therefore represents
-    electric charge $q$: changing the sign of $q$ corresponds to
-    flipping the net temporal orientation of the streamlets along
-    $\hat e_\tau$.
-\end{itemize}
-The static quaternionic bilinear
-\begin{equation}
-  A(\widetilde{\mathsf q}_1,\widetilde{\mathsf q}_2)
-  = T_1 T_2 - S_1 S_2
-\end{equation}
-then simply expresses that like temporal orientations (like charges)
-repel, while like spatial magnitudes (like masses) attract. The opposite
-signs of the electromagnetic and gravitational channels in the static
-interaction potential are thus traced back to the opposite roles of the
-temporal and spatial parts of the same underlying proto--flow.
-
-In the following we will use this streamlet picture --- gravitation as
-exclusion of intersecting trajectories and electric charge as a temporal
-orientation imbalance --- as the qualitative background for the metric
-dressing and for the trigonometric strong--field extension in
-\cref{subsec:trig_schwarzschild_streamlets}.
-
 
 \subsection{Metric dressing: from mass and charge to effective lengths}
 \label{subsec:metric-dressing}
@@ -1681,71 +1473,36 @@ between different bodies will generate interaction energies.
 \subsection{Single body: rest energy from the Euclidean self-form}
 \label{subsec:single-body-E}
 
-For a single body $B_i$ the Euclidean self-form of its dressed quaternion is
+For a single body \(B_i\) the Euclidean self-form of its dressed quaternion is
 \begin{equation}
   E(\widetilde{\mathsf q}_i,\widetilde{\mathsf q}_i)
   = T_i^2 + S_i^2
   = \lambda_E^2 q_i^2 + \lambda_G^2 m_i^2,
   \label{eq:E-self-body}
 \end{equation}
-since $\qh^2=+1$, $\uhat^2=-1$ and $\uhat$ is orthogonal to $\qh$ in
-the Euclidean sense. Geometrically, the rest state of the body is thus
-characterised by a single scalar norm combining its temporal (electric)
-and spatial (gravitational) flow components.
+since \(\qh^2=+1\), \(\uhat^2=-1\) and \(\uhat\) is orthogonal to \(\qh\) in
+the Euclidean sense.
 
 We postulate that the rest energy of the body is proportional to the square
 root of this Euclidean self-form:
 \begin{equation}
-  \underline E_{\text{rest},i}
+  E_{\text{rest},i}
   = \kappa_{\text{rest}}\,
     \sqrt{E(\widetilde{\mathsf q}_i,\widetilde{\mathsf q}_i)},
   \label{eq:E-rest-from-E}
 \end{equation}
-where $\kappa_{\text{rest}}$ is a universal constant with units chosen so
-that $[\kappa_{\text{rest}} \sqrt{E}] = \mathrm{J}$.
-
-In the purely gravitational limit $q_i=0$ one obtains
+where \(\kappa_{\text{rest}}\) is a universal constant with units chosen so
+that \([\kappa_{\text{rest}} \sqrt{E}] = \mathrm{J}\).
+In the purely gravitational limit \(q_i=0\) this reduces to
 \begin{equation}
-  \underline E_{\text{rest},i}^{(G)}
+  E_{\text{rest},i}^{(G)}
   = \kappa_{\text{rest}}\,|\lambda_G|\,m_i,
 \end{equation}
-which can be matched to $m_i \clight^2$ by choosing
-\begin{equation}
-  \kappa_{\text{rest}}|\lambda_G|\equiv \clight^2.
-  \label{eq:kappa-lambdaG-calibration}
-\end{equation}
-This fixes the gravitational channel of the self-form: for a neutral
-body the unimetrical rest energy reduces exactly to the Einstein relation
-$\underline E_{\text{rest}} = m\clight^2$.
-
-The electric channel enters the same norm via the term
-$\lambda_E^2 q_i^2$. Formally, a purely charged limit $m_i=0$ would give
-\begin{equation}
-  \underline E_{\text{rest},i}^{(E)}
-  = \kappa_{\text{rest}}\,|\lambda_E|\,|q_i|.
-\end{equation}
-However, for realistic bodies the measured mass $m_i$ already includes
-all contributions from their internal fields, including electromagnetic
-self-energy. In other words, $m_i$ should be understood as the \emph{total}
-inertial mass parameter of the body, rather than as a ``bare'' mass
-separate from $q_i$.
-
-In the present work we therefore use the gravitational calibration
-\eqref{eq:kappa-lambdaG-calibration} to identify the overall scale
-of $\underline E_{\text{rest}}$ with $m\clight^2$ and do not attempt to
-separate a distinct electromagnetic contribution to the rest energy.
-The term $\lambda_E^2 q_i^2$ in \eqref{eq:E-self-body} should be viewed
-as keeping track of how the temporal (charge-related) channel contributes
-to the geometric norm of the body state; its precise calibration in terms
-of a microscopic model of electromagnetic self-energy is left for future
-work.
-
+which can be matched to \(m_i c^2\) by choosing
+\(\kappa_{\text{rest}}|\lambda_G|\equiv c^2\).
 In the full GEM setting \eqref{eq:E-self-body} and
-\eqref{eq:E-rest-from-E} thus provide a unified rest-energy scale that
-depends on both mass and charge through a single Euclidean norm, while
-the observed $m\clight^2$ relation is recovered from the purely
-gravitational sector.
-
+\eqref{eq:E-rest-from-E} provide a unified rest-energy scale that depends on
+both mass and charge but remains a scalar under quaternionic rotations.
 
 In the dynamical setting, the kinematic factor \(\gamma(\vartheta)\) from
 \cref{subsec:E-factorization} multiplies this rest scale so that the total
@@ -3899,42 +3656,6 @@ field theory, but a structural bridge between familiar phenomenology and a
 different way of thinking about flow, time and interaction.
 Further work will show whether this bridge can carry quantitative weight or
 remains primarily a conceptual tool for organizing known physics.
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lcccccc}
-\hline
-Particle & $m$ [GeV/$c^2$] 
-         & $\lambda = (m/m_P)^2$ 
-         & $I = (m_P/m)^2$ 
-         & $\log_{10} I$ 
-         & $\ln I$ \\
-\hline
-$e$      & $5.10999\times 10^{-4}$ & $1.75\times 10^{-45}$ & $5.71\times 10^{44}$ & $44.76$ & $103.06$ \\
-$\mu$    & $1.05658\times 10^{-1}$ & $7.49\times 10^{-41}$ & $1.34\times 10^{40}$ & $40.13$ & $92.39$ \\
-$\tau$   & $1.77686$               & $2.12\times 10^{-38}$ & $4.72\times 10^{37}$ & $37.67$ & $86.75$ \\
-\hline
-$u$      & $2.16\times 10^{-3}$    & $3.13\times 10^{-44}$ & $3.19\times 10^{43}$ & $43.50$ & $100.17$ \\
-$d$      & $4.70\times 10^{-3}$    & $1.48\times 10^{-43}$ & $6.75\times 10^{42}$ & $42.83$ & $98.62$ \\
-$s$      & $9.3\times 10^{-2}$     & $5.80\times 10^{-41}$ & $1.72\times 10^{40}$ & $40.24$ & $92.65$ \\
-$c$      & $1.273$                 & $1.09\times 10^{-38}$ & $9.20\times 10^{37}$ & $37.96$ & $87.41$ \\
-$b$      & $4.18$                  & $1.17\times 10^{-37}$ & $8.53\times 10^{36}$ & $36.93$ & $85.04$ \\
-$t$      & $1.7276\times 10^{2}$   & $2.00\times 10^{-34}$ & $4.99\times 10^{33}$ & $33.70$ & $77.59$ \\
-\hline
-$W^\pm$  & $8.03692\times 10^{1}$  & $4.33\times 10^{-35}$ & $2.31\times 10^{34}$ & $34.36$ & $79.12$ \\
-$Z^0$    & $9.11876\times 10^{1}$  & $5.58\times 10^{-35}$ & $1.79\times 10^{34}$ & $34.25$ & $78.87$ \\
-$H$      & $1.2510\times 10^{2}$   & $1.05\times 10^{-34}$ & $9.52\times 10^{33}$ & $33.98$ & $78.24$ \\
-\hline
-$p$      & $9.38272\times 10^{-1}$ & $5.91\times 10^{-39}$ & $1.69\times 10^{38}$ & $38.23$ & $88.02$ \\
-$n$      & $9.39565\times 10^{-1}$ & $5.92\times 10^{-39}$ & $1.69\times 10^{38}$ & $38.23$ & $88.02$ \\
-\hline
-
-\end{tabular}
-
-\caption{ 
-$I = (m_P/m)^2$.}
-\end{table}
-
 
 
 %==================== Appendices ====================
