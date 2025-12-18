@@ -35,6 +35,9 @@
 % \newcommand{\sech}{\operatorname{sech}}
 \newcommand{\const}{\mathrm{const}}
 \newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\Hopf}{\mathcal H}
+\DeclareMathOperator{\Ad}{Ad}
+
 
 \usepackage{indentfirst}
 \usetikzlibrary{arrows.meta,calc,angles,quotes}
@@ -480,70 +483,7 @@ The no--source background is the absence of streamlets (bookkeeping symbol $N_0:
 \end{definition}
 
 
-\subsection{Hopf fibration and the phase parameter $\chi$}
-\label{subsec:hopf-fibration-chi}
 
-In addition to the external orientation data $(p_a,N_a)$, a streamlet carries an
-intrinsic cyclic degree of freedom describing its phase state.  We denote
-this phase parameter by $\chi$, to be understood as an angle variable with the
-identification $\chi\sim\chi+2\pi$.
-
-
-\paragraph{Local $S^3$ around a point defect.}
-Fix a streamlet defect at $p_a\in\Espace$.  For sufficiently small $\varepsilon>0$,
-the boundary of the $\delta$--ball $B_\varepsilon(p_a)$ is a $3$--sphere
-\[
-   \partial B_\varepsilon(p_a) \cong S^3.
-\]
-After translation by $-p_a$ and radial normalization, we identify this $S^3$
-with the unit quaternions
-\[
-   S^3 \;\cong\; \{\,q\in\mathbb H:\ |q|=1\,\},
-\]
-where $\mathbb H=\mathrm{span}\{1,\mathbf i,\mathbf j,\mathbf k\}$.
-
-\paragraph{Hopf projection (base vector).}
-Fix the imaginary unit $\mathbf i\in\mathrm{Im}\,\mathbb H$.  The Hopf map
-$\pi:S^3\to S^2$ is given by
-\begin{equation}\label{eq:hopf-map}
-   \pi(q) \;:=\; q\,\mathbf i\,q^{-1}
-   \;\in\; S^2 \subset \mathrm{Im}\,\mathbb H.
-\end{equation}
-For a pure streamlet, the Hopf base vector is precisely the image
-\[
-   \mathbf u_a = \pi(q_a)\in S^2,
-\]
-for some lift $q_a\in S^3$.  Allowing $\|\mathbf u_a\|<1$ may be interpreted as a
-coarse--grained mixture of nearby pure base directions.
-
-\paragraph{Fiber and the cyclic phase $\chi$.}
-The Hopf fiber over a fixed base vector $\mathbf u\in S^2$ is an $S^1$ orbit.
-Concretely, if $q_0\in S^3$ satisfies $\pi(q_0)=\mathbf u$, then the entire fiber is
-\begin{equation}\label{eq:hopf-fiber}
-   \pi^{-1}(\mathbf u)
-   = \{\, q(\chi) = q_0\,e^{\mathbf i\chi} \;:\; \chi\in[0,2\pi)\,\},
-\end{equation}
-where $e^{\mathbf i\chi}=\cos\chi+\mathbf i\sin\chi$.
-Since $e^{\mathbf i(\chi+2\pi)}=e^{\mathbf i\chi}$, the parameter
-\begin{equation}\label{eq:chi-periodic}
-   \chi \sim \chi + 2\pi
-\end{equation}
-is \emph{cyclic}.  Moreover, the Hopf base vector is invariant along the fiber:
-\[
-   \pi\!\big(q(\chi)\big)=\pi(q_0)=\mathbf u.
-\]
-We therefore interpret $\chi$ as the intrinsic \emph{phase parameter} of a
-streamlet state: varying $\chi$ moves the streamlet along its internal phase
-cycle while returning it to the same state after $\Delta\chi=2\pi$.
-
-\paragraph{Why a base vector appears.}
-The defect is compact (a point in $4$D), hence its small boundary is the compact
-$3$--sphere $S^3$.  The Hopf fibration decomposes this $S^3$ into a family of
-closed circles (fibers) parametrized by a base point on $S^2$.  Selecting a
-particular closed phase cycle around the defect therefore selects a unique base
-direction $\mathbf u\in S^2$ (or, after coarse--graining, a vector
-$\mathbf u\in\overline{B^3}$).  This is the geometric origin of the streamlet
-base vector $\mathbf u_a$.
 
 
 \begin{definition}[Field source]
@@ -1567,6 +1507,231 @@ Construction of Lorentzian metrics from Riemannian metrics,
 
 % ===============================
 \appendix
+
+% ===============================
+\appendix
+\section{Hopf lift, fibre phase, and degree-$k$ lifts}
+\label{app:hopf}
+% ===============================
+
+This appendix records the basic Hopf--fibration facts used in the main text.
+All statements are purely geometric/topological.
+
+\subsection{Unit quaternions and the Hopf map}
+
+Identify $\mathbb R^4$ with the quaternion algebra $\mathbb H$ equipped with the
+Euclidean norm $|q|^2 := q\bar q$ (hence $S^3=\{q\in\mathbb H:|q|=1\}$).
+Let $\mathrm{Im}\,\mathbb H\simeq\mathbb R^3$ denote the subspace of purely
+imaginary quaternions.  Fix a unit imaginary quaternion
+\[
+  \mathbf k \in \mathrm{Im}\,\mathbb H,\qquad \|\mathbf k\|=1.
+\]
+
+\begin{definition}[Hopf map in quaternionic form]
+The \emph{Hopf map} is the smooth map
+\[
+  \Hopf : S^3 \longrightarrow S^2 \subset \mathrm{Im}\,\mathbb H,
+  \qquad
+  \Hopf(s) := s\,\mathbf k\,s^{-1},
+\]
+where $s^{-1}=\bar s$ for $|s|=1$.
+\end{definition}
+
+\begin{lemma}\label{lem:hopf-target}
+For every $s\in S^3$, $\Hopf(s)$ is purely imaginary and has unit norm.
+\end{lemma}
+
+\begin{proof}
+Since $\mathbf k\in\mathrm{Im}\,\mathbb H$, conjugation preserves the real part,
+hence $s\mathbf k s^{-1}\in\mathrm{Im}\,\mathbb H$. Moreover,
+$\|s\mathbf k s^{-1}\|=\|\mathbf k\|=1$ because quaternionic conjugation by a
+unit quaternion is an orthogonal transformation of $\mathbb H$.
+\end{proof}
+
+Thus $\Hopf$ maps $S^3$ onto the unit $2$--sphere inside $\mathrm{Im}\,\mathbb H$.
+
+\subsection{The fibre action and the phase parameter $\chi$}
+\label{subsec:hopf-fibration-chi}
+
+Let $S^1\subset\mathbb C$ be the unit complex numbers.  We realize the fibre
+group as the unit circle inside the commutative subalgebra
+$\mathbb C_{\mathbf k}:=\mathrm{span}\{1,\mathbf k\}\subset\mathbb H$:
+\[
+  S^1_{\mathbf k}
+  :=
+  \{e^{\mathbf k \theta}: \theta\in\mathbb R\}
+  =
+  \{\cos\theta+\mathbf k\sin\theta:\theta\in\mathbb R\}.
+\]
+Consider the right action of $S^1_{\mathbf k}$ on $S^3$:
+\[
+  S^3\times S^1_{\mathbf k}\to S^3,
+  \qquad
+  (s, e^{\mathbf k\theta})\mapsto s\,e^{\mathbf k\theta}.
+\]
+
+\begin{lemma}\label{lem:fibre-invariance}
+The Hopf map is invariant under this right action:
+\[
+  \Hopf(s\,e^{\mathbf k\theta})=\Hopf(s)
+  \qquad \text{for all } s\in S^3,\ \theta\in\mathbb R.
+\]
+\end{lemma}
+
+\begin{proof}
+Since $e^{\mathbf k\theta}$ commutes with $\mathbf k$,
+\[
+  \Hopf(s\,e^{\mathbf k\theta})
+  = s\,e^{\mathbf k\theta}\,\mathbf k\,(e^{\mathbf k\theta})^{-1}s^{-1}
+  = s\,\mathbf k\,s^{-1}
+  = \Hopf(s).
+\]
+\end{proof}
+
+\begin{proposition}[Fibres are circles]\label{prop:fibres}
+For each $\mathbf u\in S^2\subset\mathrm{Im}\,\mathbb H$, the preimage
+$\Hopf^{-1}(\mathbf u)$ is an embedded circle in $S^3$, namely an orbit of the
+right action by $S^1_{\mathbf k}$.
+\end{proposition}
+
+\begin{proof}
+Fix $s_0\in S^3$ with $\Hopf(s_0)=\mathbf u$ (surjectivity is standard; see any
+Hopf fibration reference). By Lemma~\ref{lem:fibre-invariance}, the entire orbit
+$s_0 S^1_{\mathbf k}$ lies in the fibre over $\mathbf u$.
+Conversely, if $\Hopf(s)=\Hopf(s_0)$, then $s_0^{-1}s$ commutes with $\mathbf k$,
+hence belongs to $\mathbb C_{\mathbf k}$; since $|s_0^{-1}s|=1$, it lies in
+$S^1_{\mathbf k}$. Thus $s\in s_0S^1_{\mathbf k}$.
+\end{proof}
+
+It is therefore natural to parameterize each fibre by an angular coordinate.
+We write the fibre parameter as $\chi\in\mathbb R/2\pi\mathbb Z$ and use the
+half--angle convention
+\begin{equation}\label{eq:fibre-chi}
+  s(\chi) := s_0\,e^{\mathbf k \chi/2},
+  \qquad \chi \sim \chi+2\pi.
+\end{equation}
+(The factor $1/2$ is conventional and aligns with the standard $SU(2)$
+half--angle parameterization; see \S\ref{subsec:double-cover}.)
+
+\subsection{Hopf tori: the preimage of a circle on the base}
+
+Let $C\subset S^2$ be a smooth embedded circle (e.g. a latitude circle).  Choose
+a smooth map $\mathbf u:S^1\to S^2$ parameterizing $C$ and a smooth lift
+$s_0:S^1\to S^3$ such that $\Hopf(s_0(\varphi))=\mathbf u(\varphi)$ for all
+$\varphi\in S^1$.
+
+\begin{proposition}[Preimage of a circle is a torus]\label{prop:hopf-torus}
+The subset
+\[
+  T_C
+  :=
+  \Hopf^{-1}(C)
+  =
+  \bigl\{\, s_0(\varphi)\,e^{\mathbf k \chi/2} : (\varphi,\chi)\in S^1\times S^1 \,\bigr\}
+  \subset S^3
+\]
+is an embedded $2$--torus in $S^3$.
+\end{proposition}
+
+\begin{proof}
+For each fixed $\varphi$, the map $\chi\mapsto s_0(\varphi)e^{\mathbf k\chi/2}$
+parameterizes the Hopf circle over $\mathbf u(\varphi)$ by
+Proposition~\ref{prop:fibres}. As $\varphi$ varies, these circles vary smoothly
+and remain disjoint, because distinct base points have disjoint fibres. Hence
+$T_C$ is a smooth $S^1$--bundle over $S^1$, and therefore diffeomorphic to
+$S^1\times S^1$ (every principal $S^1$--bundle over $S^1$ is trivial).
+\end{proof}
+
+A particularly symmetric case is the \emph{Clifford torus}, obtained when $C$ is
+a great circle on $S^2$ and the lift $s_0$ is chosen compatibly with the
+standard coordinates on $S^3\subset\mathbb C^2$.
+
+\subsection{The double cover $SU(2)\to SO(3)$ and $4\pi$--periodicity}
+\label{subsec:double-cover}
+
+Conjugation by a unit quaternion $s\in S^3$ defines an orthogonal transformation
+of $\mathrm{Im}\,\mathbb H$:
+\[
+  \Ad_s : \mathrm{Im}\,\mathbb H \to \mathrm{Im}\,\mathbb H,
+  \qquad
+  \Ad_s(\mathbf v) := s\,\mathbf v\,s^{-1}.
+\]
+This is a rotation, hence $\Ad_s\in SO(3)$, and the map
+\[
+  \Ad: S^3 \to SO(3),\qquad s\mapsto \Ad_s
+\]
+is a surjective group homomorphism with kernel $\{\pm 1\}$; thus $S^3\simeq SU(2)$
+is a double cover of $SO(3)$.
+
+\begin{lemma}\label{lem:2pi-sign}
+Let $\mathbf n\in \mathrm{Im}\,\mathbb H$ be unit and set
+$r(\theta):=\exp(\mathbf n\,\theta/2)=\cos(\theta/2)+\mathbf n\sin(\theta/2)$.
+Then $r(2\pi)=-1$ and $r(4\pi)=+1$.
+\end{lemma}
+
+\begin{proof}
+Immediate from the trigonometric form of $\exp(\mathbf n\,\theta/2)$.
+\end{proof}
+
+Accordingly, a closed $2\pi$--rotation on the base $SO(3)$ corresponds to a path
+in $S^3$ ending at $-1$, and closure in $S^3$ occurs only after $4\pi$.
+
+\subsection{Degree-$k$ lifts}
+
+For later use it is convenient to record a family of circle actions obtained by
+taking powers in the fibre group.  Define, for an integer $k\ge 0$,
+\[
+  \rho_k : S^1 \to S^1_{\mathbf k},
+  \qquad
+  \rho_k(e^{i\theta}) := e^{\mathbf k\,k\theta}.
+\]
+Equivalently, in terms of the fibre parameter $\chi$,
+\[
+  e^{\mathbf k\chi/2}
+  \longmapsto
+  \bigl(e^{\mathbf k\chi/2}\bigr)^k
+  =
+  e^{\mathbf k\,k\chi/2}.
+\]
+
+\begin{definition}[Degree-$k$ fibre action]
+For $k\in\mathbb Z_{\ge 0}$ define an $S^1$--action on $S^3$ by
+\[
+  (s,\chi)\ \mapsto\ s\,e^{\mathbf k\,k\chi/2},
+  \qquad (\chi\in\mathbb R/2\pi\mathbb Z).
+\]
+\end{definition}
+
+\begin{lemma}[Periodicity]\label{lem:periodicity-k}
+Under the degree-$k$ fibre action, a shift $\chi\mapsto\chi+2\pi$ acts by
+multiplication with $(-1)^k$:
+\[
+  s\,e^{\mathbf k\,k(\chi+2\pi)/2}
+  = s\,e^{\mathbf k\,k\chi/2}\,e^{\mathbf k\,k\pi}
+  = s\,e^{\mathbf k\,k\chi/2}\,(-1)^k.
+\]
+Hence the action closes after $2\pi$ when $k$ is even and after $4\pi$ when $k$
+is odd.
+\end{lemma}
+
+\begin{proof}
+Use $e^{\mathbf k\pi}=\cos\pi+\mathbf k\sin\pi=-1$ and multiplicativity of the
+exponential in the commutative subalgebra $\mathbb C_{\mathbf k}$.
+\end{proof}
+
+\subsection{From $S^2$ to the closed $3$--ball}
+
+Finally, note that $S^2\subset\mathrm{Im}\,\mathbb H$ is naturally embedded as
+the boundary of the closed unit ball
+\[
+  \overline{B^3}:=\{\mathbf u\in\mathrm{Im}\,\mathbb H:\|\mathbf u\|\le 1\}.
+\]
+Any $\mathbf u\in\overline{B^3}$ can be written as a convex combination of unit
+vectors in $S^2$ (e.g. by averaging over a probability measure on $S^2$), so
+$\overline{B^3}$ is the natural convex (coarse--grained) completion of the base
+sphere.
+
+% ===============================
 
 \section{Signature calculation}
 (Detailed derivation.)
