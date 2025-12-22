@@ -181,6 +181,22 @@ Let $N$ be a smooth vector field on $\Espace$ satisfying the unit condition
 In particular, $N$ is nowhere vanishing and defines at each point a
 distinguished $\delta$--unit direction.
 
+\begin{remark}[Fiducial observer field]
+\label{rem:N-reference-observer}
+In the unimetrical interpretation, the distinguished unit field $N$ plays the role of a
+fiducial inertial observer field (a ``laboratory'' or vacuum rest frame).
+It selects, at each $p\in\Espace$, the canonical $\delta$--orthogonal splitting
+\[
+   T_p\Espace = \mathbb R\,N_p \ \oplus\ N_p^{\perp_\delta},
+\]
+which we use consistently to interpret longitudinal components as temporal and
+transverse components as spatial.
+When light rays are represented by null tangents $K$ (see \S\ref{subsec:light-as-null}),
+the coefficient $\omega$ in the parametrization $K=\omega(N+E)$ is precisely the angular
+frequency measured by these $N$--observers, i.e.\ $\omega=g(N,K)$; Doppler shifts for other
+observers are encoded by $\omega_U=g(U,K)$ (Definition~\ref{def:omegaU}).
+\end{remark}
+
 We introduce the $\delta$--orthogonal projector onto the complement of $N$:
 \begin{equation}\label{eq:h-def}
    h_{AB} := \delta_{AB} - N_A N_B.
@@ -700,17 +716,6 @@ $X$, i.e.\ a parameter such that the tangent $\dot{X}:=dX/d\tau$ satisfies
 \end{equation}
 Equivalently, $ds^2 = g(dX,dX) = \clight^2\,d\tau^2$ along $X$.
 
-\begin{remark}[Units and normalization]\label{rem:U-normalization}
-The proper--time tangent $\dot{X}=dX/d\tau$ has the physical dimension of a speed and is normalized by \eqref{eq:proper-time-norm}.
-For kinematical formulas it is convenient to use the associated \emph{dimensionless} unit 4--velocity
-\[
-   U \;:=\; \frac{1}{\clight}\,\dot{X},
-   \qquad\text{so that}\qquad g(U,U)=1.
-\]
-In the remainder of the paper, an ``observer'' will be represented by such a unit timelike $U$; whenever $U$ arises from a worldline it is implicitly understood as the normalized proper--time tangent.
-\end{remark}
-
-
 \begin{theorem}[Reparameterization equivalence]
 \label{thm:equiv}
 For any timelike worldline $X$, the following statements are equivalent:
@@ -836,53 +841,6 @@ equivalently, $g(\tilde{X},\tilde{X})=0$ implies $d\tau/d\chi=0$ in
 \eqref{eq:tau-chi-relation}.
 \end{remark}
 
-\subsection{Dynamics: Action and canonical momentum}
-\label{subsec:dynamics}
-
-The geometric framework developed so far has been purely kinematic. To describe the dynamics of a free particle of mass $m$, we apply the principle of least action to the metric structure induced by $N$.
-
-\paragraph{The Action Principle.}
-Let $x(\lambda)$ be a worldline in the proto-space $\Espace$, parameterized by an arbitrary parameter $\lambda$. The standard relativistic action is given by the arc length in the metric $g$:
-\begin{equation}\label{eq:action-general}
-   S = -m \int d\tau = -m \int \sqrt{g_{AB}\,\dot{x}^A \dot{x}^B}\,d\lambda,
-\end{equation}
-where $\dot{x}^A = dx^A/d\lambda$. Substituting the definition of the unimetric tensor $g_{AB} = 2N_A N_B - \delta_{AB}$ \eqref{eq:g-def}, the Lagrangian density takes the explicit Euclidean form:
-\[
-   L(\dot{x}) = -m \sqrt{2(N\cdot \dot{x})^2 - \|\dot{x}\|_\delta^2}.
-\]
-This describes a particle moving in a Euclidean space but subject to an anisotropy defined by the field $N$.
-
-\paragraph{The Unimetric Action form.}
-A fundamental insight arises when we express the action using the tilt angle $\vartheta$ and the calibrated proto-parameter $\chi$ introduced in \S\ref{subsec:flow-invariants-S3}.
-Using the identity $g(\dot{x},\dot{x}) = \|\dot{x}\|_\delta^2 \cos(2\vartheta)$ (Proposition~\ref{prop:g-tilt}), the generic action becomes:
-\[
-   S = -m \int \|\dot{x}\|_\delta \sqrt{\cos(2\vartheta)}\,d\lambda.
-\]
-If we choose the parameter $\lambda$ to be the calibrated proto-parameter $\chi$, the Euclidean speed is constant, $\|\dot{x}\|_\delta = \clight$ (Eq.~\ref{eq:calibrated-speed}). The action simplifies to a functional depending solely on the angular deviation from the field $N$:
-\begin{equation}\label{eq:action-chi}
-   S = -m\clight \int_{\chi_1}^{\chi_2} \sqrt{\cos\bigl(2\vartheta(\chi)\bigr)}\,d\chi.
-\end{equation}
-This formulation reveals the geometric cost of motion: the action is minimized when the trajectory aligns with the vacuum field $N$ (where $\vartheta=0$ and the integrand is maximal in magnitude), recovering the law of inertia.
-For a constant tilt $\vartheta_0$ (inertial motion), using the relation $d\chi = \clight dt / \cos\vartheta_0$ and $\tan\vartheta_0 = v/\clight$, \eqref{eq:action-chi} integrates directly to the standard relativistic form $S = -mc^2 \int \sqrt{1-v^2/\clight^2}\,dt$.
-
-\paragraph{Canonical Momentum as Euclidean Reflection.}
-The canonical 4-momentum $P_A$ conjugate to the coordinate $x^A$ is defined by $P_A := \partial L / \partial \dot{x}^A$.
-Differentiating the Lagrangian in \eqref{eq:action-general} yields:
-\[
-   P_A = -m \frac{4(N\cdot \dot{x})N_A - 2\dot{x}_A}{2\sqrt{g(\dot{x},\dot{x})}}.
-\]
-In the proper time parametrization ($\tau$), where $\sqrt{g(\dot{x},\dot{x})}=\clight$, this simplifies to:
-\begin{equation}\label{eq:canonical-mom}
-   P = m \Bigl( \dot{x} - 2(N\cdot \dot{x})N \Bigr).
-\end{equation}
-Using the orthogonal decomposition $\dot{x} = \dot{x}_\parallel + \dot{x}_\perp$, where $\dot{x}_\parallel = (N\cdot \dot{x})N$, we observe a striking geometric interpretation:
-\begin{equation}\label{eq:momentum-reflection}
-   P = m \bigl( (\dot{x}_\parallel + \dot{x}_\perp) - 2\dot{x}_\parallel \bigr)
-     = m \bigl( \dot{x}_\perp - \dot{x}_\parallel \bigr).
-\end{equation}
-Thus, the physical 4-momentum is the \emph{Euclidean reflection} of the 4-velocity vector across the spatial hyperplane $N^{\perp_\delta}$.
-This duality implies that while the kinematic flow $\dot{x}$ points forward in the proto-time $N$, the dynamical momentum $P$ is directed backward relative to the observer's flow field, providing a geometric origin for the distinction between velocity and momentum 1-forms.
-
 % ===============================
 \section{Why the Euclidean proto-space viewpoint}
 \label{sec:why-protospace}
@@ -895,9 +853,7 @@ same object, both (i) the observable \emph{spatial} direction data encoded in
 $\mathrm{Im}(h_p)=N_p^{\perp_\delta}$ and (ii) the \emph{calibration} data
 (frequencies, time rates) encoded by $g$--projections onto time directions.
 In this sense, ``light'' is not an extra entity but a geometric slice of the
-null cone by the calibrated Euclidean sphere $S^3_{\clight}\subset T_p\Espace$ 
-defined by $\delta(V,V)=\clight^2$.
-
+null cone by the Euclidean layers $\Sigma_\chi\simeq S^3$ introduced later.
 
 \subsection{Light rays: Derivation of frequency and direction}
 \label{subsec:light-as-null}
@@ -941,7 +897,7 @@ where $\omega = g(K,N)$ is the frequency and $E$ is the observable propagation d
 \label{subsec:observers-as-U}
 
 In the proto--space formalism, a (local) observer is represented by a unit
-future timelike vector (dimensionless, cf.\ Remark~\ref{rem:U-normalization})
+future timelike vector
 \[
    U\in T_p\Espace,\qquad g(U,U)=1,\qquad g(U,N)>0.
 \]
@@ -954,17 +910,6 @@ For a null ray $K\neq 0$, the frequency measured by the observer $U$ is
    \omega_U := g(U,K).
 \end{equation}
 \end{definition}
-\begin{remark}[Ray vector vs.\ wave covector]\label{rem:K-vs-k}
-We represent a light ray by a future--directed null vector $K\in T_p\Espace$.
-Its metric dual 1--form
-\[
-   k \;:=\; g(K,\cdot)\ \in T_p^*\Espace
-\]
-is the standard wave covector of geometric optics.
-With this notation, the measured frequency can be written equivalently as
-$\omega_U = k(U) = g(U,K)$.
-\end{remark}
-
 
 This is the standard invariant definition used in geometric optics in SR.
 In the present framework, however, \eqref{eq:omegaU-def} will become an
@@ -1015,8 +960,8 @@ Then \eqref{eq:doppler-raw} becomes the standard relativistic Doppler law:
 \paragraph{Interpretation.}
 Equation \eqref{eq:doppler-angle} is obtained here as a direct function of an
 ordinary Euclidean angle on the $\delta$--unit sphere inside
-$\mathrm{Im}(h_p)$ (i.e.\ on the $\delta$--unit sphere in $\mathrm{Im}(h_p)$). 
- In this sense the Doppler shift is simply ``projection
+$\mathrm{Im}(h_p)$ (the ``$S^3$ layers'' $\Sigma_\chi\simeq S^3$ will be
+introduced later).  In this sense the Doppler shift is simply ``projection
 geometry'' in the proto--space: the measured frequency is the $g$--projection
 of a null direction onto an observer state.
 
