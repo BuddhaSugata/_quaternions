@@ -151,6 +151,9 @@ Lorentzian kinematics.
 \subsection{Outline}
 Brief summary of sections.
 
+
+
+
 % ===============================
 \section{Lorentzian metric construction}
 \label{sec:LMC}
@@ -432,341 +435,6 @@ properties central to the phase-space formulation of relativistic
 kinematics developed below.
 
 
-% ===============================
-\section{Field source}
-\label{sec:IFS}
-% ===============================
-
-The construction of a Lorentzian metric in \S\ref{sec:LMC} assumes the presence
-of a smooth unit vector field $N$. In the no--source reference state, by
-contrast, there is no vector field at all; we denote this absence by the
-bookkeeping symbol $N_0:=0$. In this section we model a field source as a
-finite (or countable) collection of localized orientation defects (streamlets)
-on top of this empty background. Only after coarse--graining over a sufficiently
-large ensemble of such defects within a closed four--volume does an effective
-smooth unit field $N_{eff}$ emerge, and with it a well-defined induced Lorentzian 
-metric $g$.
-
-Indices are raised and lowered with the Euclidean metric $\delta$ unless
-explicitly stated otherwise; in particular $N_{aA}:=\delta_{AB}N_a^B$ and
-$h^{AB}:=\delta^{AC}\delta^{BD}h_{CD}$.
-
-
-\subsection{Streamlets on the background $N_0$}
-
- Fix $p\in\Espace$ and $R>0$ and define
-\[
-   \Omega := B_R(p)
-   := \{q\in\Espace \;:\; \|q-p\|_\delta \le R\},
-   \qquad
-   \partial\Omega \cong S^3_R(p).
-\]
-
-Let $\mathcal I$ be a finite or countable index set (e.g. $\mathcal I=\{1,\dots,n\}$
-in the finite case, or $\mathcal I\subset\mathbb N$ in the countable case) and index
-$a \in \mathcal I$.
-
-
-\begin{definition}[Streamlet]\label{def:streamlet}
-A \emph{streamlet} is a triple $(p_a,N_a,\mathbf u_a)$ consisting of
-\begin{itemize}
-\item a point $p_a\in\Espace$ (the location of a compact defect in $4$D),
-\item a unit director $N_a\in T_{p_a}\Espace$ with $\delta(N_a,N_a)=1$,
-\item an internal phase state $\mathbf u_a\in\overline{B^3}\subset\mathrm{Im}\,\mathbb H$,
-      where $\overline{B^3}:=\{\mathbf u\in\mathrm{Im}\,\mathbb H:\|\mathbf u\|\le 1\}$.
-\end{itemize}
-The case $\|\mathbf u_a\|=1$ corresponds to a \emph{pure} internal state, while
-$\|\mathbf u_a\|<1$ represents a \emph{mixed} (coarse--grained) state.
-A concrete realization of $\mathbf u$ via a Hopf lift, together with the phase
-parameter $\chi$ along the $S^1$ fibre, is given in Appendix~\ref{app:hopf}.
-The no--source background is the absence of streamlets (bookkeeping symbol $N_0:=0$).
-\end{definition}
-
-
-
-
-
-\begin{definition}[Field source]
-A (monopole--type) \emph{field source} supported in $\Omega$ is then an
-ensemble of streamlets
-\[
-   \mathcal S_\Omega := \{(p_a,N_a,w_a)\}_{a\in\mathcal I},
-   \qquad
-   p_a\in\Omega,\;\; w_a\ge 0,
-\]
-with total weight $W:=\sum_{a} w_a\in(0,\infty)$.
-\end{definition}
-
-In the flat phase space we may identify tangent spaces by translation and
-treat the vectors $N_a$ as elements of a common $\mathbb R^4$ for the
-purpose of moment averages.
-
-\subsection{First moment and the centered (rest) configuration}
-
-The first moment (dipole moment) of the source is defined by the
-weighted average
-\begin{equation}\label{eq:source-first-moment}
-   M^{A}_{(1)}
-   := \frac{1}{W}\sum_{a} w_a\, N_a^{A}.
-\end{equation}
-
-\begin{definition}[Centered / rest configuration]
-We say that the source is \emph{centered} (or is described in its rest
-configuration) if its first moment vanishes:
-\begin{equation}\label{eq:source-centered}
-   M^{A}_{(1)} = 0.
-\end{equation}
-\end{definition}
-
-This condition is the discrete analogue of a vanishing mean in the
-measure--theoretic formulation: there is no net preferred direction at
-first order, and the leading structural information is therefore carried
-by the second moment.
-
-\subsection{Second moment tensor of the source}
-
-The second moment tensor of the source is the symmetric tensor
-\begin{equation}\label{eq:source-second-moment}
-   M_{AB}
-   := \frac{1}{W}\sum_{a} w_a\, N_{aA}N_{aB}.
-\end{equation}
-By construction $M_{AB}=M_{BA}$ and for any $X\in\mathbb R^4$ one has
-\[
-   X^A X^B M_{AB}
-   = \frac{1}{W}\sum_a w_a\, (N_a\cdot X)^2 \;\ge\; 0,
-\]
-so $M$ is positive semidefinite with respect to $\delta$.
-Moreover, since $\delta(N_a,N_a)=1$ for each streamlet,
-\begin{equation}\label{eq:delta-trace-one}
-   \delta^{AB}M_{AB}
-   = \frac{1}{W}\sum_a w_a\,\delta(N_a,N_a)
-   = 1.
-\end{equation}
-
-\subsection{Field intensity from streamlet counts and second moments}
-\label{subsec:field-intensity}
-
-So far we have extracted only the directional content of the source via
-the normalized second moment $M_{AB}$ in \eqref{eq:source-second-moment}, whose
-$\delta$--trace is fixed to $1$ by \eqref{eq:delta-trace-one}.  To describe the
-strength of the source we also need an intensity scale measuring how
-many streamlets populate the region $\Omega$.
-
-Let $\Vol_\delta(\Omega)$ denote the Euclidean four--volume of $\Omega$ induced
-by $\delta$.  We define the (coarse--grained) field intensity in $\Omega$
-by
-\begin{equation}\label{eq:intensity-scalar}
-   \mathcal I_\Omega
-   := \frac{W}{\Vol_\delta(\Omega)}
-   = \frac{1}{\Vol_\delta(\Omega)}\sum_{a\in\mathcal I} w_a .
-\end{equation}
-If all weights are equal ($w_a\equiv 1$), then $\mathcal I_\Omega$ is simply the
-number density of streamlets (count per four--volume).
-
-Equivalently, intensity is obtained directly from the unnormalized
-second moment, i.e. from the dyadic squares $N_{aA}N_{aB}$:
-\begin{equation}\label{eq:second-moment-density}
-   \mathcal M_{AB}
-   := \frac{1}{\Vol_\delta(\Omega)}\sum_{a\in\mathcal I} w_a\, N_{aA}N_{aB}
-   = \mathcal I_\Omega\, M_{AB}.
-\end{equation}
-Taking the $\delta$--trace and using $\delta(N_a,N_a)=1$ gives the identity
-\begin{equation}\label{eq:intensity-trace}
-   \delta^{AB}\mathcal M_{AB}
-   = \frac{1}{\Vol_\delta(\Omega)}\sum_a w_a\,\delta(N_a,N_a)
-   = \frac{W}{\Vol_\delta(\Omega)}
-   = \mathcal I_\Omega.
-\end{equation}
-Thus the scalar intensity is the trace of the second--moment density tensor,
-reflecting that it is built from the squared orientation vectors.
-
-For an isotropic centered source, where
-$M_{AB}=\cos^2\zeta\,N_AN_B+\frac{\sin^2\zeta}{3}h_{AB}$ (see
-\eqref{eq:zeta-definition}), the density tensor
-factorizes as
-\[
-   \mathcal M_{AB}
-   = \mathcal I_\Omega\Bigl(
-        \cos^2\zeta\,N_AN_B
-        +\frac{\sin^2\zeta}{3}h_{AB}
-     \Bigr),
-\]
-so $\mathcal I_\Omega$ controls the overall strength, while $\zeta$ encodes the
-directional budget between the longitudinal and transverse sectors.
-
-
-\subsection{Transversely isotropic source and canonical form}
-
-To speak about a physically isotropic source we require that, after
-coarse--graining over many streamlets, the second moment tensor is
-invariant under rotations in the subspace orthogonal to the distinguished
-direction. In the language of continuum mechanics, such a tensor is called
-transversely isotropic with respect to the vector $N$.
-
-\begin{definition}[Transversely isotropic field source]
-A centered source is \emph{transversely isotropic} (or spatially isotropic
-in its rest frame) if there exists a unit vector $N$ such that $M_{AB}$
-admits the spectral decomposition
-\[
-   \mathrm{spec}(M) = \{\lambda_\parallel,\lambda_\perp,\lambda_\perp,\lambda_\perp\},
-   \qquad \lambda_\parallel > \lambda_\perp \ge 0,
-\]
-with $N$ being the eigenvector corresponding to the simple eigenvalue
-$\lambda_\parallel$.
-Equivalently,
-\begin{equation}\label{eq:isotropic-canonical-M}
-   M_{AB} = \alpha\,N_A N_B + \beta\, h_{AB},
-\end{equation}
-where $h_{AB}=\delta_{AB}-N_AN_B$ is the transverse projector and $\alpha,\beta\ge 0$.
-\end{definition}
-
-In this form the longitudinal and transverse traces are
-\[
-   M_{\parallel}:=M_{AB}N^AN^B=\alpha,
-   \qquad
-   M_{\perp}:=h^{AB}M_{AB}=3\beta,
-\]
-and by \eqref{eq:delta-trace-one} they satisfy $\alpha+3\beta=1$.
-
-\subsection{Structural angle $\zeta$ from the second moment}
-
-The second moment of an isotropic source naturally defines a single
-structural (budget) angle $\zeta$ measuring how the unit
-second--moment trace is split between the distinguished direction and its
-orthogonal complement.  We define
-\begin{equation}\label{eq:zeta-definition}
-   \boxed{
-   \cos^2\zeta := M_{\parallel} = M_{AB}N^AN^B,
-   \qquad
-   \sin^2\zeta := M_{\perp} = h^{AB}M_{AB}.
-   }
-\end{equation}
-Because $\alpha+3\beta=1$, this is equivalent to the parametrization
-\[
-   \alpha=\cos^2\zeta,
-   \qquad
-   \beta=\frac{1}{3}\sin^2\zeta,
-   \qquad
-   M_{AB}=\cos^2\zeta\,N_AN_B+\frac{\sin^2\zeta}{3}\,h_{AB}.
-\]
-
-Once $N$ is identified, the induced Lorentzian metric
-$g_{AB}=2N_AN_B-\delta_{AB}$ yields an additional scalar contraction:
-\begin{equation}\label{eq:g-trace-and-zeta}
-   g^{AB}M_{AB}
-   = \alpha-3\beta
-   = \cos^2\zeta-\sin^2\zeta
-   = \cos(2\zeta).
-\end{equation}
-Thus, for an isotropic centered source, the angle $\zeta$ is equivalently
-recovered from the pair of invariants
-\[
-   \delta^{AB}M_{AB}=1,
-   \qquad
-   g^{AB}M_{AB}=\cos(2\zeta).
-\]
-
-
-\subsection{Emergence of the Lorentzian metric}
-
-For a sparse set of streamlets, the discrete data $\{(p_a,N_a)\}$ does not define
-a smooth unit field. However, assuming a sufficient density of sources, we may
-consider a local coarse--graining where $M_{AB}(x)$ is computed via a
-smoothing kernel around each point $x$.
-
-Crucially, while the local first moment vanishes ($M_{(1)}\approx 0$) for a
-centered source distribution, the second moment $M_{AB}(x)$ does not.
-Provided the sources possess local orientational order, the principal eigenvector
-of $M_{AB}(x)$ uniquely identifies a smooth unit vector field $N(x)$.
-This emergent field then determines the projector $h(x)$ and induces the
-Lorentzian metric field
-\[
-   g_{AB}(x) \;=\; 2 N_A(x) N_B(x) - \delta_{AB} .
-\]
-In this framework, the causal structure of spacetime is not fundamental but
-emerges as a statistical property of the underlying streamlet ensemble.
-% ===============================
-
-\subsection{Time as an unwrapped phase}
-\label{subsec:time-from-phase}
-
-The phase parameter $\chi$ introduced above is an angular variable on the Hopf
-fiber and is therefore cyclic: $\chi\sim \chi+2\pi$.  To obtain a
-non--compact time variable we use the standard unwrapping procedure.
-
-\paragraph{Unwrapped phase.}
-Along any connected physical history of a streamlet (i.e. along any chosen
-continuous evolution of its Hopf lift), we fix a continuous branch and define
-the \emph{unwrapped phase}
-\[
-   \widetilde{\chi}\in\mathbb R,
-   \qquad
-   \widetilde{\chi}\bmod 2\pi = \chi.
-\]
-Equivalently, $\widetilde{\chi}$ counts how many $2\pi$--cycles have been
-completed since a reference state.
-
-\paragraph{Phase time (proper time).}
-A streamlet returns to the same internal state after $\Delta\chi=2\pi$; hence
-each full phase cycle defines one ``tick'' of its intrinsic clock.  We define
-the (local) proper time $\tau$ of the streamlet by calibrating the unwrapped
-phase with a structural angular frequency $\omega_0>0$:
-\begin{equation}\label{eq:tau-from-chi}
-   d\tau := \frac{1}{\omega_0}\,d\widetilde{\chi},
-   \qquad\text{so that}\qquad
-   \tau = \frac{\widetilde{\chi}-\widetilde{\chi}_\ast}{\omega_0}.
-\end{equation}
-Thus one period $\Delta\chi=2\pi$ corresponds to the proper--time increment
-\[
-   \Delta\tau = \frac{2\pi}{\omega_0}.
-\]
-The parameter $\omega_0$ is a structural property of the streamlet (to be
-specified later, e.g. in terms of coarse--grained invariants such as intensity
-and the structural angle $\zeta$).  Equation \eqref{eq:tau-from-chi} is the
-definition of time in the phase--space picture: time is the calibrated count
-of phase cycles.
-
-\paragraph{Geometric rationale.}
-In phase space the internal phase cycle closes, returning the streamlet to the
-same state after $2\pi$.  Because the defect is compact (a point in $4$D), its
-small boundary is compact ($S^3$), and the Hopf fibration decomposes this
-boundary into closed $S^1$ fibers over a base direction.  The existence of a
-distinguished fiber coordinate $\chi$ is therefore intrinsic, and the time
-variable $\tau$ arises as its unwrapped and calibrated counterpart.
-
-
-% ===============================
-\section{Local quaternionic algebra and phase dynamics}
-\label{sec:local-quat}
-% ===============================
-
-\subsection{Hopf lift and phase without punctures}
-\label{subsec:hopf-phase}
-
-To avoid introducing punctures or excised cores in order to define a phase
-potential, we represent phase as a fiber variable of a Hopf--type lift.
-Let
-\[
-   q:\Espace \to S^3 \subset \mathbb H,\qquad |q|=1,
-\]
-be a unit quaternion (equivalently, an $SU(2)$ field). Fix an imaginary unit
-$\mathbf i\in\mathrm{Im}\,\mathbb H$ and define the associated vector field
-\[
-   \mathbf n := q\,\mathbf i\,q^{-1} \in S^2\subset \mathrm{Im}\,\mathbb H.
-\]
-This is the Hopf map $S^3\to S^2$ applied pointwise. The fiber action
-$q\mapsto e^{\mathbf i\theta}q$ leaves $\mathbf n$ invariant and plays the role
-of a $U(1)$ gauge symmetry; a scalar phase $\Phi$ exists only locally after a
-gauge choice.
-
-The gauge--covariant phase object is the connection 1--form
-\[
-   \alpha := -2\,\mathrm{Im}(\bar q\,dq),
-\]
-which transforms as $\alpha\mapsto \alpha+2\,d\theta$ under $q\mapsto e^{\mathbf i\theta}q$.
-Its curvature $F:=d\alpha$ is gauge invariant and encodes the topological
-twisting of the phase fibers without any excised set.
-
 
 % ===============================
 \section{Tilt angle geometry and hyperbolic parametrization}
@@ -1035,6 +703,142 @@ $g$–positive cone $\mathcal T_p$.
 In particular, the appearance of the hyperbolic parameter $\eta$ is a
 direct consequence of the projector structure determined by $(\delta,N)$,
 rather than an additional postulate.
+
+% ===============================
+\section{Newtonian body as an isotropic field source and its simultaneity fronts}
+\label{sec:newtonian-body}
+% ===============================
+
+Sections \ref{sec:LMC}--\ref{sec:LMP} show that a smooth unit field
+\(N\) on \((\Espace,\delta)\) canonically selects a Lorentzian metric \(g\)
+and an orthogonal splitting into the time direction \(\mathrm{span}\{N\}\)
+and spatial directions \(\ker\alpha\), where
+\[
+  \alpha := \delta(N,\cdot).
+\]
+In particular, hypersurfaces with normal \(N\) (equivalently, tangent
+distribution \(\ker\alpha\)) play the role of simultaneity slices in the
+induced Minkowski picture.
+
+\subsection{Isotropic body as a 3--sphere source}
+
+A Newtonian body will be modeled as an isotropic localized source in \(\Espace\).
+At the effective (coarse--grained) level, isotropy means that the preferred
+direction is purely normal to the body's boundary.
+We therefore represent the body by a closed hypersurface
+\[
+  \Sigma_B \simeq S^3 \subset \Espace,
+\]
+together with its (outward or inward) unit normal field \(N_B\) on \(\Sigma_B\).
+For an isotropic body there exists a distinguished center \(c_B\in\Espace\)
+such that the normal is radial:
+\[
+  N_B(x) \;=\; \frac{x-c_B}{\|x-c_B\|_\delta},
+  \qquad x\in \Sigma_B.
+\]
+Extending \(N_B\) to the exterior \(\Espace\setminus\{c_B\}\) by the same radial
+formula yields a canonical unit field associated with the body.
+By the construction of \S\ref{sec:LMC}, this \(N_B\) induces a Lorentzian metric
+\(g_B\) and a notion of spatial directions \(\ker \alpha_B\) with
+\(\alpha_B:=\delta(N_B,\cdot)\).
+
+\subsection{From radial normal to a time axis and simultaneity fronts}
+
+The key interpretational point is that, for a given body \(B\), the time axis
+of its induced Minkowski structure is the radial direction in phase space.
+More precisely, the integral curves of \(N_B\) are radial rays issued from
+\(c_B\); moving along such a ray changes the body's proper time parameter,
+while directions orthogonal to \(N_B\) are spatial for that body.
+
+Accordingly, the hypersurfaces orthogonal to \(N_B\) form the body's
+fronts of simultaneity (simultaneity slices).  In the isotropic case
+these fronts are precisely the level sets of the Euclidean radius
+\[
+  r_B(x):=\|x-c_B\|_\delta,
+\]
+i.e. the 3--spheres \(r_B=\mathrm{const}\).
+Thus the same geometric object that acts as a radial field source in \(\Espace\)
+acts, after the Lorenz metric identification accordingly to \S\ref{sec:LMC} and \S\ref{sec:LMP}, as the body's temporal normal and
+thereby as the generator of its Minkowski simultaneity.
+
+This emphasizes a structural feature of the model: the time direction is not
+a universal background axis.  Each massive body \(B\) carries its own
+object--adapted time field \(N_B\), hence its own simultaneity foliation.
+
+\subsection{A reference cycle for evolution}
+
+The isotropic description above can be stated without microstructure.
+However, to speak about the evolution of a body (and to quantify it) we
+need an internal periodic reference, i.e. a distinguished cycle whose phase
+returns and can be used as a clock.
+
+
+Following Rovelli’s relational formulation of generally covariant dynamics, one 
+does not assume a preferred external time variable $t$; instead, the theory 
+predicts correlations among measurable quantities (“partial observables”). 
+Concretely, one chooses a dynamical quantity $T$ as a clock and considers 
+relational (complete) observables of the form “$A$ when $T=\tau$”, which 
+carry the physical content of evolution. In our setting, this motivates treating 
+the chosen reference phase/loop parameter as the evolution parameter, with 
+all other kinematical quantities expressed relative to it. \cite{Rovelli2002,Rovelli2011}
+
+We therefore assume that the body consists of "streamlets", each endowed with a
+phase variable \(\chi\) (defined modulo \(2\pi\)), so that an isolated
+pure streamlet admits a closed cycle \(\chi\mapsto \chi+2\pi\).
+A complex body, viewed as a coupled configuration of many streamlets, need (can) not
+return to its initial configuration after any global increment of \(\chi\);
+this is precisely what we mean here by evolution.
+
+To compare the body's states we fix one streamlet \(a_\ast\) inside \(B\) as a
+reference streamlet and use its phase (or the associated proper time
+parameter) as the evolution parameter:
+\[
+  \tau_B \;\equiv\; \tau_\ast, \qquad \chi_\ast \sim \chi_\ast + 2\pi.
+\]
+Then the body's simultaneity front at ``time'' \(\tau_B\) is the spatial slice
+orthogonal to \(N_B\) that contains the reference streamlet at phase \(\chi_\ast(\tau_B)\).
+Any measure of evolution can now be defined as a functional of the body's
+configuration restricted to that slice, compared against its initial slice.
+
+In this way the radial field \(N_B\) supplies the temporal normal
+(front of simultaneity), while the reference streamlet supplies the
+parametrization of successive fronts; together they yield a minimal and
+operational notion of a body's time axis and its evolution.
+
+\subsection{Relational time and the body state space \(S^1\times S^3\)}
+\label{subsec:rovelli-S1S3}
+
+In the present setting, the clock is provided by the phase of a chosen
+reference streamlet \(a_{\ast}\).  Its phase coordinate is an angle defined
+modulo \(2\pi\),
+\[
+  \chi_{\ast}\in \mathbb{R}/2\pi\mathbb{Z} \;\simeq\; S^1,
+\]
+and will serve as an operational time label.
+
+The spatial configuration of the body is assessed on the simultaneity front
+selected by the effective time direction \(N_B\), namely on the hypersurface
+orthogonal to \(N_B\) passing through the current position of the reference
+streamlet.  In the isotropic (Newtonian) case these simultaneity fronts are
+Euclidean \(3\)-spheres
+\[
+  \Sigma_{r} \;=\;\{\,x\in\Espace:\|x-c_B\|_\delta=r\,\}\;\simeq\; S^3,
+\]
+so that the instantaneous spatial arena of the body is naturally modeled by
+\(S^3\).
+
+We therefore represent the body--adapted state space by the product manifold
+\[
+  \mathcal{M}_B \;:=\; S^1_{\chi_{\ast}}\times S^3,
+\]
+where the \(S^1\)-factor encodes the reference phase \(\chi_{\ast}\) and the
+\(S^3\)-factor encodes the corresponding simultaneity front (spatial slice).
+A ``history'' of the body is then a curve in \(\mathcal{M}_B\).  The
+operational notion of evolution is obtained by comparing configurations at
+equal values of \(\chi_{\ast}\) (equivalently, after each increment
+\(\chi_{\ast}\mapsto\chi_{\ast}+2\pi\)).
+
+
 
 
 % ===============================
@@ -1502,6 +1306,24 @@ V.\,V. Reddy, R. Sharma, S. Sivaramakrishnan,
 Construction of Lorentzian metrics from Riemannian metrics,
 \emph{Differential Geometry and its Applications},
 \textbf{27} (2009), no.\,6, 767--773.
+
+\bibitem{Rovelli2002}
+C.\,Rovelli,
+Partial observables,
+\emph{Physical Review D},
+\textbf{65} (2002), 124013.
+doi:10.1103/PhysRevD.65.124013;
+arXiv:gr-qc/0110035.
+
+\bibitem{Rovelli2011}
+C.\,Rovelli,
+``Forget time'': Essay written for the FQXi contest on the Nature of Time,
+\emph{Foundations of Physics},
+\textbf{41} (2011), no.\,9, 1475--1490.
+doi:10.1007/s10701-011-9561-4;
+arXiv:0903.3832.
+
+
 
 \end{thebibliography}
 
