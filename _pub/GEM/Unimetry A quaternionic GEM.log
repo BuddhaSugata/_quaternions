@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  8 DEC 2025 13:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  22 DEC 2025 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,7 +858,104 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 63
 (d:/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-No file "Unimetry A quaternionic GEM".aux.
+(./Unimetry A quaternionic GEM.aux
+
+LaTeX Warning: Label `sec:D-rotors-GEM' multiply defined.
+
+
+LaTeX Warning: Label `sec:D-rotors-GEM@cref' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-rotors-def' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-rotors-def@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-matrix' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-matrix@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-rotor-conj' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-rotor-conj@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-preserves-E' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-preserves-E@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-acts-on-A' multiply defined.
+
+
+LaTeX Warning: Label `eq:D-acts-on-A@cref' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-on-bodies' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-on-bodies@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:q-tilde-rest' multiply defined.
+
+
+LaTeX Warning: Label `eq:q-tilde-rest@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:q-tilde-lab' multiply defined.
+
+
+LaTeX Warning: Label `eq:q-tilde-lab@cref' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-on-field' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-on-field@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:F-transform' multiply defined.
+
+
+LaTeX Warning: Label `eq:F-transform@cref' multiply defined.
+
+
+LaTeX Warning: Label `subsec:relativistic-GEM-force' multiply defined.
+
+
+LaTeX Warning: Label `subsec:relativistic-GEM-force@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:power-channel' multiply defined.
+
+
+LaTeX Warning: Label `eq:power-channel@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:force-B-channel' multiply defined.
+
+
+LaTeX Warning: Label `eq:force-B-channel@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:force-C-channel' multiply defined.
+
+
+LaTeX Warning: Label `eq:force-C-channel@cref' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-field-equivalence' multiply defined.
+
+
+LaTeX Warning: Label `subsec:D-field-equivalence@cref' multiply defined.
+
+)
 \openout1 = `"Unimetry A quaternionic GEM.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
@@ -894,7 +991,7 @@ LaTeX Info: Redefining \showhyphens on input line 63.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-(d:/texlive/2022/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+ (d:/texlive/2022/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
@@ -974,6 +1071,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package hyperref Info: Link coloring ON on input line 63.
+
+(./Unimetry A quaternionic GEM.out) (./Unimetry A quaternionic GEM.out)
 \@outlinefile=\write4
 \openout4 = `"Unimetry A quaternionic GEM.out"'.
 
@@ -1046,15 +1145,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-No file "Unimetry A quaternionic GEM".toc.
+(./Unimetry A quaternionic GEM.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 3.
+ [1
+
+{d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2])
 \tf@toc=\write5
 \openout5 = `"Unimetry A quaternionic GEM.toc"'.
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 84.
-[1
-
-{d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+ [3]
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
 159.
 
@@ -1065,15 +1165,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [2]
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-29.
-
-
-LaTeX Warning: Reference `sec:phase-protospace' on page 1 undefined on input li
-ne 233.
-
+ [4]
 
 LaTeX Warning: Reference `sec:dressed-quats' on page 1 undefined on input line 
 237.
@@ -1106,125 +1198,29 @@ put line 255.
 LaTeX Warning: Reference `sec:discussion-conclusions' on page 1 undefined on in
 put line 257.
 
-[3] [4]
+[5] [6] [7] [8]
 
-LaTeX Warning: Reference `eq:q-product-ABC-coords' on page 5 undefined on input
- line 436.
-
-
-LaTeX Warning: Reference `eq:q-product-ABC' on page 5 undefined on input line 4
-82.
-
-
-LaTeX Warning: Reference `eq:A-matrix' on page 5 undefined on input line 483.
-
-
-LaTeX Warning: Reference `eq:C-matrix' on page 5 undefined on input line 483.
-
-[5] [6]
-
-LaTeX Warning: Reference `eq:flow-line-def' on page 7 undefined on input line 6
-14.
-
-
-LaTeX Warning: Reference `sec:intrinsic-angle' on page 7 undefined on input lin
+LaTeX Warning: Reference `sec:intrinsic-angle' on page 9 undefined on input lin
 e 624.
 
-[7]
+[9]
 
-LaTeX Warning: Reference `eq:dtau-zeta' on page 8 undefined on input line 704.
-
-
-LaTeX Warning: Reference `eq:body-metric-here' on page 8 undefined on input lin
-e 705.
+LaTeX Warning: Reference `eq:chi-angle-decomp' on page 10 undefined on input li
+ne 745.
 
 
-LaTeX Warning: Reference `eq:chi-angle-decomp' on page 8 undefined on input lin
-e 745.
+LaTeX Warning: Reference `eq:deltaT-def' on page 10 undefined on input line 747
+.
 
 
-LaTeX Warning: Reference `eq:deltaT-def' on page 8 undefined on input line 747.
+LaTeX Warning: Reference `eq:deltax-def' on page 10 undefined on input line 750
+.
 
 
+LaTeX Warning: Reference `eq:interval-zeta' on page 10 undefined on input line 
+753.
 
-LaTeX Warning: Reference `eq:deltax-def' on page 8 undefined on input line 750.
-
-
-
-LaTeX Warning: Reference `eq:interval-zeta' on page 8 undefined on input line 7
-53.
-
-[8] [9]
-
-LaTeX Warning: Reference `subsec:interval-SR' on page 1 undefined on input line
- 896.
-
-[10]
-
-LaTeX Warning: Reference `subsec:interval-SR' on page 1 undefined on input line
- 973.
-
-
-LaTeX Warning: Reference `eq:chi-dot-k-omega' on page 11 undefined on input lin
-e 985.
-
-[11]
-
-LaTeX Warning: Reference `eq:Hdot-k-X0tilde2' on page 12 undefined on input lin
-e 1099.
-
-[12]
-
-LaTeX Warning: Reference `subsec:cyclic-time' on page 1 undefined on input line
- 1182.
-
-
-LaTeX Warning: Reference `eq:Hdot-k-X0tilde2' on page 13 undefined on input lin
-e 1192.
-
-
-LaTeX Warning: Reference `subsec:phase-calibration' on page 1 undefined on inpu
-t line 1194.
-
-
-LaTeX Warning: Reference `eq:E0-m0-zetaB' on page 13 undefined on input line 12
-11.
-
-
-LaTeX Warning: Reference `eq:chi-split-theta' on page 13 undefined on input lin
-e 1255.
-
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 1
-257.
-
-[13]
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 1
-282.
-
-
-LaTeX Warning: Reference `eq:E-theta-zetaB-k' on page 14 undefined on input lin
-e 1325.
-
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 1
-327.
-
-
-LaTeX Warning: Reference `eq:gamma-from-A' on page 14 undefined on input line 1
-359.
-
-
-LaTeX Warning: Reference `eq:E-theta-zetaB-k' on page 14 undefined on input lin
-e 1360.
-
-[14]
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 1
-387.
-
-
+[10] [11] [12] [13] [14] [15] [16]
 Overfull \hbox (13.06691pt too wide) in paragraph at lines 1396--1396
 []\T1/lmr/bx/n/14.4 (-20) Metric dress-ing of body quater-nions and gravito--el
 ectromagnetic
@@ -1234,393 +1230,44 @@ ectromagnetic
 LaTeX Warning: Reference `subsec:trig_schwarzschild_streamlets' on page 1 undef
 ined on input line 1419.
 
-[15]
+[17]
 
 LaTeX Warning: Reference `subsec:trig_schwarzschild_streamlets' on page 1 undef
 ined on input line 1541.
 
-[16]
-
-LaTeX Warning: Reference `eq:flow-budget-zeta' on page 17 undefined on input li
-ne 1579.
-
-[17]
+[18] [19]
 
 LaTeX Warning: Reference `subsec:trig_schwarzschild_streamlets' on page 1 undef
 ined on input line 1630.
 
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 1
-646.
-
-[18]
-
-LaTeX Warning: Reference `eq:kappa-lambdaG-calibration' on page 19 undefined on
- input line 1734.
-
-
-LaTeX Warning: Reference `eq:E-self-body' on page 19 undefined on input line 17
-37.
-
-
-LaTeX Warning: Reference `eq:E-self-body' on page 19 undefined on input line 17
-43.
-
-
-LaTeX Warning: Reference `eq:E-rest-from-E' on page 19 undefined on input line 
-1744.
-
-
-LaTeX Warning: Reference `subsec:E-factorization' on page 1 undefined on input 
-line 1751.
-
-
-LaTeX Warning: Reference `eq:body-quat-dressed' on page 19 undefined on input l
-ine 1764.
-
-
-LaTeX Warning: Reference `eq:V12-from-A' on page 19 undefined on input line 178
-9.
-
-
-LaTeX Warning: Reference `eq:Ti-Si-def' on page 19 undefined on input line 1814
-.
-
-
-LaTeX Warning: Reference `eq:A-two-body' on page 19 undefined on input line 181
-4.
-
-[19]
-
-LaTeX Warning: Reference `eq:body-quat-dressed' on page 20 undefined on input l
-ine 1825.
-
-
-LaTeX Warning: Reference `eq:V12-from-A' on page 20 undefined on input line 184
-7.
-
-
-LaTeX Warning: Reference `eq:V12-from-A' on page 20 undefined on input line 185
-9.
-
-[20] [21] [22]
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-068.
-
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-083.
-
-
-LaTeX Warning: Reference `eq:body-quat-static' on page 23 undefined on input li
-ne 2129.
-
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-130.
-
-[23]
-
-LaTeX Warning: Reference `eq:V12-from-A-static' on page 24 undefined on input l
-ine 2155.
-
-
-LaTeX Warning: Reference `eq:A-static-two-body' on page 24 undefined on input l
-ine 2156.
-
-
-LaTeX Warning: Reference `eq:V12-Newton-Coulomb-unified' on page 24 undefined o
-n input line 2178.
-
-
-LaTeX Warning: Reference `eq:T-S-from-q-m' on page 24 undefined on input line 2
-186.
-
-
-LaTeX Warning: Reference `subsec:single-body-E' on page 1 undefined on input li
-ne 2202.
-
-
-LaTeX Warning: Reference `eq:V12-from-A-static' on page 24 undefined on input l
-ine 2229.
-
-[24]
-
-LaTeX Warning: Reference `eq:V12-from-A-static' on page 25 undefined on input l
-ine 2240.
-
-
-LaTeX Warning: Reference `eq:body-quat-static' on page 25 undefined on input li
-ne 2252.
-
-
-LaTeX Warning: Reference `eq:V12-Newton-Coulomb-unified' on page 25 undefined o
-n input line 2289.
-
-[25]
-
-LaTeX Warning: Reference `sec:flow-calibrations' on page 1 undefined on input l
-ine 2329.
-
-
-LaTeX Warning: Reference `eq:body-quat-static' on page 26 undefined on input li
-ne 2335.
-
+[20] [21] [22] [23] [24] [25] [26] [27]
 
 LaTeX Warning: Reference `sec:D-rotations' on page 1 undefined on input line 23
 46.
 
-
-LaTeX Warning: Reference `eq:body-quat-static' on page 26 undefined on input li
-ne 2359.
-
-
-LaTeX Warning: Reference `eq:F-single-source' on page 26 undefined on input lin
-e 2376.
-
-[26]
-
-LaTeX Warning: Reference `eq:q-dressed-lab' on page 27 undefined on input line 
-2466.
-
-
-LaTeX Warning: Reference `eq:F-single-source' on page 27 undefined on input lin
-e 2471.
-
-[27]
-
-LaTeX Warning: Reference `sec:quat-GEM-3space' on page 1 undefined on input lin
-e 2539.
-
-
-LaTeX Warning: Reference `sec:bilinear-static-GEM' on page 1 undefined on input
- line 2539.
-
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-553.
-
-[28]
-
-LaTeX Warning: Reference `eq:D-matrix' on page 29 undefined on input line 2581.
-
-
-
-LaTeX Warning: Reference `sec:bilinear-static-GEM' on page 1 undefined on input
- line 2612.
-
-[29]
-
-LaTeX Warning: Reference `sec:quat-GEM-3space' on page 1 undefined on input lin
-e 2683.
-
-
-LaTeX Warning: Reference `sec:bilinear-static-GEM' on page 1 undefined on input
- line 2683.
-
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-697.
-
-
-LaTeX Warning: Reference `eq:D-matrix' on page 30 undefined on input line 2726.
-
-
-
-LaTeX Warning: Reference `eq:D-rotor-conj' on page 30 undefined on input line 2
-727.
-
-[30]
-
-LaTeX Warning: Reference `sec:bilinear-static-GEM' on page 1 undefined on input
- line 2770.
-
-
-LaTeX Warning: Reference `eq:D-preserves-E' on page 31 undefined on input line 
-2795.
-
-
-LaTeX Warning: Reference `eq:D-acts-on-A' on page 31 undefined on input line 28
-04.
-
-
-LaTeX Warning: Reference `sec:quat-GEM-3space' on page 1 undefined on input lin
-e 2822.
-
-[31]
-
-LaTeX Warning: Reference `eq:F-transform' on page 32 undefined on input line 28
-61.
-
-[32]
-
-LaTeX Warning: Reference `sec:quat-GEM-3space' on page 1 undefined on input lin
-e 2987.
-
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 2
-987.
-
-[33]
-
-LaTeX Warning: Reference `sec:quat-algebra' on page 1 undefined on input line 3
-049.
-
-
-LaTeX Warning: Reference `eq:quat-continuity' on page 34 undefined on input lin
-e 3069.
-
-
-LaTeX Warning: Reference `eq:quat-field-equation' on page 34 undefined on input
- line 3072.
-
-
-LaTeX Warning: Reference `eq:F-from-A' on page 34 undefined on input line 3072.
-
-
-
-LaTeX Warning: Reference `eq:quat-field-equation' on page 34 undefined on input
- line 3079.
-
-
-LaTeX Warning: Reference `sec:quat-GEM-3space' on page 1 undefined on input lin
-e 3081.
-
-[34]
-
-LaTeX Warning: Reference `eq:D-operator' on page 35 undefined on input line 310
-2.
-
-
-LaTeX Warning: Reference `eq:F-decomposition' on page 35 undefined on input lin
-e 3102.
-
-
-LaTeX Warning: Reference `eq:quat-field-equation' on page 35 undefined on input
- line 3103.
-
-
-LaTeX Warning: Reference `eq:F-from-A' on page 35 undefined on input line 3128.
-
-
-
-LaTeX Warning: Reference `eq:quat-field-equation' on page 35 undefined on input
- line 3144.
-
-
-LaTeX Warning: Reference `sec:quat-GEM-3space' on page 1 undefined on input lin
-e 3149.
-
-
-LaTeX Warning: Reference `subsec:A-static-GEM' on page 1 undefined on input lin
-e 3149.
-
-
-LaTeX Warning: Reference `eq:quat-field-equation' on page 35 undefined on input
- line 3157.
-
-
-LaTeX Warning: Reference `eq:Gauss-E-G' on page 35 undefined on input line 3166
-.
-
-
-LaTeX Warning: Reference `eq:Faraday-like' on page 35 undefined on input line 3
-166.
-
-[35]
-
-LaTeX Warning: Reference `sec:bilinear-static-GEM' on page 1 undefined on input
- line 3241.
-
-[36]
+[28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
 
 LaTeX Warning: Reference `sec:mass-from-streamlets' on page 1 undefined on inpu
 t line 3284.
 
-
-LaTeX Warning: Reference `sec:flow-calibrations' on page 1 undefined on input l
-ine 3284.
-
-
-LaTeX Warning: Reference `eq:q-tilde-free' on page 37 undefined on input line 3
-336.
-
-
-LaTeX Warning: Reference `subsec:A-static-GEM' on page 1 undefined on input lin
-e 3371.
-
-
-LaTeX Warning: Reference `eq:H-int-expanded' on page 37 undefined on input line
- 3372.
-
-[37]
-
-LaTeX Warning: Reference `subsec:free-H' on page 1 undefined on input line 3383
-.
-
-
-LaTeX Warning: Reference `eq:zetaG-def' on page 38 undefined on input line 3444
-.
-
-
-LaTeX Warning: Reference `eq:zetaG-Schwarzschild' on page 38 undefined on input
- line 3477.
-
-[38]
-
-LaTeX Warning: Reference `eq:PhiG-via-zetaG' on page 39 undefined on input line
- 3506.
-
-
-LaTeX Warning: Reference `eq:metric-zetaG' on page 39 undefined on input line 3
-531.
-
-
-LaTeX Warning: Reference `sec:quat-GEM-3space' on page 1 undefined on input lin
-e 3538.
-
-[39]
-
-LaTeX Warning: Reference `eq:L-field-ABC' on page 40 undefined on input line 35
-70.
-
-
-LaTeX Warning: Reference `subsec:3plus1-GEM' on page 1 undefined on input line 
-3572.
-
-
-LaTeX Warning: Reference `eq:H-int-def' on page 40 undefined on input line 3628
-.
-
-
-LaTeX Warning: Reference `eq:L-field-ABC' on page 40 undefined on input line 36
-31.
-
-[40] [41] [42] [43] [44] [45] (./Unimetry A quaternionic GEM.aux)
+[39] [40] [41] [42] [43] [44] [45] [46] [47] (./Unimetry A quaternionic GEM.aux
+)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `"Unimetry A quaternionic GEM".out' has ch
-anged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Unimetry A quaternionic GEM".out':
-
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  A2D091E4A3BF3441C21D6C5DAE7EC675;25461.
+Package rerunfilecheck Info: File `"Unimetry A quaternionic GEM".out' has not c
+hanged.
+(rerunfilecheck)             Checksum: A2D091E4A3BF3441C21D6C5DAE7EC675;25461.
  ) 
 Here is how much of TeX's memory you used:
- 33403 strings out of 478037
- 671458 string characters out of 5843053
- 978547 words of memory out of 5000000
- 50620 multiletter control sequences out of 15000+600000
- 593964 words of font info for 286 fonts, out of 8000000 for 9000
+ 33497 strings out of 478037
+ 673158 string characters out of 5843053
+ 987189 words of memory out of 5000000
+ 50714 multiletter control sequences out of 15000+600000
+ 593516 words of font info for 281 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,85p,1026b,1094s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{d:/texlive/2022
@@ -1645,10 +1292,10 @@ mf-dist/fonts/type1/public/lm/lmri10.pfb><d:/texlive/2022/texmf-dist/fonts/type
 .pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><d:/texlive/20
 22/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><d:/texlive/2022/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Unimetry A quaternionic GEM.pdf" (45 pages, 580502 bytes).
+Output written on "Unimetry A quaternionic GEM.pdf" (47 pages, 600314 bytes).
 PDF statistics:
- 702 PDF objects out of 1000 (max. 8388607)
- 597 compressed objects within 6 object streams
- 332 named destinations out of 1000 (max. 500000)
- 72205 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1182 PDF objects out of 1200 (max. 8388607)
+ 1070 compressed objects within 11 object streams
+ 334 named destinations out of 1000 (max. 500000)
+ 72925 words of extra memory for PDF output out of 74296 (max. 10000000)
 

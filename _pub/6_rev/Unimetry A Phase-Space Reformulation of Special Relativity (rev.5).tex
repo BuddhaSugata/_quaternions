@@ -2,6 +2,7 @@
 
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage{microtype}
+\usepackage{comment}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{hyperref}
 \usepackage{float}
@@ -20,6 +21,7 @@
 \usepackage{array,tabularx}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \usepackage{placeins}     % for \FloatBarrier
+\usetikzlibrary{arrows.meta, calc, angles, quotes, decorations.pathreplacing}
 
 % --- TikZ libraries used in figures ---
 \usetikzlibrary{calc,arrows.meta,positioning,decorations.pathreplacing}
@@ -70,7 +72,7 @@
 
 \numberwithin{equation}{section}
 
-\title{Unimetry: Phase-Space Reformulation of Special Relativity}
+\title{Unimetry: Proto-Space Reformulation of Special Relativity}
 \author{Timur Abizgeldin\\ \small Independent researcher, Austria\\ \small \texttt{timurabizgeldin@gmail.com}}
 \date{\today}
 
@@ -87,14 +89,15 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-
-
+We present a geometric construction of Lorentzian structure on a four-dimensional Euclidean proto-space $(\Espace, \delta)$ equipped with a distinguished unit vector field $N$. By defining the metric $g_{AB} = 2N_A N_B - \delta_{AB}$, we recover the standard Minkowski signature and causal structure. A key feature of this formalism is the direct relation between the Euclidean tilt angle $\vartheta$ relative to $N$ and the hyperbolic rapidity $\eta$, given by the identity $\tanh \eta = \tan \vartheta$, which naturally compactifies the causal cone into the angular domain $\vartheta \in [0, \pi/4)$. Furthermore, we demonstrate that the standard relativistic proper-time normalization is equivalent to a constant Euclidean flow condition, mapping admissible kinematic states to a sphere $S^3_{\clight} \subset T\Espace$. Within this framework, relativistic optical effects such as Doppler shift and aberration emerge as straightforward geometric projections of the null cone onto observer frames, providing a strictly Euclidean perspective on Lorentz-invariant observables.
 \end{abstract}
 
 
-\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; Lorentz factor; phase parametrization.
+\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; aberration; Lorentz factor; phase parametrization.
 
 \paragraph{MSC (2020):} 83A05; 70A05. % (Consider also PACS: 03.30.+p; 04.20.Cv.)
+
+\tableofcontents
 
 % ===============================
 \section{Introduction}
@@ -153,124 +156,110 @@ Brief summary of sections.
 
 
 
-
 % ===============================
 \section{Lorentzian metric construction}
 \label{sec:LMC}
 % ===============================
 
-\subsection{Euclidean phase space}
-We consider a four-dimensional Euclidean manifold $(\Espace,\delta)$
-equipped with the flat metric $\delta_{AB} = \mathrm{diag}(1,1,1,1)$.
+\subsection{Euclidean proto-space}
+\label{subsec:epspace}
+We work on a four--dimensional Euclidean manifold $(\Espace,\delta)$,
+equipped with the flat metric
+\[
+   \delta_{AB} = \mathrm{diag}(1,1,1,1).
+\]
+Throughout, indices are raised and lowered with $\delta$:
+\[
+   X_A := \delta_{AB}X^B,\qquad
+   X^A := \delta^{AB}X_B,
+\]
+and we use the $\delta$--inner product notation
+\[
+   X\cdot Y := \delta(X,Y) = \delta_{AB}X^A Y^B.
+\]
+
+\begin{remark}[Index conventions: $\delta$ vs.\ $g$]
+\label{rem:index-conventions}
+Throughout, $\delta$ is treated as the \emph{background} Euclidean metric on
+$\Espace$, and we use $\delta$ to raise and lower abstract indices unless
+explicitly stated otherwise.
+The Lorentzian tensor $g_{AB}$ introduced in \S\ref{subsec:LMD} is regarded
+primarily as a derived bilinear form on $T\Espace$ (used to define
+interval--type scalars such as $g(X,X)$), and not as the default device for
+index gymnastics.
+
+In particular, we distinguish the $\delta$--raised components
+\[
+   g^{AB}_{(\delta)} := \delta^{AC}\delta^{BD} g_{CD}
+\]
+from the inverse metric $(g^{-1})^{AB}$ defined by
+$(g^{-1})^{AC} g_{CB} = \delta^{A}{}_{B}$.
+For the special form $g_{AB}=2N_A N_B-\delta_{AB}$ with $\delta(N,N)=1$, one
+indeed has $(g^{-1})^{AB}=g^{AB}_{(\delta)}=2N^{A}N^{B}-\delta^{AB}$, but the
+two notions remain conceptually distinct.
+\end{remark}
 
 \subsection{Distinguished unit vector field}
-Let $N$ be a smooth vector field on $\Espace$ satisfying the unit
-condition
+\label{subsec:distN}
+Let $N$ be a smooth vector field on $\Espace$ satisfying the unit condition
 \[
-   \delta(N,N) = 1 .
+   \delta(N,N)=1.
 \]
-In particular, $N$ is nowhere vanishing.  
-The field $N$ singles out a preferred direction at each point of
-$\Espace$.
-We introduce the associated orthogonal projector onto the
-$\delta$–orthogonal complement of $N$:
-\[
-   h_{AB} := \delta_{AB} - N_A N_B .
-\]
-This defines a rank-3 projector satisfying
-$h_{AB} N^B = 0$ and $h_{A}{}^{C} h_{CB} = h_{AB}$.
+In particular, $N$ is nowhere vanishing and defines at each point a
+distinguished $\delta$--unit direction.
 
+We introduce the $\delta$--orthogonal projector onto the complement of $N$:
+\begin{equation}\label{eq:h-def}
+   h_{AB} := \delta_{AB} - N_A N_B.
+\end{equation}
+Then $h$ has rank $3$ and satisfies
+\[
+   h_{AB}N^B=0,\qquad
+   h_{A}{}^{C}h_{CB}=h_{AB}.
+\]
+We write $\mathrm{Im}(h_p)=N_p^{\perp_\delta}\subset T_p\Espace$ for the
+$\delta$--orthogonal complement at $p$.
 
 \subsection{Lorentzian metric definition}
 \label{subsec:LMD}
-
-We now define a symmetric $(0,2)$-tensor field $g$ on $\Espace$ by
+Define a symmetric $(0,2)$--tensor field $g$ on $\Espace$ by
 \begin{equation}\label{eq:g-def}
-   g_{AB} := 2 N_A N_B - \delta_{AB} .
+   g_{AB} := 2N_A N_B - \delta_{AB}.
 \end{equation}
-By construction, $g$ is smooth and bilinear at each point of $\Espace$.
-The following properties are immediate:
+Equivalently, using \eqref{eq:h-def},
+\begin{equation}\label{eq:g-def-proj}
+   g_{AB} = N_A N_B - h_{AB}.
+\end{equation}
 
 \begin{itemize}
-  \item[(i)] $N$ is unit vector with respect to $g$:
+  \item[(i)] $N$ is $g$--unit:
   \[
-     g(N,N)
-     = 2 (N\cdot N)^2 - \delta(N,N)
-     = 2\cdot 1^2 - 1
-     = 1 .
+     g(N,N)=2(\delta(N,N))^2-\delta(N,N)=2\cdot 1-1=1.
   \]
 
-  \item[(ii)] $N$ is $g$–orthogonal to its $\delta$–orthogonal complement.  
-  If $X$ satisfies $\delta(X,N)=0$, then
+  \item[(ii)] $N$ is $g$--orthogonal to $N^{\perp_\delta}$:
+  if $X\in N^{\perp_\delta}$, i.e. $N\cdot X=0$, then
   \[
-     g(N,X)
-     = 2 (N\cdot N)(N\cdot X) - \delta(N,X)
-     = 2\cdot 1 \cdot 0 - 0
-     = 0 .
+     g(N,X)=2(N\cdot N)(N\cdot X)-\delta(N,X)=0.
   \]
 
-  \item[(iii)] On vectors $X,Y$ orthogonal to $N$ with respect to $\delta$
-  (that is, in the image of $h$) one has
+  \item[(iii)] On $N^{\perp_\delta}$ one has $g=-\delta$:
+  if $X,Y\in N^{\perp_\delta}$, then
   \[
-     g(X,Y)
-     = 2 (N\cdot X)(N\cdot Y) - \delta(X,Y)
-     = -\,\delta(X,Y) .
+     g(X,Y)=2(N\cdot X)(N\cdot Y)-\delta(X,Y)=-\delta(X,Y).
   \]
 \end{itemize}
 
-Thus at each point $p\in\Espace$ the tangent space decomposes as
+Hence, at each $p\in\Espace$,
 \[
-   T_p \Espace \;=\; \mathrm{span}\{N_p\} \;\oplus\; \mathrm{Im}(h_p),
+   T_p\Espace=\mathrm{span}\{N_p\}\oplus N_p^{\perp_\delta},
 \]
-and in this decomposition the bilinear form $g_p$ takes the block form
+and in an adapted $\delta$--orthonormal basis $\{e_0=N,e_1,e_2,e_3\}$ the
+bilinear form $g_p$ has the Minkowski block form
 \[
-   g_p \;=\; ( +1 ) \;\oplus\; ( -\,\delta|_{\mathrm{Im}(h_p)} ) .
+   g_p = (+1)\oplus(-1)\oplus(-1)\oplus(-1).
 \]
-Since $\delta|_{\mathrm{Im}(h_p)}$ is positive definite of rank~$3$, the
-restriction $-\,\delta|_{\mathrm{Im}(h_p)}$ is negative definite of
-rank~$3$.
-Consequently, $g$ has Lorentzian signature $(+---)$, with $N$ defining
-a distinguished orientation.
-
-Equivalently, using $h_{AB} = \delta_{AB} - N_A N_B$, one may rewrite
-\eqref{eq:g-def} in the form
-\[
-   g_{AB}
-   = N_A N_B - h_{AB} ,
-\]
-which makes explicit that $g$ coincides with $\delta$ along $N$ and
-equals $-\,\delta$ on the $\delta$–orthogonal complement of $N$.
-This projector-based construction will be the starting point for the
-phase-space reformulation of special relativistic kinematics developed
-in the subsequent sections.
-
-\subsection{Hollow space and the no--source reference state}
-\label{subsec:hollow}
-
-The projector construction requires an additional geometric datum beyond the
-Euclidean metric~$\delta$: a nowhere--vanishing unit vector field~$N$.
-In the \emph{no--source} reference state (discussed in \S\ref{sec:IFS}) we assume
-a truly empty background: there is no vector field at all. Consequently, no
-projector $h$ and no induced Lorentzian metric can be defined there. The
-construction in \S\ref{subsec:LMD} is therefore conditional: whenever a unit vector field
-$N$ is present (e.g. after emergence from a source), it induces $h$ and $g$.
-
-
-For notational convenience we denote this absence of a vector by the
-symbol
-\[
-   N_0 := 0,
-\]
-understood as the zero section of $T\Espace$ used only as a bookkeeping
-reference. It does not represent a physical vector field and it is not meant
-to carry any geometric structure. In particular, $N_0$ cannot be normalized
-and cannot define either $h$ or the Lorentzian metric~$g$.
-
-A nontrivial vector field $N$ (hence $h$ and $g$) emerges only when the
-background is populated by field sources. After coarse--graining over a
-sufficiently dense ensemble, the second moment develops a distinguished
-eigendirection, which defines the effective unit field~$N$.
-
+In particular, $g$ has Lorentzian signature $(+---)$.
 
 
 % ===============================
@@ -278,102 +267,89 @@ eigendirection, which defines the effective unit field~$N$.
 \label{sec:LMP}
 % ===============================
 
-Having constructed the Lorentzian metric $g$ from the Euclidean metric
-$\delta$ and the distinguished unit field $N$, we now record several
-basic geometric consequences.  Throughout this section, $p\in\Espace$
-is arbitrary and all statements are understood pointwise.
+Throughout this section, $p\in\Espace$ is arbitrary and all statements are
+understood pointwise at $p$.
 
 \subsection{Orthogonal decomposition of tangent vectors}
+\label{subsec:orth-decomp}
 
-For any $X\in T_p\Espace$ we define its $\delta$–longitudinal and
-$\delta$–transverse components relative to $N$ by
-\[
-   X_\parallel := (N\cdot X)\, N, \qquad
-   X_\perp := h(X) = X - (N\cdot X)\,N .
-\]
+For any $X\in T_p\Espace$ we define the $\delta$--longitudinal and
+$\delta$--transverse components relative to $N$ by
+\begin{equation}\label{eq:decomp}
+   X_\parallel := (N\cdot X)\,N,\qquad
+   X_\perp := h(X)=X-(N\cdot X)\,N.
+\end{equation}
 
-\begin{lemma}
+\begin{lemma}\label{lem:decomp-unique}
 For every $X\in T_p\Espace$,
 \[
-   X = X_\parallel \;+\; X_\perp,
+   X=X_\parallel+X_\perp,
 \]
-where $X_\parallel \in \mathrm{span}\{N_p\}$ and
-$X_\perp \in \mathrm{Im}(h_p)$.
+where $X_\parallel\in\mathrm{span}\{N_p\}$ and $X_\perp\in N_p^{\perp_\delta}$.
 The decomposition is unique.
 \end{lemma}
 
 \begin{proof}
-Since $h_p$ is a projector with kernel $\mathrm{span}\{N_p\}$ and image
-$\mathrm{Im}(h_p)$, the stated decomposition is the usual splitting
-associated with a complementary pair of subspaces.  Uniqueness follows
-because their intersection is trivial.
+Since $h_p$ is a projector with $\ker(h_p)=\mathrm{span}\{N_p\}$ and
+$\mathrm{Im}(h_p)=N_p^{\perp_\delta}$, the splitting is the standard
+direct sum decomposition associated with complementary subspaces.
 \end{proof}
 
 \subsection{Norm identities and classification of vectors}
+\label{subsec:norms}
 
-Using the decomposition above, the $g$–norm of any vector splits into
-explicit longitudinal and transverse parts.
-
-\begin{proposition}
+\begin{proposition}\label{prop:g-norm-split}
 For any $X\in T_p\Espace$,
 \[
-   g(X,X) = (N\cdot X)^2 \;-\; \delta(X_\perp,X_\perp).
+   g(X,X)=(N\cdot X)^2-\delta(X_\perp,X_\perp).
 \]
 \end{proposition}
 
 \begin{proof}
-Insert $X = X_\parallel + X_\perp$ into $g(X,X)$ and use:
-$g(N,N)=1$, $g(N,X_\perp)=0$, and $g(X_\perp,X_\perp) = -\delta(X_\perp,X_\perp)$.
+Insert \eqref{eq:decomp} into $g(X,X)$ and use:
+$g(N,N)=1$, $g(N,X_\perp)=0$ (since $X_\perp\in N^{\perp_\delta}$), and
+$g(X_\perp,X_\perp)=-\delta(X_\perp,X_\perp)$ from (iii).
 \end{proof}
 
-This makes the following classification immediate.
-
-\begin{corollary}
+\begin{corollary}\label{cor:causal-class}
 A vector $X$ satisfies:
 \begin{itemize}
-  \item $g(X,X) > 0$ iff $(N\cdot X)^2 > \delta(X_\perp,X_\perp)$,
-  \item $g(X,X) = 0$ iff $(N\cdot X)^2 = \delta(X_\perp,X_\perp)$,
-  \item $g(X,X) < 0$ iff $(N\cdot X)^2 < \delta(X_\perp,X_\perp)$.
+  \item $g(X,X)>0$ iff $(N\cdot X)^2>\delta(X_\perp,X_\perp)$,
+  \item $g(X,X)=0$ iff $(N\cdot X)^2=\delta(X_\perp,X_\perp)$,
+  \item $g(X,X)<0$ iff $(N\cdot X)^2<\delta(X_\perp,X_\perp)$.
 \end{itemize}
-In particular, $X$ is $g$–null if and only if
-$\delta(X_\perp,X_\perp) = (N\cdot X)^2$.
 \end{corollary}
 
-For each $p\in\Espace$ we may thus define three disjoint subsets
-of the tangent space $T_p\Espace$:
+Define the three disjoint subsets of $T_p\Espace$:
 \[
-  \mathcal T_p := \{ X \in T_p\Espace : g(X,X) > 0 \},
+  \mathcal T_p := \{X\in T_p\Espace:\ g(X,X)>0\},\qquad
+  \mathcal P_p := \{X\in T_p\Espace:\ g(X,X)=0\},\qquad
+  \mathcal S_p := \{X\in T_p\Espace:\ g(X,X)<0\}.
 \]
-\[
-  \mathcal P_p := \{ X \in T_p\Espace : g(X,X) = 0 \},
-\]
-\[
-  \mathcal S_p := \{ X \in T_p\Espace : g(X,X) < 0 \}.
-\]
+We also single out the \emph{future} time cone (relative to $N$):
+\begin{equation}\label{eq:Tp-plus}
+  \mathcal T_p^{+} := \{X\in \mathcal T_p:\ N\cdot X>0\}.
+\end{equation}
 
 \subsection{Geometry of the null cone}
+\label{subsec:nullcone}
 
-The equation characterizing null vectors has a simple geometric form.
-
-\begin{proposition}
-The set of $g$–null vectors at $p$ is the quadratic cone
+\begin{proposition}\label{prop:nullcone}
+The set of $g$--null vectors at $p$ is the quadratic cone
 \[
    \mathcal{C}_p
-   = \{\,X\in T_p\Espace : \delta(X_\perp,X_\perp)
-      = (N\cdot X)^2 \,\}.
+   = \{\,X\in T_p\Espace:\ \delta(X_\perp,X_\perp)=(N\cdot X)^2\,\}.
 \]
-Under the decomposition
-$T_p\Espace = \mathrm{span}\{N_p\} \oplus \mathrm{Im}(h_p)$ the null
-cone is the graph of a quadratic form over $\mathrm{Im}(h_p)$.
+Under the decomposition $T_p\Espace=\mathrm{span}\{N_p\}\oplus N_p^{\perp_\delta}$,
+it is a double cone given by
+\[
+   N\cdot X = \pm \|X_\perp\|_\delta.
+\]
 \end{proposition}
 
 \begin{proof}
-Immediate from the previous corollary.
+Immediate from Corollary~\ref{cor:causal-class}.
 \end{proof}
-
-Thus the null structure of $g$ is encoded entirely by the Euclidean
-norm on the three–dimensional space $\mathrm{Im}(h_p)$ and the linear
-functional $X \mapsto N\cdot X$.
 
 \subsection{Spatial rotations preserving $\delta$ and $N$}
 \label{subsec:spatial-rotations}
@@ -382,23 +358,19 @@ Let $\mathrm{Aut}(\delta,N)$ denote the stabilizer of $N$ in the Euclidean
 orthogonal group:
 \[
    \mathrm{Aut}(\delta,N)
-   := \{\,L:T_p\Espace\to T_p\Espace \text{ linear} : \delta(LX,LY)=\delta(X,Y),\ LN=N\,\}.
+   := \{\,L:T_p\Espace\to T_p\Espace \text{ linear}:\ \delta(LX,LY)=\delta(X,Y),\ LN=N\,\}.
 \]
-Such transformations fix the distinguished direction $N$ and act by ordinary
-Euclidean rotations/reflections on the transverse subspace
-$\mathrm{Im}(h)=N^{\perp_\delta}$.
 In an adapted $\delta$--orthonormal basis $\{e_0=N,e_1,e_2,e_3\}$ one has
 \[
-   L = \mathrm{diag}(1,R), \qquad R\in O(3).
+   L=\mathrm{diag}(1,R),\qquad R\in O(3),
 \]
-In particular, $\mathrm{Aut}(\delta,N)\cong O(3)$ and does \emph{not} contain
-boost--like transformations mixing $N$ with $\mathrm{Im}(h)$.
+so $\mathrm{Aut}(\delta,N)\cong O(3)$ and contains no boost--like maps mixing
+$N$ with $N^{\perp_\delta}$.
 
-\begin{lemma}
-Every $L\in\mathrm{Aut}(\delta,N)$ preserves $g$ as well:
+\begin{lemma}\label{lem:aut-preserves-g}
+Every $L\in\mathrm{Aut}(\delta,N)$ preserves $g$:
 \[
-   g(LX,LY) = g(X,Y)
-   \qquad \text{for all } X,Y\in T_p\Espace .
+   g(LX,LY)=g(X,Y)\qquad \text{for all } X,Y\in T_p\Espace.
 \]
 \end{lemma}
 
@@ -406,34 +378,15 @@ Every $L\in\mathrm{Aut}(\delta,N)$ preserves $g$ as well:
 Since $LN=N$ and $L$ is $\delta$--orthogonal,
 \[
    g(LX,LY)
-   = 2(N\cdot LX)(N\cdot LY) - \delta(LX,LY)
-   = 2(N\cdot X)(N\cdot Y) - \delta(X,Y)
-   = g(X,Y).
+   =2(N\cdot LX)(N\cdot LY)-\delta(LX,LY)
+   =2(N\cdot X)(N\cdot Y)-\delta(X,Y)
+   =g(X,Y).
 \]
 \end{proof}
 
-Thus $\mathrm{Aut}(\delta,N)$ is a (spatial) subgroup of the Lorentz group
-$\mathrm{O}(g)$: it preserves $g$ and fixes $N$, but it generates only
-rotations in $\mathrm{Im}(h)$.
-
-
-
-\subsection{Canonical coordinates adapted to $N$}
-
-At each point $p$ one may choose a local frame
-$\{e_0, e_1,e_2,e_3\}$ with $e_0=N_p$ and $\{e_i\}$ an orthonormal
-basis for $\mathrm{Im}(h_p)$ with respect to $\delta$.
-In this frame,
-\[
-   g = \mathrm{diag}(1,-1,-1,-1),
-\]
-recovering the standard Minkowski form of the metric.
-
-This adapted representation will be used in subsequent sections to make
-explicit the hyperbolic–angle parametrizations and decomposition
-properties central to the phase-space formulation of relativistic
-kinematics developed below.
-
+Thus $\mathrm{Aut}(\delta,N)$ is a spatial subgroup of $\mathrm{O}(g)$: it
+preserves $g$ and fixes $N$, but generates only Euclidean rotations on
+$N^{\perp_\delta}$.
 
 
 % ===============================
@@ -441,45 +394,32 @@ kinematics developed below.
 \label{sec:Hyper}
 % ===============================
 
-In this section we introduce a Euclidean tilt angle $\vartheta$ for
-nonzero vectors $X \in T_p\Espace$ and derive from it a natural
-hyperbolic parametrization on the $g$–positive subset
-$\mathcal T_p = \{X : g(X,X)>0\}$.
-This parametrization will later encode the additive structure of the
-one--parameter family of Lorentz boosts in the $(N,E)$--plane, i.e. of
-a boost subgroup of the Lorentz group $\mathrm{O}(g)$.
-
 \subsection{Euclidean tilt angle}
+\label{subsec:tilt}
 
-For any nonzero $X\in T_p\Espace$ we define its Euclidean tilt angle
+For any nonzero $X\in T_p\Espace$ define its Euclidean tilt angle
 $\vartheta\in[0,\pi]$ by
 \[
    \cos\vartheta := \frac{N\cdot X}{\|X\|_\delta},
    \qquad
    \sin\vartheta := \frac{\|X_\perp\|_\delta}{\|X\|_\delta},
 \]
-where $X_\parallel := (N\cdot X)\,N$ and $X_\perp := h(X)$ is the
-$\delta$–orthogonal projection onto $\mathrm{Im}(h_p)$.
-
-Whenever $X_\perp \neq 0$ we introduce the $\delta$–unit transverse
-direction
+where $X_\perp$ is defined by \eqref{eq:decomp}.  Whenever $X_\perp\neq 0$,
+define the $\delta$--unit transverse direction
 \[
-   E := \frac{X_\perp}{\|X_\perp\|_\delta} .
+   E := \frac{X_\perp}{\|X_\perp\|_\delta}\in N_p^{\perp_\delta}.
 \]
-Thus the decomposition becomes
-\[
-   X
-   = \|X\|_\delta \cos\vartheta\, N
-   + \|X\|_\delta \sin\vartheta\, E.
-\]
+Then
+\begin{equation}\label{eq:X-tilt-decomp}
+   X = \|X\|_\delta\cos\vartheta\,N + \|X\|_\delta\sin\vartheta\,E.
+\end{equation}
 
-\begin{lemma}
+\begin{lemma}\label{lem:tilt-id}
 For any nonzero $X\in T_p\Espace$,
 \[
-   \|X\|_\delta^2
-   = (N\cdot X)^2 + \delta(X_\perp,X_\perp),
+   \|X\|_\delta^2=(N\cdot X)^2+\delta(X_\perp,X_\perp),
    \qquad
-   \cos^2\vartheta + \sin^2\vartheta = 1.
+   \cos^2\vartheta+\sin^2\vartheta=1.
 \]
 \end{lemma}
 
@@ -488,143 +428,113 @@ Immediate from $\delta(X_\parallel,X_\perp)=0$.
 \end{proof}
 
 \subsection{Lorentzian norm expressed via $\vartheta$}
+\label{subsec:g-via-tilt}
 
-From Proposition~2.1,
+From Proposition~\ref{prop:g-norm-split},
 \[
-   g(X,X)
-   = (N\cdot X)^2 - \delta(X_\perp,X_\perp).
-\]
-Using the definitions of $\cos\vartheta$ and $\sin\vartheta$,
-\[
-   g(X,X)
-   = \|X\|_\delta^2\bigl(\cos^2\vartheta - \sin^2\vartheta\bigr)
-   = \|X\|_\delta^2 \cos(2\vartheta).
+   g(X,X)=(N\cdot X)^2-\delta(X_\perp,X_\perp)
+         =\|X\|_\delta^2(\cos^2\vartheta-\sin^2\vartheta)
+         =\|X\|_\delta^2\cos(2\vartheta).
 \]
 
-\begin{proposition}
+\begin{proposition}\label{prop:g-tilt}
 For any nonzero $X\in T_p\Espace$,
 \[
-   g(X,X) = \|X\|_\delta^2 \cos(2\vartheta).
+   g(X,X)=\|X\|_\delta^2\cos(2\vartheta).
 \]
 \end{proposition}
 
 \subsection{Domain of hyperbolic parametrization}
+\label{subsec:domain-eta}
 
-A hyperbolic parameter can only be associated to vectors with
-$g(X,X)>0$.
-For $X\in\mathcal T_p$,
+A real hyperbolic parameter is naturally attached to vectors in the
+future time cone $\mathcal T_p^+$ defined in \eqref{eq:Tp-plus}.
+For $X\in\mathcal T_p^+$ one has
 \[
    g(X,X)>0
    \quad\Longleftrightarrow\quad
-   \cos^2\vartheta > \sin^2\vartheta
+   \cos(2\vartheta)>0
    \quad\Longleftrightarrow\quad
-   \tan\vartheta < 1.
+   \vartheta\in\Bigl[0,\frac{\pi}{4}\Bigr),
 \]
-Thus for $X\in\mathcal T_p$ we have
+and moreover $N\cdot X>0$ implies $\cos\vartheta>0$, so
 \[
-   \vartheta \in [0,\tfrac{\pi}{4}),
-   \qquad
    \beta := \tan\vartheta \in [0,1).
 \]
+Null vectors satisfy $\tan\vartheta=1$ (equivalently $\vartheta=\pi/4$),
+while $g$--negative vectors have $\tan\vartheta>1$.
 
-For $X\in\mathcal P_p$ (null vectors), $\tan\vartheta = 1$, formally
-corresponding to the limit $\eta\to+\infty$.
+\subsection{Hyperbolic parameter (rapidity)}
+\label{subsec:eta-def}
 
-For $X\in\mathcal S_p$ (negative $g$–norm), $\tan\vartheta>1$, so no
-real hyperbolic parameter exists; in particular $\eta$ is naturally
-defined only on $\mathcal T_p$.
-
-\subsection{Hyperbolic parametrization}
-
-For $X\in\mathcal T_p$ we define the hyperbolic parameter $\eta\ge 0$ by
+For $X\in\mathcal T_p^+$ define $\eta\ge 0$ by
 \begin{equation}\label{eq:def-eta}
-   \tanh\eta := \tan\vartheta,
-   \qquad (X\in\mathcal T_p,\ \vartheta\in[0,\pi/4)).
+   \tanh\eta := \tan\vartheta.
 \end{equation}
+Equivalently, one may define $\eta$ invariantly by
+\begin{equation}\label{eq:eta-invariant}
+   \cosh\eta := \frac{N\cdot X}{\sqrt{g(X,X)}},\qquad
+   \sinh\eta := \frac{\|X_\perp\|_\delta}{\sqrt{g(X,X)}},
+   \qquad (X\in\mathcal T_p^+),
+\end{equation}
+which immediately implies $\tanh\eta=\|X_\perp\|_\delta/(N\cdot X)=\tan\vartheta$.
 
-\begin{lemma}
-For $X\in\mathcal T_p$,
+\begin{lemma}\label{lem:cosh-sinh-tilt}
+For $X\in\mathcal T_p^+$,
 \[
-   \cosh\eta
-   = \frac{\cos\vartheta}{\sqrt{\cos(2\vartheta)}},
+   \cosh\eta=\frac{\cos\vartheta}{\sqrt{\cos(2\vartheta)}},
    \qquad
-   \sinh\eta
-   = \frac{\sin\vartheta}{\sqrt{\cos(2\vartheta)}}.
+   \sinh\eta=\frac{\sin\vartheta}{\sqrt{\cos(2\vartheta)}}.
 \]
 \end{lemma}
 
 \begin{proof}
-From $\tanh\eta=\tan\vartheta$ one has
-$\cosh^2\eta = (1-\tanh^2\eta)^{-1} = (1-\tan^2\vartheta)^{-1}$.
-Simplifying the RHS:
+From \eqref{eq:def-eta}, $\tanh\eta=\tan\vartheta$ gives
 \[
-   \frac{1}{1-\frac{\sin^2\vartheta}{\cos^2\vartheta}}
-   = \frac{\cos^2\vartheta}{\cos^2\vartheta-\sin^2\vartheta}
-   = \frac{\cos^2\vartheta}{\cos(2\vartheta)}.
+   \cosh^2\eta=\frac{1}{1-\tanh^2\eta}
+             =\frac{1}{1-\tan^2\vartheta}
+             =\frac{\cos^2\vartheta}{\cos^2\vartheta-\sin^2\vartheta}
+             =\frac{\cos^2\vartheta}{\cos(2\vartheta)}.
 \]
-Taking the square root (with $\eta\ge 0$ and $\vartheta\in[0,\pi/4)$ implying positive cosines) yields the expression for $\cosh\eta$.
-Multiplying by $\tanh\eta=\tan\vartheta$ yields $\sinh\eta$.
+Taking the positive square root (since $\eta\ge 0$ and $\vartheta\in[0,\pi/4)$)
+yields the expression for $\cosh\eta$, and multiplying by $\tanh\eta=\tan\vartheta$
+yields $\sinh\eta$.
 \end{proof}
 
-
 \subsection{Differential relation between $\eta$ and $\vartheta$}
+\label{subsec:deta}
 
-Differentiating $\tanh\eta=\tan\vartheta$ yields:
-
-\begin{proposition}
-For $X\in\mathcal T_p$,
+\begin{proposition}\label{prop:deta}
+For $X\in\mathcal T_p^+$,
 \[
-   \frac{d\eta}{d\vartheta} = \frac{1}{\cos(2\vartheta)}.
+   \frac{d\eta}{d\vartheta}=\frac{1}{\cos(2\vartheta)}.
 \]
 \end{proposition}
 
 \begin{proof}
 Differentiate $\tanh\eta=\tan\vartheta$:
 \[
-   \operatorname{sech}^2\eta\, d\eta
-   = \sec^2\vartheta\, d\vartheta.
+   \sech^2\eta\, d\eta = \sec^2\vartheta\, d\vartheta.
 \]
-Since $\operatorname{sech}^2\eta=\cos(2\vartheta)$, the result follows.
-\end{proof}
-
-\subsection{Additivity of the hyperbolic parameter}
-
-Let $L\in\mathrm{Aut}(\delta,N)$ act nontrivially on
-$\mathrm{Im}(h_p)$.
-Such transformations preserve $g$, fix $N$, and act as hyperbolic
-rotations in the two–dimensional plane spanned by
-$N$ and $E$.
-
-\begin{theorem}
-If $L_1$ and $L_2$ have hyperbolic parameters $\eta_1$ and $\eta_2$
-defined by \eqref{eq:def-eta}, then their composition satisfies
+Using $\sech^2\eta=1-\tanh^2\eta=1-\tan^2\vartheta=\dfrac{\cos(2\vartheta)}{\cos^2\vartheta}$,
+we obtain
 \[
-   \eta_{12} = \eta_1 + \eta_2 .
+   \frac{d\eta}{d\vartheta}
+   =\frac{\sec^2\vartheta}{\sech^2\eta}
+   =\frac{1/\cos^2\vartheta}{\cos(2\vartheta)/\cos^2\vartheta}
+   =\frac{1}{\cos(2\vartheta)}.
 \]
-\end{theorem}
-
-\begin{proof}
-Hyperbolic rotations form a one–parameter group under composition,
-with additive parameter.
 \end{proof}
-
-Thus $\vartheta$ provides the Euclidean geometry of tilt relative to
-$N$, while $\eta$ provides the corresponding hyperbolic geometry on the
-$g$–positive cone $\mathcal T_p$.
-
-\begin{equation}\label{eq:def-eta}
-   \tanh\eta := \tan\vartheta,
-   \qquad (X\in\mathcal T_p,\ \vartheta\in[0,\pi/4)).
-\end{equation}
 
 \subsection{Boost subgroup and additivity of the hyperbolic parameter}
 \label{subsec:boost-additivity}
 
 Let $\mathrm{O}(g)$ denote the Lorentz group of $(T_p\Espace,g)$:
 \[
-   \mathrm{O}(g) := \{\,\Lambda:T_p\Espace\to T_p\Espace \text{ linear}:\ g(\Lambda X,\Lambda Y)=g(X,Y)\,\}.
+   \mathrm{O}(g)
+   := \{\,\Lambda:T_p\Espace\to T_p\Espace\ \text{linear}:\ g(\Lambda X,\Lambda Y)=g(X,Y)\,\}.
 \]
-Fix a unit transverse direction $E\in\mathrm{Im}(h_p)$ with $\delta(E,E)=1$.
+Fix a $\delta$--unit transverse direction $E\in N_p^{\perp_\delta}$ with $\delta(E,E)=1$.
 The \emph{boost} in the $2$--plane $\mathrm{span}\{N,E\}$ with parameter $\eta$
 is the unique $\Lambda(\eta)\in\mathrm{O}(g)$ acting as a hyperbolic rotation
 on $\mathrm{span}\{N,E\}$ and as the identity on its $g$--orthogonal complement:
@@ -633,76 +543,549 @@ on $\mathrm{span}\{N,E\}$ and as the identity on its $g$--orthogonal complement:
    \Lambda(\eta)E = (\sinh\eta)\,N + (\cosh\eta)\,E,
 \]
 \[
-   \Lambda(\eta)X = X \quad \text{for } X\perp_g \mathrm{span}\{N,E\}.
+   \Lambda(\eta)X=X
+   \quad \text{for } X\perp_g \mathrm{span}\{N,E\}.
 \]
-Such boosts preserve $g$ but, in general, do not preserve $\delta$ and do not
-fix $N$.
+Such boosts preserve $g$ but, in general, do not preserve $\delta$ and do not fix $N$.
 
-\begin{theorem}[Additivity]
+\begin{theorem}[Additivity]\label{thm:additivity}
 For boosts $\Lambda(\eta_1)$ and $\Lambda(\eta_2)$ in the same $(N,E)$--plane,
 their composition is a boost with parameter $\eta_1+\eta_2$:
 \[
-   \Lambda(\eta_1)\circ \Lambda(\eta_2) = \Lambda(\eta_1+\eta_2).
+   \Lambda(\eta_1)\circ \Lambda(\eta_2)=\Lambda(\eta_1+\eta_2).
 \]
 \end{theorem}
 
 \begin{proof}
-On the plane $\mathrm{span}\{N,E\}$ the boosts are represented (in the basis
-$\{N,E\}$) by the $2\times 2$ matrices
-\(
+On $\mathrm{span}\{N,E\}$ the boosts are represented (in the basis $\{N,E\}$)
+by the matrices
+\[
 \begin{pmatrix}
 \cosh\eta & \sinh\eta\\
 \sinh\eta & \cosh\eta
-\end{pmatrix}
-\),
-whose multiplication adds rapidities. Outside this plane the action is the
-identity, hence the statement holds on all of $T_p\Espace$.
+\end{pmatrix},
+\]
+whose multiplication adds rapidities. On the $g$--orthogonal complement the
+action is the identity, hence the statement holds on all of $T_p\Espace$.
 \end{proof}
 
-
 \subsection{Comparison with classical angle conventions}
+\label{subsec:compare-angles}
 
-The Euclidean angle $\vartheta$ defined above coincides with the angle
-used in the classical constructions of Karapetoff~\cite{Karapetoff1912}
-and in more recent formulations by Brands and Akintsov.
-The difference lies not in the definition of the angle itself, but in
-which trigonometric function of $\vartheta$ is chosen as the primary
-parameter.
+The Euclidean angle $\vartheta$ above coincides with the geometric tilt angle
+used in classical constructions (e.g.\ Karapetoff) and in later reformulations;
+the difference lies in which trigonometric function is taken as the primary
+dimensionless parameter.
 
-In the classical approach one typically sets
+A common choice is
 \[
-   \beta_{\mathrm{std}} := \sin\vartheta
-   = \frac{\|X_\perp\|_\delta}{\|X\|_\delta},
+   \beta_{\mathrm{std}}:=\sin\vartheta=\frac{\|X_\perp\|_\delta}{\|X\|_\delta},
 \]
-and then introduces a hyperbolic parameter via a nonlinear transformation,
-for example
+whereas in the present work we use the tangent--based parameter
 \[
-   \tanh\eta_{\mathrm{std}}
-   = \frac{\beta_{\mathrm{std}}}{\sqrt{1-\beta_{\mathrm{std}}^2}}.
+   \beta_{\mathrm{phase}}:=\tan\vartheta=\frac{\|X_\perp\|_\delta}{N\cdot X}.
+\]
+On $\mathcal T_p^+$ one has $\beta_{\mathrm{phase}}\in[0,1)$, and the rapidity
+$\eta$ is introduced directly by \eqref{eq:def-eta}.
+
+\begin{remark}[Photon limit and the $45^\circ$ Euclidean tilt]
+\label{rem:photon-limit-45deg}
+The null cone is characterized by $g(X,X)=0$, equivalently $\cos(2\vartheta)=0$,
+so that the lightlike limit corresponds to
+\(
+\vartheta\to \pi/4
+\)
+in the Euclidean picture.
+In this limit one has
+\[
+   \beta_{\mathrm{phase}}=\tan\vartheta \to 1,
+   \qquad
+   \beta_{\mathrm{std}}=\sin\vartheta \to \frac{1}{\sqrt{2}}.
+\]
+\textbf{Thus a light ray is reached at a finite Euclidean tilt of $45^\circ$ relative
+to $N$ (not at $90^\circ$).}
+This is precisely why the tangent parameterization is better adapted to the
+projector identity $g(X,X)=\|X\|_\delta^2\cos(2\vartheta)$: it saturates at the
+speed--of--light barrier as $\vartheta\to\pi/4$, while the sine parameter does not.
+\end{remark}
+
+This choice is adapted to
+the orthogonal splitting \eqref{eq:decomp} and to the identity of
+Proposition~\ref{prop:g-tilt},
+\[
+   g(X,X)=\|X\|_\delta^2\cos(2\vartheta),
+\]
+so that the domain of the hyperbolic parametrization is exactly the future
+$g$--time cone $\mathcal T_p^+$, without additional postulates.
+
+
+
+% ===============================
+\section{Flow invariants and the emergence of $S^3$ in the Euclidean proto-space}
+\label{sec:flow-invariants-S3}
+% ===============================
+
+This section makes precise a key equivalence of the proto--space approach:
+invariance of the Minkowski interval in an observer's local time
+is equivalent to constancy of the full proto--space flow vector
+with respect to a calibrated proto--parameter.
+
+
+\subsection{Worldlines, proto--parameter, and the full flow vector}
+\label{subsec:full-flow-vector}
+
+Let $X:I\to\Espace$ be a smooth timelike worldline.
+A \emph{proto--parameter} $\chi$ along $X$ is any smooth parameter with
+nowhere--vanishing derivative.  We define the associated \emph{full flow vector}
+(the proto--space tangent) by
+\begin{equation}\label{eq:flow-vector-tildeX}
+   \tilde{X} \;:=\; \frac{dX}{d\chi}\ \in T_{X(\chi)}\Espace.
+\end{equation}
+
+ \begin{definition}[Calibrated proto--parameter]
+ \label{def:calibrated-chi}
+ A proto--parameter $\chi$ is called \emph{calibrated} (with scale $\clight$) if
+ \begin{equation}\label{eq:calibrated-speed}
+    \delta(\tilde{X},\tilde{X}) \;=\; \clight^2
+    \qquad\text{along }X.
+ \end{equation}
+ \end{definition}
+
+\begin{remark}[Existence and gauge nature]
+\label{rem:chi-existence}
+For any timelike worldline $X$, a calibrated proto--parameter always exists.
+Indeed, if $\tau$ denotes proper time, one may define $\chi$ by
+$d\chi/d\tau=\|\dot X\|_\delta/\clight$.
+Fixing the time orientation ($d\chi/d\tau>0$), the resulting calibrated
+parameter is unique up to an additive constant.
+\end{remark}
+
+In words: in a calibrated proto--parameter, the full flow vector $\tilde{X}$
+has a fixed Euclidean norm in the proto--space.  This is the proto--space
+counterpart of the standard SR statement that the 4--velocity has fixed
+Minkowski norm in proper time.
+
+\subsection{Observer splitting and the interval--rate identity}
+\label{subsec:interval-rate}
+
+Fix the distinguished unit field $N$ (hence $g$ and $h$) as in
+\S\ref{sec:LMC}--\S\ref{sec:LMP}.  Pointwise along $X$, decompose $\tilde{X}$
+into $\delta$--longitudinal and $\delta$--transverse parts relative to $N$:
+\begin{equation}\label{eq:tildeX-decomp}
+   \tilde{X}
+   \;=\;
+   \tilde{H}\,N + \tilde{X}_\perp,
+   \qquad
+   \tilde{H} := N\cdot \tilde{X},
+   \qquad
+   \tilde{X}_\perp := h(\tilde{X})\in \mathrm{Im}(h).
+\end{equation}
+Let $\tilde{L}:=\|\tilde{X}_\perp\|_\delta$ and, when $\tilde{L}\neq 0$,
+$E:=\tilde{X}_\perp/\tilde{L}\in\mathrm{Im}(h)$ so that
+$\tilde{X}=\tilde{H}N+\tilde{L}E$ with $\delta(E,E)=1$.
+
+\begin{lemma}[Euclidean and Lorentzian norms of the flow]
+\label{lem:euclid-vs-lorentz}
+Along $X$ one has the identities
+\begin{equation}\label{eq:norm-identities-flow}
+   \delta(\tilde{X},\tilde{X}) = \tilde{H}^{\,2}+\tilde{L}^{\,2},
+   \qquad
+   g(\tilde{X},\tilde{X}) = \tilde{H}^{\,2}-\tilde{L}^{\,2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Since $\tilde{X}_\perp\in N^{\perp_\delta}$, we have $\delta(N,\tilde{X}_\perp)=0$.
+Hence
+$\delta(\tilde{X},\tilde{X})=\tilde{H}^2+\delta(\tilde{X}_\perp,\tilde{X}_\perp)
+=\tilde{H}^2+\tilde{L}^2$.
+For $g$, use $g(N,N)=1$, $g(N,\tilde{X}_\perp)=0$, and
+$g(\tilde{X}_\perp,\tilde{X}_\perp)=-\delta(\tilde{X}_\perp,\tilde{X}_\perp)
+=-\tilde{L}^2$.
+\end{proof}
+
+Motivated by the phase--formalism viewpoint, we introduce the \emph{interval rate}
+with respect to $\chi$:
+\begin{equation}\label{eq:S-tilde-def}
+   \tilde{S}^{\,2}
+   \;:=\;
+   g(\tilde{X},\tilde{X})
+   \;=\;
+   \tilde{H}^{\,2}-\tilde{L}^{\,2}.
+\end{equation}
+This is the precise proto--space analogue of writing
+$ds^2 = g(dX,dX) = \tilde{S}^{\,2}\,d\chi^2$ and viewing $\tilde{S}$ as a
+``Minkowski projection'' of the full Euclidean flow.
+
+\subsection{Equivalence: invariant interval in local time $\Longleftrightarrow$
+calibrated full flow}
+\label{subsec:equivalence-local-time}
+
+Let $\tau$ denote the \emph{local time} (proper time) along the timelike curve
+$X$, i.e.\ a parameter such that the tangent $\dot{X}:=dX/d\tau$ satisfies
+\begin{equation}\label{eq:proper-time-norm}
+   g(\dot{X},\dot{X}) = \clight^2.
+\end{equation}
+Equivalently, $ds^2 = g(dX,dX) = \clight^2\,d\tau^2$ along $X$.
+
+\begin{theorem}[Reparameterization equivalence]
+\label{thm:equiv}
+For any timelike worldline $X$, the following statements are equivalent:
+\begin{itemize}
+\item[(A)] $X$ is parameterized by local time $\tau$ so that
+$g(\dot{X},\dot{X})=\clight^2$.
+\item[(B)] $X$ is parameterized by a calibrated proto--parameter $\chi$ so that
+$\delta(\tilde{X},\tilde{X})=\clight^2$.
+\end{itemize}
+Moreover, when both parameters are used on the same curve, they are related by
+\begin{equation}\label{eq:tau-chi-relation}
+   \frac{d\tau}{d\chi}
+   \;=\;
+   \frac{\sqrt{g(\tilde{X},\tilde{X})}}{\clight}
+   \;=\;
+   \frac{\tilde{S}}{\clight},
+   \qquad
+   \frac{d\chi}{d\tau}
+   \;=\;
+   \frac{\|\dot{X}\|_\delta}{\clight}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Assume (A).  Define $\chi$ (up to an additive constant) by the ODE
+\[
+   \frac{d\chi}{d\tau} := \frac{\|\dot{X}\|_\delta}{\clight},
+\]
+which is smooth and positive since $\dot{X}\neq 0$.
+Then $\tilde{X}=dX/d\chi = (d\tau/d\chi)\dot{X}$, so
+\[
+   \delta(\tilde{X},\tilde{X})
+   = \Bigl(\frac{d\tau}{d\chi}\Bigr)^2\delta(\dot{X},\dot{X})
+   = \frac{\clight^2}{\|\dot{X}\|_\delta^2}\,\|\dot{X}\|_\delta^2
+   = \clight^2,
+\]
+which is (B).
+
+Conversely, assume (B).  Define $\tau$ (up to an additive constant) by
+\[
+   \frac{d\tau}{d\chi} := \frac{\sqrt{g(\tilde{X},\tilde{X})}}{\clight},
+\]
+which is well--defined and positive for timelike $\tilde{X}$ since
+$g(\tilde{X},\tilde{X})>0$.
+Then $\dot{X}=dX/d\tau=(d\chi/d\tau)\tilde{X}$, hence
+\[
+   g(\dot{X},\dot{X})
+   = \Bigl(\frac{d\chi}{d\tau}\Bigr)^2 g(\tilde{X},\tilde{X})
+   = \frac{\clight^2}{g(\tilde{X},\tilde{X})}\,g(\tilde{X},\tilde{X})
+   = \clight^2,
+\]
+which is (A).  The relations \eqref{eq:tau-chi-relation} are exactly the two
+defining ODEs.
+\end{proof}
+
+\paragraph{Operational meaning.}
+Statement (A) is the standard SR normalization of the 4--velocity in proper
+time, $g(\dot X,\dot X)=\clight^2$.
+Statement (B) is the corresponding calibration of the proto--parameter,
+$\delta(\tilde X,\tilde X)=\clight^2$.
+Theorem~\ref{thm:equiv} shows these are equivalent and amount to a change of
+parameter (``norm vs projection''), rather than an additional dynamical
+assumption.
+
+
+\subsection{The $S^3$ of admissible flow states}
+\label{subsec:S3-of-flows}
+
+Fix $p\in\Espace$.  The set of all calibrated flow vectors at $p$ is the
+Euclidean 3--sphere of radius $\clight$ inside $T_p\Espace$:
+\begin{equation}\label{eq:S3-sphere}
+   S^3_{\clight}(p)
+   \;:=\;
+   \bigl\{\,V\in T_p\Espace:\ \delta(V,V)=\clight^2\,\bigr\}
+   \;\cong\;
+   S^3.
+\end{equation}
+Thus, once the calibration \eqref{eq:calibrated-speed} is imposed, every
+instantaneous \emph{kinematic state} in the proto--space is a point of an
+$S^3$ in the tangent space.
+
+Relative to a chosen time direction $N_p$, each $V\in S^3_{\clight}(p)$
+admits the decomposition
+\[
+   V=\tilde{H}\,N+\tilde{L}\,E,
+   \qquad
+   \tilde{H}^2+\tilde{L}^2=\clight^2,
+   \qquad
+   E\in \mathrm{Im}(h_p),\ \delta(E,E)=1,
+\]
+so that the observable ``spatial direction'' is carried by $E\in S^2\subset
+\mathrm{Im}(h_p)$ while the pair $(\tilde{H},\tilde{L})$ lies on a circle
+$\tilde{H}^2+\tilde{L}^2=\clight^2$.
+When $\tilde{L}=0$, the direction $E$ is irrelevant (any unit choice in
+$\mathrm{Im}(h_p)$ yields the same vector), and the state reduces to
+$V=\pm\clight\,N_p$.
+This is precisely the geometric reason why $S^3$ is the natural state
+manifold for calibrated flows in the Euclidean proto--space: it is the locus of
+constant full flow magnitude, whereas Lorentzian interval effects arise from
+the $g$--projection \eqref{eq:S-tilde-def} and the reparameterization
+\eqref{eq:tau-chi-relation}.
+
+\begin{remark}[The physical sector of $S^3$]
+\label{rem:physical-sector-S3}
+While the calibrated flow states form the full sphere
+\[
+  S^3_{\clight}(p)=\{\,\tilde{X}\in T_p\Espace:\ \delta(\tilde{X},\tilde{X})=\clight^2\,\},
+\]
+the requirement that a worldline be timelike with respect to $g$,
+\[
+   g(\tilde{X},\tilde{X})>0,
+\]
+restricts the physically realizable states to the open subset
+\[
+   |\tilde{H}|>|\tilde{L}|,
+   \qquad
+   \tilde{H}:=N\cdot \tilde{X},\ \ \tilde{L}:=\|h(\tilde{X})\|_\delta.
+\]
+Geometrically, this is the union of two polar caps on $S^3_{\clight}(p)$
+centered at $\pm \clight N$.
+The boundary $|\tilde{H}|=|\tilde{L}|$ is the null locus (lightlike curves);
+equivalently, $g(\tilde{X},\tilde{X})=0$ implies $d\tau/d\chi=0$ in
+\eqref{eq:tau-chi-relation}.
+\end{remark}
+
+% ===============================
+\section{Why the Euclidean proto-space viewpoint}
+\label{sec:why-protospace}
+% ===============================
+
+The Lorentzian metric $g$ constructed from $(\delta,N)$ endows each tangent
+space $(T_p\Espace,g)$ with the usual causal structure.  The additional
+advantage of the Euclidean proto--space viewpoint is that it keeps, in the
+same object, both (i) the observable \emph{spatial} direction data encoded in
+$\mathrm{Im}(h_p)=N_p^{\perp_\delta}$ and (ii) the \emph{calibration} data
+(frequencies, time rates) encoded by $g$--projections onto time directions.
+In this sense, ``light'' is not an extra entity but a geometric slice of the
+null cone by the Euclidean layers $\Sigma_\chi\simeq S^3$ introduced later.
+
+\subsection{Light rays as null tangents: direction and frequency in one vector}
+\label{subsec:light-as-null}
+
+Fix $p\in\Espace$.  A light ray through $p$ is represented by a nonzero null
+vector $K\in T_p\Espace$,
+\[
+   g(K,K)=0,
+\]
+future--directed with respect to $N$ in the sense that $N\cdot K>0$.
+A particularly transparent parametrization is obtained by choosing a
+$\delta$--unit spatial direction $E\in\mathrm{Im}(h_p)$:
+\begin{equation}\label{eq:nullK-param}
+   K := \omega\,(N+E),
+   \qquad
+   E\in \mathrm{Im}(h_p),\ \ \delta(E,E)=1,
+   \qquad
+   \omega>0.
+\end{equation}
+This representation makes two physical pieces of information manifest:
+
+\begin{itemize}
+\item The vector $E$ is the \emph{observable propagation direction} in the
+      $N$--adapted Euclidean spatial subspace $\mathrm{Im}(h_p)$.
+
+\item The scalar $\omega$ is the \emph{frequency} measured by the $N$--observer:
+      indeed, using $g(N,N)=1$ and $g(N,E)=0$,
+      \begin{equation}\label{eq:omega-from-K}
+         \omega = g(N,K) = N\cdot K.
+      \end{equation}
+      (If one wishes, this is immediately related to photon energy via
+      $E_{\mathrm{ph}}=\hbar\omega$, but we will not use this here.)
+\end{itemize}
+
+\begin{lemma}[Nullity of \eqref{eq:nullK-param}]
+\label{lem:K-null}
+If $K$ is given by \eqref{eq:nullK-param}, then $g(K,K)=0$.
+\end{lemma}
+\begin{proof}
+Since $E\in\mathrm{Im}(h_p)=N^{\perp_\delta}$, we have $N\cdot E=0$ and
+$\delta(E,E)=1$.  Using $g(N,N)=1$, $g(N,E)=0$, and $g(E,E)=-\delta(E,E)=-1$,
+\[
+   g(N+E,N+E)=g(N,N)+2g(N,E)+g(E,E)=1+0-1=0.
+\]
+Hence $g(K,K)=\omega^2 g(N+E,N+E)=0$.
+\end{proof}
+
+\subsection{Observers as unit timelike states; measured frequency as a projection}
+\label{subsec:observers-as-U}
+
+In the proto--space formalism, a (local) observer is represented by a unit
+future timelike vector
+\[
+   U\in T_p\Espace,\qquad g(U,U)=1,\qquad g(U,N)>0.
+\]
+All measurable scalars are obtained by taking $g$--contractions.
+
+\begin{definition}[Frequency measured by an observer]
+\label{def:omegaU}
+For a null ray $K\neq 0$, the frequency measured by the observer $U$ is
+\begin{equation}\label{eq:omegaU-def}
+   \omega_U := g(U,K).
+\end{equation}
+\end{definition}
+
+This is the standard invariant definition used in geometric optics in SR.
+In the present framework, however, \eqref{eq:omegaU-def} will become an
+explicit function of Euclidean angles in $\mathrm{Im}(h_p)$.
+
+\subsection{Doppler shift}
+\label{subsec:doppler-3lines}
+
+Let $E_v\in\mathrm{Im}(h_p)$ be a $\delta$--unit direction,
+\[
+   \delta(E_v,E_v)=1,
+\]
+and let $U$ be the observer obtained from $N$ by a boost of rapidity $\eta\ge 0$
+in the $(N,E_v)$--plane:
+\begin{equation}\label{eq:U-boost}
+   U := (\cosh\eta)\,N + (\sinh\eta)\,E_v.
+\end{equation}
+Let the null ray be given by \eqref{eq:nullK-param},
+\[
+   K=\omega\,(N+E),\qquad \delta(E,E)=1,\ \ E\in\mathrm{Im}(h_p).
+\]
+Then, using bilinearity and the basic identities
+$g(N,N)=1$, $g(N,E)=0$, $g(E_v,N)=0$, and $g(E_v,E)=-\delta(E_v,E)$, we obtain
+\begin{align}
+   \omega_U
+   &= g(U,K) \notag\\
+   &= \omega\,g\bigl((\cosh\eta)N+(\sinh\eta)E_v,\ N+E\bigr)\notag\\
+   &= \omega\Bigl(\cosh\eta-\sinh\eta\,\delta(E_v,E)\Bigr).
+   \label{eq:doppler-raw}
+\end{align}
+
+Introduce
+\[
+   \beta := \tanh\eta,\qquad
+   \gamma := \cosh\eta,
+\]
+and define the Euclidean angle $\psi\in[0,\pi]$ between the velocity axis $E_v$
+and the ray direction $E$ in $\mathrm{Im}(h_p)$ by
+\begin{equation}\label{eq:psi-def}
+   \cos\psi := \delta(E_v,E).
+\end{equation}
+Then \eqref{eq:doppler-raw} becomes the standard relativistic Doppler law:
+\begin{equation}\label{eq:doppler-angle}
+   \frac{\omega_U}{\omega}
+   = \gamma\bigl(1-\beta\cos\psi\bigr).
+\end{equation}
+
+\paragraph{Interpretation.}
+Equation \eqref{eq:doppler-angle} is obtained here as a direct function of an
+ordinary Euclidean angle on the $\delta$--unit sphere inside
+$\mathrm{Im}(h_p)$ (the ``$S^3$ layers'' $\Sigma_\chi\simeq S^3$ will be
+introduced later).  In this sense the Doppler shift is simply ``projection
+geometry'' in the proto--space: the measured frequency is the $g$--projection
+of a null direction onto an observer state.
+
+\subsection{Aberration as projection plus normalization}
+\label{subsec:aberration}
+
+The direction of the ray measured by $U$ is the normalized spatial part of $K$
+in the $g$--orthogonal complement of $U$.  Define the $g$--spatial component
+of $K$ relative to $U$ by
+\begin{equation}\label{eq:KU-spatial}
+   K_{\perp U} := K - (g(U,K))\,U.
+\end{equation}
+Then $g(U,K_{\perp U})=0$, so $K_{\perp U}\in U^{\perp_g}$, and its $g$--norm is
+\[
+   g(K_{\perp U},K_{\perp U}) = -\,\omega_U^2
+   \qquad(\text{since } g(K,K)=0,\ g(U,U)=1).
+\]
+Hence the \emph{unit} spatial direction of the ray in the $U$--frame may be
+taken as
+\begin{equation}\label{eq:EU-def}
+   E_U := \frac{1}{\omega_U}\,K_{\perp U}
+   = \frac{1}{g(U,K)}\Bigl(K-(g(U,K))U\Bigr),
+   \qquad
+   g(E_U,E_U)=-1,\ \ g(U,E_U)=0.
+\end{equation}
+
+To extract the usual aberration formula, specialize to the same kinematics as
+in \S\ref{subsec:doppler-3lines}, i.e.\ $U$ as in \eqref{eq:U-boost} and
+$K=\omega(N+E)$.
+Let $\psi'$ denote the angle between the ray and the velocity axis in the
+\emph{$U$--rest space}.  Equivalently, $\cos\psi'$ is the (Euclidean) cosine of
+the angle between the spatial ray direction measured by $U$ and the axis of
+motion, which is encoded invariantly by the contraction of $E_U$ with the
+boost axis.
+
+A direct computation (substituting \eqref{eq:U-boost} and $K=\omega(N+E)$ into
+\eqref{eq:EU-def} and taking the component along the $U$--spatial image of
+$E_v$) yields the standard aberration law:
+\begin{equation}\label{eq:aberration}
+   \cos\psi'
+   = \frac{\cos\psi-\beta}{1-\beta\cos\psi},
+\end{equation}
+with $\cos\psi=\delta(E_v,E)$ as in \eqref{eq:psi-def}.
+
+\paragraph{Interpretation.}
+Aberration and Doppler are the same operation in two steps:
+\begin{itemize}
+\item Doppler: take the $g$--projection $g(U,K)$ (a scalar).
+\item Aberration: subtract the time component $(g(U,K))U$ and normalize the
+      remaining $U$--spatial part.
+\end{itemize}
+In the proto--space picture, both effects are thus immediate consequences of
+the null cone geometry together with the observer--dependent splitting induced
+by $U$.
+
+\subsection{Geometric Algebra perspective: The Euclidean origin of Lorenz rotation}
+\label{subsec:GA}
+
+The Euclidean proto-space framework admits a natural algebraic structure provided by the Clifford algebra $\mathcal{C}\ell(\Espace, \delta)$. Let the geometric product of vectors $u, v \in T_p\Espace$ be defined by the fundamental relation
+\[
+   uv = \delta(u,v) + u\wedge v.
+\]
+Unlike the standard Spacetime Algebra which postulates a Lorentzian signature, here the algebra is strictly Euclidean ($\mathcal{C}\ell_{4,0}$). The distinguished field $N$ serves as the generator of the \emph{space-time split}.
+
+\paragraph{Observable algebra.}
+Multiplication of any vector $X$ by the distinguished element $N$ decomposes it into a scalar part (time) and a bivector part (space) relative to $N$:
+\begin{equation}\label{eq:GA-split}
+   XN = \underbrace{X\cdot N}_{\text{scalar}} + \underbrace{X\wedge N}_{\text{bivector}}.
+\end{equation}
+Identifying the bivectors containing $N$ with the spatial vectors of the observer, the algebra of observables corresponds to the even subalgebra $\mathcal{C}\ell^+_{4,0}$, which is isomorphic to the Pauli algebra (and the quaternions).
+
+The kinematic results of Section~\ref{sec:flow-invariants-S3} can be naturally encoded using the Geometric Algebra $\mathcal{C}\ell(\Espace, \delta)$.  This formalism clarifies that the transition from a Euclidean rotation to a Lorentzian boost is not an ad-hoc analytic continuation, but a direct consequence of the metric signature changing the algebraic properties of the basis vectors.
+
+\paragraph{Euclidean rotation.}
+In the Euclidean proto-space $(\Espace, \delta)$, both the distinguished vector $N$ and any transverse spatial direction $E$ square to $+1$:
+\[
+    N^2 = 1, \qquad E^2 = 1.
+\]
+The plane spanned by them is described by the bivector $\mathbf{I} = N E$. Due to the Euclidean signature, this generator squares to $-1$:
+\[
+    \mathbf{I}^2 = (NE)(NE) = -N^2 E^2 = -(1)(1) = -1.
+\]
+Consequently, the exponential of this bivector generates standard trigonometric rotations. The kinematic relationship between two flow vectors $\tilde{X}_1, \tilde{X}_2 \in S^3_{\clight}$ is governed by the rotor $R = e^{-\mathbf{I}\vartheta/2}$:
+\[
+    \tilde{X}_2 = R \tilde{X}_1 \tilde{R}^{-1} = \tilde{X}_1 \cos\vartheta + \tilde{X}_{1\perp} \sin\vartheta.
 \]
 
-In the present work we use instead the tangent--based parameter
+\paragraph{Lorentzian boost via vector substitution.}
+The construction of the Lorentzian metric $g$ effectively replaces the Euclidean spatial vector $E$ with a physical spatial vector $\mathbf{e}$ which, while parallel to $E$, squares to $-1$ in the metric $g$:
 \[
-   \beta_{\mathrm{phase}} := \tan\vartheta
-   = \frac{\|X_\perp\|_\delta}{N\cdot X}.
+    \mathbf{e}^2 \overset{g}{=} -1, \qquad \text{while } N^2 \overset{g}{=} 1.
 \]
-For $g$–positive vectors $X\in\mathcal T_p$ one has $\tan\vartheta<1$,
-so $\beta_{\mathrm{phase}}\in[0,1)$ and we can define a hyperbolic
-parameter $\eta\ge 0$ by
+This change in the basis vector fundamentally alters the bivector describing the time-space plane. The new generator (the boost bivector) $\mathbf{K} = N \mathbf{e}$ satisfies:
 \[
-   \tanh\eta := \beta_{\mathrm{phase}} = \tan\vartheta.
+    \mathbf{K}^2 = (N\mathbf{e})(N\mathbf{e}) = -N^2 \mathbf{e}^2 = -(1)(-1) = +1.
 \]
-
-This choice is directly adapted to the orthogonal decomposition
-$X = X_\parallel + X_\perp$ and to the identity
+Because the generator now squares to $+1$, its exponential series produces hyperbolic functions instead of trigonometric ones. Using the rapidity $\eta$ (related to tilt by $\tanh\eta = \tan\vartheta$), the physical transformation becomes a boost $L = e^{-\mathbf{K}\eta/2}$:
 \[
-   g(X,X) = \|X\|_\delta^2 \cos(2\vartheta),
+    L = \cosh\frac{\eta}{2} - \mathbf{K}\sinh\frac{\eta}{2}.
 \]
-so that the domain of the hyperbolic parametrization is precisely the
-$g$–positive cone $\mathcal T_p$.
-In particular, the appearance of the hyperbolic parameter $\eta$ is a
-direct consequence of the projector structure determined by $(\delta,N)$,
-rather than an additional postulate.
+Applying this to the rest vector $N$ yields the 4-velocity $U$:
+\[
+    U = L N L^{-1} = N \cosh\eta + \mathbf{e} \sinh\eta.
+\]
+Thus, the phenomenon of "Lorentzian" kinematics emerges algebraically simply because the spatial part of the basis becomes "imaginary" (squares to $-1$) relative to the time direction, flipping the sign of the bivector square and transitioning the geometry from circular to hyperbolic.
 
 % ===============================
 \section{Newtonian body as an isotropic field source and its simultaneity fronts}
