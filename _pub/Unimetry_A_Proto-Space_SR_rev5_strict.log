@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  22 DEC 2025 14:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  22 DEC 2025 17:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"Unimetry A Phase-Space Reformulation of Special Relativity (rev.5).tex"
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.5).tex
+**Unimetry_A_Proto-Space_SR_rev5_strict.tex
+(./Unimetry_A_Proto-Space_SR_rev5_strict.tex
 LaTeX2e <2022-06-01> patch level 3
 L3 programming layer <2022-06-16>
 (d:/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -887,9 +887,8 @@ File: pgflibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 Library (tcolorbox): 'tcbposter.code.tex' version '5.1.1'
 ))
 \c@theorem=\count336
- (./Unimetry A Phase-Space Reformulation of Special Relativity (rev.5).aux)
-\openout1 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.5
-).aux"'.
+ (./Unimetry_A_Proto-Space_SR_rev5_strict.aux)
+\openout1 = `Unimetry_A_Proto-Space_SR_rev5_strict.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
 LaTeX Font Info:    ... okay on input line 89.
@@ -965,11 +964,10 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 )
 Package hyperref Info: Link coloring OFF on input line 89.
 
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.5).out)
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.5).out)
+(./Unimetry_A_Proto-Space_SR_rev5_strict.out)
+(./Unimetry_A_Proto-Space_SR_rev5_strict.out)
 \@outlinefile=\write5
-\openout5 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.5
-).out"'.
+\openout5 = `Unimetry_A_Proto-Space_SR_rev5_strict.out'.
 
 
 (d:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1024,17 +1022,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.5).toc
-[1
+(./Unimetry_A_Proto-Space_SR_rev5_strict.toc [1
 
 {d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write6
-\openout6 = `"Unimetry A Phase-Space Reformulation of Special Relativity (rev.5
-).toc"'.
+\openout6 = `Unimetry_A_Proto-Space_SR_rev5_strict.toc'.
 
- [2] [3]
-[4]
-Overfull \hbox (57.33847pt too wide) detected at line 301
+ [2] [3] [4]
+Overfull \hbox (57.33847pt too wide) detected at line 318
 \OMS/cmsy/m/n/10.95 T[] \OT1/cmr/m/n/10.95 := \OMS/cmsy/m/n/10.95 f\OML/cmm/m/i
 t/10.95 X \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 T[]\OMS/cmsy/m/n/10.95 E \O
 T1/cmr/m/n/10.95 :  \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
@@ -1052,135 +1047,129 @@ OT1/cmr/m/n/10.95 0\OMS/cmsy/m/n/10.95 g\OML/cmm/m/it/10.95 :
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 327.
+(hyperref)                removing `math shift' on input line 344.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 327.
+(hyperref)                removing `\delta' on input line 344.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 327.
+(hyperref)                removing `math shift' on input line 344.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 327.
+(hyperref)                removing `math shift' on input line 344.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 327.
+(hyperref)                removing `math shift' on input line 344.
 
 [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 403.
+(hyperref)                removing `math shift' on input line 420.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vartheta' on input line 403.
+(hyperref)                removing `\vartheta' on input line 420.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 403.
+(hyperref)                removing `math shift' on input line 420.
 
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 477.
+(hyperref)                removing `math shift' on input line 494.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 477.
+(hyperref)                removing `\eta' on input line 494.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 477.
+(hyperref)                removing `math shift' on input line 494.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 477.
+(hyperref)                removing `math shift' on input line 494.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vartheta' on input line 477.
+(hyperref)                removing `\vartheta' on input line 494.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 477.
+(hyperref)                removing `math shift' on input line 494.
 
 [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 597.
+(hyperref)                removing `math shift' on input line 614.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 597.
+(hyperref)                removing `superscript' on input line 614.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 597.
+(hyperref)                removing `math shift' on input line 614.
 
 [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 693.
+(hyperref)                removing `math shift' on input line 710.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Leftarrow' on input line 693.
+(hyperref)                removing `\Leftarrow' on input line 710.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathrel' on input line 693.
+(hyperref)                removing `\mathrel' on input line 710.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mkern' on input line 693.
+(hyperref)                removing `\mkern' on input line 710.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Rightarrow' on input line 693.
+(hyperref)                removing `\Rightarrow' on input line 710.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 693.
+(hyperref)                removing `math shift' on input line 710.
 
 [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 779.
+(hyperref)                removing `math shift' on input line 785.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 779.
+(hyperref)                removing `superscript' on input line 785.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 779.
+(hyperref)                removing `math shift' on input line 785.
 
-[10]
+[10] [11] [12] [13] [14] [15] (./Unimetry_A_Proto-Space_SR_rev5_strict.aux)
 
-LaTeX Warning: Reference `subsec:flow-invariants-S3' on page 11 undefined on in
-put line 856.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-[11] [12] [13] [14] [15] [16]
-(./Unimetry A Phase-Space Reformulation of Special Relativity (rev.5).aux)
-
-LaTeX Warning: There were undefined references.
-
-Package rerunfilecheck Info: File `"Unimetry A Phase-Space Reformulation of Spe
-cial Relativity (rev.5)".out' has not changed.
-(rerunfilecheck)             Checksum: 59CC7E4A2391645428BDA0CF2C424B9B;8764.
+Package rerunfilecheck Info: File `Unimetry_A_Proto-Space_SR_rev5_strict.out' h
+as not changed.
+(rerunfilecheck)             Checksum: 10F4ECA8EFBD4A4E613BCE7CF1DB8173;8397.
  ) 
 Here is how much of TeX's memory you used:
- 33658 strings out of 478037
- 676579 string characters out of 5843053
- 1027730 words of memory out of 5000000
- 51203 multiletter control sequences out of 15000+600000
- 494676 words of font info for 201 fonts, out of 8000000 for 9000
+ 33626 strings out of 478037
+ 675274 string characters out of 5843053
+ 1024781 words of memory out of 5000000
+ 51186 multiletter control sequences out of 15000+600000
+ 495019 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,12n,104p,1065b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,12n,104p,1034b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2022/texmf-di
@@ -1193,19 +1182,18 @@ i6.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:
 022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2022/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2022/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2022/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/te
-xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2022
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2022/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2022/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2022/texmf-dist/fonts/type
-1/public/cm-super/sfrm1095.pfb>
-Output written on "Unimetry A Phase-Space Reformulation of Special Relativity (
-rev.5).pdf" (16 pages, 331329 bytes).
+lic/amsfonts/cm/cmr7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/t
+exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/20
+22/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2022/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2022/texmf-dist
+/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on Unimetry_A_Proto-Space_SR_rev5_strict.pdf (15 pages, 311606 b
+ytes).
 PDF statistics:
- 551 PDF objects out of 1000 (max. 8388607)
- 462 compressed objects within 5 object streams
- 127 named destinations out of 1000 (max. 500000)
- 43949 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 515 PDF objects out of 1000 (max. 8388607)
+ 429 compressed objects within 5 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 45989 words of extra memory for PDF output out of 51595 (max. 10000000)
 

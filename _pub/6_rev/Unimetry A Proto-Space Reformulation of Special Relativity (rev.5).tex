@@ -89,9 +89,28 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We present a geometric unification of special relativity and field theory based on a four-dimensional Euclidean proto-space $(\Espace, \delta)$ equipped with a distinguished unit vector field $N$. By defining the metric $g_{AB} = 2N_A N_B - \delta_{AB}$, we recover the standard Minkowski signature and causal structure. A key feature of this formalism is the identity $\tanh \eta = \tan \vartheta$, which compactifies the infinite hyperbolic rapidity range into a finite Euclidean tilt domain $\vartheta \in [0, \pi/4)$. We demonstrate that relativistic proper-time normalization is equivalent to a constant Euclidean flow on a sphere $S^3_{\clight} \subset T\Espace$.
+We present a kinematic reformulation of special relativity in a four--dimensional
+Euclidean proto--space $(\Espace,\delta)$ by splitting tangent vectors with respect
+to a chosen unit field $N$ into longitudinal and transverse parts.  Writing
+$\alpha:=\delta(N,\cdot)$ and $h:=\delta-\alpha\!\otimes\!\alpha$, we show that
+the operational reparametrization of a timelike worldline by proper time,
+\[
+   \clight^{\,2}d\tau^{2}:=g(dX,dX),
+   \qquad
+   g=\alpha\!\otimes\!\alpha-h = 2\,\alpha\!\otimes\!\alpha-\delta,
+\]
+induces the standard Lorentzian interval $\clight^{\,2}d\tau^{2}=\clight^{\,2}dt^{2}-d\ell^{2}$
+with $dt:=\alpha(dX)/\clight$ and $d\ell^{2}:=h(dX,dX)$.  In the inertial sector we assume
+$\nabla^\delta N=0$, so $g$ is globally Minkowskian and the construction isolates pure SR
+kinematics without introducing field dynamics.
 
-Furthermore, we extend this geometric framework to the algebraic and topological domains. Using the Euclidean Clifford algebra $\mathcal{C}\ell_{4,0}$, we show that Lorentzian boosts emerge naturally from Euclidean rotations via a change in the bivector basis. Finally, we propose that matter sources can be modeled as topological defects of the field $N$ governed by the Hopf fibration $S^3 \to S^2$. This perspective interprets particle charge as a topological invariant and suggests that quantum uncertainty arises from the dimensional reduction of flow fibers in the proto-space.
+A complementary calibration uses a proto--parameter $\chi$ such that
+$\delta(\tilde X,\tilde X)=\clight^{\,2}$, placing flow states on the sphere
+$S^3_{\clight}\subset T\Espace$; the physically timelike sector corresponds to the open
+subset where $g(\tilde X,\tilde X)>0$.  This yields a compact tilt parametrization
+$\beta=v/\clight=\tan\vartheta$ (hence $\tanh\eta=\tan\vartheta$) and enables transparent
+geometric derivations of the relativistic Doppler shift and aberration as projection
+identities relative to $N$.
 \end{abstract}
 
 
@@ -99,7 +118,7 @@ Furthermore, we extend this geometric framework to the algebraic and topological
 
 \paragraph{MSC (2020):} 83A05; 70A05. % (Consider also PACS: 03.30.+p; 04.20.Cv.)
 
-\tableofcontents
+% \tableofcontents
 
 % ===============================
 \section{Introduction}
@@ -107,27 +126,152 @@ Furthermore, we extend this geometric framework to the algebraic and topological
 % ===============================
 
 \subsection{Motivation}
-The transition from the definite signature of Euclidean geometry to the indefinite signature of Lorentzian spacetime has traditionally been treated as a fundamental postulate of physics. However, the rigidity and well-behaved spectral properties of elliptic operators suggest that the Euclidean signature may be more fundamental. This paper proposes \emph{Unimetry}—a framework where the physical Lorentzian structure is not axiomatic but derived from a ``proto-space'': a four-dimensional Euclidean manifold $(\Espace,\delta)$ permeated by a distinguished flow field $N$.
+The transition from the definite signature of Euclidean geometry to the indefinite signature of Lorentzian spacetime has traditionally been treated as a fundamental postulate of physics. However, the rigidity and well-behaved spectral properties of elliptic operators suggest that the Euclidean signature may be more fundamental. This paper proposes kinematical part of \emph{Unimetry} --- a framework where the physical Lorentzian structure is not axiomatic but derived from a ``proto-space'': a four-dimensional Euclidean manifold $(\Espace,\delta)$ permeated by a distinguished vector field $N$.
 
-Our primary motivation is to unify the kinematic rigidity of special relativity with the topological richness of field theories. By treating the speed of light not merely as a limit but as a geometric saturation point of the Euclidean tilt angle, we obtain a phase-space formulation where relativistic effects (time dilation, Doppler shift) are essentially projection artifacts. Moreover, this Euclidean vantage point allows us to import powerful tools from topology and geometric algebra, offering new insights into the nature of boosts, charges, and the origin of quantum indeterminacy.
+Our goal is to provide a self--contained proto--space formulation of the kinematics of special relativity in which relativistic effects are traced to orthogonal decompositions and projections in a Euclidean background. The speed of light appears as the boundary of the physically admissible (timelike) sector on the calibrated sphere, and standard quantities such as $\beta$, $\gamma$, and rapidity admit simple expressions in terms of a bounded tilt angle. The formalism is designed to be compatible with geometric--algebra methods and to serve as a convenient kinematical foundation; dynamical field equations and source models are intentionally left outside the scope of the present paper.
+
+
 
 \subsection{Relation to previous work}
 
-Attempts to reinterpret Lorentzian geometry through Euclidean structures have a long history. Early geometric perspectives go back to the work of Karapetoff \cite{Karapetoff1912}, who proposed Euclidean angle constructions for visualizing relativistic transformations. More recent studies by Brands \cite{Brands2021}, Akintsov et al. \cite{Akintsov2020} investigate embeddings and correspondences between the two geometries.
+Attempts to recast Lorentzian kinematics in Euclidean terms have a long history.
+Early geometric constructions already appear in Karapetoff \cite{Karapetoff1912},
+where relativistic transformations are visualized by Euclidean angle geometry.
+More recent works study various embeddings and correspondences between Euclidean
+and Lorentzian structures, including \cite{Brands2021,Akintsov2020}.
 
-A rigorous pointwise correspondence was established by Reddy, Sharma and Sivaramakrishnan \cite{Reddy2009}. Given a Riemannian manifold $(M,h)$ and a unit vector field~$U$, they introduce a Lorentzian metric via $g = h - 2\, U^\flat \!\otimes U^\flat$. We adopt a sign-flipped variant of this projector method to generate the $(+---)$ signature used in particle physics.
+A distinct line of literature aims at an explicitly \emph{Euclidean} reformulation
+of special relativity.  In particular, Euclidean SR can be obtained by a change of
+variables in which Lorentz transformations are represented as rotations in a
+Euclidean space (e.g.\ Gersten \cite{Gersten2003ESR}).  Other proposals postulate an
+absolute Euclidean background and then reinterpret relativistic observables in
+terms of proper time (e.g.\ Montanus \cite{Montanus1991AbsoluteE,Montanus2001ProperTime}),
+or develop related ``four--dimensional optics'' frameworks in which $\tau$ plays a
+central operational role (e.g.\ Almeida \cite{Almeida2001AltMinkowski,Almeida2002Kcalc}).
+For broader context on Euclidean viewpoints beyond SR, see also Atkinson
+\cite{Atkinson1963EuclidGR}.
 
-Algebraically, our work draws inspiration from the \emph{Space-Time Algebra} (STA) pioneered by Hestenes \cite{Hestenes1966, Hestenes2003}. While STA traditionally operates within a Lorentzian Clifford algebra, we demonstrate that the physics can be fully described within a strictly Euclidean algebra $\mathcal{C}\ell_{4,0}$, where the "space-time split" is dynamic and observer-dependent. Additionally, the interpretation of particles as geometric flows resonates with Hestenes' \emph{Zitterbewegung} model \cite{Hestenes2008}, which we reframe here in terms of topological fibrations.
+Our construction differs in emphasis: we do not identify the Euclidean norm with
+the Lorentz interval by a coordinate trick, nor do we postulate an ``absolute''
+Euclidean time.  Instead, the Lorentzian interval emerges as an operational
+quadratic form associated with a distinguished time 1--form
+\(
+\alpha:=N^\flat=\delta(N,\cdot)
+\),
+together with the observer's proper--time reparametrization along worldlines.
+This standpoint is conceptually aligned with the relational-time viewpoint in
+generally covariant physics, where the physical time variable is a chosen clock
+observable (Rovelli's ``partial observables'' perspective \cite{Rovelli2002,Rovelli1991Time}).
+
+A rigorous pointwise projector correspondence between a Riemannian metric and a
+Lorentzian one was established by Reddy, Sharma and Sivaramakrishnan \cite{Reddy2009}.
+Given a Riemannian manifold $(M,h)$ and a unit vector field $U$, they define a
+Lorentzian metric by $g=h-2\,U^\flat\!\otimes U^\flat$.  We adopt the sign--flipped
+variant adapted to the particle--physics convention $(+---)$, namely
+\(
+g=2\,N^\flat\!\otimes N^\flat-\delta
+\),
+and then make explicit how proper time (hence SR kinematics) arises through
+phase reparametrization relative to $\alpha$.
+
+\paragraph{Inertial specialization (SR kinematics).}
+Although the construction of \S\ref{sec:LMC} applies to any smooth unit field
+$N$ on $(\Espace,\delta)$, the present paper focuses on special--relativistic
+kinematics.  Accordingly, we restrict to the inertial case and assume that $N$
+is parallel with respect to the flat Euclidean connection,
+\begin{equation}\label{eq:inertial-N}
+   \nabla^{\delta} N = 0 .
+\end{equation}
+Equivalently, in global Cartesian coordinates on $\Espace\simeq\mathbb{R}^4$ the
+components $N^A$ are constant.  Under this assumption the induced metric
+$g=2\,N^\flat\!\otimes N^\flat-\delta$ is constant (globally Minkowskian), and
+the SR effects derived in this paper arise from the phase reparametrization and
+tilt geometry rather than from curvature.
+
+Algebraically, our presentation is close in spirit to the geometric--algebra
+approach to relativity, in which boosts and rotations are treated uniformly as
+rotors (see, e.g., Hestenes' Space--Time Algebra \cite{Hestenes1966,Hestenes2003}
+and the discussion of spacetime algebra versus ``imaginary time'' in
+\cite{GullLasenbyDoran1993}).  The difference is that we work throughout in the
+strictly Euclidean Clifford algebra $\mathcal{C}\ell_{4,0}$: the ``space--time
+split'' is encoded by the choice of $N$ (hence $\alpha$) and is therefore
+observer--dependent, while Lorentzian boosts arise from Euclidean rotations
+after an appropriate change of bivector basis.
+
+\subsection{Contributions}
+\label{subsec:contributions}
+The main contributions of the present paper are:
+\begin{enumerate}[label=(C\arabic*),leftmargin=*,itemsep=2pt,topsep=2pt]
+  \item \textbf{Operational origin of the Lorentz interval.}
+  Starting from a Euclidean proto--space $(\Espace,\delta)$ and a unit field $N$,
+  we introduce the associated time 1--form $\alpha:=N^\flat=\delta(N,\cdot)$ and
+  the spatial projector $h=\delta-\alpha\otimes\alpha$.  We make explicit that
+  the observer's interval is the induced quadratic form
+  \[
+     g=\alpha\otimes\alpha-h = 2\,\alpha\otimes\alpha-\delta,
+  \]
+  and that proper time arises as an operational reparametrization along
+  worldlines via $c^2d\tau^2=g(dX,dX)$ (Sections~\ref{sec:LMC}--\ref{sec:LMP} and
+  \S\ref{sec:PRT}).
+
+  \item \textbf{Reparameterization equivalence on the calibrated sphere.}
+  We show that proper--time normalization in the induced Lorentzian metric is
+  equivalent to a constant--speed Euclidean flow constrained to the calibrated
+  sphere $S^3_{\clight}\subset T\Espace$ (Theorem~\ref{thm:equiv} and
+  \S\ref{sec:flow-invariants-S3}).
+
+  \item \textbf{Geometric characterization of the physical sector.}
+  The timelike condition $g(X,X)>0$ selects an open subset of $S^3_{\clight}$
+  (two polar caps), with the lightlike boundary reached at a finite Euclidean
+  tilt $\vartheta=\pi/4$ (cf.\ \S\ref{subsec:domain-eta} and
+  Remark~\ref{rem:physical-sector-S3}).
+
+  \item \textbf{Bounded angular parametrization of boosts.}
+  We establish the kinematic identity $\tanh\eta=\tan\vartheta$ and use it to
+  map the unbounded rapidity $\eta\in[0,\infty)$ to a bounded Euclidean tilt
+  variable $\vartheta\in[0,\pi/4)$, providing a compact geometric description of
+  boost kinematics (Section~\ref{sec:Hyper}).
+
+  \item \textbf{Projection-based optics and Euclidean GA implementation.}
+  Frequency and direction of null rays are obtained as $g$--projections, yielding
+  concise derivations of the Doppler shift and aberration.  We also encode boosts
+  in the strictly Euclidean Clifford algebra $\mathcal{C}\ell_{4,0}$ via a change
+  of bivector basis, so that Lorentzian boosts are represented by Euclidean
+  rotors relative to the $N$--split (Section~\ref{sec:why-protospace}).
+\end{enumerate}
+
 
 \subsection{Outline}
 The paper is organized as follows:
 \begin{itemize}
-    \item \textbf{Section \ref{sec:LMC}} constructs the Lorentzian metric $g$ from the Euclidean background $(\delta, N)$ and establishes the causal signature.
-    \item \textbf{Section \ref{sec:LMP}} explores the properties of the induced metric, including the orthogonal decomposition of tangent vectors and the geometry of the null cone.
-    \item \textbf{Section \ref{sec:Hyper}} derives the central kinematic identity $\tanh\eta = \tan\vartheta$ and shows that the speed of light corresponds to a $45^\circ$ Euclidean tilt.
-    \item \textbf{Section \ref{sec:flow-invariants-S3}} reformulates 4-velocity normalization as a constraint on the Euclidean flow, mapping admissible states to the sphere $S^3$.
-    \item \textbf{Section \ref{sec:why-protospace}} demonstrates the explanatory power of the framework. We derive optical effects (Doppler, aberration) as geometric projections, reformulate boosts using Euclidean Geometric Algebra, and conclude with a topological outlook where sources are modeled as defects characterized by the Hopf invariant.
+    \item \textbf{Section \ref{sec:LMC}} constructs the Lorentzian metric $g$ from
+    the Euclidean background $(\delta, N)$, introduces the time 1--form
+    $\alpha=N^\flat$, and establishes the causal signature.
+
+    \item \textbf{Section \ref{sec:LMP}} explores the properties of the induced
+    metric, including the orthogonal decomposition of tangent vectors, the null
+    cone, and the characterization of timelike and lightlike directions.
+
+    \item \textbf{Section \ref{sec:PRT}} formulates the phase/clock
+    viewpoint explicitly: we introduce a $\delta$--calibrated proto--parameter
+    $\chi$, define coordinate time and proper time via $\alpha$, and prove the
+    equivalence between constant Euclidean flow budget in $(\Espace,\delta)$ and
+    proper--time normalization in $(\Espace,g)$.
+
+    \item \textbf{Section \ref{sec:Hyper}} derives the central kinematic identity
+    $\tanh\eta = \tan\vartheta$ and shows that the speed of light corresponds to
+    a $45^\circ$ Euclidean tilt.
+
+    \item \textbf{Section \ref{sec:flow-invariants-S3}} reformulates 4--velocity
+    normalization as a constraint on the Euclidean flow, mapping admissible
+    states to the calibrated sphere $S^3_{\clight}\subset T\Espace$ and
+    identifying the physical sector.
+
+    \item \textbf{Section \ref{sec:why-protospace}} demonstrates the explanatory
+    power of the framework. We derive optical effects (Doppler, aberration) as
+    geometric projections and reformulate boosts using Euclidean Geometric Algebra.
 \end{itemize}
+
 
 % ===============================
 \section{Lorentzian metric construction}
@@ -181,22 +325,6 @@ Let $N$ be a smooth vector field on $\Espace$ satisfying the unit condition
 In particular, $N$ is nowhere vanishing and defines at each point a
 distinguished $\delta$--unit direction.
 
-\begin{remark}[Fiducial observer field]
-\label{rem:N-reference-observer}
-In the unimetrical interpretation, the distinguished unit field $N$ plays the role of a
-fiducial inertial observer field (a ``laboratory'' or vacuum rest frame).
-It selects, at each $p\in\Espace$, the canonical $\delta$--orthogonal splitting
-\[
-   T_p\Espace = \mathbb R\,N_p \ \oplus\ N_p^{\perp_\delta},
-\]
-which we use consistently to interpret longitudinal components as temporal and
-transverse components as spatial.
-When light rays are represented by null tangents $K$ (see \S\ref{subsec:light-as-null}),
-the coefficient $\omega$ in the parametrization $K=\omega(N+E)$ is precisely the angular
-frequency measured by these $N$--observers, i.e.\ $\omega=g(N,K)$; Doppler shifts for other
-observers are encoded by $\omega_U=g(U,K)$ (Definition~\ref{def:omegaU}).
-\end{remark}
-
 We introduce the $\delta$--orthogonal projector onto the complement of $N$:
 \begin{equation}\label{eq:h-def}
    h_{AB} := \delta_{AB} - N_A N_B.
@@ -208,6 +336,37 @@ Then $h$ has rank $3$ and satisfies
 \]
 We write $\mathrm{Im}(h_p)=N_p^{\perp_\delta}\subset T_p\Espace$ for the
 $\delta$--orthogonal complement at $p$.
+
+\begin{remark}[Status of the reference field $N$]
+In this paper the unit field $N$ is \emph{not} introduced as a dynamical
+``aether'' variable and is not assigned an action, field equations, or an
+energy--momentum tensor.  Rather, $N$ is a geometric datum that selects the
+$1\!+\!3$ splitting of the Euclidean proto--space $(\Espace,\delta)$ and thereby
+fixes the associated projectors and the induced Lorentzian metric
+\[
+   g \;=\; 2\,N^\flat\!\otimes N^\flat \;-\; \delta .
+\]
+In the special--relativistic (inertial) sector studied here we assume $N$ is
+parallel with respect to the flat Euclidean connection, $\nabla^\delta N=0$,
+so $g$ is globally Minkowskian.
+
+Lorentz covariance is recovered as an \emph{equivariance} property of the
+construction: any other constant unit field $N'$ corresponds to a different
+choice of inertial observer and is related to $N$ by a Euclidean isometry
+$R\in O(4)$, $N' = R_*N$.  Under this change of reference direction the induced
+metric transforms tensorially, $g' = R^* g$, and all observable statements in
+the present framework are required to be formulated in $g$--covariant
+(relational) quantities (invariants and $g$--projections).  Hence the physical
+content does not depend on the particular representative $N$ used to label an
+observer, but only on the relational geometry encoded by $g$.
+\end{remark}
+
+\begin{remark}[Nature of $N$ and observer dependence]
+\label{rem:N-nature}
+Unlike vector fields in spontaneous symmetry breaking models, $N$ here does not carry dynamic energy-momentum. It serves as a geometric reference required to define the projection from the proto-space to the physical manifold. Lorentz covariance is recovered essentially because the theory allows any choice of $N$ (corresponding to any inertial observer), and the resulting physics depends only on the relational quantities defined by the induced metric $g$.
+
+Formally, one may view localized states as 3-spheres embedded in the proto-space $\Espace$. In this topological picture, $N$ arises naturally as the radial unit field (the normal vector) of the sphere. Since such a field flows outward and inward in all directions relative to the center of the 3-sphere, the specific direction of $N$ at any point is determined by the orientation of the local shell. Thus, the kinetically significant $N$ is always a local choice of the observer, rather than a global background field.
+\end{remark}
 
 \subsection{Lorentzian metric definition}
 \label{subsec:LMD}
@@ -249,6 +408,47 @@ bilinear form $g_p$ has the Minkowski block form
    g_p = (+1)\oplus(-1)\oplus(-1)\oplus(-1).
 \]
 In particular, $g$ has Lorentzian signature $(+---)$.
+
+\begin{proposition}[One--form representation of $g$]
+\label{prop:g-via-alpha}
+Let $N$ be a smooth $\delta$--unit vector field on $\Espace$,
+$\delta(N,N)=1$, and let
+\[
+   \alpha := N^\flat := \delta(N,\cdot)
+   \qquad (\text{so } \alpha_A = \delta_{AB}N^B = N_A).
+\]
+Define the spatial projector
+\[
+   h := \delta - \alpha\otimes\alpha
+   \qquad (\text{i.e. } h_{AB}=\delta_{AB}-N_A N_B).
+\]
+Then the Lorentzian metric constructed in \S\ref{sec:LMC} admits the equivalent
+closed form
+\begin{equation}\label{eq:g-2a-delta}
+   g \;=\; \alpha\otimes\alpha - h
+   \;=\; 2\,\alpha\otimes\alpha - \delta,
+   \qquad\text{i.e.}\qquad
+   g_{AB}=2N_A N_B-\delta_{AB}.
+\end{equation}
+Moreover, for every $X\in T_p\Espace$ one has
+\begin{equation}\label{eq:g-split-alpha}
+   g(X,X)=\alpha(X)^2-h(X,X)
+         = (N\!\cdot\!X)^2-\delta(X_\perp,X_\perp)
+         = 2(N\!\cdot\!X)^2-\delta(X,X),
+\end{equation}
+where $X_\perp:=X-(N\!\cdot\!X)\,N$ is the $\delta$--orthogonal projection of $X$
+onto $N^{\perp_\delta}$.
+\end{proposition}
+
+\begin{proof}
+By definition, $h=\delta-\alpha\otimes\alpha$, hence
+$\alpha\otimes\alpha-h=2\alpha\otimes\alpha-\delta$, giving
+\eqref{eq:g-2a-delta} and the component form.  Evaluating on $X$ yields
+$g(X,X)=\alpha(X)^2-h(X,X)$.  Using the orthogonal decomposition
+$X=(N\!\cdot\!X)N+X_\perp$ one has $\delta(X,X)=(N\!\cdot\!X)^2+\delta(X_\perp,X_\perp)$,
+which gives \eqref{eq:g-split-alpha}.
+\end{proof}
+
 
 
 % ===============================
@@ -340,6 +540,43 @@ it is a double cone given by
 Immediate from Corollary~\ref{cor:causal-class}.
 \end{proof}
 
+\begin{remark}[Why light corresponds to a $45^\circ$ Euclidean tilt]
+\label{rem:why-45deg}
+A common intuition is to regard a photon as a ``purely spatial'' entity,
+propagating orthogonally to the time-like flow $N$ (i.e.\ tangent to the spatial
+3--slices) as it happens under standard angle parametrization in \ref{subsec:compare-angles}. 
+However, an observation is a causal relation between an
+emission event and a detection event.  During the signal's flight the observer
+necessarily advances along $N$, so the measured separation between emission and
+detection in the proto--space is not a purely spatial displacement but a
+superposition of a spatial part and a temporal part:
+\[
+   X \;=\; X_{\parallel} + X_{\perp},
+   \qquad
+   X_{\parallel} := (N\!\cdot\!X)\,N,
+   \qquad
+   X_{\perp} := X-(N\!\cdot\!X)\,N.
+\]
+The operational content of ``light propagation'' is precisely that the induced
+Lorentzian interval vanishes,
+\[
+   g(X,X)=0.
+\]
+Using the split identity $g(X,X)=(N\!\cdot\!X)^2-\delta(X_\perp,X_\perp)$, this
+imposes the equality of the longitudinal and transverse $\delta$--magnitudes,
+\begin{equation}\label{eq:null-45deg}
+   \|X_{\parallel}\|_{\delta} \;=\; \|X_{\perp}\|_{\delta}.
+\end{equation}
+Thus, although the photon is not ``a spatial object evolving in time'' in the
+same sense as a timelike body, the null separation between emission and
+detection corresponds in the Euclidean picture to an equal allocation of the
+total displacement budget between the $N$--direction and its orthogonal
+complement.  Geometrically, \eqref{eq:null-45deg} means that the null direction
+lies at a Euclidean tilt of $\vartheta=\pi/4$, which is the origin of the
+$45^\circ$ light cone in the present parametrization.
+\end{remark}
+
+
 \subsection{Spatial rotations preserving $\delta$ and $N$}
 \label{subsec:spatial-rotations}
 
@@ -376,6 +613,197 @@ Since $LN=N$ and $L$ is $\delta$--orthogonal,
 Thus $\mathrm{Aut}(\delta,N)$ is a spatial subgroup of $\mathrm{O}(g)$: it
 preserves $g$ and fixes $N$, but generates only Euclidean rotations on
 $N^{\perp_\delta}$.
+
+% ===============================
+\section{Phase reparametrization and the operational origin of the Lorentz interval}
+\label{sec:PRT}
+% ===============================
+
+This section makes explicit the logical bridge between the Euclidean proto--metric
+$\delta$ and the Lorentzian metric $g$ constructed in \S\ref{sec:LMC}.
+The key point is that an observer does \emph{not} have direct access to an
+arbitrary curve parameter; instead, physical clocks implement a specific
+\emph{phase} (or time) parametrization along worldlines.  The Lorentzian
+interval arises as the quadratic form naturally associated with that operational
+parametrization.
+
+\subsection{A $\delta$--affine proto--parameter $\chi$}
+\label{subsec:chi-affine}
+
+Let $X:I\to\Espace$ be a $C^1$ curve.  For a parameter $\lambda$ on $I$ we set
+\[
+   X'(\lambda):=\frac{dX}{d\lambda}\in T_{X(\lambda)}\Espace.
+\]
+Because $(\Espace,\delta)$ is Euclidean, one may always reparametrize $X$ by a
+scaled $\delta$--arc length.  We single out the following convenient choice.
+
+\begin{definition}[$\delta$--calibrated (proto--affine) parameter]
+\label{def:chi-cal}
+A parameter $\chi$ along $X$ is called \emph{$\delta$--calibrated} (or
+\emph{proto--affine}) if the $\delta$--speed is constant and equal to $c$, i.e.
+\begin{equation}\label{eq:chi-cal}
+   \delta(\tilde X,\tilde X)=c^2,
+   \qquad \tilde X:=\frac{dX}{d\chi}.
+\end{equation}
+\end{definition}
+
+\begin{remark}
+In flat Euclidean geometry this is simply a scaled arc--length parametrization:
+$d\chi = \frac{1}{c}\, \|dX\|_\delta$.  It plays the role of a convenient
+\emph{proto--phase clock} in $\Espace$, fixing the \emph{total} flow budget
+$\|\tilde X\|_\delta=c$.
+\end{remark}
+
+\subsection{The time 1--form of $N$ and the induced spatial projector}
+\label{subsec:alpha-timeform}
+
+Throughout, $N$ denotes the smooth $\delta$--unit field of \S\ref{sec:LMC}.
+Its $\delta$--dual 1--form (the ``time form'' of the field) is
+\begin{equation}\label{eq:alpha-def}
+   \alpha := \delta(N,\cdot),
+   \qquad \text{i.e.}\qquad
+   \alpha_A = \delta_{AB}N^B = N_A.
+\end{equation}
+The spatial projector $h$ was defined in \eqref{eq:h-def} by
+$h_{AB}=\delta_{AB}-N_A N_B$.  For any tangent vector $V$ we therefore have the
+orthogonal split
+\begin{equation}\label{eq:delta-split}
+   \delta(V,V) = \alpha(V)^2 + h(V,V),
+\end{equation}
+which is precisely the Pythagorean identity behind Lemma \ref{lem:tilt-id} 
+(``full budget'' minus ``spatial budget'' yields the squared longitudinal flow).
+
+\subsection{Coordinate time $t$ versus proper time $\tau$}
+\label{subsec:t-vs-tau}
+
+The 1--form $\alpha$ defines the field--adapted coordinate time $t$ along
+a worldline by the operational rule
+\begin{equation}\label{eq:dt-def}
+   dt := \frac{1}{c}\,\alpha(dX)
+   \qquad\Longleftrightarrow\qquad
+   \frac{dt}{d\lambda} = \frac{1}{c}\,\alpha(X'(\lambda)).
+\end{equation}
+In general, \eqref{eq:dt-def} defines $t$ only along a given worldline; a global time
+function $t$ on an open set exists only under an integrability condition on $\alpha$
+(e.g.\ $\alpha$ exact / $N$ hypersurface--orthogonal).
+
+Likewise, the induced spatial line element is defined by
+\begin{equation}\label{eq:dl-def}
+   d\ell^2 := h(dX,dX)
+   \qquad\Longleftrightarrow\qquad
+   \Bigl(\frac{d\ell}{d\lambda}\Bigr)^2 = h(X'(\lambda),X'(\lambda)).
+\end{equation}
+
+
+\begin{proposition}[Operational form of the Lorentz interval]
+\label{prop:operational-interval}
+For every curve $X$ and every parameter $\lambda$ one has
+\begin{equation}\label{eq:ds-operational}
+   g(dX,dX)=c^2\,dt^2 - d\ell^2,
+\end{equation}
+where $dt$ and $d\ell$ are given by \eqref{eq:dt-def}--\eqref{eq:dl-def}.
+\end{proposition}
+
+\begin{proof}
+Using \eqref{eq:g-def-proj} and \eqref{eq:alpha-def} we obtain for any $V$
+\[
+   g(V,V) = \alpha(V)^2 - h(V,V).
+\]
+Apply this to $V=dX$ and substitute the definitions of $dt$ and $d\ell$.
+\end{proof}
+
+We now define the \emph{proper time} $\tau$ of the worldline as the $g$--arc
+length parameter:
+\begin{definition}[Proper time]
+\label{def:proper-time}
+Along a $g$--timelike curve (i.e. $g(dX,dX)>0$) the proper time is defined by
+\begin{equation}\label{eq:tau-def}
+   c^2\,d\tau^2 := g(dX,dX).
+\end{equation}
+Equivalently, combining \eqref{eq:tau-def} with \eqref{eq:ds-operational} yields
+\begin{equation}\label{eq:tau-from-tl}
+   d\tau^2 = dt^2 - \frac{1}{c^2}\,d\ell^2.
+\end{equation}
+\end{definition}
+
+\subsection{Equivalence of $\delta$--budget and the proper--time interval}
+\label{subsec:budget-equivalence}
+
+Assume henceforth that $\chi$ is $\delta$--calibrated in the sense of
+Definition~\ref{def:chi-cal}.  Set $\tilde X=dX/d\chi$.
+Define the \emph{longitudinal} and \emph{spatial} flow rates (per unit $\chi$) by
+\begin{equation}\label{eq:HS-def}
+   S(\chi) := \alpha(\tilde X)=N\!\cdot\!\tilde X,
+   \qquad
+   L(\chi)^2 := h(\tilde X,\tilde X)=\delta(\tilde X_\perp,\tilde X_\perp),
+\end{equation}
+so that \eqref{eq:delta-split} gives the exact budget identity
+\begin{equation}\label{eq:budget-identity}
+   \underbrace{\delta(\tilde X,\tilde X)}_{c^2}
+   \;=\;
+   \underbrace{S^2}_{\text{``observable longitudinal flow''}}
+   \;+\;
+   \underbrace{L^2}_{\text{``spatial expenditure''}}.
+\end{equation}
+In particular, $S^2=c^2-L^2$ is precisely the statement emphasized in the
+interpretation of Lemma \ref{lem:tilt-id}: the observable flow is reduced by allocating 
+part of the total budget to motion in $N^{\perp_\delta}$.
+
+\begin{theorem}[Phase reparametrization $\chi\mapsto\tau$]
+\label{thm:chi-to-tau}
+Let $X(\chi)$ be $\delta$--calibrated and \emph{$g$--timelike} along the curve, i.e.
+\[
+   g(\tilde X,\tilde X)>0.
+\]
+Then the proper time satisfies
+\begin{equation}\label{eq:tau-rate}
+   \frac{d\tau}{d\chi}
+   \;=\;
+   \frac{1}{\clight}\,\sqrt{g(\tilde X,\tilde X)}
+   \;=\;
+   \frac{1}{\clight}\,\sqrt{S^2 - L^2}.
+\end{equation}
+Equivalently, reparametrizing the same geometric curve by $\tau$
+(i.e. setting $\dot X:=dX/d\tau$) yields the unit--speed condition
+\begin{equation}\label{eq:unit-speed-proper}
+   g(\dot X,\dot X)=\clight^2.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Definition~\ref{def:proper-time},
+$c^2(d\tau/d\chi)^2 = g(\tilde X,\tilde X)$, which is \eqref{eq:tau-rate}.
+Then $\dot X=(d\chi/d\tau)\tilde X$ implies
+\[
+   g(\dot X,\dot X) = \Bigl(\frac{d\chi}{d\tau}\Bigr)^2 g(\tilde X,\tilde X)
+   = \frac{c^2}{g(\tilde X,\tilde X)}\,g(\tilde X,\tilde X)=c^2,
+\]
+giving \eqref{eq:unit-speed-proper}.
+\end{proof}
+
+
+\begin{remark}[Why $g$ is observed rather than $\delta$]
+The proto--metric $\delta$ measures the \emph{total} flow budget with respect to
+the auxiliary parameter $\chi$ (a convenient but unobservable calibration).
+Physical clocks, however, implement the proper--time parametrization $\tau$,
+defined by the Lorentzian interval \eqref{eq:tau-def}.  In this sense the
+observer ``lives by its own phase'': the operational time variable is $\tau$,
+and the quadratic form that controls it is $g$, not $\delta$.
+\end{remark}
+
+\subsection{The tilt angle and the explicit $\chi$--$\vartheta$ link}
+\label{subsec:tilt-explicit}
+
+For completeness, define the tilt angle $\vartheta$ of $\tilde X$ by
+\begin{equation}\label{eq:tilt-angle-def}
+   \cos(2\vartheta) := \frac{g(\tilde X,\tilde X)}{\delta(\tilde X,\tilde X)}.
+\end{equation}
+Under the $\chi$--calibration $\delta(\tilde X,\tilde X)=c^2$, this becomes
+$g(\tilde X,\tilde X)=c^2\cos(2\vartheta)$ and \eqref{eq:tau-rate} reads
+\begin{equation}\label{eq:tau-rate-tilt}
+   \frac{d\tau}{d\chi}=\sqrt{\cos(2\vartheta)}.
+\end{equation}
+This is the explicit $\chi$--$\vartheta$ relation.
 
 
 % ===============================
@@ -558,6 +986,7 @@ whose multiplication adds rapidities. On the $g$--orthogonal complement the
 action is the identity, hence the statement holds on all of $T_p\Espace$.
 \end{proof}
 
+
 \subsection{Comparison with classical angle conventions}
 \label{subsec:compare-angles}
 
@@ -568,7 +997,7 @@ dimensionless parameter.
 
 A common choice is
 \[
-   \beta_{\mathrm{std}}:=\sin\vartheta=\frac{\|X_\perp\|_\delta}{\|X\|_\delta},
+   \beta_{\mathrm{sin}}:=\sin\vartheta=\frac{\|X_\perp\|_\delta}{\|X\|_\delta},
 \]
 whereas in the present work we use the tangent--based parameter
 \[
@@ -589,7 +1018,12 @@ In this limit one has
 \[
    \beta_{\mathrm{phase}}=\tan\vartheta \to 1,
    \qquad
-   \beta_{\mathrm{std}}=\sin\vartheta \to \frac{1}{\sqrt{2}}.
+   \beta_{\mathrm{sin}}=\sin\vartheta \to \frac{1}{\sqrt{2}}.
+\]
+We emphasize that the physical speed parameter in this section is $\beta:=v/\clight=\tan\vartheta$;
+the sine--parameter is a bounded reparameterization,
+\[
+   \beta_{\mathrm{sin}}=\sin\vartheta=\frac{\beta}{\sqrt{1+\beta^2}}.
 \]
 \textbf{Thus a light ray is reached at a finite Euclidean tilt of $45^\circ$ relative
 to $N$ (not at $90^\circ$).}
@@ -597,6 +1031,28 @@ This is precisely why the tangent parameterization is better adapted to the
 projector identity $g(X,X)=\|X\|_\delta^2\cos(2\vartheta)$: it saturates at the
 speed--of--light barrier as $\vartheta\to\pi/4$, while the sine parameter does not.
 \end{remark}
+
+\begin{remark}[Nonadditivity of the Euclidean tilt angle $\vartheta$]
+\label{rem:vartheta-nonadditive}
+The tilt angle $\vartheta$ is a convenient Euclidean coordinate on the calibrated
+sphere $S^3_{\clight}$, defined by $\beta=v/\clight=\tan\vartheta$ via the orthogonal
+decomposition $\tilde X = \tilde X_\parallel+\tilde X_\perp$.
+It is therefore not a group parameter for boosts.  Even in the collinear case, where
+rapidities add, $\eta_{12}=\eta_1+\eta_2$, the corresponding tilt angles do not add:
+\[
+   \vartheta_{12}\neq \vartheta_1+\vartheta_2.
+\]
+Indeed, the collinear velocity--composition law
+\[
+   \beta_{12}=\frac{\beta_1+\beta_2}{1+\beta_1\beta_2}
+\]
+translates into
+\[
+   \tan\vartheta_{12}=\frac{\tan\vartheta_1+\tan\vartheta_2}{1+\tan\vartheta_1\tan\vartheta_2},
+\]
+so $\vartheta$ is a nonlinear reparameterization of the additive rapidity.
+\end{remark}
+
 
 This choice is adapted to
 the orthogonal splitting \eqref{eq:decomp} and to the identity of
@@ -716,11 +1172,23 @@ $X$, i.e.\ a parameter such that the tangent $\dot{X}:=dX/d\tau$ satisfies
 \end{equation}
 Equivalently, $ds^2 = g(dX,dX) = \clight^2\,d\tau^2$ along $X$.
 
+\begin{remark}[Units and normalization]\label{rem:U-normalization}
+The proper--time tangent $\dot{X}=dX/d\tau$ has the physical dimension of a speed and is normalized by \eqref{eq:proper-time-norm}.
+For kinematical formulas it is convenient to use the associated \emph{dimensionless} unit 4--velocity
+\[
+   U \;:=\; \frac{1}{\clight}\,\dot{X},
+   \qquad\text{so that}\qquad g(U,U)=1.
+\]
+In the remainder of the paper, an ``observer'' will be represented by such a unit timelike $U$; whenever $U$ arises from a worldline it is implicitly understood as the normalized proper--time tangent.
+\end{remark}
+
+
 \begin{theorem}[Reparameterization equivalence]
 \label{thm:equiv}
-For any timelike worldline $X$, the following statements are equivalent:
+Let $X$ be a regular $g$--timelike worldline (geometric curve).
+Then the following statements are equivalent up to reparameterization:
 \begin{itemize}
-\item[(A)] $X$ is parameterized by local time $\tau$ so that
+\item[(A)] $X$ is parameterized by proper time $\tau$ so that
 $g(\dot{X},\dot{X})=\clight^2$.
 \item[(B)] $X$ is parameterized by a calibrated proto--parameter $\chi$ so that
 $\delta(\tilde{X},\tilde{X})=\clight^2$.
@@ -836,9 +1304,10 @@ restricts the physically realizable states to the open subset
 \]
 Geometrically, this is the union of two polar caps on $S^3_{\clight}(p)$
 centered at $\pm \clight N$.
-The boundary $|\tilde{H}|=|\tilde{L}|$ is the null locus (lightlike curves);
-equivalently, $g(\tilde{X},\tilde{X})=0$ implies $d\tau/d\chi=0$ in
-\eqref{eq:tau-chi-relation}.
+The boundary $|\tilde{H}|=|\tilde{L}|$ is the null locus (lightlike curves).
+In the timelike sector one has $d\tau/d\chi=\sqrt{g(\tilde X,\tilde X)}/\clight$; hence,
+along any timelike sequence approaching the null locus, $d\tau/d\chi\to 0$,
+consistently with \eqref{eq:tau-chi-relation}.
 \end{remark}
 
 % ===============================
@@ -853,7 +1322,9 @@ same object, both (i) the observable \emph{spatial} direction data encoded in
 $\mathrm{Im}(h_p)=N_p^{\perp_\delta}$ and (ii) the \emph{calibration} data
 (frequencies, time rates) encoded by $g$--projections onto time directions.
 In this sense, ``light'' is not an extra entity but a geometric slice of the
-null cone by the Euclidean layers $\Sigma_\chi\simeq S^3$ introduced later.
+null cone by the calibrated Euclidean sphere $S^3_{\clight}\subset T_p\Espace$ 
+defined by $\delta(V,V)=\clight^2$.
+
 
 \subsection{Light rays: Derivation of frequency and direction}
 \label{subsec:light-as-null}
@@ -897,7 +1368,7 @@ where $\omega = g(K,N)$ is the frequency and $E$ is the observable propagation d
 \label{subsec:observers-as-U}
 
 In the proto--space formalism, a (local) observer is represented by a unit
-future timelike vector
+future timelike vector (dimensionless, cf.\ Remark~\ref{rem:U-normalization})
 \[
    U\in T_p\Espace,\qquad g(U,U)=1,\qquad g(U,N)>0.
 \]
@@ -910,6 +1381,17 @@ For a null ray $K\neq 0$, the frequency measured by the observer $U$ is
    \omega_U := g(U,K).
 \end{equation}
 \end{definition}
+\begin{remark}[Ray vector vs.\ wave covector]\label{rem:K-vs-k}
+We represent a light ray by a future--directed null vector $K\in T_p\Espace$.
+Its metric dual 1--form
+\[
+   k \;:=\; g(K,\cdot)\ \in T_p^*\Espace
+\]
+is the standard wave covector of geometric optics.
+With this notation, the measured frequency can be written equivalently as
+$\omega_U = k(U) = g(U,K)$.
+\end{remark}
+
 
 This is the standard invariant definition used in geometric optics in SR.
 In the present framework, however, \eqref{eq:omegaU-def} will become an
@@ -960,8 +1442,8 @@ Then \eqref{eq:doppler-raw} becomes the standard relativistic Doppler law:
 \paragraph{Interpretation.}
 Equation \eqref{eq:doppler-angle} is obtained here as a direct function of an
 ordinary Euclidean angle on the $\delta$--unit sphere inside
-$\mathrm{Im}(h_p)$ (the ``$S^3$ layers'' $\Sigma_\chi\simeq S^3$ will be
-introduced later).  In this sense the Doppler shift is simply ``projection
+$\mathrm{Im}(h_p)$ (i.e.\ on the $\delta$--unit sphere in $\mathrm{Im}(h_p)$). 
+ In this sense the Doppler shift is simply ``projection
 geometry'' in the proto--space: the measured frequency is the $g$--projection
 of a null direction onto an observer state.
 
@@ -1017,13 +1499,19 @@ In the proto--space picture, both effects are thus immediate consequences of
 the null cone geometry together with the observer--dependent splitting induced
 by $U$.
 
-\subsection{Geometric Algebra perspective: The Euclidean origin of Lorenz rotation}
+\subsection{Geometric Algebra perspective: The Euclidean origin of Lorentz rotation}
 \label{subsec:GA}
 
 The Euclidean proto-space framework admits a natural algebraic structure provided by the Clifford algebra $\mathcal{C}\ell(\Espace, \delta)$. Let the geometric product of vectors $u, v \in T_p\Espace$ be defined by the fundamental relation
 \[
    uv = \delta(u,v) + u\wedge v.
 \]
+Throughout this subsection we distinguish the Euclidean Clifford algebra
+$\mathcal{C}\ell(T_p\Espace,\delta)$ from the Lorentzian one $\mathcal{C}\ell(T_p\Espace,g)$ induced by $(\delta,N)$.
+Concretely, the metric extensor $G:=2\,N\otimes N-\mathrm{Id}$ satisfies
+$g(u,v)=\delta(Gu,v)$ and transports the $\delta$--product to the $g$--product,
+making precise in which algebra a given rotor (circular vs.\ hyperbolic) is computed.
+
 Unlike the standard Spacetime Algebra which postulates a Lorentzian signature, here the algebra is strictly Euclidean ($\mathcal{C}\ell_{4,0}$). The distinguished field $N$ serves as the generator of the \emph{space-time split}.
 
 \paragraph{Observable algebra.}
@@ -1068,28 +1556,68 @@ Applying this to the rest vector $N$ yields the 4-velocity $U$:
 \]
 Thus, the phenomenon of "Lorentzian" kinematics emerges algebraically simply because the spatial part of the basis becomes "imaginary" (squares to $-1$) relative to the time direction, flipping the sign of the bivector square and transitioning the geometry from circular to hyperbolic.
 
-\subsection{Topological defects and the Hopf structure of sources}
-\label{subsec:topology-hopf}
+\subsection{Scope and limitations}
+The present work is purely kinematical. We do not introduce dynamical equations for the field $N$, nor do we model localized sources or topological defects. Such extensions may be investigated separately, once the induced--metric framework is combined with appropriate field dynamics.
+% ===============================
+\section{Discussion}
+\label{sec:discussion}
+% ===============================
 
-The construction so far has assumed the vector field $N$ to be smooth and non-vanishing everywhere. A natural completion of the proto-space geometry arises by considering the singularities of this field, which allows for the geometric modeling of localized sources (particles).
+\subsection{What this reformulation does (and does not) claim}
+The primary contribution of this paper is a coordinate--free geometric
+reformulation of special--relativistic kinematics in a Euclidean phase space
+$(\Espace,\delta)$ equipped with an induced Lorentzian metric
+$g=2\,\alpha\!\otimes\!\alpha-\delta$ generated by a unit field $N$ (or $\alpha:=\delta(N,\cdot)$).
+The reformulation is designed to make the kinematic content of SR visible as
+simple Euclidean geometry on calibrated spheres $S^3_{\clight}$ and in the
+orthogonal decomposition $X=X_\parallel+X_\perp$.
+At the same time, we emphasize that this construction is not a ``Euclideanization''
+of spacetime physics: physical statements are made with respect to $g$, and
+$\delta$ serves as an underlying bookkeeping geometry for calibration and
+decomposition.
 
-\paragraph{Sources as singularities.}
-Let $\Sigma \subset \Espace$ be the singular set where the direction of $N$ is undefined. In the simplest case of a point-like defect $p$, the boundary of a small neighborhood around $p$ has the topology of a 3-sphere, $\partial \mathcal{U}_p \cong S^3$.
-Unlike the kinematic velocity sphere $S^3_{\clight}$ in tangent space (discussed in \S\ref{subsec:S3-of-flows}), this is a \emph{spatial} $S^3$ embedded in the manifold, enclosing the defect.
+\subsection{On the proto--parameter $\chi$, proper time $\tau$, and the locality of $t$}
+A central technical device is the calibrated proto--parameter $\chi$,
+defined by $\delta(\tilde X,\tilde X)=\clight^2$, which provides a uniform
+Euclidean arclength normalization in $\Espace$. Proper time $\tau$ remains the
+$g$--invariant parameter along timelike worldlines, related to $\chi$ by
+$d\tau/d\chi=\sqrt{g(\tilde X,\tilde X)}/\clight$ (Theorem~\ref{thm:chi-to-tau}).
+The quantity $t$ introduced via $dt=\alpha(dX)/\clight$ should be understood
+as a line integral along a given worldline; a global time coordinate exists
+only under additional integrability conditions on $\alpha$ (e.g.\ hypersurface
+orthogonality).
 
-\paragraph{The Hopf map and charge quantization.}
-On this bounding sphere $S^3$, the unit field $N$ defines a mapping to the sphere of directions $S^2$. This geometric configuration naturally invokes the \emph{Hopf fibration} structure:
-\[
-    S^1 \hookrightarrow S^3 \xrightarrow{\pi} S^2.
-\]
-In this picture, the fibers ($S^1$) correspond to the integral curves of the proto-field $N$. If these field lines are topologically non-trivial (linked), the defect possesses a conserved topological charge defined by the Hopf invariant (linking number) $\gamma \in \pi_3(S^2) \cong \mathbb{Z}$.
+\subsection{Angle conventions and comparison with standard SR}
+The reformulation naturally introduces a Euclidean tilt angle $\vartheta$
+via $\tan\vartheta=\|X_\perp\|_\delta/(N\!\cdot\!X)$, so that the physical
+speed parameter is $\beta=v/\clight=\tan\vartheta$, while alternative bounded
+parameters such as $\sin\vartheta$ may be used as auxiliary reparameterizations.
+This choice is adapted to the orthogonal decomposition and yields compact
+identities such as $g(X,X)=\|X\|_\delta^2\cos(2\vartheta)$, making the
+timelike/null/spacelike sectors transparent in the calibrated geometry.
 
-This implies that matter sources need not be introduced as external entities but can be interpreted as topological defects (e.g., Hopfions) of the underlying Euclidean vacuum field. The discrete nature of the Hopf invariant offers a purely geometric origin for the quantization of physical charges.
+\subsection{Advantages, limitations, and potential points of confusion}
+The main advantage is conceptual: several standard SR relations (Doppler,
+aberration) reduce to Euclidean projection identities
+once $g$ is induced by $(\delta,N)$ and the calibration is fixed.
+A limitation is that, for general (nonintegrable) $N$, the ``coordinate time''
+$t$ is not globally defined, and the formalism should be interpreted locally
+or along worldlines. Another limitation is that the present paper focuses on
+inertial kinematics; extensions to accelerated motion and to dynamical fields
+require additional structure (e.g.\ evolution laws for $N$ and/or $\alpha$).
 
-\paragraph{Fibers as hidden variables and quantum uncertainty.}
-This topological picture offers a compelling geometric interpretation of quantum uncertainty. If an elementary object is identified not with a singular point, but with the entire fiber $S^1$ (a closed flow line of $N$), then its representation as a point in the observable base space $S^2$ is merely a projection.
-The position along the fiber corresponds to the unobservable global phase of the quantum state ($U(1)$ symmetry). This geometric view resonates with the \emph{Zitterbewegung} interpretation of quantum mechanics proposed by Hestenes~\cite{Hestenes2008}, where the electron's spin and phase are intrinsic kinematic features of a light-like circulation, rather than abstract quantum numbers.
-Consequently, the object is fundamentally delocalized in the proto-space. An observer measuring kinematic variables in the quotient space interacts with the projection, while the cyclic degree of freedom along the fiber remains indeterminate. This suggests that quantum indeterminacy may arise from the dimensional reduction of a deterministic, but topologically extended, flow in the Euclidean proto-space.
+\subsection{Relation to other constructions and outlook}
+The induced--metric mechanism is compatible with known recipes for obtaining
+Lorentzian metrics from Riemannian data (cf.\ \cite{Reddy2009}), but the
+present emphasis is different: we treat $S^3_{\clight}$ calibration and the
+tilt geometry as the primary kinematic arena.
+Natural next steps include: (i) a systematic treatment of accelerated
+observers in the calibrated picture and the emergence of Wigner--Thomas
+rotation; (ii) coupling to a field sector where $N$ (or $\alpha$) becomes
+dynamical; and (iii) identifying observationally accessible invariants that
+remain compact in the calibrated geometry while reproducing the standard SR
+predictions.
+
 
 
 \bibliographystyle{plain}
@@ -1123,12 +1651,59 @@ D.\,Hestenes,
 \textbf{71} (2003), no.\,6, 691--714.
 doi:10.1119/1.1571836.
 
-\bibitem{Hestenes2008}
-D.\,Hestenes,
-``Zitterbewegung in quantum mechanics'',
-\emph{Foundations of Physics},
-\textbf{38} (2008), no.\,10, 829--847.
-doi:10.1007/s10701-008-9228-1.
+
+\bibitem{Rovelli2002}
+C.\,Rovelli,
+Partial observables,
+\emph{Physical Review D},
+\textbf{65} (2002), 124013.
+doi:10.1103/PhysRevD.65.124013;
+arXiv:gr-qc/0110035.
+
+\bibitem{Rovelli1991Time}
+C.\ Rovelli,
+Time in quantum gravity: An hypothesis,
+\emph{Phys.\ Rev.\ D} \textbf{43} (1991) 442--456.
+doi:10.1103/PhysRevD.43.442.
+
+\bibitem{Gersten2003ESR}
+A.\ Gersten,
+Euclidean special relativity,
+\emph{Foundations of Physics} \textbf{33} (2003), no.\,8, 1237--1251.
+doi:10.1023/A:1025631125442.
+
+\bibitem{Montanus1991AbsoluteE}
+J.\,M.\,C.\ Montanus,
+Special relativity in an absolute Euclidean space--time,
+\emph{Physics Essays} \textbf{4} (1991), no.\,3, 350--356.
+
+\bibitem{Montanus2001ProperTime}
+J.\,M.\,C.\ Montanus,
+Proper--time formulation of relativistic dynamics,
+\emph{Foundations of Physics} \textbf{31} (2001), no.\,9, 1357--1400.
+doi:10.1023/A:1012274211780.
+
+\bibitem{Almeida2001AltMinkowski}
+J.\,B.\ Almeida,
+An alternative to Minkowski space--time,
+arXiv:gr-qc/0104029 (2001).
+
+\bibitem{Almeida2002Kcalc}
+J.\,B.\ Almeida,
+K-calculus in 4-dimensional optics,
+arXiv:physics/0201002 (2002).
+
+\bibitem{Atkinson1963EuclidGR}
+R.\,d'E.\ Atkinson,
+General relativity in Euclidean terms,
+\emph{Proc.\ Roy.\ Soc.\ A} \textbf{272} (1963), 60--78.
+doi:10.1098/rspa.1963.0042.
+
+\bibitem{GullLasenbyDoran1993}
+S.\ Gull, A.\ Lasenby, C.\ Doran,
+Imaginary numbers are not real---the geometric algebra of spacetime,
+\emph{Foundations of Physics} \textbf{23} (1993), no.\,9, 1175--1201.
+doi:10.1007/BF01883676.
 
 \end{thebibliography}
 
