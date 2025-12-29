@@ -91,11 +91,12 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-
+We present a coordinate--free reformulation of inertial special--relativistic kinematics in a four--dimensional Euclidean proto--space $(\Espace,\delta)$.  An observer is specified by a unit axis $N$, with time 1--form $\alpha=\delta(N,\cdot)$ and spatial projector $h=\delta-\alpha\otimes\alpha$.  The Lorentzian interval is then the induced quadratic form $g=2\,\alpha\otimes\alpha-\delta$, and proper time arises operationally via $c^2 d\tau^2=g(dX,dX)$ as a reparametrization along worldlines.  Introducing a $\delta$--calibrated proto--parameter $\chi$ yields a constant--norm protovelocity and identifies the instantaneous kinematic state space with the calibrated sphere $S^3_{c}\subset T_p\Espace$, with the physically admissible sector given by $g>0$ and a null boundary at a finite Euclidean tilt.  We distinguish the circular tilt $\xi$ from the conic ratio coordinate $\vartheta$ and relate both to rapidity $\eta$, providing a compact Euclidean description of boosts.  Within $\Cl_{4,0}$, observer axes and kinematics admit rotor and quaternionic representations that streamline projection--based derivations of standard SR optical effects.
 \end{abstract}
 
 
-\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; aberration; Lorentz factor; phase parametrization.
+
+\paragraph{Keywords:} special relativity; phase; rapidity; Doppler shift; aberration; Lorentz factor; Wigner-Thomas rotation; phase parametrization.
 
 \paragraph{MSC (2020):} 83A05; 70A05. % (Consider also PACS: 03.30.+p; 04.20.Cv.)
 
@@ -109,43 +110,84 @@
 \subsection{Motivation}
 
 Special relativity (SR) is usually presented as geometry in a Lorentzian
-spacetime.  While conceptually economical, this viewpoint can obscure two
-practical facts:
+spacetime.  While conceptually economical, that viewpoint can hide two practical
+aspects that matter operationally:
 
 \begin{itemize}
-\item[(i)] An observer does not measure an abstract curve parameter; physical
-clocks implement a specific \emph{phase} (proper--time) parametrization along
+\item[(i)] An observer does not measure an arbitrary curve parameter; physical
+clocks implement a specific phase (proper--time) parametrization along
 worldlines.
-\item[(ii)] Many elementary relativistic effects (time dilation, light cone,
-Doppler shift, aberration) can be viewed as consequences of a single
-\emph{observer splitting}: how a total ``flow budget'' decomposes into a component
-along an observer's time axis and a component orthogonal to it.
+
+\item[(ii)] Many elementary relativistic effects (time dilation, the light cone,
+Doppler shift, aberration) can be traced to a single observer splitting: how a
+total displacement budget decomposes into a component along an observer time
+axis and a component orthogonal to it.
 \end{itemize}
 
 The present paper develops a Euclidean proto--space formulation that isolates
-this observer splitting as the primary geometric datum.  We work on a
-four--dimensional Euclidean manifold $(\Espace,\delta)$ and introduce an
-\emph{oriented coherent time axis} $N$ (a unit vector field, $\delta(N,N)=1$).
-The associated time 1--form $\alpha:=N^\flat=\delta(N,\cdot)$ and spatial
-projector $h:=\delta-\alpha\otimes\alpha$ encode the operational notions of
-``time reading'' and ``spatial distance'' for that observer.  The Lorentzian
-interval then appears as the induced quadratic form
+this splitting as the primary geometric datum.  We work on a four--dimensional
+Euclidean manifold $(\Espace,\delta)$ and introduce a "time" axis $N$
+(a unit vector field, $\delta(N,N)=1$).  The associated time 1--form
+$\alpha:=N^\flat=\delta(N,\cdot)$ and spatial projector
+$h:=\delta-\alpha\otimes\alpha$ encode the operational notions of ``time
+reading'' and ``spatial distance'' for that observer.  The Lorentzian interval
+then appears as the induced quadratic form
 \[
    g=\alpha\otimes\alpha-h = 2\,\alpha\otimes\alpha-\delta,
 \]
 and proper time emerges as the operational reparametrization
-$\clight^2 d\tau^2=g(dX,dX)$.
+$c^2 d\tau^2=g(dX,dX)$ along worldlines.
 
-A second aim is algebraic: the Euclidean proto--space admits the strictly
-Euclidean Clifford algebra $\Cl_{4,0}$.  After fixing a reference unit vector
-$e_0$, any observer axis $N$ can be represented as a rotor image $N=q e_0 \widetilde q$,
-and calibrated flow states naturally live on a Euclidean 3--sphere
-$S^3_{\clight}\subset T_p\Espace$, which can be encoded (after a gauge choice)
-by unit quaternions in a quaternionic subalgebra of $\Cl_{4,0}$.
-This provides a compact computational language in which (i) Euclidean circular
-tilt geometry and (ii) Lorentzian boost kinematics (hyperbolic geometry) are
-handled uniformly via rotors, with the distinction controlled by the sign of the
-relevant bivector square.
+A second motivation is structural and computational.  The Euclidean proto--space
+admits the strictly Euclidean Clifford algebra $\Cl(4,0)$, so that orthogonal
+changes of observer gauge can be encoded by rotors acting by sandwiching.  After
+fixing a fiducial unit vector $e_0$ (used to define a stable quaternionic
+coordinate subalgebra), an observer axis $N$ may be represented as a rotor image
+$N=q e_0 \widetilde q$, while relative states between an observer axis and an
+object axis can be packaged as even elements built from the product of two unit
+vectors.  In this language, calibrated proto--velocities form a compact state
+space: at each point $p\in\Espace$, the kinematically admissible calibrated
+proto--velocity states lie on the Euclidean sphere
+$S^3_{\clight}\subset T_p\Espace$, and causal classification with respect to $g$
+selects a physical sector of that sphere.  The null boundary is reached at a
+finite Euclidean tilt to the time axis, corresponding to an equal split of the
+proto--space budget between the longitudinal and transverse components.
+
+\paragraph{Axiomatic shift (primitives and ontology).}
+The present reformulation does not modify the empirical content of inertial SR.
+It changes the choice of primitives and the direction of explanation.
+Instead of taking a Lorentzian spacetime metric as fundamental, we start from a
+Euclidean proto--space $(\Espace,\delta)$ (and its Euclidean geometric algebra
+$\Cl(4,0)$) and treat ``time'' and ``space'' as observer--induced notions.
+The minimal observer input is a choice of a coherent unit axis $N$ (equivalently,
+its time 1--form $\alpha=\delta(N,\cdot)$), which induces a $1+3$ split and
+defines simultaneity as the $\delta$--orthogonal hyperplanes
+$\alpha(\Delta X)=0$.  The Lorentzian bilinear form used to encode causal
+classification and intervals is then constructed from this observer data by the
+pointwise projector correspondence of Reddy--Sharma--Sivaramakrishnan,
+\[
+   g \;=\; 2\,\alpha\otimes\alpha \;-\; \delta,
+\]
+rather than postulated as a background structure.  In this sense, Minkowski
+geometry enters as an operationally induced structure on top of the Euclidean
+proto--space.
+
+\paragraph{Status of SR postulates in the proto--space picture.}
+With this choice of primitives, several standard SR statements move from the
+axiomatic level to the level of derived consequences.  Proper time is not taken
+as an a priori coordinate but is defined along worldlines by the constructed
+interval, $c^2 d\tau^2=g(dX,dX)$.  A convenient unobservable proto--parameter
+$\chi$ calibrates the total Euclidean budget through
+$\delta(dX/d\chi,dX/d\chi)=c^2$, while time dilation and the usual $\gamma$--factor
+emerge from the reparametrization $\chi\mapsto\tau$ (equivalently, from the
+projection of the calibrated proto--velocity onto the observer axis).
+The speed--of--light barrier corresponds to the null condition $g(dX,dX)=0$ and
+is realized as a finite boundary in the Euclidean tilt geometry of the calibrated
+sphere.  Inertial frame changes are implemented as changes of the observer axis,
+encoded by rotors in $\Cl(4,0)$ after fixing the fiducial axis $e_0$.  Textbook
+velocity composition, including transverse $1/\gamma$ suppression and
+Wigner--Thomas rotation, arises once one consistently works with proper--time
+normalized axes rather than with raw $\chi$--calibrated directions on $S^3_{\clight}$.
 
 \subsection{Relation to previous work}
 
@@ -155,148 +197,140 @@ where relativistic transformations are visualized by Euclidean angle geometry.
 More recent works study various embeddings and correspondences between Euclidean
 and Lorentzian structures, including \cite{Brands2021,Akintsov2020}.
 
-A distinct line of literature aims at an explicitly \emph{Euclidean} reformulation
-of special relativity.  In particular, Euclidean SR can be obtained by changes of
-variables in which Lorentz transformations are represented as rotations in a
-Euclidean space (e.g.\ Gersten \cite{Gersten2003ESR}).  Other proposals postulate an
-absolute Euclidean background and reinterpret relativistic observables in terms of
-proper time (e.g.\ Montanus \cite{Montanus1991AbsoluteE,Montanus2001ProperTime}),
-or develop related ``four--dimensional optics'' frameworks in which $\tau$ plays a
+A distinct line of literature aims at an explicitly Euclidean reformulation of
+special relativity.  Euclidean SR can be obtained by changes of variables in
+which Lorentz transformations are represented as rotations in a Euclidean space
+(e.g.\ Gersten \cite{Gersten2003ESR}).  Other proposals postulate an absolute
+Euclidean background and reinterpret relativistic observables in terms of proper
+time (e.g.\ Montanus \cite{Montanus1991AbsoluteE,Montanus2001ProperTime}), or
+develop related ``four--dimensional optics'' frameworks in which $\tau$ plays a
 central operational role (e.g.\ Almeida \cite{Almeida2001AltMinkowski,Almeida2002Kcalc}).
 For broader context on Euclidean viewpoints beyond SR, see also Atkinson
 \cite{Atkinson1963EuclidGR}.
 
-Our construction differs in emphasis.  We do \emph{not} identify the Euclidean
-norm with the Lorentz interval by a coordinate trick, nor do we postulate an
+Our construction differs in emphasis.  We do not identify the Euclidean norm
+with the Lorentz interval by a coordinate trick, and we do not postulate an
 absolute Euclidean time.  Instead, we start from an observer splitting encoded
-by a coherent unit axis $N$ and its time 1--form $\alpha=N^\flat$, and we
-interpret the Lorentzian interval as the operational quadratic form naturally
-associated with this splitting.  Proper time arises as a reparametrization along
-worldlines, rather than being built in as a primary coordinate.  This standpoint
-is conceptually aligned with relational--time viewpoints in generally covariant
-physics, where ``time'' is implemented by a chosen clock observable (cf.\ Rovelli's
-partial observables perspective \cite{Rovelli2002,Rovelli1991Time}).
+by a coherent unit axis $N$ and its time 1--form $\alpha$, and interpret the
+Lorentzian interval as the operational quadratic form naturally associated with
+this splitting.  Proper time arises as a reparametrization along worldlines,
+rather than being built in as a primary coordinate.  This standpoint is aligned
+with relational viewpoints in generally covariant physics, where ``time'' is
+implemented by a chosen clock observable (cf.\ Rovelli's partial observables
+perspective \cite{Rovelli2002,Rovelli1991Time}).
 
 A rigorous pointwise correspondence between a Riemannian metric and a Lorentzian
 one was established by Reddy, Sharma and Sivaramakrishnan \cite{Reddy2009}.
 Given a Riemannian manifold $(M,h)$ and a unit vector field $U$, they define a
 Lorentzian metric by $g=h-2\,U^\flat\!\otimes U^\flat$.  We adopt the sign--flipped
-variant adapted to the particle--physics convention $(+---)$, namely
+variant adapted to the particle--physics convention $(+---)$,
 \[
    g \;=\; 2\,N^\flat\!\otimes N^\flat \;-\; \delta,
 \]
-and then make explicit how SR kinematics follows from phase reparametrization and
-tilt geometry relative to $\alpha$.
+and then make explicit how SR kinematics follows from phase reparametrization
+and Euclidean tilt geometry relative to $\alpha$.
 
 \paragraph{Inertial specialization (SR kinematics).}
 Although the construction applies to any smooth unit field $N$ on $(\Espace,\delta)$,
-the present paper focuses on SR kinematics and therefore restricts to the inertial
-case, assuming that $N$ is parallel with respect to the flat Euclidean connection:
+the present paper focuses on inertial SR kinematics and therefore restricts to
+the case where $N$ is parallel with respect to the flat Euclidean connection:
 \begin{equation}\label{eq:inertial-N}
    \nabla^{\delta} N = 0 .
 \end{equation}
 Equivalently, in global Cartesian coordinates on $\Espace\simeq\mathbb{R}^4$, the
-components $N^A$ are constant and the induced metric
+components $N^A$ are constant and the induced form
 $g=2\,N^\flat\!\otimes N^\flat-\delta$ is constant (globally Minkowskian).
 Relativistic effects in the present framework arise from the operational
-reparametrization and the tilt geometry, rather than from curvature.
+reparametrization and tilt geometry, rather than from curvature.
 
 \paragraph{Observer dependence and Lorentz invariance.}
-The axis field $N$ is a \emph{geometric datum} (no dynamics is postulated for it
-in this paper), but it is not an ``absolute frame'' in the physical sense.
-In the inertial sector, choosing a constant $N$ is choosing an inertial observer.
-Any other constant unit axis $N'$ is related to $N$ by a Euclidean isometry
-$R\in O(4)$, $N'=R_*N$, and the induced form transforms tensorially,
-$g'=R^*g$.  Physical statements are formulated in $g$--covariant (relational)
-quantities, so the theory does not privilege a particular representative $N$.
-Note that the quadratic form $g$ is invariant under $N\mapsto -N$, whereas the
-oriented time 1--form $\alpha=N^\flat$ changes sign; accordingly, causal structure
-is insensitive to this sign, while the choice of ``future'' requires a consistent
-orientation.
+The axis field $N$ is a geometric datum (no dynamics is postulated for it in this
+paper), but it is not an absolute frame in the physical sense.  In the inertial
+sector, choosing a constant $N$ is choosing an inertial observer.  Any other
+constant unit axis $N'$ is related to $N$ by a Euclidean isometry $R\in O(4)$,
+$N'=R_*N$, and the induced form transforms tensorially, $g'=R^*g$.
+Physical statements are formulated in $g$--covariant (relational) quantities, so
+the theory does not privilege a particular representative $N$.  Note that the
+quadratic form $g$ is invariant under $N\mapsto -N$, whereas the oriented time
+1--form $\alpha=N^\flat$ changes sign; causal classification is insensitive to
+this sign, while a choice of ``future'' requires a consistent orientation.
 
-\paragraph{Geometric algebra viewpoint.}
-Algebraically, our presentation is close in spirit to the geometric--algebra approach
-to relativity, in which boosts and rotations are treated uniformly as rotors (see,
-e.g., Hestenes' Space--Time Algebra \cite{Hestenes1966,Hestenes2003} and the discussion
-of spacetime algebra versus ``imaginary time'' in \cite{GullLasenbyDoran1993}).
-The difference is that we work throughout in the strictly Euclidean Clifford algebra
-$\Cl_{4,0}$: the ``space--time split'' is encoded by the choice of $N$ (hence $\alpha$)
-and is therefore observer--dependent, while Lorentzian boosts are represented by
-Euclidean rotors after an appropriate change of bivector basis tied to the $N$--split.
+\paragraph{Geometric algebra viewpoint (role of $\Cl(4,0)$).}
+Algebraically, our presentation is close in spirit to the geometric--algebra
+approach to relativity, in which boosts and rotations are handled by rotors (see,
+e.g., Hestenes' Space--Time Algebra \cite{Hestenes1966,Hestenes2003} and the
+discussion of spacetime algebra versus ``imaginary time'' in \cite{GullLasenbyDoran1993}).
+The difference is that we work throughout in the strictly Euclidean Clifford
+algebra $\Cl(4,0)$: the observer split is encoded by the choice of $N$ (hence
+$\alpha$) and is observer--dependent, while Lorentzian boost kinematics is
+recovered by rotor transport of properly normalized axes and directions.
 
 \subsection{Contributions}
 \label{subsec:contributions}
+
 The main contributions of the present paper are:
 \begin{enumerate}[label=(C\arabic*),leftmargin=*,itemsep=2pt,topsep=2pt]
-  \item \textbf{Observer splitting and operational origin of the Lorentz interval.}
-  Starting from a Euclidean proto--space $(\Espace,\delta)$ and an oriented unit axis
-  $N$, we introduce the time 1--form $\alpha:=N^\flat=\delta(N,\cdot)$ and the spatial
-  projector $h=\delta-\alpha\otimes\alpha$.  We make explicit that the observer's
-  interval is the induced quadratic form
-  \[
-     g=\alpha\otimes\alpha-h = 2\,\alpha\otimes\alpha-\delta,
-  \]
-  and that proper time arises as an operational reparametrization along worldlines via
-  $\clight^2d\tau^2=g(dX,dX)$ (Sections~\ref{sec:LMC}--\ref{sec:LMP} and \S\ref{sec:PRT}).
+  \item Observer splitting and operational origin of the Lorentz interval.
+  Starting from a Euclidean proto--space $(\Espace,\delta)$ and a unit axis $N$,
+  we define the time 1--form $\alpha:=N^\flat=\delta(N,\cdot)$ and the spatial
+  projector $h=\delta-\alpha\otimes\alpha$, and construct the induced bilinear form
+  $g=\alpha\otimes\alpha-h=2\,\alpha\otimes\alpha-\delta$.
+  Proper time is then defined operationally by $c^2 d\tau^2=g(dX,dX)$.
 
-  \item \textbf{Euclidean Clifford algebra implementation of observer axes.}
-  We formulate the construction in $\Cl_{4,0}$ and represent observer axes as rotor
-  images $N=q e_0\widetilde q$, clarifying the associated gauge nonuniqueness and the
-  $N\mapsto -N$ sign issue at the operational level (Section~\ref{sec:LMC}).
+  \item Euclidean Clifford algebra implementation of observer axes.
+  We formulate the construction in $\Cl(4,0)$, represent observer axes as rotor
+  images $N=q e_0\widetilde q$, and make explicit the associated gauge
+  nonuniqueness and the $N\mapsto -N$ sign issue at the level of time orientation.
 
-  \item \textbf{Reparameterization equivalence on the calibrated sphere.}
-  We show that proper--time normalization in the induced Lorentzian metric is
-  equivalent to a constant--speed Euclidean flow constrained to the calibrated sphere
-  $S^3_{\clight}\subset T\Espace$ (Theorem~\ref{thm:equiv} and
-  \S\ref{sec:flow-invariants-S3}).
+  \item Reparameterization equivalence on the calibrated sphere.
+  Proper--time normalization in the induced Lorentzian form is shown to be
+  equivalent to a constant--speed Euclidean proto--velocity constrained to the
+  calibrated sphere $S^3_{\clight}\subset T\Espace$.
 
-  \item \textbf{Geometric characterization of the physical sector.}
+  \item Geometric characterization of the physical sector.
   The timelike condition $g(X,X)>0$ selects an open subset of $S^3_{\clight}$
-  (two polar caps), with the lightlike boundary reached at the finite Euclidean tilt
-  $\xi=\pi/4$ (cf.\ \S\ref{subsec:domain-xi} and Remark~\ref{rem:physical-sector-S3}).
+  (two polar caps), with the null boundary reached at the finite Euclidean tilt
+  $\xi=\pi/4$.
 
-  \item \textbf{Circular versus conic/hyperbolic parametrizations of tilt.}
+  \item Circular versus conic/hyperbolic parametrizations of tilt.
   We distinguish the circular angle $\xi$ (normalized by $\|X\|_\delta$) from the
-  conic ratio coordinate $\vartheta$ (normalized by $N\cdot X$), and relate both to
-  the additive rapidity $\eta$ via $\tanh\eta=\tan\vartheta$, yielding a bounded
-  Euclidean description of boost kinematics (Section~\ref{sec:Hyper}).
+  conic ratio coordinate $\vartheta$ (normalized by $N\cdot X$), and relate both
+  to the additive rapidity $\eta$ via $\tanh\eta=\tan\vartheta$.
 
-  \item \textbf{Projection-based optics and Euclidean GA derivations.}
+  \item Projection--based optics and Euclidean GA derivations.
   Frequency and direction of null rays are obtained as $g$--projections, yielding
-  concise derivations of the Doppler shift and aberration.  Boosts are encoded within
-  the Euclidean geometric algebra framework as rotor actions tied to the $N$--split
-  (Section~\ref{sec:why-protospace}).
+  compact derivations of Doppler shift and aberration; boosts are encoded within
+  the Euclidean rotor framework tied to the $N$--split.
 \end{enumerate}
 
 \subsection{Outline}
 
 The paper is organized as follows:
 \begin{itemize}
-    \item \textbf{Section \ref{sec:LMC}} introduces the Euclidean proto--space
-    $(\Espace,\delta)$, formulates $\Cl_{4,0}$ on $T\Espace$, and defines the observer
-    axis $N$ (including its rotor representation).  The induced Lorentzian form
-    $g=2\,N^\flat\!\otimes N^\flat-\delta$ is then constructed.
+  \item Section \ref{sec:LMC} introduces the Euclidean proto--space $(\Espace,\delta)$,
+  formulates $\Cl(4,0)$ on $T\Espace$, and defines observer data ($e_0$ as a fiducial
+  axis and $N$ as a coherent time axis).  The induced Lorentzian form
+  $g=2\,N^\flat\!\otimes N^\flat-\delta$ is constructed pointwise.
 
-    \item \textbf{Section \ref{sec:LMP}} develops basic properties of the induced
-    Lorentzian structure: the orthogonal decomposition relative to $N$, norm identities,
-    causal classification, and the geometry of the null cone.
+  \item Section \ref{sec:LMP} develops basic properties of the induced Lorentzian
+  structure: the orthogonal decomposition relative to $N$, norm identities,
+  causal classification, and the geometry of the null cone in the $\xi$--tilt picture.
 
-    \item \textbf{Section \ref{sec:PRT}} formulates the operational clock viewpoint:
-    we introduce a $\delta$--calibrated proto--parameter $\chi$, define coordinate time
-    and proper time via $\alpha$, and make explicit the phase reparametrization
-    $\chi\mapsto\tau$.
+  \item Section \ref{sec:PRT} formulates the operational clock viewpoint: we introduce
+  a $\delta$--calibrated proto--parameter $\chi$, define coordinate time and proper
+  time via $\alpha$, and make explicit the phase reparametrization $\chi\mapsto\tau$.
 
-    \item \textbf{Section \ref{sec:Hyper}} develops the tilt geometry and distinguishes
-    circular ($\xi$) and conic/hyperbolic ($\vartheta,\eta$) parametrizations, including
-    the identity $\tanh\eta=\tan\vartheta$ and the $45^\circ$ null boundary.
+  \item Section \ref{sec:Hyper} develops the tilt geometry and distinguishes circular
+  ($\xi$) and conic/hyperbolic ($\vartheta,\eta$) parametrizations, including the
+  identity $\tanh\eta=\tan\vartheta$ and the $45^\circ$ null boundary.
 
-    \item \textbf{Section \ref{sec:flow-invariants-S3}} reformulates 4--velocity
-    normalization as a constraint on the Euclidean full flow, mapping calibrated states
-    to the sphere $S^3_{\clight}\subset T\Espace$ and identifying the physical sector.
+  \item Section \ref{sec:flow-invariants-S3} reformulates 4--velocity normalization
+  as a constraint on calibrated proto--velocities, mapping admissible states to the
+  sphere $S^3_{\clight}\subset T\Espace$ and identifying the physical sector.
 
-    \item \textbf{Section \ref{sec:why-protospace}} illustrates the explanatory payoff:
-    optical effects (Doppler shift, aberration) are derived as $g$--projections, and
-    boosts are reformulated using Euclidean geometric algebra.
+  \item Section \ref{sec:why-protospace} illustrates the computational payoff:
+  optical effects are derived as $g$--projections and boosts are reformulated using
+  Euclidean geometric algebra.
 \end{itemize}
 
 % ===============================
@@ -323,9 +357,9 @@ and we use the $\delta$--inner product notation
 
 \begin{remark}[Index conventions: $\delta$ vs.\ $g$]
 \label{rem:index-conventions}
-Throughout, $\delta$ is treated as the \emph{background} Euclidean metric on
+Throughout, $\delta$ is treated as the background Euclidean metric on
 $\Espace$ and is used for index gymnastics unless explicitly stated otherwise.
-The Lorentzian tensor $g$ constructed later in \S\ref{subsec:RSS} is regarded
+The Lorentzian tensor $g$ constructed in \S\ref{subsec:RSS} is regarded
 as a derived bilinear form on $T\Espace$ used to define interval--type scalars
 such as $g(X,X)$, rather than as the default device for raising/lowering.
 
@@ -361,151 +395,127 @@ $\widetilde{(\cdot)}$, defined on basis blades by reversing the order of basis
 vectors (hence $\widetilde{ab}= \widetilde b\,\widetilde a$ and
 $\widetilde{a}=a$ for vectors).
 
-The unit pseudoscalar (oriented volume element) is
-\[
-   I := e_0 e_1 e_2 e_3,\qquad I^2=+1.
-\]
-
 \paragraph{Rotors.}
-A \emph{rotor} is an even multivector $q\in\Cl^+(4,0)$ satisfying
+A rotor is an even multivector $r\in\Cl^+(4,0)$ satisfying
 \[
-   q\widetilde q = 1.
+   r\widetilde r = 1.
 \]
-Rotors act on vectors by the sandwich map $v\mapsto q v \widetilde q$ and
+Rotors act on vectors by the sandwich map $v\mapsto r v \widetilde r$ and
 realize orthogonal transformations ($\Spin(4)\to SO(4)$ is the usual double cover).
-We will use rotors as the algebraically clean way to encode changes of ``time
-axis'' (observer) and, later, local flow orientations.
 
-\paragraph{Quaternionic subalgebras.}
-Fixing a reference unit vector $e_0$ selects the even subspace
+\paragraph{Quaternionic coordinates (observer gauge).}
+Fixing a unit vector $e_0$ selects the even subspace
 \[
    \mathbb H_{e_0}:=\mathrm{span}\{1,\ e_{10},\ e_{20},\ e_{30}\}\subset\Cl^+(4,0),
    \qquad e_{i0}:=e_i e_0,
 \]
 which is isomorphic to the quaternion algebra once the orientation is fixed.
-Elements of $\mathbb H_{e_0}$ have the form
-\[
-   q = a + b_1 e_{10}+b_2 e_{20}+b_3 e_{30},
-\]
-and the unit condition $q\widetilde q=1$ is simply $a^2+b_1^2+b_2^2+b_3^2=1$,
-i.e.\ the unit 3--sphere $S^3$.  In what follows we will call such unit elements
-\emph{quaternionic rotors}.
+This provides a convenient coordinate language for even elements (notably the
+unit 3--sphere $S^3$ of unit quaternions), but it does not introduce additional
+physics by itself.
 
 % ------------------------------------------------------------
-\subsection{Observer time axis: the reference vector $e_0$ and its rotations}
-\label{subsec:time-axis}
+\subsection{Observer axis, inertial SR sector, and the role of $\nabla^\delta$}
+\label{subsec:observer-axis}
 To speak about ``time'' and ``space'' within the Euclidean proto--space, one must
-choose a reference unit direction.  An inertial observer in our SR sector
-is encoded by a constant unit vector $e_0$ (constant on the region of interest):
+choose a reference unit direction.  In the special--relativistic (inertial) sector
+studied in this paper we encode the observer by a constant unit vector field
+$e_0$ on the region of interest:
 \[
    \delta(e_0,e_0)=1,\qquad \nabla^\delta e_0=0.
 \]
-Its $\delta$--orthogonal complement $e_0^{\perp_\delta}$ plays the role of the
-associated spatial hyperplane in that observer's description.
+Here $\nabla^\delta$ denotes the Levi--Civita connection of $\delta$; in Cartesian
+coordinates on $\Espace\simeq\mathbb R^4$ one has $\Gamma(\delta)=0$ and
+$\nabla^\delta$ reduces to the ordinary derivative, so $\nabla^\delta e_0=0$
+simply means that the components of $e_0$ are constant.
 
-\paragraph{Space of possible time axes.}
-At any point, the set of all possible unit time axes is the sphere
-\[
-   S^3=\{u\in T_p\Espace:\ \delta(u,u)=1\}.
-\]
-Using the identification $T_p\Espace\simeq\mathbb R^4\simeq\mathbb H$ (as a real
-vector space), this same $S^3$ may be regarded as the set of unit quaternions.
-However, the representation we will actually use is the rotor representation,
-because it makes changes of observer purely algebraic.
-
-\paragraph{Changing the observer: rotating the zero vector.}
-Given any other unit direction $e_0'$ (another inertial observer axis), there
-exists a rotor $r$ such that
-\begin{equation}\label{eq:e0-rotate}
-   e_0' \;=\; r\,e_0\,\widetilde r,
-   \qquad r\widetilde r=1.
-\end{equation}
-Thus passing from one observer time axis to another is an orthogonal rotation of
-the reference vector $e_0$ implemented by a rotor.
-
-\begin{remark}[Nonuniqueness (stabilizer gauge)]
-\label{rem:stabilizer}
-The rotor $r$ in \eqref{eq:e0-rotate} is not unique: if $s$ is any rotor fixing
-$e_0$ (i.e.\ $s e_0\widetilde s=e_0$), then $r' = r s$ yields the same $e_0'$.
-Equivalently, $r$ is defined up to right multiplication by the stabilizer
-$\mathrm{Stab}(e_0)\cong\Spin(3)\cong SU(2)$.  This is a benign internal gauge:
-the induced axis $e_0'$ is unambiguous.
+\begin{remark}[Physical axis $N$ versus fiducial axis $e_0$]
+\label{rem:N-vs-e0}
+The Lorentzian form constructed below depends on a unit direction $N$ (the observer's
+coherent time axis).  For a single inertial observer one may, and often will,
+identify $N\equiv e_0$ without loss of generality.
+We nevertheless keep the notation $e_0$ available as a fixed fiducial axis when
+working in $\Cl(4,0)$: it provides a stable quaternionic coordinate subalgebra
+$\mathbb H_{e_0}$ even in later extensions where a physical field $N$ may vary.
+In the present SR sector, no observable depends on this bookkeeping choice.
 \end{remark}
 
 % ------------------------------------------------------------
-\subsection{Coherent time field $N$ and flow quaternions}
-\label{subsec:flow-quats}
-We now pass from a single inertial observer axis to a \emph{coherent observer
-time field} on a region of $\Espace$.
+\subsection{Two axes give a relative quaternion and a rotor}
+\label{subsec:relative-quat-rotor}
+Let $u,v\in T_p\Espace$ be two unit vectors, $\delta(u,u)=\delta(v,v)=1$.
+Think of $u$ as the observer time axis (typically $u=N_p$, and in the inertial
+SR sector $u=e_0$), and $v$ as the unit proto--velocity direction of an object.
+(Operationally, later we will identify $v=\tilde X/\clight$ for a calibrated
+proto--velocity $\tilde X=dX/d\chi$.)
 
-\paragraph{Coherent observer time.}
-Let $N$ be a smooth $\delta$--unit vector field on an open set $U\subset\Espace$:
+\paragraph{Relative quaternion from two vectors.}
+Define the associated even element
+\begin{equation}\label{eq:rel-quat-def}
+   q(v,u)\;:=\; v u \;\in\;\Cl^+(4,0).
+\end{equation}
+It is automatically unit:
+\[
+   q(v,u)\,\widetilde{q(v,u)}=(vu)(uv)=v(u^2)v=v^2=1.
+\]
+Moreover,
+\[
+   q(v,u)=\langle q\rangle_0+\langle q\rangle_2=(v\!\cdot\!u)\;+\;(v\!\wedge\!u).
+\]
+Let $\xi\in[0,\pi]$ be the Euclidean angle between $u$ and $v$, defined by
+\begin{equation}\label{eq:xi-def-uv}
+   \cos\xi:=u\!\cdot\!v.
+\end{equation}
+Then $\|v\wedge u\|_\delta=\sin\xi$ and, for $\xi\notin\{0,\pi\}$,
+\begin{equation}\label{eq:q-circular-xi}
+   q(v,u)=\cos\xi+\sin\xi\,\widehat B,
+   \qquad
+   \widehat B:=\frac{v\wedge u}{\|v\wedge u\|_\delta},
+   \qquad
+   \widehat B^2=-1.
+\end{equation}
+If $u=e_0$, then $q(v,e_0)=v e_0\in \mathbb H_{e_0}$ and may be treated literally
+as a unit quaternion in the basis $\{1,e_{10},e_{20},e_{30}\}$.
+
+\paragraph{A canonical rotor mapping $u$ to $v$.}
+While $q(v,u)=vu$ compactly encodes the relative state, the rotor that acts
+by conjugation and maps $u$ to $v$ is the normalized ``half--angle'' element
+\begin{equation}\label{eq:min-rotor-uv}
+   r(v,u)\;:=\;\frac{1+v u}{\sqrt{2(1+u\!\cdot\!v)}}
+   \;=\;\cos\!\Bigl(\frac{\xi}{2}\Bigr)+\sin\!\Bigl(\frac{\xi}{2}\Bigr)\,\widehat B,
+   \qquad (\xi\neq\pi),
+\end{equation}
+which satisfies
+\begin{equation}\label{eq:r-maps-u-to-v}
+   r(v,u)\,u\,\widetilde{r(v,u)} \;=\; v.
+\end{equation}
+
+\begin{remark}[Gauge nonuniqueness (stabilizer)]
+\label{rem:stabilizer-uv}
+The rotor implementing $u\mapsto v$ is not unique: if $s$ is any rotor fixing $u$
+(i.e.\ $s u\widetilde s=u$), then $r' = r s$ yields the same image
+$r' u \widetilde{r'}=v$.  Equivalently, $r$ is defined up to right multiplication
+by the stabilizer $\mathrm{Stab}(u)\cong\Spin(3)\cong SU(2)$.
+For example, when $u=e_0$, $\mathrm{Stab}(e_0)$ consists of the purely spatial
+rotations in $e_0^{\perp_\delta}$; composing $r$ with such a spatial rotor changes
+the spatial gauge but does not change the image of the time axis.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Coherent time axis $N$ and the induced Lorentzian form}
+\label{subsec:RSS}
+Let $N$ be a smooth unit vector field on an open set $U\subset\Espace$:
 \begin{equation}\label{eq:N-unit}
    \delta(N,N)=1 \qquad\text{on }U.
 \end{equation}
-In the inertial SR sector we assume $N$ is parallel with respect to the flat
-Euclidean connection,
+In the inertial SR sector we assume
 \begin{equation}\label{eq:N-parallel}
    \nabla^\delta N = 0 \qquad\text{on }U,
 \end{equation}
-so that one may choose an adapted global orthonormal frame on $U$ and the induced
-Lorentzian geometry will be globally Minkowskian.  Allowing $\nabla^\delta N\neq0$
-corresponds to non--inertial motion or to a dynamical/field interpretation of $N$,
-which we do not develop in the present SR--focused section.
+so that $N$ is constant (in Cartesian coordinates).  For a single inertial observer
+we may set $N\equiv e_0$.
 
-\paragraph{Flow quaternion field.}
-Fix once and for all a reference unit vector $e_0$ (as in \S\ref{subsec:time-axis}).
-A \emph{flow quaternion} (or \emph{flow rotor}) is a unit even multivector field
-$q:U\to\Cl^+(4,0)$ such that
-\begin{equation}\label{eq:flow-quat-def}
-   q\widetilde q = 1,
-   \qquad
-   N = q\,e_0\,\widetilde q.
-\end{equation}
-When $q$ is chosen to lie in the quaternionic subalgebra $\mathbb H_{e_0}$
-(\S\ref{subsec:cl40}), we may literally regard $q$ as a unit quaternion.
-In any case, \eqref{eq:flow-quat-def} provides an algebraically clean encoding
-of the coherent time axis $N$ as a rotated copy of the reference axis $e_0$.
-
-As in Remark~\ref{rem:stabilizer}, the field $q$ is defined only up to right
-multiplication by stabilizer rotors fixing $e_0$; this gauge does not affect $N$.
-
-\paragraph{Calibrated flow (proto--velocity) from $q$.}
-Fix $\clight>0$ and define the calibrated flow vector field
-\begin{equation}\label{eq:calibrated-flow}
-   X := \clight\,N = \clight\,q\,e_0\,\widetilde q,
-   \qquad\text{so that}\qquad
-   \delta(X,X)=\clight^2.
-\end{equation}
-In the intended reading, $X$ is the local flow (or ``flow gradient direction'')
-in the proto--space, and $q$ is the quaternionic rotor encoding its orientation
-relative to the observer reference $e_0$.
-
-\begin{remark}[Circular angle $\xi$ and budget, extracted from $q$]
-\label{rem:xi-from-q}
-Relative to the reference axis $e_0$, the temporal/spatial split of $X$ is
-\[
-   H := (X\!\cdot\!e_0)\,e_0,\qquad L:=X-H,
-\]
-and for a calibrated flow one may define the \emph{circular} angle
-$\xi\in[0,\pi]$ by
-\[
-   \cos\xi := \frac{X\!\cdot\!e_0}{\clight}=N\!\cdot\!e_0,\qquad
-   \sin\xi := \frac{\|L\|_\delta}{\clight}.
-\]
-For simple quaternionic rotors $q=a+\mathbf b$ in $\mathbb H_{e_0}$,
-$a=\langle q\rangle_0$ is the scalar part and
-$\xi$ is recovered by $\xi=2\arccos(a)$ on $0\le\xi\le\pi$.
-\end{remark}
-
-
-% ------------------------------------------------------------
-\subsection{Reddy--Sharma--Sivaramakrishnan Lorentz metric construction}
-\label{subsec:RSS}
-Having fixed a coherent time axis $N$ (equivalently, flow quaternions $q$) we
-now construct the Lorentzian bilinear form associated with the observer.
-
-\paragraph{Projector and 1--form.}
+\paragraph{Time 1--form and spatial projector.}
 Let
 \[
    \alpha := N^\flat := \delta(N,\cdot)
@@ -516,75 +526,28 @@ and define the spatial projector
    h := \delta - \alpha\otimes\alpha
    \qquad\text{(i.e.\ } h_{AB}=\delta_{AB}-N_A N_B\text{)}.
 \end{equation}
-Then $h$ has rank $3$, satisfies $h(\cdot,N)=0$, and projects onto
-$N^{\perp_\delta}$.
+Then $h$ has rank $3$, satisfies $h(\cdot,N)=0$, and projects onto $N^{\perp_\delta}$.
 
-\paragraph{Lorentzian form.}
+\paragraph{Reddy--Sharma--Sivaramakrishnan Lorentzization.}
 Define a symmetric $(0,2)$--tensor field $g$ on $U$ by
 \begin{equation}\label{eq:g-def}
    g \;:=\; 2\,\alpha\otimes\alpha \;-\;\delta,
    \qquad\text{i.e.}\qquad
    g_{AB}=2N_A N_B-\delta_{AB}.
 \end{equation}
-This is precisely the RSS ``Lorentzization'' of the Euclidean metric along the
-unit direction $N$.  The definition is insensitive to the sign flip $N\mapsto -N$
-because $N\otimes N$ is unchanged.
+In an adapted $\delta$--orthonormal basis $\{N,e_1,e_2,e_3\}$ this has signature
+$(+---)$.  The definition is insensitive to the sign flip $N\mapsto -N$ because
+$N\otimes N$ is unchanged.
 
-\begin{itemize}
-  \item[(i)] $N$ is $g$--unit:
-  \[
-     g(N,N)=2(\delta(N,N))^2-\delta(N,N)=2\cdot 1-1=1.
-  \]
-  \item[(ii)] $N$ is $g$--orthogonal to $N^{\perp_\delta}$:
-  if $X\in N^{\perp_\delta}$, i.e.\ $N\cdot X=0$, then $g(N,X)=0$.
-  \item[(iii)] On $N^{\perp_\delta}$ one has $g=-\delta$:
-  if $X,Y\in N^{\perp_\delta}$, then $g(X,Y)=-\delta(X,Y)$.
-\end{itemize}
-
-Hence, at each $p\in U$,
-\[
-   T_p\Espace=\mathrm{span}\{N_p\}\oplus N_p^{\perp_\delta},
-\]
-and in an adapted $\delta$--orthonormal basis $\{e'_0=N,e'_1,e'_2,e'_3\}$ the
-bilinear form $g_p$ has the Minkowski block form
-\[
-   g_p = (+1)\oplus(-1)\oplus(-1)\oplus(-1),
-\]
-so $g$ has Lorentzian signature $(+---)$.
-
-\begin{proposition}[Closed form and split identity]
-\label{prop:g-split-identity}
-For every $X\in T_p\Espace$ one has
-\begin{equation}\label{eq:g-split-alpha}
-   g(X,X)=\alpha(X)^2-h(X,X)
-         = (N\!\cdot\!X)^2-\delta(X_\perp,X_\perp)
-         = 2(N\!\cdot\!X)^2-\delta(X,X),
-\end{equation}
-where $X_\perp:=X-(N\!\cdot\!X)\,N$ is the $\delta$--orthogonal projection onto
-$N^{\perp_\delta}$.
-\end{proposition}
-
-\begin{proof}
-By \eqref{eq:g-def} and \eqref{eq:h-def} we have $g=\alpha\otimes\alpha-h$.
-Evaluating on $X$ yields $g(X,X)=\alpha(X)^2-h(X,X)$.
-Writing $X=(N\!\cdot\!X)N+X_\perp$ gives
-$\delta(X,X)=(N\!\cdot\!X)^2+\delta(X_\perp,X_\perp)$, hence the last equality
-in \eqref{eq:g-split-alpha}.
-\end{proof}
-
-\begin{remark}[Inertial SR scope and equivariance]
-\label{rem:SR-scope-equivariance}
-In the SR sector we restrict to local inertial patches where $\nabla^\delta N=0$
-(and therefore $g$ is globally Minkowskian on the patch).  Changing inertial
-observers corresponds to replacing $N$ by another constant unit axis $N'=R_*N$
-for some $R\in O(4)$, equivalently rotating the reference vector $e_0$ by a rotor.
-The construction is $O(4)$--equivariant: $g_{N'}=R^*g_N$.
-Observable statements are formulated in terms of $g$--covariant (relational)
-quantities, so no preferred inertial frame is implied by the use of a reference
-axis.
+\begin{remark}[Relative quaternion viewpoint (observer--object)]
+\label{rem:VN-quaternion}
+Given an object proto--velocity direction $v$ (unit) and an observer axis $u=N_p$,
+the even element $q(v,u)=vu$ encodes the circular angle $\xi$ via
+$\langle q\rangle_0=\cos\xi$ and $\|\langle q\rangle_2\|_\delta=\sin\xi$.
+This is the basic algebraic device used later to package the longitudinal/transverse
+proto--velocity budget split relative to $N$ into a single unit quaternion--like
+element.
 \end{remark}
-
-
 % ===============================
 \section{Lorentzian metric properties}
 \label{sec:LMP}
@@ -595,13 +558,18 @@ understood pointwise at $p$.  We write $T_p\Espace$ for the tangent space,
 endowed with the Euclidean inner product $\delta$ and the associated Clifford
 algebra $\Cl(4,0)$ from \S\ref{subsec:cl40}.  The coherent time axis at $p$ is a
 $\delta$--unit vector $N\in T_p\Espace$, $\delta(N,N)=1$, with associated
-Lorentzian form
+Lorentzian bilinear form
 \[
-   g(\cdot,\cdot)=2\,(N\cdot\cdot)\,(N\cdot\cdot)-\delta(\cdot,\cdot)
+   g(X,Y)=2\,(N\!\cdot\!X)\,(N\!\cdot\!Y)-\delta(X,Y)
    \qquad\text{(cf.\ \eqref{eq:g-def}).}
 \]
-When convenient, we also fix a reference axis $e_0$ and a flow quaternion (rotor)
-$q$ at $p$ such that $N=q e_0 \widetilde q$ (cf.\ \eqref{eq:flow-quat-def}).
+When convenient, we also fix a fiducial axis $e_0$ and a rotor $q\in\Cl^+(4,0)$
+such that
+\[
+   N=q\,e_0\,\widetilde q,
+\]
+in which case $q$ may be regarded as a time--axis rotor (an ``observer gauge'')
+relative to the bookkeeping axis $e_0$.
 
 % ------------------------------------------------------------
 \subsection{Orthogonal decomposition of tangent vectors}
@@ -646,8 +614,8 @@ $N^{\perp_\delta}$ and satisfies
 Consequently, the Lorentzian bilinear form can be written as a Euclidean pairing
 with a reflected argument,
 \begin{equation}\label{eq:g-as-reflection}
-   g(X,Y) \;=\; \delta\big(X,\,Y^\star\big)
-   \;=\; \delta\big(X,\,Y_\parallel-Y_\perp\big),
+   g(X,Y) \;=\; \delta\bigl(X,\,Y^\star\bigr)
+   \;=\; \delta\bigl(X,\,Y_\parallel-Y_\perp\bigr),
 \end{equation}
 which is the Clifford--algebraic content of the RSS ``Lorentzization''.
 \end{remark}
@@ -656,7 +624,7 @@ which is the Clifford--algebraic content of the RSS ``Lorentzization''.
 \subsection{Circular angle $\xi$ and norm identities}
 \label{subsec:xi-norms}
 
-The decomposition \eqref{eq:decomp} naturally defines a \emph{circular} Euclidean
+The decomposition \eqref{eq:decomp} naturally defines a circular Euclidean
 angle between $X$ and the time axis $N$.
 
 \begin{definition}[Circular angle $\xi$ relative to $N$]
@@ -673,11 +641,10 @@ Equivalently, $\xi$ is the Euclidean angle between $X$ and $N$.
 
 \begin{remark}[Why $\xi$ is distinguished from $\vartheta$]
 \label{rem:xi-vs-vartheta}
-The angle $\xi$ is the \emph{circular} (trigonometric) Euclidean angle defined by
-\eqref{eq:xi-def}.  Later we will introduce a \emph{tangential} parameter
-$\vartheta$ adapted to velocity ratios (e.g.\ $\beta=\tan\vartheta$).
-Keeping $\xi$ for the circular parametrization avoids conflating these two
-parameter choices.
+The angle $\xi$ is the circular (trigonometric) Euclidean angle defined by
+\eqref{eq:xi-def}.  Later we introduce a tangential parameter $\vartheta$
+adapted to velocity ratios (e.g.\ $\beta=\tan\vartheta$ and rapidity).  Keeping
+$\xi$ for the circular parametrization avoids conflating these two choices.
 \end{remark}
 
 \begin{proposition}\label{prop:g-norm-split}
@@ -721,7 +688,7 @@ Define the three disjoint subsets of $T_p\Espace$:
   \mathcal P_p := \{X\in T_p\Espace:\ g(X,X)=0\},\qquad
   \mathcal S_p := \{X\in T_p\Espace:\ g(X,X)<0\}.
 \]
-We also single out the \emph{future} time cone (relative to $N$):
+We also single out the future time cone (relative to $N$):
 \begin{equation}\label{eq:Tp-plus}
   \mathcal T_p^{+} := \{X\in \mathcal T_p:\ N\cdot X>0\}.
 \end{equation}
@@ -783,6 +750,43 @@ $N$ and its orthogonal complement.
 \end{remark}
 
 % ------------------------------------------------------------
+\subsection{Proto--velocity viewpoint and the observer split}
+\label{subsec:protovelocity-viewpoint}
+
+While the results above hold for arbitrary tangent vectors, the proto--space
+formulation is most transparent when applied to a calibrated proto--velocity.
+Let $X(\chi)$ be a regular curve and define its proto--velocity by
+\[
+   \tilde X := \frac{dX}{d\chi}\in T_p\Espace.
+\]
+If $\chi$ is calibrated (cf.\ Definition~\ref{def:chi-cal}), then
+\begin{equation}\label{eq:protovelocity-cal}
+   \delta(\tilde X,\tilde X)=\clight^2.
+\end{equation}
+Thus, at each point, the set of admissible calibrated proto--velocities is the
+Euclidean 3--sphere $S^3_{\clight}(p)\subset T_p\Espace$.
+
+Relative to the coherent time axis $N$, write the observer split
+\[
+   \tilde X = \tilde H\,N + \tilde X_\perp,
+   \qquad
+   \tilde H := N\!\cdot\!\tilde X,
+   \qquad
+   \tilde X_\perp := h(\tilde X)\in N^{\perp_\delta},
+\]
+and set $\tilde L:=\|\tilde X_\perp\|_\delta$.
+Then \eqref{eq:protovelocity-cal} implies the proto--velocity budget identity
+\[
+   \tilde H^{\,2}+\tilde L^{\,2}=\clight^2,
+\]
+while the induced Lorentzian rate is
+\begin{equation}\label{eq:g-on-protovelocity}
+   g(\tilde X,\tilde X)=\tilde H^{\,2}-\tilde L^{\,2}
+   \;=\;\clight^2\cos(2\xi),
+\end{equation}
+where $\xi$ is the circular tilt angle of $\tilde X$ relative to $N$.
+
+% ------------------------------------------------------------
 \subsection{Spatial rotations preserving $\delta$ and $N$}
 \label{subsec:spatial-rotations}
 
@@ -802,16 +806,16 @@ $N$ with $N^{\perp_\delta}$.
 \begin{remark}[Rotor description of $\mathrm{Aut}(\delta,N)$]
 \label{rem:aut-rotors}
 In the Clifford algebra, the connected component of $\mathrm{Aut}(\delta,N)$ is
-realized by \emph{spatial rotors} $s\in\Cl^+(4,0)$ satisfying
+realized by spatial rotors $s\in\Cl^+(4,0)$ satisfying
 \[
    s\widetilde s=1,\qquad s N \widetilde s = N.
 \]
 Equivalently, $s=\exp(-\tfrac{\phi}{2}B)$ with a bivector generator
 $B\in\Lambda^2(N^{\perp_\delta})=\mathrm{span}\{e'_{12},e'_{23},e'_{31}\}$.
-This is the same ``stabilizer'' mechanism as in Remark~\ref{rem:stabilizer} for
-the reference axis $e_0$: the time axis is held fixed while the spatial triad is
-rotated.  Such stabilizer freedom is precisely the source of rotor
-nonuniqueness when one encodes only the axis $N$ (and not a full tetrad).
+This is the same stabilizer mechanism as in Remark~\ref{rem:stabilizer-uv}:
+the time axis is held fixed while the spatial triad is rotated.  Such stabilizer
+freedom is precisely the source of rotor nonuniqueness when one encodes only the
+axis $N$ (and not a full tetrad).
 \end{remark}
 
 \begin{lemma}\label{lem:aut-preserves-g}
@@ -835,11 +839,12 @@ Thus $\mathrm{Aut}(\delta,N)$ is a spatial subgroup of $\mathrm{O}(g)$: it
 preserves $g$ and fixes $N$, but generates only Euclidean rotations on
 $N^{\perp_\delta}$.
 
-\begin{remark}[Flow quaternion gauge, revisited]
-\label{rem:flow-quat-gauge-LMP}
-If $N=q e_0\widetilde q$ for a flow quaternion (rotor) $q$, then $q$ is defined
-only up to right multiplication by a stabilizer rotor $s$ that fixes $e_0$
-(cf.\ Remark~\ref{rem:stabilizer}), because $(qs)e_0\widetilde{(qs)}=q e_0\widetilde q$.
+\begin{remark}[Time--axis rotor gauge, revisited]
+\label{rem:timeaxis-rotor-gauge-LMP}
+If $N=q e_0\widetilde q$ for a rotor $q$, then $q$ is defined only up to right
+multiplication by a stabilizer rotor $s$ that fixes $e_0$
+(cf.\ Remark~\ref{rem:stabilizer-uv}), because
+$(qs)e_0\widetilde{(qs)}=q e_0\widetilde q$.
 Pointwise, this means that specifying the axis $N$ does not specify a unique
 orientation of the spatial complement: the latter may be rotated by an element
 of $\Spin(3)$ without affecting $N$, hence without affecting $g_N$.
@@ -851,16 +856,16 @@ of $\Spin(3)$ without affecting $N$, hence without affecting $g_N$.
 
 This section makes explicit the logical bridge between the Euclidean proto--metric
 $\delta$ on $\Espace$ and the Lorentzian form $g$ constructed in \S\ref{sec:LMC}.
-The construction starts from a \emph{coherent observer time axis} $N$ (or,
-equivalently, a field of flow rotors $q$ with $N=q e_0 \widetilde q$) and then
-defines operational time and space measurements as projections relative to $N$.
-The key point is operational: an observer does \emph{not} have direct access to
-an arbitrary curve parameter.  Instead, clocks and rulers implement specific
-projection rules, from which the Lorentzian interval emerges as the quadratic
-form governing the proper--time phase along worldlines.
+The construction starts from an oriented coherent observer axis $N$
+(and, if desired, a rotor gauge $q$ such that $N=q e_0 \widetilde q$), and then
+defines operational time and space measurements as $\delta$--projections relative
+to $N$.  The key point is operational: an observer does not have direct access
+to an arbitrary curve parameter.  Instead, clocks and rulers implement specific
+projection rules; the Lorentzian interval is the quadratic form that governs the
+proper--time phase induced by those rules.
 
 % ------------------------------------------------------------
-\subsection{A $\delta$--affine proto--parameter $\chi$}
+\subsection{A $\delta$--calibrated proto--parameter $\chi$ and proto--velocity}
 \label{subsec:chi-affine}
 
 Let $X:I\to\Espace$ be a $C^1$ curve.  For a parameter $\lambda$ on $I$ we write
@@ -868,16 +873,19 @@ Let $X:I\to\Espace$ be a $C^1$ curve.  For a parameter $\lambda$ on $I$ we write
    X'(\lambda):=\frac{dX}{d\lambda}\in T_{X(\lambda)}\Espace.
 \]
 Because $(\Espace,\delta)$ is Euclidean, one may always reparametrize $X$ by a
-scaled $\delta$--arc length.  We single out the following calibration, which
-fixes the \emph{total} proto--space budget along the curve.
+scaled $\delta$--arc length.  We single out the following calibration, which fixes
+the total proto--space budget along the curve.
 
 \begin{definition}[$\delta$--calibrated (proto--affine) parameter]
 \label{def:chi-cal}
-A parameter $\chi$ along $X$ is called \emph{$\delta$--calibrated} (or
-\emph{proto--affine}) if the $\delta$--speed is constant and equal to $\clight$:
+A parameter $\chi$ along $X$ is called $\delta$--calibrated (or
+\emph{proto--affine}) if the associated proto--velocity
+\[
+   \tilde X:=\frac{dX}{d\chi}
+\]
+has constant $\delta$--norm equal to $\clight$, i.e.
 \begin{equation}\label{eq:chi-cal}
-   \delta(\tilde X,\tilde X)=\clight^2,
-   \qquad \tilde X:=\frac{dX}{d\chi}.
+   \delta(\tilde X,\tilde X)=\clight^2.
 \end{equation}
 \end{definition}
 
@@ -888,11 +896,10 @@ parametrization:
 \[
    d\chi = \frac{1}{\clight}\,\|dX\|_\delta.
 \]
-The parameter $\chi$ is an \emph{auxiliary} calibration: it fixes a convenient
-reference clock in $\Espace$ relative to which the total Euclidean expenditure
-$\|\tilde X\|_\delta=\clight$ is constant.  By itself, $\chi$ is not an
-operational time variable of an observer; operational time is introduced via
-the coherent axis $N$ below.
+The parameter $\chi$ is an auxiliary calibration: it fixes a convenient
+reference parameter in $\Espace$ relative to which the total Euclidean expenditure
+$\|\tilde X\|_\delta=\clight$ is constant.  By itself, $\chi$ is not an operational
+time variable; operational time is introduced via the coherent axis $N$ below.
 \end{remark}
 
 % ------------------------------------------------------------
@@ -901,11 +908,17 @@ the coherent axis $N$ below.
 
 Throughout, $N$ denotes the coherent $\delta$--unit axis field of \S\ref{sec:LMC},
 \[
-   \delta(N,N)=1,
+   \delta(N,N)=1.
 \]
-encoded (when desired) by a flow rotor $q$ via $N=q e_0 \widetilde q$
-(cf.\ \eqref{eq:flow-quat-def}).  The $\delta$--dual 1--form (the \emph{time form})
-of the field is
+When working in $\Cl(4,0)$ one may (optionally) encode $N$ by a rotor $q$ relative
+to a fixed fiducial axis $e_0$ via
+\[
+   N=q\,e_0\,\widetilde q,
+\]
+but the operational content depends only on $N$ (and its chosen orientation), not
+on a particular representative $q$.
+
+The $\delta$--dual 1--form (the time form) of $N$ is
 \begin{equation}\label{eq:alpha-def}
    \alpha := N^\flat := \delta(N,\cdot),
    \qquad \text{i.e.}\qquad
@@ -923,44 +936,42 @@ For any $V\in T_p\Espace$ one has the orthogonal $\delta$--split
 \begin{equation}\label{eq:delta-split}
    \delta(V,V) = \alpha(V)^2 + h(V,V),
 \end{equation}
-which is the Pythagorean identity ``total budget = longitudinal$^2$ + spatial$^2$''
-relative to the axis $N$.
+i.e.\ ``total proto--budget = longitudinal$^2$ + transverse$^2$'' relative to $N$.
 
 \begin{remark}[Sign of $N$ and what is (in)sensitive to it]
 \label{rem:sign-of-N}
 The RSS Lorentzization $g=2\,N^\flat\!\otimes N^\flat-\delta$ depends on $N$ only
-through $N\otimes N$ and is therefore invariant under the sign flip
-$N\mapsto -N$.  Hence the light cone and causal classification determined by $g$
-are insensitive to the orientation of $N$.
+through $N\otimes N$ and is therefore invariant under the sign flip $N\mapsto -N$.
+Hence the light cone and causal classification determined by $g$ are insensitive to
+the orientation of $N$.
 
-However, the 1--form $\alpha=N^\flat$ changes sign under $N\mapsto -N$, and so do
+However, the time 1--form $\alpha=N^\flat$ changes sign under $N\mapsto -N$, and so do
 the projected time increments defined below.  Thus, to speak about an oriented
-``future'' direction (e.g.\ $N\cdot X>0$) and about a monotone time coordinate,
-one must choose an orientation of $N$ (future--pointing branch) and keep it
-coherent on the region under consideration.
+``future'' direction and about a monotone time coordinate, one must choose an
+orientation of $N$ (a future--pointing branch) and keep it coherent on the region
+under consideration.
 \end{remark}
 
 \begin{remark}[Rotor gauge does not affect $\alpha$, $h$, or $g$]
-If $N=q e_0\widetilde q$, then replacing $q$ by $q s$ with any stabilizer rotor
-$s$ satisfying $s e_0\widetilde s=e_0$ leaves $N$ unchanged, hence also leaves
-$\alpha$, $h$, and the induced $g$ unchanged.  Operational quantities depend on
-$N$ (and its chosen orientation), not on a particular representative $q$.
+If $N=q e_0\widetilde q$, then replacing $q$ by $q s$ with any stabilizer rotor $s$
+satisfying $s e_0\widetilde s=e_0$ leaves $N$ unchanged, hence also leaves $\alpha$,
+$h$, and the induced $g$ unchanged.  Operational quantities depend on $N$ (and its
+chosen orientation), not on a particular representative $q$.
 \end{remark}
 
 % ------------------------------------------------------------
-\subsection{Coordinate time $t$ versus proper time $\tau$}
+\subsection{Coordinate time $t$ and spatial distance $\ell$ as projections}
 \label{subsec:t-vs-tau}
 
-Given an oriented coherent axis $N$, the time form $\alpha$ defines the
-observer--adapted coordinate time $t$ \emph{along a worldline} by the operational
-projection rule
+Given an oriented coherent axis $N$, the time form $\alpha$ defines the observer--adapted
+coordinate time $t$ along a worldline by the operational projection rule
 \begin{equation}\label{eq:dt-def}
    dt := \frac{1}{\clight}\,\alpha(dX)
    \qquad\Longleftrightarrow\qquad
    \frac{dt}{d\lambda} = \frac{1}{\clight}\,\alpha\bigl(X'(\lambda)\bigr).
 \end{equation}
-In general, \eqref{eq:dt-def} defines $t$ only along the given curve; a global
-time function $t$ on an open set requires an integrability condition on $\alpha$
+In general, \eqref{eq:dt-def} defines $t$ only along the given curve; a global time
+function $t$ on an open set requires an integrability condition on $\alpha$
 (e.g.\ $\alpha$ closed/exact, equivalently $N$ hypersurface--orthogonal).
 
 Likewise, the induced spatial line element along the curve is defined by
@@ -981,12 +992,16 @@ where $dt$ and $d\ell$ are given by \eqref{eq:dt-def}--\eqref{eq:dl-def}.
 
 \begin{proof}
 By the RSS definition $g=\alpha\otimes\alpha-h$ (equivalently $g=2\alpha\otimes\alpha-\delta$),
-for any $V$ we have $g(V,V)=\alpha(V)^2-h(V,V)$.  Apply this to $V=dX$ and
-substitute \eqref{eq:dt-def} and \eqref{eq:dl-def}.
+for any $V$ we have $g(V,V)=\alpha(V)^2-h(V,V)$.  Apply this to $V=dX$ and substitute
+\eqref{eq:dt-def} and \eqref{eq:dl-def}.
 \end{proof}
 
-We define the \emph{proper time} $\tau$ along a $g$--timelike curve as the
-$g$--arc length parameter.
+% ------------------------------------------------------------
+\subsection{Proper time $\tau$ and the $\chi\mapsto\tau$ phase reparametrization}
+\label{subsec:budget-equivalence}
+
+We define the proper time $\tau$ along a $g$--timelike curve as the $g$--arc length
+parameter.
 
 \begin{definition}[Proper time]
 \label{def:proper-time}
@@ -1000,29 +1015,8 @@ Equivalently, combining \eqref{eq:tau-def} with \eqref{eq:ds-operational} yields
 \end{equation}
 \end{definition}
 
-\begin{remark}[Roles of $\chi$, $t$, and $\tau$]
-\label{rem:roles-chi-t-tau}
-The three parameters used in this paper have distinct operational status:
-\begin{itemize}
-\item $\chi$ is an auxiliary $\delta$--calibration fixing the total proto--space
-      budget $\|\tilde X\|_\delta=\clight$;
-\item $t$ is the observer--adapted coordinate time obtained by projecting $dX$
-      onto the coherent axis $N$ via \eqref{eq:dt-def};
-\item $\tau$ is the proper time measured by an ideal comoving clock, defined
-      invariantly as the $g$--arc length by \eqref{eq:tau-def}.
-\end{itemize}
-The Lorentzian form $g$ is the unique quadratic form in this construction for
-which \eqref{eq:ds-operational} holds identically once $N$ (hence $\alpha$ and
-$h$) has been fixed.
-\end{remark}
-
-% ------------------------------------------------------------
-\subsection{Equivalence of $\delta$--budget and the proper--time interval}
-\label{subsec:budget-equivalence}
-
-Assume henceforth that $\chi$ is $\delta$--calibrated in the sense of
-Definition~\ref{def:chi-cal}, and write $\tilde X=dX/d\chi$.
-Define the longitudinal and transverse flow rates (per unit $\chi$) by
+Assume henceforth that $\chi$ is $\delta$--calibrated in the sense of Definition~\ref{def:chi-cal},
+and write $\tilde X=dX/d\chi$.  Define the longitudinal and transverse rates (per unit $\chi$) by
 \begin{equation}\label{eq:SL-def}
    S(\chi) := \alpha(\tilde X)=N\!\cdot\!\tilde X,
    \qquad
@@ -1056,76 +1050,61 @@ Equivalently, reparametrizing the same geometric curve by $\tau$
 \end{theorem}
 
 \begin{proof}
-By Definition~\ref{def:proper-time},
-$\clight^2(d\tau/d\chi)^2 = g(\tilde X,\tilde X)$, giving \eqref{eq:tau-rate}.
-Then $\dot X=(d\chi/d\tau)\tilde X$ implies
+By Definition~\ref{def:proper-time}, $\clight^2(d\tau/d\chi)^2=g(\tilde X,\tilde X)$,
+giving \eqref{eq:tau-rate}.  Then $\dot X=(d\chi/d\tau)\tilde X$ implies
 \[
-   g(\dot X,\dot X) = \Bigl(\frac{d\chi}{d\tau}\Bigr)^2 g(\tilde X,\tilde X)
-   = \frac{\clight^2}{g(\tilde X,\tilde X)}\,g(\tilde X,\tilde X)=\clight^2,
+   g(\dot X,\dot X)=\Bigl(\frac{d\chi}{d\tau}\Bigr)^2 g(\tilde X,\tilde X)
+   =\frac{\clight^2}{g(\tilde X,\tilde X)}\,g(\tilde X,\tilde X)=\clight^2,
 \]
 which is \eqref{eq:unit-speed-proper}.
 \end{proof}
 
+\begin{remark}[Roles of $\chi$, $t$, and $\tau$]
+\label{rem:roles-chi-t-tau}
+The three parameters used in this paper have distinct status:
+\begin{itemize}
+\item $\chi$ is an auxiliary $\delta$--calibration fixing the total proto--space budget
+      $\|\tilde X\|_\delta=\clight$;
+\item $t$ is the observer--adapted coordinate time obtained by projecting $dX$ onto the
+      coherent axis $N$ via \eqref{eq:dt-def};
+\item $\tau$ is the proper time of an ideal comoving clock, defined invariantly as the
+      $g$--arc length by \eqref{eq:tau-def}.
+\end{itemize}
+Operationally, the observer has access to $t$ (relative to its chosen coherent axis $N$)
+and to $\tau$ (along its own worldline); $\chi$ is a convenient proto--space gauge used
+to expose the fixed Euclidean budget underlying the reparametrization equivalence.
+\end{remark}
+
+\begin{remark}[Circular tilt $\xi$ and the explicit $\chi$--$\tau$ factor]
+\label{rem:xi-chi-tau-factor}
+Under the $\chi$--calibration \eqref{eq:chi-cal}, the proto--velocity $\tilde X$ lies on
+the sphere $S^3_{\clight}(p)\subset T_p\Espace$.  Let $\xi$ denote the circular Euclidean
+angle between $\tilde X$ and $N$,
+\[
+   \cos\xi=\frac{N\cdot \tilde X}{\|\tilde X\|_\delta},\qquad
+   \sin\xi=\frac{\|\tilde X_\perp\|_\delta}{\|\tilde X\|_\delta}.
+\]
+Then $S=\clight\cos\xi$ and $L=\clight\sin\xi$, so
+\[
+   g(\tilde X,\tilde X)=S^2-L^2=\clight^2\cos(2\xi),
+\]
+and Theorem~\ref{thm:chi-to-tau} becomes
+\[
+   \frac{d\tau}{d\chi}=\sqrt{\cos(2\xi)}.
+\]
+Thus the proper--time rate is controlled by the double--angle factor $\cos(2\xi)$
+already at the circular level; the tangential (hyperbolic) parametrization introduced later
+is a different coordinate choice adapted to velocity composition, not a different source of
+the $\cos(2\,\cdot)$ structure.
+\end{remark}
+
 \begin{remark}[Why $g$ is observed rather than $\delta$]
 \label{rem:g-observed}
-The proto--metric $\delta$ measures the total Euclidean budget with respect to
-the auxiliary calibration $\chi$.  Physical clocks, however, realize the
-proper--time parametrization $\tau$ defined by \eqref{eq:tau-def}, hence by the
-quadratic form $g$.  In this operational sense the observer ``lives by its own
-phase'': the time variable implemented by ideal clocks is $\tau$, and the
-interval controlling it is $g$, not $\delta$.
-\end{remark}
-
-% ------------------------------------------------------------
-\subsection{Circular angle $\xi$ and the explicit $\chi$--$\tau$ link}
-\label{subsec:xi-explicit}
-
-For a $\delta$--calibrated tangent $\tilde X$ we define the \emph{circular}
-Euclidean angle $\xi\in[0,\pi]$ between $\tilde X$ and the axis $N$ by
-\begin{equation}\label{eq:xi-def-PRT}
-   \cos\xi := \frac{N\cdot \tilde X}{\clight}=\frac{S}{\clight},
-   \qquad
-   \sin\xi := \frac{\|\tilde X_\perp\|_\delta}{\clight}=\frac{L}{\clight}.
-\end{equation}
-Then \eqref{eq:budget-identity} becomes $\cos^2\xi+\sin^2\xi=1$ and the RSS split
-gives the explicit double--angle form
-\begin{equation}\label{eq:g-cos2xi-PRT}
-   g(\tilde X,\tilde X)
-   = S^2-L^2
-   = \clight^2(\cos^2\xi-\sin^2\xi)
-   = \clight^2\cos(2\xi).
-\end{equation}
-Substituting into \eqref{eq:tau-rate} yields the explicit phase--rate relation
-\begin{equation}\label{eq:tau-rate-xi}
-   \frac{d\tau}{d\chi}=\sqrt{\cos(2\xi)}.
-\end{equation}
-
-\begin{remark}[Orientation, future sector, and admissible domain]
-\label{rem:xi-domain}
-Since $g$ is insensitive to $N\mapsto -N$ but $t$ is not, one typically fixes a
-future--pointing branch of $N$ by requiring $S=N\cdot\tilde X>0$ along the
-worldline (equivalently $dt/d\chi>0$).  In the future timelike sector,
-$g(\tilde X,\tilde X)>0$ implies $\cos(2\xi)>0$, hence $\xi\in[0,\pi/4)$.
-The boundary $\xi=\pi/4$ corresponds to $g(\tilde X,\tilde X)=0$ (null case),
-for which $d\tau/d\chi=0$.
-\end{remark}
-
-\begin{remark}[Relation to the tangential parametrization]
-\label{rem:xi-to-vartheta}
-On the future sector ($S>0$) one may also use the ratio parameter
-\[
-   \beta := \frac{L}{S} = \tan\xi,
-\]
-which provides a convenient ``tangential'' description of the same tilt.
-If one prefers to reserve a separate symbol $\vartheta$ for the tangential
-parameterization used later, one may set $\beta=\tan\vartheta$ and regard
-$\vartheta$ as a re--labeling emphasizing the ratio coordinate.  In terms of
-$\beta$,
-\[
-   \cos(2\xi)=\frac{1-\beta^2}{1+\beta^2},
-\]
-so the same double--angle structure is present; it is merely expressed in a
-different parameter.
+The proto--metric $\delta$ measures the total Euclidean budget with respect to the auxiliary
+calibration $\chi$.  Physical clocks, however, realize the proper--time parametrization $\tau$
+defined by \eqref{eq:tau-def}, hence by the quadratic form $g$.  In this operational sense the
+observer ``lives by its own phase'': the time variable implemented by ideal clocks is $\tau$,
+and the interval controlling it is $g$, not $\delta$.
 \end{remark}
 
 
@@ -1156,7 +1135,7 @@ so that
 \subsection{Circular parametrization: the Euclidean tilt angle $\xi$}
 \label{subsec:circular-xi}
 
-For any nonzero $X\in T_p\Espace$ define its \emph{circular} (Euclidean) tilt angle
+For any nonzero $X\in T_p\Espace$ define its circular (Euclidean) tilt angle
 $\xi\in[0,\pi]$ relative to the axis $N$ by
 \begin{equation}\label{eq:xi-def-Hyper}
    \cos\xi := \frac{N\cdot X}{\|X\|_\delta},
@@ -1217,14 +1196,14 @@ The boundary $\xi=\pi/4$ corresponds to $g(X,X)=0$ (null directions).
 \subsection{Conic (tangential) parametrization: the ratio angle $\vartheta$}
 \label{subsec:conic-vartheta}
 
-While $\xi$ is defined by normalizing with the \emph{total} Euclidean magnitude
+While $\xi$ is defined by normalizing with the total Euclidean magnitude
 $\|X\|_\delta$, the physically relevant kinematic ratio on the future timelike
 cone is the transverse--to--longitudinal budget ratio
 \[
    \beta := \frac{\|X_\perp\|_\delta}{N\cdot X},
    \qquad (X\in\mathcal T_p^+).
 \]
-This suggests a \emph{conic} (tangential) coordinate $\vartheta$ defined by
+This suggests a conic (tangential) coordinate $\vartheta$ defined by
 \begin{equation}\label{eq:vartheta-def}
    \tan\vartheta := \frac{\|X_\perp\|_\delta}{N\cdot X},
    \qquad (X\in\mathcal T_p^+),
@@ -1242,8 +1221,8 @@ On the future sector, $\cos\xi>0$, hence the ratio definition gives
    =\tan\xi,
 \]
 so numerically $\vartheta=\xi$ on $\mathcal T_p^+$.  The distinction is
-conceptual: $\xi$ is a \emph{circular} normalization by $\|X\|_\delta$, whereas
-$\vartheta$ is a \emph{conic} normalization by the longitudinal component $N\cdot X$.
+conceptual: $\xi$ is a circular normalization by $\|X\|_\delta$, whereas
+$\vartheta$ is a conic normalization by the longitudinal component $N\cdot X$.
 This is exactly the choice that makes $\beta=\tan\vartheta$ the natural speed--like
 parameter saturating at $\beta\to 1$ in the null limit.
 \end{remark}
@@ -1253,7 +1232,8 @@ For $X\in\mathcal T_p^+$,
 \begin{equation}\label{eq:g-conic}
    g(X,X)
    =(N\!\cdot\!X)^2\Bigl(1-\tan^2\vartheta\Bigr)
-   =\frac{(N\!\cdot\!X)^2}{1+\beta^2}\,(1-\beta^2),
+   =(N\!\cdot\!X)^2(1-\beta^2)
+   =\delta(X,X)\,\frac{1-\beta^2}{1+\beta^2},
    \qquad \beta=\tan\vartheta.
 \end{equation}
 Equivalently,
@@ -1264,15 +1244,20 @@ Equivalently,
 
 \begin{proof}
 From $g(X,X)=(N\!\cdot\!X)^2-\|X_\perp\|_\delta^2$ and $\|X_\perp\|_\delta=(N\!\cdot\!X)\tan\vartheta$
-one gets \eqref{eq:g-conic}.  Using $\beta=\tan\xi$ and $\cos(2\xi)=(1-\tan^2\xi)/(1+\tan^2\xi)$
-yields \eqref{eq:cos2xi-via-beta}.
+one gets $g(X,X)=(N\!\cdot\!X)^2(1-\tan^2\vartheta)=(N\!\cdot\!X)^2(1-\beta^2)$.
+Moreover,
+\[
+   \delta(X,X)=(N\!\cdot\!X)^2+\|X_\perp\|_\delta^2=(N\!\cdot\!X)^2(1+\beta^2),
+\]
+hence $g(X,X)=\delta(X,X)\,(1-\beta^2)/(1+\beta^2)$.
+Using $\beta=\tan\xi$ and $\cos(2\xi)=(1-\tan^2\xi)/(1+\tan^2\xi)$ yields \eqref{eq:cos2xi-via-beta}.
 \end{proof}
 
 % ------------------------------------------------------------
 \subsection{Hyperbolic parameter (rapidity) $\eta$}
 \label{subsec:eta-def}
 
-A genuine group parameter for boosts is the \emph{rapidity} $\eta$.
+A genuine group parameter for boosts is the rapidity $\eta$.
 For $X\in\mathcal T_p^+$ define $\eta\ge 0$ by
 \begin{equation}\label{eq:def-eta}
    \tanh\eta := \tan\vartheta = \beta.
@@ -1357,7 +1342,7 @@ Let $\mathrm{O}(g)$ denote the Lorentz group of $(T_p\Espace,g)$:
    := \{\,\Lambda:T_p\Espace\to T_p\Espace\ \text{linear}:\ g(\Lambda X,\Lambda Y)=g(X,Y)\,\}.
 \]
 Fix a $\delta$--unit transverse direction $E\in N^{\perp_\delta}$, $\delta(E,E)=1$.
-The \emph{boost} in the $2$--plane $\mathrm{span}\{N,E\}$ with rapidity $\eta$
+The boost in the $2$--plane $\mathrm{span}\{N,E\}$ with rapidity $\eta$
 is the unique $\Lambda(\eta)\in\mathrm{O}(g)$ acting as a hyperbolic rotation on
 $\mathrm{span}\{N,E\}$ and as the identity on its $g$--orthogonal complement:
 \[
@@ -1394,7 +1379,7 @@ action is the identity, hence the statement holds on all of $T_p\Espace$.
 \subsection{Comparison with classical angle conventions}
 \label{subsec:compare-angles}
 
-The \emph{geometric} Euclidean tilt is captured by the circular angle $\xi$
+The geometric Euclidean tilt is captured by the circular angle $\xi$
 (cf.\ \eqref{eq:xi-def-Hyper}), but different reformulations choose different
 dimensionless parameters derived from it.
 
@@ -1421,7 +1406,7 @@ In this limit one has
    \qquad
    \beta_{\mathrm{sin}}=\sin\xi \to \frac{1}{\sqrt{2}}.
 \]
-Thus a light ray is reached at a \emph{finite} Euclidean tilt of $45^\circ$ relative
+Thus a light ray is reached at a finite Euclidean tilt of $45^\circ$ relative
 to $N$ (not at $90^\circ$).  The ratio parameter $\beta=\tan\xi$ is therefore
 better adapted to the speed--of--light barrier than the sine parameter.
 \end{remark}
@@ -1458,64 +1443,62 @@ limit and $\eta$ is additive under boosts.  The two descriptions therefore
 complement each other.
 \end{remark}
 
-
 % ===============================
-\section{Flow invariants and the emergence of $S^3$ in the Euclidean proto-space}
+\section{Protovelocity invariants and the emergence of $S^3$ in the Euclidean proto-space}
 \label{sec:flow-invariants-S3}
 % ===============================
 
-This section makes precise a central equivalence of the proto--space approach.
-Once a coherent observer axis $N$ (hence $g$) is fixed, the standard SR
-normalization of the 4--velocity in proper time,
+This section formalizes a central equivalence of the proto--space approach.
+Once a coherent observer axis $N$ (hence the Lorentzian form $g$) is fixed,
+the standard SR normalization of the 4--velocity in proper time,
 \[
    g(\dot X,\dot X)=\clight^2,
 \]
-is equivalent (up to reparameterization) to a constant Euclidean flow budget in
-proto--space,
+is equivalent (up to reparameterization) to a constant Euclidean protovelocity budget
+in proto--space,
 \[
-   \delta(\tilde X,\tilde X)=\clight^2,
+   \delta(\widetilde X,\widetilde X)=\clight^2,
 \]
-with respect to a calibrated proto--parameter $\chi$.  The latter condition
-forces the instantaneous flow states to lie on the Euclidean sphere
+with respect to a calibrated proto--parameter $\chi$.
+The latter condition forces the instantaneous protovelocity states to lie on the Euclidean sphere
 $S^3_{\clight}\subset T_p\Espace$.
 
 % ------------------------------------------------------------
-\subsection{Worldlines, proto--parameters, and the full flow vector}
-\label{subsec:full-flow-vector}
+\subsection{Worldlines, proto--parameters, and the protovelocity}
+\label{subsec:protovelocity}
 
 Let $X:I\to\Espace$ be a smooth regular worldline (geometric curve).
 A \emph{proto--parameter} along $X$ is any smooth parameter $\chi$ with
-nowhere--vanishing derivative.  The associated \emph{full flow vector}
-(proto--space tangent) is
-\begin{equation}\label{eq:flow-vector-tildeX}
-   \tilde{X} \;:=\; \frac{dX}{d\chi}\ \in T_{X(\chi)}\Espace.
+nowhere--vanishing derivative.  The associated \emph{protovelocity} is
+\begin{equation}\label{eq:protovelocity-def}
+   \widetilde{X} \;:=\; \frac{dX}{d\chi}\ \in T_{X(\chi)}\Espace.
 \end{equation}
 
-\begin{definition}[Calibrated proto--parameter]
+\begin{definition}[$\delta$--calibrated proto--parameter]
 \label{def:calibrated-chi}
 A proto--parameter $\chi$ is called \emph{$\delta$--calibrated} (with scale
 $\clight$) if
 \begin{equation}\label{eq:calibrated-speed}
-   \delta(\tilde{X},\tilde{X}) \;=\; \clight^2
+   \delta(\widetilde{X},\widetilde{X}) \;=\; \clight^2
    \qquad\text{along }X.
 \end{equation}
 \end{definition}
 
 \begin{remark}[Existence and gauge nature]
 \label{rem:chi-existence}
-For any regular curve $X$ with $\dot X\neq 0$, a $\delta$--calibrated parameter
+For any regular curve $X$ with $dX\neq 0$, a $\delta$--calibrated parameter
 always exists: one may define $\chi$ (up to an additive constant) by
 \[
    d\chi := \frac{1}{\clight}\,\|dX\|_\delta.
 \]
-Fixing a time orientation ($d\chi>0$ along the chosen direction of traversal),
+Fixing an orientation ($d\chi>0$ along the chosen direction of traversal),
 the calibrated proto--parameter is unique up to translation.
-This calibration is auxiliary: it fixes the \emph{total} Euclidean flow budget
-in $\Espace$ but is not, by itself, an observer's operational time variable.
+This calibration is auxiliary: it fixes the \emph{total} Euclidean protovelocity budget
+in $\Espace$ but is not, by itself, the observer's operational time variable.
 \end{remark}
 
-In words: in a calibrated proto--parameter, the full proto--space flow vector
-$\tilde X$ has fixed Euclidean norm.  This is the proto--space counterpart of the
+In words: in a $\delta$--calibrated proto--parameter, the protovelocity $\widetilde X$
+has fixed Euclidean norm.  This is the proto--space counterpart of the
 standard SR statement that the 4--velocity has fixed Minkowski norm in proper
 time.
 
@@ -1524,66 +1507,66 @@ time.
 \label{subsec:interval-rate}
 
 Fix a coherent $\delta$--unit axis field $N$ as in \S\ref{sec:LMC}--\S\ref{sec:LMP}
-(with a chosen time orientation).  Pointwise along $X$, decompose $\tilde X$ into
-$\delta$--longitudinal and $\delta$--transverse parts relative to $N$:
-\begin{equation}\label{eq:tildeX-decomp}
-   \tilde{X}
+(with a chosen time orientation).  Pointwise along $X$, decompose the protovelocity
+into $\delta$--longitudinal and $\delta$--transverse parts relative to $N$:
+\begin{equation}\label{eq:protovelocity-decomp}
+   \widetilde{X}
    \;=\;
-   S\,N + \tilde{X}_\perp,
+   S\,N + \widetilde{X}_\perp,
    \qquad
-   S := N\cdot \tilde{X},
+   S := N\cdot \widetilde{X},
    \qquad
-   \tilde{X}_\perp := h(\tilde{X})\in N^{\perp_\delta}.
+   \widetilde{X}_\perp := h(\widetilde{X})\in N^{\perp_\delta}.
 \end{equation}
-Let $L:=\|\tilde{X}_\perp\|_\delta$ and, when $L\neq 0$,
-$E:=\tilde{X}_\perp/L\in N^{\perp_\delta}$ so that $\tilde{X}=S\,N+L\,E$ with
-$\delta(E,E)=1$.
+Let $L:=\|\widetilde{X}_\perp\|_\delta$ and, when $L\neq 0$,
+$E:=\widetilde{X}_\perp/L\in N^{\perp_\delta}$ so that $\widetilde{X}=S\,N+L\,E$
+with $\delta(E,E)=1$.
 
-\begin{lemma}[Euclidean and Lorentzian norms of the flow]
+\begin{lemma}[Euclidean and Lorentzian norms of the protovelocity]
 \label{lem:euclid-vs-lorentz}
 Along $X$ one has
-\begin{equation}\label{eq:norm-identities-flow}
-   \delta(\tilde{X},\tilde{X}) = S^{2}+L^{2},
+\begin{equation}\label{eq:norm-identities-protovelocity}
+   \delta(\widetilde{X},\widetilde{X}) = S^{2}+L^{2},
    \qquad
-   g(\tilde{X},\tilde{X}) = S^{2}-L^{2}.
+   g(\widetilde{X},\widetilde{X}) = S^{2}-L^{2}.
 \end{equation}
 \end{lemma}
 \begin{proof}
-Since $\tilde{X}_\perp\in N^{\perp_\delta}$, one has $\delta(N,\tilde{X}_\perp)=0$,
-hence $\delta(\tilde X,\tilde X)=S^2+\delta(\tilde X_\perp,\tilde X_\perp)=S^2+L^2$.
-For $g$, use $g(N,N)=1$, $g(N,\tilde X_\perp)=0$, and
-$g(\tilde X_\perp,\tilde X_\perp)=-\delta(\tilde X_\perp,\tilde X_\perp)=-L^2$.
+Since $\widetilde{X}_\perp\in N^{\perp_\delta}$, one has $\delta(N,\widetilde{X}_\perp)=0$,
+hence $\delta(\widetilde X,\widetilde X)=S^2+\delta(\widetilde X_\perp,\widetilde X_\perp)=S^2+L^2$.
+For $g$, use $g(N,N)=1$, $g(N,\widetilde X_\perp)=0$, and
+$g(\widetilde X_\perp,\widetilde X_\perp)=-\delta(\widetilde X_\perp,\widetilde X_\perp)=-L^2$.
 \end{proof}
 
-Motivated by the phase--formalism viewpoint, we define the \emph{interval rate}
-with respect to $\chi$ by
+Motivated by the phase/clock viewpoint, define the \emph{interval rate} with respect
+to $\chi$ by
 \begin{equation}\label{eq:interval-rate-def}
-   \tilde{s} \;:=\; \sqrt{g(\tilde{X},\tilde{X})}
+   \widetilde{s} \;:=\; \sqrt{g(\widetilde{X},\widetilde{X})}
    \;=\; \sqrt{S^{2}-L^{2}}
    \qquad (g\text{--timelike case}).
 \end{equation}
 Equivalently, along a timelike segment one may write
-$g(dX,dX)=\tilde{s}^{\,2}\,d\chi^{2}$.
+$g(dX,dX)=\widetilde{s}^{\,2}\,d\chi^{2}$.
 
-\begin{remark}[Circular angle $\xi$ on calibrated flows]
-\label{rem:xi-on-calibrated-flow}
-If $\chi$ is $\delta$--calibrated, $\delta(\tilde X,\tilde X)=\clight^2$, then
-\eqref{eq:norm-identities-flow} implies $S^2+L^2=\clight^2$ and one may set
+\begin{remark}[Circular angle $\xi$ on calibrated protovelocities]
+\label{rem:xi-on-calibrated-protovelocity}
+If $\chi$ is $\delta$--calibrated, $\delta(\widetilde X,\widetilde X)=\clight^2$, then
+\eqref{eq:norm-identities-protovelocity} implies $S^2+L^2=\clight^2$ and one may set
 \[
    \cos\xi:=\frac{S}{\clight},\qquad \sin\xi:=\frac{L}{\clight}.
 \]
 Then
 \[
-   g(\tilde X,\tilde X)=\clight^2(\cos^2\xi-\sin^2\xi)=\clight^2\cos(2\xi),
+   g(\widetilde X,\widetilde X)=\clight^2(\cos^2\xi-\sin^2\xi)=\clight^2\cos(2\xi),
    \qquad
-   \tilde{s}=\clight\sqrt{\cos(2\xi)}.
+   \widetilde{s}=\clight\sqrt{\cos(2\xi)}.
 \]
-This is the same double--angle structure that governs the phase rate
-$d\tau/d\chi$ in \S\ref{sec:PRT}.
+This is the same double--angle structure that governs the phase rate $d\tau/d\chi$
+in \S\ref{sec:PRT}.
 \end{remark}
 
 % ------------------------------------------------------------
-\subsection{Equivalence: proper--time normalization $\Longleftrightarrow$ calibrated full flow}
+\subsection{Equivalence: proper--time normalization $\Longleftrightarrow$ calibrated protovelocity}
 \label{subsec:equivalence-local-time}
 
 Let $\tau$ denote the proper time along a $g$--timelike worldline $X$, i.e.\ a
@@ -1613,15 +1596,15 @@ following statements are equivalent up to reparameterization:
 \item[(A)] $X$ is parameterized by proper time $\tau$ so that
       $g(\dot{X},\dot{X})=\clight^2$.
 \item[(B)] $X$ is parameterized by a $\delta$--calibrated proto--parameter $\chi$
-      so that $\delta(\tilde{X},\tilde{X})=\clight^2$.
+      so that $\delta(\widetilde{X},\widetilde{X})=\clight^2$.
 \end{itemize}
 Moreover, when both parameters are used on the same curve, they satisfy
 \begin{equation}\label{eq:tau-chi-relation}
    \frac{d\tau}{d\chi}
    \;=\;
-   \frac{\sqrt{g(\tilde{X},\tilde{X})}}{\clight}
+   \frac{\sqrt{g(\widetilde{X},\widetilde{X})}}{\clight}
    \;=\;
-   \frac{\tilde{s}}{\clight},
+   \frac{\widetilde{s}}{\clight},
    \qquad
    \frac{d\chi}{d\tau}
    \;=\;
@@ -1635,9 +1618,9 @@ Assume (A).  Define $\chi$ (up to an additive constant) by
    \frac{d\chi}{d\tau} := \frac{\|\dot{X}\|_\delta}{\clight},
 \]
 which is smooth and positive since $\dot X\neq 0$.  Then
-$\tilde X=dX/d\chi=(d\tau/d\chi)\dot X$, so
+$\widetilde X=dX/d\chi=(d\tau/d\chi)\dot X$, so
 \[
-   \delta(\tilde X,\tilde X)
+   \delta(\widetilde X,\widetilde X)
    =\Bigl(\frac{d\tau}{d\chi}\Bigr)^2\delta(\dot X,\dot X)
    =\frac{\clight^2}{\|\dot X\|_\delta^2}\,\|\dot X\|_\delta^2
    =\clight^2,
@@ -1646,14 +1629,14 @@ which is (B).
 
 Conversely, assume (B).  Define $\tau$ (up to an additive constant) by
 \[
-   \frac{d\tau}{d\chi} := \frac{\sqrt{g(\tilde{X},\tilde{X})}}{\clight},
+   \frac{d\tau}{d\chi} := \frac{\sqrt{g(\widetilde{X},\widetilde{X})}}{\clight},
 \]
-which is well--defined and positive for timelike $\tilde X$ since
-$g(\tilde X,\tilde X)>0$.  Then $\dot X=dX/d\tau=(d\chi/d\tau)\tilde X$, hence
+which is well--defined and positive for timelike $\widetilde X$ since
+$g(\widetilde X,\widetilde X)>0$.  Then $\dot X=dX/d\tau=(d\chi/d\tau)\widetilde X$, hence
 \[
    g(\dot X,\dot X)
-   =\Bigl(\frac{d\chi}{d\tau}\Bigr)^2 g(\tilde X,\tilde X)
-   =\frac{\clight^2}{g(\tilde X,\tilde X)}\,g(\tilde X,\tilde X)
+   =\Bigl(\frac{d\chi}{d\tau}\Bigr)^2 g(\widetilde X,\widetilde X)
+   =\frac{\clight^2}{g(\widetilde X,\widetilde X)}\,g(\widetilde X,\widetilde X)
    =\clight^2,
 \]
 which is (A).  The relations \eqref{eq:tau-chi-relation} are exactly the two
@@ -1661,18 +1644,18 @@ defining ODEs.
 \end{proof}
 
 \paragraph{Operational meaning.}
-Statement (A) is the standard SR normalization of the 4--velocity in proper
-time.  Statement (B) is the corresponding calibration of the proto--space flow.
+Statement (A) is the standard SR normalization of the 4--velocity in proper time.
+Statement (B) is the corresponding calibration of the proto--space protovelocity.
 Theorem~\ref{thm:equiv} shows that these two ``invariants'' are equivalent and
 amount to a change of parameter: constant norm in one metric corresponds to
-constant norm in the other once the operational projection structure ($N$, hence
-$g$) has been fixed.
+constant norm in the other once the operational projection structure ($N$, hence $g$)
+has been fixed.
 
 % ------------------------------------------------------------
-\subsection{The $S^3$ of admissible flow states}
+\subsection{The $S^3$ of admissible protovelocity states}
 \label{subsec:S3-of-flows}
 
-Fix $p\in\Espace$.  The set of all $\delta$--calibrated flow vectors at $p$ is
+Fix $p\in\Espace$.  The set of all $\delta$--calibrated protovelocities at $p$ is
 the Euclidean 3--sphere of radius $\clight$ inside $T_p\Espace$:
 \begin{equation}\label{eq:S3-sphere}
    S^3_{\clight}(p)
@@ -1699,8 +1682,8 @@ reduces to $V=\pm\clight\,N_p$.
 \begin{remark}[Quaternionic encoding of $S^3$ (optional viewpoint)]
 \label{rem:S3-as-unit-quaternions}
 Fix a reference unit vector $e_0$ and the associated quaternionic subalgebra
-$\mathbb H_{e_0}\subset\Cl^+(4,0)$ generated by
-$I_i:=e_i e_0$ ($i=1,2,3$), so that $I_i^2=-1$ and $I_i I_j=-I_j I_i$ for $i\neq j$.
+$\mathbb H_{e_0}\subset\Cl^+(4,0)$ generated by $I_i:=e_i e_0$ ($i=1,2,3$),
+so that $I_i^2=-1$ and $I_i I_j=-I_j I_i$ for $i\neq j$.
 Then any vector $V=V^0 e_0+V^1 e_1+V^2 e_2+V^3 e_3\in T_p\Espace$ can be encoded as
 \[
    Q(V):=V^0 + V^1 I_1 + V^2 I_2 + V^3 I_3\in\mathbb H_{e_0},
@@ -1714,8 +1697,8 @@ structure is canonical.
 
 \begin{remark}[The physical sector of $S^3$ and time orientation]
 \label{rem:physical-sector-S3}
-While the calibrated flow states form the full sphere $S^3_{\clight}(p)$, the
-requirement that a worldline be timelike with respect to $g$,
+While the calibrated protovelocity states form the full sphere $S^3_{\clight}(p)$,
+the requirement that a worldline be timelike with respect to $g$,
 \[
    g(V,V)>0,
 \]
@@ -1735,6 +1718,8 @@ Along any sequence approaching the null boundary within that cap one has
 $d\tau/d\chi=\sqrt{g(V,V)}/\clight\to 0$, consistently with
 \eqref{eq:tau-chi-relation}.
 \end{remark}
+
+
 % ===============================
 \section{Why the Euclidean proto--space viewpoint}
 \label{sec:why-protospace}
@@ -1744,9 +1729,9 @@ The induced Lorentzian form $g$ constructed from $(\delta,N)$ equips each tangen
 space $(T_p\Espace,g)$ with the standard causal classification and light cone.
 The additional advantage of the Euclidean proto--space viewpoint is that it keeps,
 in a single geometric package, both
-(i) \emph{directional} data in the Euclidean spatial complement
+(i) directional data in the Euclidean spatial complement
 $\mathrm{Im}(h_p)=N_p^{\perp_\delta}$ and
-(ii) \emph{clock calibration} data encoded by $g$--projections onto oriented time axes.
+(ii) clock calibration data encoded by $g$--projections onto oriented time axes.
 In particular, ``light'' does not require an extra postulate: a null direction is
 a $g$--null ray, and choosing a convenient $\delta$--normalization picks a canonical
 cross--section of that ray on the calibrated Euclidean sphere.
@@ -1755,12 +1740,83 @@ The material in this section provides the operational dictionary needed for late
 frequency and angle computations.  It uses only the observer splitting determined
 by a chosen oriented coherent axis $N$.
 
+
+% ------------------------------------------------------------
+\subsection{$\xi$--formulation of inertial composition}
+\label{subsec:xi-only-composition}
+% ------------------------------------------------------------
+
+Fix an inertial observer axis $e_0$ (constant on the region of interest),
+$\delta(e_0,e_0)=1$, $\nabla^\delta e_0=0$, and set $N\equiv e_0$ in the SR sector.
+Let $g=2\,e_0^\flat\!\otimes e_0^\flat-\delta$ be the induced Lorentzian form.
+All statements below are pointwise at $p\in\Espace$.
+
+\paragraph{Calibrated proto--flows and circular angle data.}
+A $\chi$--calibrated proto--flow state is a vector $\tilde X\in T_p\Espace$
+satisfying $\delta(\tilde X,\tilde X)=\clight^2$.  Relative to $e_0$ write
+\[
+  \tilde X
+  =\tilde H\,e_0+\tilde L\,E,
+  \qquad
+  E\in e_0^{\perp_\delta},\ \delta(E,E)=1,
+  \qquad
+  \tilde H^2+\tilde L^2=\clight^2,
+\]
+and define the circular tilt $\xi\in[0,\pi]$ by
+\begin{equation}\label{eq:xi-def}
+  \cos\xi:=\frac{\tilde H}{\clight},
+  \qquad
+  \sin\xi:=\frac{\tilde L}{\clight}.
+\end{equation}
+The observer speed parameter (measured in the observer coordinate time $t$) is
+\begin{equation}\label{eq:beta-def-xi}
+  \beta:=\frac{v}{\clight}=\frac{\tilde L}{\tilde H}=\tan\xi.
+\end{equation}
+
+\paragraph{Operational time and the $\chi\!\to\!\tau$ rescaling.}
+Along a timelike worldline, proper time satisfies
+\begin{equation}\label{eq:tau-chi-xi}
+  \frac{d\tau}{d\chi}=\sqrt{\cos(2\xi)},
+  \qquad
+  \cos(2\xi)=\frac{g(\tilde X,\tilde X)}{\delta(\tilde X,\tilde X)}.
+\end{equation}
+Hence the proper--time tangent and the dimensionless unit $g$--velocity are
+\begin{equation}\label{eq:U-from-tildeX-xi}
+  \dot X=\frac{dX}{d\tau}=\frac{1}{\sqrt{\cos(2\xi)}}\,\tilde X,
+  \qquad
+  U:=\frac{1}{\clight}\dot X=\frac{1}{\clight\sqrt{\cos(2\xi)}}\,\tilde X,
+\end{equation}
+so that $g(U,U)=1$.
+
+\paragraph{Observer split in $\xi$--variables.}
+Define the observer Lorentz factor and the spatial speed vector by
+\[
+  \gamma:=e_0\cdot_g U,
+  \qquad
+  \boldsymbol\beta:=\frac{1}{\gamma}\,h_g(U),
+\]
+where $h_g$ denotes the $g$--orthogonal projector onto $e_0^{\perp_g}$.
+From \eqref{eq:U-from-tildeX-xi} and \eqref{eq:xi-def} one obtains purely in terms of $\xi$
+\begin{equation}\label{eq:gamma-beta-from-xi-only}
+  \gamma
+  =\frac{\cos\xi}{\sqrt{\cos(2\xi)}},
+  \qquad
+  \gamma\,\|\boldsymbol\beta\|
+  =\frac{\sin\xi}{\sqrt{\cos(2\xi)}},
+  \qquad
+  \|\boldsymbol\beta\|
+  =\tan\xi.
+\end{equation}
+Thus the proper--time normalization $g(U,U)=1$ is exactly the $\chi$--calibrated
+state rescaled by $(\cos 2\xi)^{-1/2}$.
+
+
 % ------------------------------------------------------------
 \subsection{Light rays: canonical frequency and direction from the $N$--split}
 \label{subsec:light-as-null}
 
 Fix $p\in\Espace$ and an oriented coherent time axis $N_p$ (future branch chosen).
-A \emph{light ray direction} at $p$ is a projective class $[K]$ of nonzero vectors
+A light ray direction at $p$ is a projective class $[K]$ of nonzero vectors
 $K\in T_p\Espace$ satisfying
 \[
    g(K,K)=0,\qquad N\cdot K>0,
@@ -1830,7 +1886,7 @@ The scale in \eqref{eq:nullK-param} is encoded by $\omega$; correspondingly,
 \[
    \delta(K,K)=\delta(\omega(N+E),\omega(N+E))=2\omega^2.
 \]
-If one prefers a \emph{$\delta$--calibrated} representative on the Euclidean sphere,
+If one prefers a $\delta$--calibrated representative on the Euclidean sphere,
 define
 \[
    \widehat K \;:=\; \frac{\clight}{\sqrt{2}\,\omega}\,K
@@ -1964,6 +2020,113 @@ Both effects are thus immediate consequences of the null cone geometry together
 with the observer--dependent splitting induced by $U$.
 
 % ------------------------------------------------------------
+\paragraph{A $\xi$--rotor that maps $e_0$ to the unit axis $U(\xi,E)$.}
+Given circular data $(\xi,E)$ with $E\in e_0^{\perp_\delta}$, $\delta(E,E)=1$, define
+\begin{equation}\label{eq:U-xiE}
+  U(\xi,E):=\frac{1}{\sqrt{\cos(2\xi)}}\bigl(\cos\xi\,e_0+\sin\xi\,E\bigr),
+\end{equation}
+and define the associated (minimal) boost rotor by the standard axis--to--axis formula
+\begin{equation}\label{eq:R-xiE}
+  R(\xi,E):=
+  \frac{1+U(\xi,E)\,e_0}{\sqrt{2\bigl(1+e_0\cdot_g U(\xi,E)\bigr)}}
+  \quad\in\Spin(1,3)\subset\Cl^+(4,0),
+\end{equation}
+so that
+\[
+  R(\xi,E)\,e_0\,\widetilde{R(\xi,E)}=U(\xi,E),
+  \qquad
+  R(\xi,E)\widetilde{R(\xi,E)}=1.
+\]
+No rapidity parameter is used: $R$ is defined directly from $\xi$ via the rescaled axis
+$U(\xi,E)$.
+
+\begin{remark}[Why the rescaling is essential]
+If one replaces $U(\xi,E)$ in \eqref{eq:R-xiE} by the unrescaled proto--flow direction
+$\tilde X/\clight=\cos\xi\,e_0+\sin\xi\,E$ (which lives on the calibrated sphere $S^3$),
+the resulting sandwich map is a Euclidean rotation in the $(e_0,E)$--plane and does
+not reproduce SR velocity composition.  The factor $(\cos 2\xi)^{-1/2}$ in \eqref{eq:U-xiE}
+is precisely the operational correction that converts $\chi$--calibrated geometry into
+proper--time (hence Lorentz) normalization.
+\end{remark}
+
+% ------------------------------------------------------------
+\begin{proposition}[Two--step inertial composition in $\xi$--variables]
+\label{prop:xi-only-two-step}
+Let observer $0$ be encoded by $e_0$.
+Assume object $1$ is given in the observer algebra by circular data $(\xi_1,E_1)$, where
+$E_1\in e_0^{\perp_\delta}$ and $\delta(E_1,E_1)=1$.  Define its unit axis and rotor
+\[
+  U_1:=U(\xi_1,E_1),
+  \qquad
+  R_{10}:=R(\xi_1,E_1).
+\]
+Assume object $2$ is given in the comoving algebra of object $1$ by circular data
+$(\xi_2',E_2')$, where $E_2'\in (U_1)^{\perp_\delta}$ is unit in the spatial complement
+of $U_1$ (the ``space'' of object $1$).  Transport this direction into the observer algebra by
+\begin{equation}\label{eq:transport-E2}
+  E_2:=R_{10}\,E_2'\,\widetilde{R}_{10}.
+\end{equation}
+Define the unit axis of object $2$ relative to $U_1$ by the same $\xi$--recipe:
+\begin{equation}\label{eq:U2-relative-U1}
+  U_2:=\frac{1}{\sqrt{\cos(2\xi_2')}}\bigl(\cos\xi_2'\,U_1+\sin\xi_2'\,E_2\bigr).
+\end{equation}
+Then the corresponding rotor $R_{21}:=R(U_2,U_1)$ and the composite rotor
+\[
+  R_{20}:=R_{21}\,R_{10}
+\]
+map the observer axis to $U_2$:
+\[
+  R_{20}\,e_0\,\widetilde{R}_{20}=U_2.
+\]
+Moreover, the 3--velocity of object $2$ measured by observer $0$ obtained from
+the observer split of $U_2$ coincides with the textbook SR velocity addition rule.
+\end{proposition}
+
+\begin{proof}[Proof sketch in $\xi$--language]
+The only nontrivial step is operational normalization.  Each circular datum $(\xi,E)$
+defines a proto--flow direction $\cos\xi\,(\text{time})+\sin\xi\,(\text{space})$ on
+the calibrated sphere, but physical composition of inertial frames acts on $g$--unit timelike
+axes.  The proper--time rescaling \eqref{eq:U-from-tildeX-xi} converts the circular datum into
+the $g$--unit axis $U(\xi,E)$, and thereby fixes the correct $\gamma$--factor
+$\gamma=\cos\xi/\sqrt{\cos(2\xi)}$ as in \eqref{eq:gamma-beta-from-xi-only}.  Once $U_1$ is so
+normalized, the transport \eqref{eq:transport-E2} is exactly the change of spatial basis from
+the comoving algebra of object $1$ into the observer algebra by rotor conjugation.  Finally,
+the definition \eqref{eq:U2-relative-U1} constructs the second axis from the same circular rule,
+but now in the $1+3$ split of $U_1$.  Projecting the resulting $U_2$ onto the observer split
+recovers the standard longitudinal and transverse SR composition laws, with the characteristic
+$1/\gamma_1$ suppression of transverse components.
+\end{proof}
+
+% ------------------------------------------------------------
+\paragraph{Worked example (orthogonal data; no rapidity).}
+Let object $1$ have speed $\beta_1=0.6$ along $x$ in the observer algebra, hence
+$\xi_1=\arctan(0.6)$ and $E_1=e_x$.
+Let object $2$ have speed $\beta_2'=0.6$ along $y'$ in the comoving algebra of object $1$,
+hence $\xi_2'=\arctan(0.6)$ and $E_2'=e_{y'}$.
+
+From $\beta=\tan\xi$ one has $\cos(2\xi)=\frac{1-\beta^2}{1+\beta^2}$, and therefore
+\[
+  \gamma_1=\frac{\cos\xi_1}{\sqrt{\cos(2\xi_1)}}=\frac{1}{\sqrt{1-\beta_1^2}}=1.25.
+\]
+Applying Proposition~\ref{prop:xi-only-two-step} and projecting $U_2$ onto the observer split yields
+\[
+  \beta_x^{(20)}=\beta_1=0.6,
+  \qquad
+  \beta_y^{(20)}=\frac{\beta_2'}{\gamma_1}=\frac{0.6}{1.25}=0.48,
+\]
+which coincides exactly with the standard SR result for orthogonal velocity composition.
+
+\paragraph{Wigner--Thomas rotation (optional; no rapidity).}
+Let $R_{20}^{\min}:=R(U_2,e_0)$ denote the minimal rotor mapping $e_0$ directly to $U_2$.
+Then
+\[
+  W:=\widetilde{R}_{20}^{\min}\,R_{21}\,R_{10}
+\]
+fixes $e_0$ and hence belongs to the observer's spatial stabilizer $\Spin(3)$; this is the
+Wigner--Thomas rotation induced by the noncollinear two--step composition.
+
+
+% ------------------------------------------------------------
 \subsection{Geometric Algebra viewpoint: circular versus hyperbolic rotors}
 \label{subsec:GA}
 
@@ -2002,7 +2165,7 @@ and the bivector $\mathbf{I}:=NE$ satisfies
 \[
    \mathbf{I}^2=(NE)(NE)=-\,N^2E^2=-1.
 \]
-Hence $\exp(-\mathbf{I}\,\xi/2)$ generates an ordinary \emph{circular} rotation in
+Hence $\exp(-\mathbf{I}\,\xi/2)$ generates an ordinary circular rotation in
 the $(N,E)$--plane.  This is the natural algebraic encoding of the circular tilt
 coordinate $\xi$ used in \S\ref{sec:PRT} and \S\ref{sec:Hyper}.
 
@@ -2013,7 +2176,7 @@ Accordingly, the boost bivector $\mathbf{K}:=N\mathbf{e}$ satisfies
 \[
    \mathbf{K}^2=(N\mathbf{e})(N\mathbf{e})=-\,N^2\mathbf{e}^2=+1,
 \]
-so $\exp(-\mathbf{K}\,\eta/2)$ generates a \emph{hyperbolic} rotor (a boost) with
+so $\exp(-\mathbf{K}\,\eta/2)$ generates a hyperbolic rotor (a boost) with
 rapidity $\eta$.  Applying such a rotor to $N$ yields the standard boosted observer
 state
 \[
@@ -2045,60 +2208,151 @@ a source model) and are deferred to separate work.
 \label{sec:discussion}
 % ===============================
 
-\subsection{What this reformulation does (and does not) claim}
 The primary contribution of this paper is a coordinate--free geometric
 reformulation of special--relativistic kinematics in a Euclidean phase space
 $(\Espace,\delta)$ equipped with an induced Lorentzian metric
-$g=2\,\alpha\!\otimes\!\alpha-\delta$ generated by a unit field $N$ (or $\alpha:=\delta(N,\cdot)$).
-The reformulation is designed to make the kinematic content of SR visible as
-simple Euclidean geometry on calibrated spheres $S^3_{\clight}$ and in the
-orthogonal decomposition $X=X_\parallel+X_\perp$.
-At the same time, we emphasize that this construction is not a ``Euclideanization''
-of spacetime physics: physical statements are made with respect to $g$, and
-$\delta$ serves as an underlying bookkeeping geometry for calibration and
-decomposition.
+$g=2\,\alpha\!\otimes\!\alpha-\delta$ generated by a unit field $N$
+(or $\alpha:=\delta(N,\cdot)$).
+A natural question is why it is useful to represent SR in a strictly Euclidean
+$4$D setting without introducing a distinguished time coordinate at the outset.
 
-\subsection{On the proto--parameter $\chi$, proper time $\tau$, and the locality of $t$}
-A central technical device is the calibrated proto--parameter $\chi$,
-defined by $\delta(\tilde X,\tilde X)=\clight^2$, which provides a uniform
-Euclidean arclength normalization in $\Espace$. Proper time $\tau$ remains the
-$g$--invariant parameter along timelike worldlines, related to $\chi$ by
-$d\tau/d\chi=\sqrt{g(\tilde X,\tilde X)}/\clight$ (Theorem~\ref{thm:chi-to-tau}).
-The quantity $t$ introduced via $dt=\alpha(dX)/\clight$ should be understood
-as a line integral along a given worldline; a global time coordinate exists
-only under additional integrability conditions on $\alpha$ (e.g.\ hypersurface
-orthogonality).
+First, the Euclidean proto--space separates two logically different ingredients
+that are often conflated in the standard Minkowski presentation: the kinematic
+state of motion and the operational choice of clock.
+In our framework, $\delta$ provides a positive--definite reference geometry for
+proto--velocities and for the calibrated budget constraint
+$\delta(\tilde X,\tilde X)=c^2$, while the Lorentzian interval arises only after
+an observer chooses a coherent time axis $N$ and hence a time 1--form $\alpha$.
+Proper time is then obtained by reparametrization along worldlines,
+$c^2 d\tau^2=g(dX,dX)$.
+This makes explicit that SR kinematics can be organized around a choice of axis
+(and a clock parametrization) rather than around a fundamental time coordinate
+built into the background manifold.
 
-\subsection{Angle conventions and comparison with standard SR}
-The reformulation naturally introduces a Euclidean tilt angle $\vartheta$
-via $\tan\vartheta=\|X_\perp\|_\delta/(N\!\cdot\!X)$, so that the physical
-speed parameter is $\beta=v/\clight=\tan\vartheta$, while alternative bounded
-parameters such as $\sin\vartheta$ may be used as auxiliary reparameterizations.
-This choice is adapted to the orthogonal decomposition and yields compact
-identities such as $g(X,X)=\|X\|_\delta^2\cos(2\vartheta)$, making the
-timelike/null/spacelike sectors transparent in the calibrated geometry.
+Second, the calibrated Euclidean picture provides a compact and geometrically
+transparent state space.
+At each point, the set of calibrated proto--velocities is the sphere
+$S^3_c\subset T_p\Espace$, and the timelike and null conditions with respect to
+$g$ select, respectively, an open sector (two polar caps) and its boundary.
+In this representation the speed--of--light barrier is realized as a finite
+geometric boundary on $S^3_c$ (a $45^\circ$ Euclidean tilt relative to $N$),
+so the causal classification and its limiting behavior are read off directly
+from Euclidean angle geometry and the identity $g(X,X)=\|X\|_\delta^2\cos(2\xi)$.
 
-\subsection{Advantages, limitations, and potential points of confusion}
-The main advantage is conceptual: several standard SR relations (Doppler,
-aberration) reduce to Euclidean projection identities
-once $g$ is induced by $(\delta,N)$ and the calibration is fixed.
-A limitation is that, for general (nonintegrable) $N$, the ``coordinate time''
-$t$ is not globally defined, and the formalism should be interpreted locally
-or along worldlines. Another limitation is that the present paper focuses on
-inertial kinematics; extensions to accelerated motion and to dynamical fields
-require additional structure (e.g.\ evolution laws for $N$ and/or $\alpha$).
+Third, working in $\Cl(4,0)$ keeps all kinematical transformations within a
+strictly Euclidean rotor calculus.
+Once a reference axis is fixed, relative states and frame changes can be encoded
+by even elements (quaternionic coordinates) and rotors acting by sandwiching,
+while the Lorentzian bilinear form is implemented by the RSS reflection/projection
+relative to $N$.
+This gives a uniform algebraic mechanism for transporting directions and
+proto--velocities between observer gauges, and it isolates the genuinely
+operational step: the reparametrization from the calibrated proto--parameter
+to proper time.
 
-\subsection{Relation to other constructions and outlook}
-The induced--metric mechanism is compatible with known recipes for obtaining
-Lorentzian metrics from Riemannian data (cf.\ \cite{Reddy2009}), but the
-present emphasis is different: we treat $S^3_{\clight}$ calibration and the
-tilt geometry as the primary kinematic arena.
-Natural next steps include: (i) a systematic treatment of accelerated
-observers in the calibrated picture and the emergence of Wigner--Thomas
-rotation; (ii) coupling to a field sector where $N$ (or $\alpha$) becomes
-dynamical; and (iii) identifying observationally accessible invariants that
-remain compact in the calibrated geometry while reproducing the standard SR
-predictions.
+Finally, although the present paper is restricted to the inertial SR sector
+(where $N$ is taken constant), the formulation clarifies what must change beyond
+it: departures from inertial kinematics correspond to variations of the coherent
+time axis and/or its associated 1--form.
+In this sense the Euclidean proto--space is not introduced as an alternative
+time coordinate, but as a neutral geometric carrier in which the observer's time
+structure is a field--like datum that can later be allowed to vary without
+changing the basic kinematic bookkeeping.
+
+% ===============================
+\subsection{Outlook: towards fields via a tilted field vector}
+\label{subsec:outlook-fields}
+% ===============================
+
+The special--relativistic sector treated in this paper assumes an inertial
+(coherently constant) "time" axis represented by a field vector $N$ with
+$\nabla^\delta N=0$, so that the induced Lorentzian form
+$g_N=2\,N^\flat\!\otimes N^\flat-\delta$ is globally Minkowskian.
+A natural extension is to allow $N$ to vary smoothly, while keeping the same
+RSS ``Lorentzization'' rule for $g_N$.  In this view, what is usually called a
+``gravitational field'' is encoded kinematically by the spatial variation of
+the coherent time direction, rather than by introducing a Lorentzian metric as
+a primitive object.
+
+To illustrate the mechanism in the simplest setting, consider a static,
+spherically symmetric configuration on the Euclidean proto--space
+$(\Espace,\delta)$ and write the flat background in spherical coordinates as
+\[
+  \delta = c^2\,dt^2 + dr^2 + r^2 d\Omega^2,
+  \qquad
+  d\Omega^2=d\theta^2+\sin^2\theta\,d\phi^2 .
+\]
+Let $e_0$ denote the constant fiducial time axis and $e_r$ the outward unit
+radial vector with respect to $\delta$.  Introduce a radial tilt field
+$\alpha=\alpha(r)$ and set
+\begin{equation}\label{eq:N-tilt-radial}
+   N(r) \;:=\; \cos\alpha(r)\,e_0 \;+\; \sin\alpha(r)\,e_r,
+   \qquad
+   \delta(N,N)=1 .
+\end{equation}
+The induced Lorentzian form
+$g_N=2\,N^\flat\!\otimes N^\flat-\delta$ then acquires, in the $(t,r)$ block, the
+components
+\begin{equation}\label{eq:g-components-tilt}
+   g_{tt}=\cos\!\bigl(2\alpha(r)\bigr),\qquad
+   g_{tr}=\sin\!\bigl(2\alpha(r)\bigr),\qquad
+   g_{rr}=-\cos\!\bigl(2\alpha(r)\bigr),
+\end{equation}
+while $g_{\theta\theta}=-r^2$ and $g_{\phi\phi}=-r^2\sin^2\theta$.  Hence
+\begin{equation}\label{eq:lineelement-tilt-offdiag}
+   ds^2
+   \;=\;
+   \cos(2\alpha)\,c^2dt^2
+   \;+\;
+   2\sin(2\alpha)\,c\,dt\,dr
+   \;-\;
+   \cos(2\alpha)\,dr^2
+   \;-\;
+   r^2 d\Omega^2 .
+\end{equation}
+The off--diagonal term is removed by the shifted time coordinate
+\begin{equation}\label{eq:tschift}
+   c\,dt_S \;:=\; c\,dt \;+\; \tan\!\bigl(2\alpha(r)\bigr)\,dr,
+\end{equation}
+which yields the diagonal form
+\begin{equation}\label{eq:diag-form-A}
+   ds^2
+   \;=\;
+   A(r)\,c^2 dt_S^2
+   \;-\;
+   \frac{1}{A(r)}\,dr^2
+   \;-\;
+   r^2 d\Omega^2,
+   \qquad
+   A(r):=\cos\!\bigl(2\alpha(r)\bigr).
+\end{equation}
+Thus a radial variation of the coherent time axis produces the characteristic
+reciprocal pair of lapse--type factors $A$ and $A^{-1}$ by a purely geometric
+identity.  Choosing, for $r>r_s$, the profile
+\begin{equation}\label{eq:A-schwarzschild-choice}
+   A(r) \;=\; 1-\frac{r_s}{r},
+   \qquad
+   r_s:=\frac{2GM}{c^2},
+\end{equation}
+recovers the Schwarzschild form (in the $(+---)$ convention) as a special case,
+with the ``tilt angle'' determined by
+\begin{equation}\label{eq:alpha-from-A}
+   \cos\!\bigl(2\alpha(r)\bigr)=1-\frac{r_s}{r}.
+\end{equation}
+In this parametrization the horizon corresponds to $A\to 0^+$, i.e. to the
+finite Euclidean tilt $2\alpha\to\pi/2$ (so $\alpha\to\pi/4$), which is the same
+distinguished $45^\circ$ value that appears in the null limit of the SR tilt
+geometry.
+
+The point of the present paragraph is not to derive general relativity within
+the kinematical scope of this paper, but to clarify why the Euclidean
+proto--space formulation is structurally useful: the same data $(\delta,N)$ that
+encode inertial SR kinematics extend to a field setting by relaxing the
+constancy of $N$.  The remaining dynamical question is then shifted from
+postulating a Lorentzian metric to specifying an evolution law for the tilt
+field (or for $N$), for instance via a variational principle on $(\Espace,\delta)$
+or a coarse--grained source model.  Developing such field equations and their
+relation to the Einstein vacuum equation is left for future work.
 
 
 
