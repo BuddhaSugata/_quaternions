@@ -159,7 +159,7 @@ It changes the choice of primitives and the direction of explanation.
 Instead of taking a Lorentzian spacetime metric as fundamental, we start from a
 Euclidean proto--space $(\Espace,\delta)$ (and its Euclidean geometric algebra
 $\Cl(4,0)$) and treat ``time'' and ``space'' as observer--induced notions.
-The minimal observer input is a choice of a coherent unit axis $N$ (equivalently,
+The minimal observer input is a choice of a chosen unit time axis $N$ (equivalently,
 its time 1--form $\alpha=\delta(N,\cdot)$), which induces a $1+3$ split and
 defines simultaneity as the $\delta$--orthogonal hyperplanes
 $\alpha(\Delta X)=0$.  The Lorentzian bilinear form used to encode causal
@@ -211,7 +211,7 @@ For broader context on Euclidean viewpoints beyond SR, see also Atkinson
 Our construction differs in emphasis.  We do not identify the Euclidean norm
 with the Lorentz interval by a coordinate trick, and we do not postulate an
 absolute Euclidean time.  Instead, we start from an observer splitting encoded
-by a coherent unit axis $N$ and its time 1--form $\alpha$, and interpret the
+by a chosen unit time axis $N$ and its time 1--form $\alpha$, and interpret the
 Lorentzian interval as the operational quadratic form naturally associated with
 this splitting.  Proper time arises as a reparametrization along worldlines,
 rather than being built in as a primary coordinate.  This standpoint is aligned
@@ -309,7 +309,7 @@ The paper is organized as follows:
 \begin{itemize}
   \item Section \ref{sec:LMC} introduces the Euclidean proto--space $(\Espace,\delta)$,
   formulates $\Cl(4,0)$ on $T\Espace$, and defines observer data ($e_0$ as a fiducial
-  axis and $N$ as a coherent time axis).  The induced Lorentzian form
+  axis and $N$ as a time axis).  The induced Lorentzian form
   $g=2\,N^\flat\!\otimes N^\flat-\delta$ is constructed pointwise.
 
   \item Section \ref{sec:LMP} develops basic properties of the induced Lorentzian
@@ -324,7 +324,7 @@ The paper is organized as follows:
   ($\xi$) and conic/hyperbolic ($\vartheta,\eta$) parametrizations, including the
   identity $\tanh\eta=\tan\vartheta$ and the $45^\circ$ null boundary.
 
-  \item Section \ref{sec:flow-invariants-S3} reformulates 4--velocity normalization
+  \item Section \ref{sec:velocity-invariants-S3} reformulates 4--velocity normalization
   as a constraint on calibrated proto--velocities, mapping admissible states to the
   sphere $S^3_{\clight}\subset T\Espace$ and identifying the physical sector.
 
@@ -432,7 +432,7 @@ simply means that the components of $e_0$ are constant.
 \begin{remark}[Physical axis $N$ versus fiducial axis $e_0$]
 \label{rem:N-vs-e0}
 The Lorentzian form constructed below depends on a unit direction $N$ (the observer's
-coherent time axis).  For a single inertial observer one may, and often will,
+time axis).  For a single inertial observer one may, and often will,
 identify $N\equiv e_0$ without loss of generality.
 We nevertheless keep the notation $e_0$ available as a fixed fiducial axis when
 working in $\Cl(4,0)$: it provides a stable quaternionic coordinate subalgebra
@@ -502,7 +502,7 @@ the spatial gauge but does not change the image of the time axis.
 \end{remark}
 
 % ------------------------------------------------------------
-\subsection{Coherent time axis $N$ and the induced Lorentzian form}
+\subsection{Time axis $N$ and the induced Lorentzian form}
 \label{subsec:RSS}
 Let $N$ be a smooth unit vector field on an open set $U\subset\Espace$:
 \begin{equation}\label{eq:N-unit}
@@ -548,6 +548,19 @@ This is the basic algebraic device used later to package the longitudinal/transv
 proto--velocity budget split relative to $N$ into a single unit quaternion--like
 element.
 \end{remark}
+
+\begin{remark}[Coherence as axis alignment]
+\label{rem:coherence-axis-alignment}
+In the present kinematical (SR) sector, it is convenient to name the special
+case where two inertial systems share the same time axis.
+We call two observers (or an observer and an object) coherent on an overlap
+region if their time axes coincide there, $N_1=N_2$ (with the same orientation).
+Equivalently, their relative angle is $\xi=0$ and the corresponding even element
+$q(N_2,N_1)=N_2N_1$ reduces to the scalar $+1$.
+In this coherent case, the kinematic frequency shift and aberration effects
+associated with a nontrivial tilt are absent.
+\end{remark}
+
 % ===============================
 \section{Lorentzian metric properties}
 \label{sec:LMP}
@@ -556,7 +569,7 @@ element.
 Throughout this section, $p\in\Espace$ is arbitrary and all statements are
 understood pointwise at $p$.  We write $T_p\Espace$ for the tangent space,
 endowed with the Euclidean inner product $\delta$ and the associated Clifford
-algebra $\Cl(4,0)$ from \S\ref{subsec:cl40}.  The coherent time axis at $p$ is a
+algebra $\Cl(4,0)$ from \S\ref{subsec:cl40}.  The time axis at $p$ is a
 $\delta$--unit vector $N\in T_p\Espace$, $\delta(N,N)=1$, with associated
 Lorentzian bilinear form
 \[
@@ -766,7 +779,7 @@ If $\chi$ is calibrated (cf.\ Definition~\ref{def:chi-cal}), then
 Thus, at each point, the set of admissible calibrated proto--velocities is the
 Euclidean 3--sphere $S^3_{\clight}(p)\subset T_p\Espace$.
 
-Relative to the coherent time axis $N$, write the observer split
+Relative to the time axis $N$, write the observer split
 \[
    \tilde X = \tilde H\,N + \tilde X_\perp,
    \qquad
@@ -856,7 +869,7 @@ of $\Spin(3)$ without affecting $N$, hence without affecting $g_N$.
 
 This section makes explicit the logical bridge between the Euclidean proto--metric
 $\delta$ on $\Espace$ and the Lorentzian form $g$ constructed in \S\ref{sec:LMC}.
-The construction starts from an oriented coherent observer axis $N$
+The construction starts from an oriented observer time axis $N$
 (and, if desired, a rotor gauge $q$ such that $N=q e_0 \widetilde q$), and then
 defines operational time and space measurements as $\delta$--projections relative
 to $N$.  The key point is operational: an observer does not have direct access
@@ -899,14 +912,14 @@ parametrization:
 The parameter $\chi$ is an auxiliary calibration: it fixes a convenient
 reference parameter in $\Espace$ relative to which the total Euclidean expenditure
 $\|\tilde X\|_\delta=\clight$ is constant.  By itself, $\chi$ is not an operational
-time variable; operational time is introduced via the coherent axis $N$ below.
+time variable; operational time is introduced via the time axis $N$ below.
 \end{remark}
 
 % ------------------------------------------------------------
-\subsection{A coherent axis $N$: time 1--form and spatial projector}
+\subsection{A time axis $N$: time 1--form and spatial projector}
 \label{subsec:alpha-timeform}
 
-Throughout, $N$ denotes the coherent $\delta$--unit axis field of \S\ref{sec:LMC},
+Throughout, $N$ denotes the $\delta$--unit time-axis field of \S\ref{sec:LMC},
 \[
    \delta(N,N)=1.
 \]
@@ -948,7 +961,7 @@ the orientation of $N$.
 However, the time 1--form $\alpha=N^\flat$ changes sign under $N\mapsto -N$, and so do
 the projected time increments defined below.  Thus, to speak about an oriented
 ``future'' direction and about a monotone time coordinate, one must choose an
-orientation of $N$ (a future--pointing branch) and keep it coherent on the region
+orientation of $N$ (a future--pointing branch) and keep it fixed on the region
 under consideration.
 \end{remark}
 
@@ -963,7 +976,7 @@ chosen orientation), not on a particular representative $q$.
 \subsection{Coordinate time $t$ and spatial distance $\ell$ as projections}
 \label{subsec:t-vs-tau}
 
-Given an oriented coherent axis $N$, the time form $\alpha$ defines the observer--adapted
+Given an oriented time axis $N$, the time form $\alpha$ defines the observer--adapted
 coordinate time $t$ along a worldline by the operational projection rule
 \begin{equation}\label{eq:dt-def}
    dt := \frac{1}{\clight}\,\alpha(dX)
@@ -1066,11 +1079,11 @@ The three parameters used in this paper have distinct status:
 \item $\chi$ is an auxiliary $\delta$--calibration fixing the total proto--space budget
       $\|\tilde X\|_\delta=\clight$;
 \item $t$ is the observer--adapted coordinate time obtained by projecting $dX$ onto the
-      coherent axis $N$ via \eqref{eq:dt-def};
+      time axis $N$ via \eqref{eq:dt-def};
 \item $\tau$ is the proper time of an ideal comoving clock, defined invariantly as the
       $g$--arc length by \eqref{eq:tau-def}.
 \end{itemize}
-Operationally, the observer has access to $t$ (relative to its chosen coherent axis $N$)
+Operationally, the observer has access to $t$ (relative to its chosen time axis $N$)
 and to $\tau$ (along its own worldline); $\chi$ is a convenient proto--space gauge used
 to expose the fixed Euclidean budget underlying the reparametrization equivalence.
 \end{remark}
@@ -1115,7 +1128,7 @@ and the interval controlling it is $g$, not $\delta$.
 
 Throughout this section, $p\in\Espace$ is fixed and all statements are understood
 pointwise at $p$.  We work with the $\delta$--orthogonal splitting relative to
-the coherent time axis $N$ (cf.\ \S\ref{sec:LMP}):
+the time axis $N$ (cf.\ \S\ref{sec:LMP}):
 \[
    X = X_\parallel + X_\perp,
    \qquad
@@ -1445,11 +1458,11 @@ complement each other.
 
 % ===============================
 \section{Protovelocity invariants and the emergence of $S^3$ in the Euclidean proto-space}
-\label{sec:flow-invariants-S3}
+\label{sec:velocity-invariants-S3}
 % ===============================
 
 This section formalizes a central equivalence of the proto--space approach.
-Once a coherent observer axis $N$ (hence the Lorentzian form $g$) is fixed,
+Once an observer time axis $N$ (hence the Lorentzian form $g$) is fixed,
 the standard SR normalization of the 4--velocity in proper time,
 \[
    g(\dot X,\dot X)=\clight^2,
@@ -1506,7 +1519,7 @@ time.
 \subsection{Observer splitting and the interval--rate identity}
 \label{subsec:interval-rate}
 
-Fix a coherent $\delta$--unit axis field $N$ as in \S\ref{sec:LMC}--\S\ref{sec:LMP}
+Fix a $\delta$--unit time-axis field $N$ as in \S\ref{sec:LMC}--\S\ref{sec:LMP}
 (with a chosen time orientation).  Pointwise along $X$, decompose the protovelocity
 into $\delta$--longitudinal and $\delta$--transverse parts relative to $N$:
 \begin{equation}\label{eq:protovelocity-decomp}
@@ -1653,7 +1666,7 @@ has been fixed.
 
 % ------------------------------------------------------------
 \subsection{The $S^3$ of admissible protovelocity states}
-\label{subsec:S3-of-flows}
+\label{subsec:S3-of-velocities}
 
 Fix $p\in\Espace$.  The set of all $\delta$--calibrated protovelocities at $p$ is
 the Euclidean 3--sphere of radius $\clight$ inside $T_p\Espace$:
@@ -1667,7 +1680,7 @@ the Euclidean 3--sphere of radius $\clight$ inside $T_p\Espace$:
 Thus, once the calibration \eqref{eq:calibrated-speed} is imposed, every
 instantaneous proto--kinematic state is a point on $S^3_{\clight}(p)$.
 
-Relative to the coherent axis $N_p$, each $V\in S^3_{\clight}(p)$ admits the
+Relative to the time axis $N_p$, each $V\in S^3_{\clight}(p)$ admits the
 decomposition
 \begin{equation}\label{eq:V-on-S3-decomp}
    V=\clight\bigl(\cos\xi\,N+\sin\xi\,E\bigr),
@@ -1738,7 +1751,7 @@ cross--section of that ray on the calibrated Euclidean sphere.
 
 The material in this section provides the operational dictionary needed for later
 frequency and angle computations.  It uses only the observer splitting determined
-by a chosen oriented coherent axis $N$.
+by a chosen oriented time axis $N$.
 
 
 % ------------------------------------------------------------
@@ -1751,8 +1764,8 @@ $\delta(e_0,e_0)=1$, $\nabla^\delta e_0=0$, and set $N\equiv e_0$ in the SR sect
 Let $g=2\,e_0^\flat\!\otimes e_0^\flat-\delta$ be the induced Lorentzian form.
 All statements below are pointwise at $p\in\Espace$.
 
-\paragraph{Calibrated proto--flows and circular angle data.}
-A $\chi$--calibrated proto--flow state is a vector $\tilde X\in T_p\Espace$
+\paragraph{Calibrated proto--velocities and circular angle data.}
+A $\chi$--calibrated proto--velocity state is a vector $\tilde X\in T_p\Espace$
 satisfying $\delta(\tilde X,\tilde X)=\clight^2$.  Relative to $e_0$ write
 \[
   \tilde X
@@ -1815,7 +1828,7 @@ state rescaled by $(\cos 2\xi)^{-1/2}$.
 \subsection{Light rays: canonical frequency and direction from the $N$--split}
 \label{subsec:light-as-null}
 
-Fix $p\in\Espace$ and an oriented coherent time axis $N_p$ (future branch chosen).
+Fix $p\in\Espace$ and an oriented time axis $N_p$ (future branch chosen).
 A light ray direction at $p$ is a projective class $[K]$ of nonzero vectors
 $K\in T_p\Espace$ satisfying
 \[
@@ -2041,7 +2054,7 @@ No rapidity parameter is used: $R$ is defined directly from $\xi$ via the rescal
 $U(\xi,E)$.
 
 \begin{remark}[Why the rescaling is essential]
-If one replaces $U(\xi,E)$ in \eqref{eq:R-xiE} by the unrescaled proto--flow direction
+If one replaces $U(\xi,E)$ in \eqref{eq:R-xiE} by the unrescaled proto--velocity direction
 $\tilde X/\clight=\cos\xi\,e_0+\sin\xi\,E$ (which lives on the calibrated sphere $S^3$),
 the resulting sandwich map is a Euclidean rotation in the $(e_0,E)$--plane and does
 not reproduce SR velocity composition.  The factor $(\cos 2\xi)^{-1/2}$ in \eqref{eq:U-xiE}
@@ -2084,7 +2097,7 @@ the observer split of $U_2$ coincides with the textbook SR velocity addition rul
 
 \begin{proof}[Proof sketch in $\xi$--language]
 The only nontrivial step is operational normalization.  Each circular datum $(\xi,E)$
-defines a proto--flow direction $\cos\xi\,(\text{time})+\sin\xi\,(\text{space})$ on
+defines a proto--velocity direction $\cos\xi\,(\text{time})+\sin\xi\,(\text{space})$ on
 the calibrated sphere, but physical composition of inertial frames acts on $g$--unit timelike
 axes.  The proper--time rescaling \eqref{eq:U-from-tildeX-xi} converts the circular datum into
 the $g$--unit axis $U(\xi,E)$, and thereby fixes the correct $\gamma$--factor
@@ -2154,7 +2167,7 @@ and a bivector (transverse) part relative to $N$:
 The bivectors of the form $E\wedge N$ (with $E\in N^{\perp_\delta}$) constitute the
 observer's Euclidean spatial algebra.  The even subalgebra $\Cl^+_{4,0}$ is
 isomorphic to the quaternion algebra; this is the algebraic origin of the
-``unit quaternion'' representation of calibrated flow states on $S^3$.
+``unit quaternion'' representation of calibrated velocity states on $S^3$.
 
 \paragraph{Circular rotor in Euclidean signature.}
 Let $E\in N^{\perp_\delta}$ be $\delta$--unit.  In $\Cl_{4,0}$ one has
@@ -2222,7 +2235,7 @@ state of motion and the operational choice of clock.
 In our framework, $\delta$ provides a positive--definite reference geometry for
 proto--velocities and for the calibrated budget constraint
 $\delta(\tilde X,\tilde X)=c^2$, while the Lorentzian interval arises only after
-an observer chooses a coherent time axis $N$ and hence a time 1--form $\alpha$.
+an observer chooses a time axis $N$ and hence a time 1--form $\alpha$.
 Proper time is then obtained by reparametrization along worldlines,
 $c^2 d\tau^2=g(dX,dX)$.
 This makes explicit that SR kinematics can be organized around a choice of axis
@@ -2252,7 +2265,7 @@ to proper time.
 
 Finally, although the present paper is restricted to the inertial SR sector
 (where $N$ is taken constant), the formulation clarifies what must change beyond
-it: departures from inertial kinematics correspond to variations of the coherent
+it: departures from inertial kinematics correspond to variations of the time-axis field
 time axis and/or its associated 1--form.
 In this sense the Euclidean proto--space is not introduced as an alternative
 time coordinate, but as a neutral geometric carrier in which the observer's time
@@ -2265,13 +2278,13 @@ changing the basic kinematic bookkeeping.
 % ===============================
 
 The special--relativistic sector treated in this paper assumes an inertial
-(coherently constant) "time" axis represented by a field vector $N$ with
+(inertially constant) "time" axis represented by a field vector $N$ with
 $\nabla^\delta N=0$, so that the induced Lorentzian form
 $g_N=2\,N^\flat\!\otimes N^\flat-\delta$ is globally Minkowskian.
 A natural extension is to allow $N$ to vary smoothly, while keeping the same
 RSS ``Lorentzization'' rule for $g_N$.  In this view, what is usually called a
 ``gravitational field'' is encoded kinematically by the spatial variation of
-the coherent time direction, rather than by introducing a Lorentzian metric as
+the time direction, rather than by introducing a Lorentzian metric as
 a primitive object.
 
 To illustrate the mechanism in the simplest setting, consider a static,
@@ -2326,7 +2339,7 @@ which yields the diagonal form
    \qquad
    A(r):=\cos\!\bigl(2\alpha(r)\bigr).
 \end{equation}
-Thus a radial variation of the coherent time axis produces the characteristic
+Thus a radial variation of the time-axis field produces the characteristic
 reciprocal pair of lapse--type factors $A$ and $A^{-1}$ by a purely geometric
 identity.  Choosing, for $r>r_s$, the profile
 \begin{equation}\label{eq:A-schwarzschild-choice}

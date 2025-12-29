@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  22 DEC 2025 11:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.29)  29 DEC 2025 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1154,103 +1154,102 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write5
 \openout5 = `"Unimetry A quaternionic GEM.toc"'.
 
- [3]
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-159.
-
-(d:/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
+114.
+ (d:/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [4]
+[3] [4] [5]
 
 LaTeX Warning: Reference `sec:dressed-quats' on page 1 undefined on input line 
-237.
+350.
 
 
 LaTeX Warning: Reference `sec:bilinear-static-gem' on page 1 undefined on input
- line 239.
+ line 352.
 
 
 LaTeX Warning: Reference `sec:quat-gem-field' on page 1 undefined on input line
- 241.
+ 354.
 
 
 LaTeX Warning: Reference `sec:drotors-dynamics' on page 1 undefined on input li
-ne 245.
+ne 358.
 
 
 LaTeX Warning: Reference `sec:calibration-EB-Cphys' on page 1 undefined on inpu
-t line 248.
+t line 361.
 
 
 LaTeX Warning: Reference `sec:hamiltonians-lagrangians' on page 1 undefined on 
-input line 253.
+input line 366.
 
 
 LaTeX Warning: Reference `sec:maxwell-gem-comparison' on page 1 undefined on in
-put line 255.
+put line 368.
 
 
 LaTeX Warning: Reference `sec:discussion-conclusions' on page 1 undefined on in
-put line 257.
+put line 370.
 
-[5] [6] [7] [8]
+[6] [7] [8] [9]
 
-LaTeX Warning: Reference `sec:intrinsic-angle' on page 9 undefined on input lin
-e 624.
+LaTeX Warning: Reference `sec:intrinsic-angle' on page 10 undefined on input li
+ne 737.
 
-[9]
+[10] [11]
 
-LaTeX Warning: Reference `eq:chi-angle-decomp' on page 10 undefined on input li
-ne 745.
+LaTeX Warning: Reference `eq:chi-angle-decomp' on page 12 undefined on input li
+ne 858.
 
 
-LaTeX Warning: Reference `eq:deltaT-def' on page 10 undefined on input line 747
+LaTeX Warning: Reference `eq:deltaT-def' on page 12 undefined on input line 860
 .
 
 
-LaTeX Warning: Reference `eq:deltax-def' on page 10 undefined on input line 750
+LaTeX Warning: Reference `eq:deltax-def' on page 12 undefined on input line 863
 .
 
 
-LaTeX Warning: Reference `eq:interval-zeta' on page 10 undefined on input line 
-753.
+LaTeX Warning: Reference `eq:interval-zeta' on page 12 undefined on input line 
+866.
 
-[10] [11] [12] [13] [14] [15] [16]
-Overfull \hbox (13.06691pt too wide) in paragraph at lines 1396--1396
+[12] [13] [14] [15] [16] [17]
+Overfull \hbox (13.06691pt too wide) in paragraph at lines 1509--1509
 []\T1/lmr/bx/n/14.4 (-20) Metric dress-ing of body quater-nions and gravito--el
 ectromagnetic
  []
 
+[18]
 
 LaTeX Warning: Reference `subsec:trig_schwarzschild_streamlets' on page 1 undef
-ined on input line 1419.
+ined on input line 1532.
 
-[17]
-
-LaTeX Warning: Reference `subsec:trig_schwarzschild_streamlets' on page 1 undef
-ined on input line 1541.
-
-[18] [19]
+[19]
 
 LaTeX Warning: Reference `subsec:trig_schwarzschild_streamlets' on page 1 undef
-ined on input line 1630.
+ined on input line 1654.
 
-[20] [21] [22] [23] [24] [25] [26] [27]
+[20]
 
-LaTeX Warning: Reference `sec:D-rotations' on page 1 undefined on input line 23
-46.
+LaTeX Warning: Reference `subsec:trig_schwarzschild_streamlets' on page 1 undef
+ined on input line 1743.
 
-[28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
+[21] [22] [23] [24] [25] [26] [27] [28] [29]
+
+LaTeX Warning: Reference `sec:D-rotations' on page 1 undefined on input line 24
+59.
+
+[30] [31] [32] [33] [34] [35] [36] [37] [38] [39]
 
 LaTeX Warning: Reference `sec:mass-from-streamlets' on page 1 undefined on inpu
-t line 3284.
+t line 3397.
 
-[39] [40] [41] [42] [43] [44] [45] [46] [47] (./Unimetry A quaternionic GEM.aux
+[40] [41] [42] [43] [44] [45] [46] [47] [48] (./Unimetry A quaternionic GEM.aux
 )
 
 LaTeX Warning: There were undefined references.
@@ -1260,16 +1259,16 @@ LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `"Unimetry A quaternionic GEM".out' has not c
 hanged.
-(rerunfilecheck)             Checksum: A2D091E4A3BF3441C21D6C5DAE7EC675;25461.
+(rerunfilecheck)             Checksum: C20EF34BF45925840BD5D9A1484948C8;25782.
  ) 
 Here is how much of TeX's memory you used:
- 33497 strings out of 478037
- 673158 string characters out of 5843053
- 987189 words of memory out of 5000000
- 50714 multiletter control sequences out of 15000+600000
- 593516 words of font info for 281 fonts, out of 8000000 for 9000
+ 33528 strings out of 478037
+ 673620 string characters out of 5843053
+ 989876 words of memory out of 5000000
+ 50727 multiletter control sequences out of 15000+600000
+ 593785 words of font info for 284 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,85p,1026b,1094s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,85p,1026b,1104s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{d:/texlive/2022
 /texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{d:/texlive/2022/texmf-dist/fonts/enc/
 dvips/lm/lm-mathit.enc}{d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
@@ -1289,13 +1288,14 @@ mf-dist/fonts/type1/public/lm/lmr17.pfb><d:/texlive/2022/texmf-dist/fonts/type1
 <d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb><d:/texlive/2022/tex
 mf-dist/fonts/type1/public/lm/lmri10.pfb><d:/texlive/2022/texmf-dist/fonts/type
 1/public/lm/lmss10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10
-.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><d:/texlive/20
-22/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><d:/texlive/2022/texmf-dist/fonts
-/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Unimetry A quaternionic GEM.pdf" (47 pages, 600314 bytes).
+.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><d:/texlive/20
+22/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><d:/texlive/2022/texmf-dist/fonts
+/type1/public/lm/lmtt9.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb>
+Output written on "Unimetry A quaternionic GEM.pdf" (48 pages, 612621 bytes).
 PDF statistics:
- 1182 PDF objects out of 1200 (max. 8388607)
- 1070 compressed objects within 11 object streams
- 334 named destinations out of 1000 (max. 500000)
- 72925 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1212 PDF objects out of 1440 (max. 8388607)
+ 1097 compressed objects within 11 object streams
+ 346 named destinations out of 1000 (max. 500000)
+ 72933 words of extra memory for PDF output out of 74296 (max. 10000000)
 

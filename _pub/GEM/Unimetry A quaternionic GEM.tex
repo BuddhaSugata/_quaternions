@@ -77,6 +77,119 @@
 
 \section{Introduction}
 
+% ============================================================
+\subsection{From dressed quaternions to dressed proto--vectors}
+\label{subsec:GEM-vectorization}
+% ============================================================
+
+This subsection rewrites the dressed--quaternion construction in purely
+proto--space vector terms.  Quaternions then become a coordinate packaging
+relative to a chosen observer axis.
+
+\paragraph{Proto--space, observer axis, and Lorentzization.}
+Work at a point (or locally) in the Euclidean proto--space $(\Espace,\delta)$.
+Fix a unit observer axis $N$,
+\[
+   \delta(N,N)=1,
+\]
+and denote the $\delta$--orthogonal projector onto the spatial complement by
+\[
+   h := \delta - N^\flat\!\otimes N^\flat,
+   \qquad
+   X_\perp := h(X)=X-(N\!\cdot\!X)N .
+\]
+The associated Lorentzian bilinear form (RSS Lorentzization) is
+\[
+   g(X,Y) := 2(N\!\cdot\!X)(N\!\cdot\!Y) - \delta(X,Y)
+          \;=\; (N\!\cdot\!X)(N\!\cdot\!Y) - \delta(X_\perp,Y_\perp).
+\]
+Equivalently, define the $N$--reflection $Y^\star:=Y_\parallel-Y_\perp$
+(with $Y_\parallel:=(N\!\cdot\!Y)N$), then
+\[
+   g(X,Y)=\delta(X,Y^\star).
+\]
+
+\paragraph{Dressed body as a proto--vector.}
+Instead of taking the dressed body variable as a quaternion
+$\widetilde{\mathsf q}$, define the dressed proto--vector (a paravector in the
+$N$--split)
+\begin{equation}\label{eq:dressed-protovec}
+   P \;:=\; L_E\,N \;+\; L_G\,n,
+   \qquad
+   n\in N^{\perp_\delta},\ \ \delta(n,n)=1 .
+\end{equation}
+Here $L_E$ and $L_G$ are the same length parameters used in the quaternionic
+formulation, while $n$ encodes the spatial direction associated with the
+(gravitational) dressing channel.
+
+\paragraph{Quaternion packaging (optional).}
+If one keeps the quaternion language as a shorthand, then relative to the chosen
+axis $N$ one may identify the scalar part with $(N\!\cdot\!P)=L_E$ and the
+imaginary part with the spatial vector $P_\perp=L_G n$.  In particular, the
+previous dressed quaternion can be viewed as the pair
+\[
+   \widetilde{\mathsf q}
+   \;\longleftrightarrow\;
+   \bigl(\,L_E,\ P_\perp\,\bigr),
+\]
+so all kinematics and interaction channels can be written without invoking
+quaternion multiplication.
+
+\paragraph{Vector form of the three interaction channels.}
+Given two dressed proto--vectors
+\[
+   P_1=L_{E,1}N + L_{G,1}n_1,
+   \qquad
+   P_2=L_{E,2}N + L_{G,2}n_2,
+\]
+define the scalar channel by the Lorentzized pairing
+\begin{equation}\label{eq:A-vector}
+   \mathsf A(P_1,P_2)
+   \;:=\; g(P_1,P_2)
+   \;=\; L_{E,1}L_{E,2} - L_{G,1}L_{G,2}\,\delta(n_1,n_2).
+\end{equation}
+This is exactly the scalar expression that previously appeared as the
+scalar part of the dressed--quaternion product.
+
+To express the remaining channels, write the spatial parts
+\[
+   p_1:= (P_1)_\perp = L_{G,1}n_1 \in N^{\perp_\delta},
+   \qquad
+   p_2:= (P_2)_\perp = L_{G,2}n_2 \in N^{\perp_\delta}.
+\]
+Then the mixed (``electric--type'') spatial channel is the spatial vector
+\begin{equation}\label{eq:B-vector}
+   \mathbf B(P_1,P_2)
+   \;:=\; (N\!\cdot\!P_1)\,p_2 + (N\!\cdot\!P_2)\,p_1
+   \;=\; L_{E,1}L_{G,2}\,n_2 + L_{E,2}L_{G,1}\,n_1,
+\end{equation}
+and the rotational (``magnetic--type'') channel is encoded by the spatial
+bivector
+\begin{equation}\label{eq:C-bivector}
+   C(P_1,P_2) \;:=\; p_1\wedge p_2
+   \;=\; L_{G,1}L_{G,2}\, (n_1\wedge n_2)\ \in \Lambda^2(N^{\perp_\delta}).
+\end{equation}
+If one prefers a spatial axial vector, fix an orientation of $N^{\perp_\delta}$
+(induced by the orientation of $\Espace$ and the choice of $N$) and use the
+Hodge dual in the $3$--space $(N^{\perp_\delta},\delta|_{N^\perp})$:
+\begin{equation}\label{eq:C-axial}
+   \mathbf C(P_1,P_2) := \star_3\,(p_1\wedge p_2)
+   \;\equiv\; p_1\times p_2 .
+\end{equation}
+With this convention, \eqref{eq:B-vector}--\eqref{eq:C-axial} reproduce the same
+$\mathbf B$ and $\mathbf C$ expressions as in the quaternionic formalism, but
+now derived directly from proto--space vectors.
+
+\paragraph{Compact Clifford packaging (optional).}
+If one later upgrades the presentation to $\mathcal{C}\ell_{4,0}$, then the
+three channels above are the scalar and bivector parts obtained by Lorentzized
+pairing relative to $N$, i.e. by combining the $N$--split and the reflection
+$Y^\star=Y_\parallel-Y_\perp$.
+This viewpoint is useful when the field generalization allows $N$ to vary, but
+the definitions \eqref{eq:A-vector}--\eqref{eq:C-axial} already provide the
+vector--primitive formulation.
+
+
 \subsection{Context and motivation}
 
 Unimetry is a proposed phase--geometric framework in which physical systems are
