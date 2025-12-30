@@ -91,7 +91,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We present a coordinate--free reformulation of inertial special--relativistic kinematics in a four--dimensional Euclidean proto--space $(\Espace,\delta)$.  An observer is specified by a unit axis $N$, with time 1--form $\alpha=\delta(N,\cdot)$ and spatial projector $h=\delta-\alpha\otimes\alpha$.  The Lorentzian interval is then the induced quadratic form $g=2\,\alpha\otimes\alpha-\delta$, and proper time arises operationally via $c^2 d\tau^2=g(dX,dX)$ as a reparametrization along worldlines.  Introducing a $\delta$--calibrated proto--parameter $\chi$ yields a constant--norm protovelocity and identifies the instantaneous kinematic state space with the calibrated sphere $S^3_{c}\subset T_p\Espace$, with the physically admissible sector given by $g>0$ and a null boundary at a finite Euclidean tilt.  We distinguish the circular tilt $\xi$ from the conic ratio coordinate $\vartheta$ and relate both to rapidity $\eta$, providing a compact Euclidean description of boosts.  Within $\Cl_{4,0}$, observer axes and kinematics admit rotor and quaternionic representations that streamline projection--based derivations of standard SR optical effects.
+We present a coordinate--free reformulation of inertial special--relativistic kinematics in a four--dimensional Euclidean proto--space $(\Espace,\delta)$.  An observer is specified by a unit axis $N$, with time 1--form $\alpha=\delta(N,\cdot)$ and spatial projector $h=\delta-\alpha\otimes\alpha$.  The Lorentzian interval is then the induced quadratic form $g=2\,\alpha\otimes\alpha-\delta$, and proper time arises operationally via $c^2 d\tau^2=g(dX,dX)$ as a reparametrization along worldlines.  Introducing a $\delta$--calibrated proto--parameter $\chi$ yields a constant--norm proto--velocity and identifies the instantaneous kinematic state space with the calibrated sphere $S^3_{c}\subset T_p\Espace$, with the physically admissible sector given by $g>0$ and a null boundary at a finite Euclidean tilt.  We distinguish the circular tilt $\xi$ from the conic ratio coordinate $\vartheta$ and relate both to rapidity $\eta$, providing a compact Euclidean description of boosts.  Within $\Cl_{4,0}$, observer axes and kinematics admit rotor and quaternionic representations that streamline projection--based derivations of standard SR optical effects.
 \end{abstract}
 
 
@@ -106,6 +106,35 @@ We present a coordinate--free reformulation of inertial special--relativistic ki
 \section{Introduction}
 \label{sec:Intro}
 % ===============================
+
+\subsection{Philosophical foundations}
+
+We refer to the guiding viewpoint behind the present reformulation as Unimetry.
+At the level of primitives, the given concept treats the Euclidean proto--space $(\Espace,\delta)$ as the
+primary kinematical arena (an ``empty'' geometric receptacle in the classical absolutist/relational
+discussion), while time is introduced operationally rather than postulated as a fundamental
+coordinate or substance: it is an observer-indexed parameter used to calibrate and compare the rates
+of physical processes relative to a chosen unit axis $N$ (equivalently, its $1$--form
+$\alpha=\delta(N,\cdot)$). In this sense, Unimetry sits in a broad historical and modern tradition in
+which time is understood as derivative of change and/or of operational comparison: from Aristotle's
+definition of time as ``a number of change with respect to the before and after'' \cite{AristotlePhysics,Coope2005TimeAristotle},
+through Mach's insistence that temporal structure is abstracted from the systematic relations among
+changes \cite{MachMechanics1893}, to contemporary relational and informational viewpoints where dynamics
+is formulated in terms of correlations among partial observables (Rovelli), thermodynamical state
+(thermal time; Connes--Rovelli), or quantum clocks (Page--Wootters) 
+\cite{Rovelli2002PartialObs,ConnesRovelli1994ThermalTime,PageWootters1983,Barbour2009NatureOfTime}.
+For background on the absolutist/relational vocabulary used above, see \cite{HoeferHuggettReadSEP2024}.
+
+\paragraph{Etymology (``uni--metria'').}
+Etymologically, the name Unimetry is intended literally as \emph{uni--metria}:
+``one metry,'' i.e.\ a single principle of measurement/metrication.
+The prefix \emph{uni-} (from \emph{unus}, one) emphasizes unity --- one underlying calibration scheme --- while
+\emph{-metria} (from \emph{metron}, measure) is meant to evoke both (i) measurement in the operational
+sense and (ii) metric in the geometric sense. In the present paper this double meaning is realized
+concretely: the observer datum $N$ determines a consistent calibration and a $1{+}3$ split on $(\Espace,\delta)$,
+and the usual Lorentzian interval structure is recovered as an induced (observer-dependent) bilinear form
+built from $(\delta,N)$, rather than assumed as a background spacetime metric.
+
 
 \subsection{Motivation}
 
@@ -127,7 +156,9 @@ axis and a component orthogonal to it.
 The present paper develops a Euclidean proto--space formulation that isolates
 this splitting as the primary geometric datum.  We work on a four--dimensional
 Euclidean manifold $(\Espace,\delta)$ and introduce a "time" axis $N$
-(a unit vector field, $\delta(N,N)=1$).  The associated time 1--form
+(a unit vector field, $\delta(N,N)=1$).    For an inertial observer, this axis is identified 
+with the normalized $\delta$--calibrated proto--velocity direction of that observer, 
+$N=\tilde X_{\mathrm{obs}}/\clight$ (Definition~\ref{def:chi-cal}).  The associated time 1--form
 $\alpha:=N^\flat=\delta(N,\cdot)$ and spatial projector
 $h:=\delta-\alpha\otimes\alpha$ encode the operational notions of ``time
 reading'' and ``spatial distance'' for that observer.  The Lorentzian interval
@@ -249,6 +280,11 @@ paper), but it is not an absolute frame in the physical sense.  In the inertial
 sector, choosing a constant $N$ is choosing an inertial observer.  Any other
 constant unit axis $N'$ is related to $N$ by a Euclidean isometry $R\in O(4)$,
 $N'=R_*N$, and the induced form transforms tensorially, $g'=R^*g$.
+
+\emph{Convention.} We distinguish (i) Euclidean gauge rotations of the calibrated pair
+$(\delta,N)$, implemented by $R\in O(4)$ and sending $N\mapsto N':=R_*N$ (hence $g\mapsto g':=R^*g$),
+from (ii) Lorentz transformations $\Lambda\in O(g)$ acting on vectors once a particular induced metric $g$ is fixed.
+
 Physical statements are formulated in $g$--covariant (relational) quantities, so
 the theory does not privilege a particular representative $N$.  Note that the
 quadratic form $g$ is invariant under $N\mapsto -N$, whereas the oriented time
@@ -515,6 +551,22 @@ In the inertial SR sector we assume
 so that $N$ is constant (in Cartesian coordinates).  For a single inertial observer
 we may set $N\equiv e_0$.
 
+\begin{remark}[Observer axis as normalized proto--velocity]
+\label{rem:N-as-protovel}
+The choice of $N$ is not an external gauge datum: it encodes the state of motion of
+an inertial observer in proto--space.  If $X_{\mathrm{obs}}:I\to U$ is the observer
+worldline parametrized by the $\delta$--calibrated proto--parameter $\chi$
+(Definition~\ref{def:chi-cal}), then the calibrated proto--velocity
+$\tilde X_{\mathrm{obs}}:=dX_{\mathrm{obs}}/d\chi$ satisfies
+$\delta(\tilde X_{\mathrm{obs}},\tilde X_{\mathrm{obs}})=\clight^2$, and we set
+\[
+   N := \frac{1}{\clight}\,\tilde X_{\mathrm{obs}}.
+\]
+In the inertial SR sector, $\nabla^\delta N=0$ expresses that this proto--velocity
+direction is constant; different inertial observers correspond to $SO(4)$ rotations
+transporting $N$ (implemented by rotors in $\Spin(4)$).
+\end{remark}
+
 \paragraph{Time 1--form and spatial projector.}
 Let
 \[
@@ -683,7 +735,7 @@ from \eqref{eq:xi-def} gives \eqref{eq:g-cos2xi}.
 \begin{corollary}\label{cor:causal-class}
 A vector $X\neq 0$ satisfies:
 \begin{itemize}
-  \item $g(X,X)>0$ iff $\cos(2\xi)>0$ iff $\xi\in(0,\tfrac{\pi}{4})\cup(\tfrac{3\pi}{4},\pi)$,
+  \item $g(X,X)>0$ iff $\cos(2\xi)>0$ iff $\xi\in[0,\tfrac{\pi}{4})\cup(\tfrac{3\pi}{4},\pi]$,
   \item $g(X,X)=0$ iff $\cos(2\xi)=0$ iff $\xi\in\{\tfrac{\pi}{4},\tfrac{3\pi}{4}\}$,
   \item $g(X,X)<0$ iff $\cos(2\xi)<0$ iff $\xi\in(\tfrac{\pi}{4},\tfrac{3\pi}{4})$.
 \end{itemize}
@@ -892,7 +944,7 @@ the total proto--space budget along the curve.
 \begin{definition}[$\delta$--calibrated (proto--affine) parameter]
 \label{def:chi-cal}
 A parameter $\chi$ along $X$ is called $\delta$--calibrated (or
-\emph{proto--affine}) if the associated proto--velocity
+proto--affine) if the associated proto--velocity
 \[
    \tilde X:=\frac{dX}{d\chi}
 \]
@@ -983,6 +1035,15 @@ coordinate time $t$ along a worldline by the operational projection rule
    \qquad\Longleftrightarrow\qquad
    \frac{dt}{d\lambda} = \frac{1}{\clight}\,\alpha\bigl(X'(\lambda)\bigr).
 \end{equation}
+\begin{remark}[Comoving inertial gauge]
+If $X$ is the worldline of the observer that defines the axis $N$
+(Remark~\ref{rem:N-as-protovel}), so that $dX=\clight N\,d\chi$, then
+\eqref{eq:dt-def} yields $dt=d\chi$ along $X$.  In addition,
+$g(\clight N,\clight N)=\clight^2$ implies $d\tau=d\chi$ along the same worldline.
+Thus, in the comoving inertial gauge the three parameters $t$, $\chi$, and $\tau$
+agree up to additive constants.
+\end{remark}
+
 In general, \eqref{eq:dt-def} defines $t$ only along the given curve; a global time
 function $t$ on an open set requires an integrability condition on $\alpha$
 (e.g.\ $\alpha$ closed/exact, equivalently $N$ hypersurface--orthogonal).
@@ -1457,7 +1518,7 @@ complement each other.
 \end{remark}
 
 % ===============================
-\section{Protovelocity invariants and the emergence of $S^3$ in the Euclidean proto-space}
+\section{Proto--velocity invariants and the emergence of $S^3$ in the Euclidean proto-space}
 \label{sec:velocity-invariants-S3}
 % ===============================
 
@@ -1467,29 +1528,29 @@ the standard SR normalization of the 4--velocity in proper time,
 \[
    g(\dot X,\dot X)=\clight^2,
 \]
-is equivalent (up to reparameterization) to a constant Euclidean protovelocity budget
+is equivalent (up to reparameterization) to a constant Euclidean proto--velocity budget
 in proto--space,
 \[
    \delta(\widetilde X,\widetilde X)=\clight^2,
 \]
 with respect to a calibrated proto--parameter $\chi$.
-The latter condition forces the instantaneous protovelocity states to lie on the Euclidean sphere
+The latter condition forces the instantaneous proto--velocity states to lie on the Euclidean sphere
 $S^3_{\clight}\subset T_p\Espace$.
 
 % ------------------------------------------------------------
-\subsection{Worldlines, proto--parameters, and the protovelocity}
+\subsection{Worldlines, proto--parameters, and the proto--velocity}
 \label{subsec:protovelocity}
 
 Let $X:I\to\Espace$ be a smooth regular worldline (geometric curve).
-A \emph{proto--parameter} along $X$ is any smooth parameter $\chi$ with
-nowhere--vanishing derivative.  The associated \emph{protovelocity} is
+A proto--parameter along $X$ is any smooth parameter $\chi$ with
+nowhere--vanishing derivative.  The associated proto--velocity is
 \begin{equation}\label{eq:protovelocity-def}
    \widetilde{X} \;:=\; \frac{dX}{d\chi}\ \in T_{X(\chi)}\Espace.
 \end{equation}
 
 \begin{definition}[$\delta$--calibrated proto--parameter]
 \label{def:calibrated-chi}
-A proto--parameter $\chi$ is called \emph{$\delta$--calibrated} (with scale
+A proto--parameter $\chi$ is called $\delta$--calibrated (with scale
 $\clight$) if
 \begin{equation}\label{eq:calibrated-speed}
    \delta(\widetilde{X},\widetilde{X}) \;=\; \clight^2
@@ -1506,11 +1567,11 @@ always exists: one may define $\chi$ (up to an additive constant) by
 \]
 Fixing an orientation ($d\chi>0$ along the chosen direction of traversal),
 the calibrated proto--parameter is unique up to translation.
-This calibration is auxiliary: it fixes the \emph{total} Euclidean protovelocity budget
+This calibration is auxiliary: it fixes the total Euclidean proto--velocity budget
 in $\Espace$ but is not, by itself, the observer's operational time variable.
 \end{remark}
 
-In words: in a $\delta$--calibrated proto--parameter, the protovelocity $\widetilde X$
+In words: in a $\delta$--calibrated proto--parameter, the proto--velocity $\widetilde X$
 has fixed Euclidean norm.  This is the proto--space counterpart of the
 standard SR statement that the 4--velocity has fixed Minkowski norm in proper
 time.
@@ -1520,7 +1581,7 @@ time.
 \label{subsec:interval-rate}
 
 Fix a $\delta$--unit time-axis field $N$ as in \S\ref{sec:LMC}--\S\ref{sec:LMP}
-(with a chosen time orientation).  Pointwise along $X$, decompose the protovelocity
+(with a chosen time orientation).  Pointwise along $X$, decompose the proto--velocity
 into $\delta$--longitudinal and $\delta$--transverse parts relative to $N$:
 \begin{equation}\label{eq:protovelocity-decomp}
    \widetilde{X}
@@ -1535,7 +1596,7 @@ Let $L:=\|\widetilde{X}_\perp\|_\delta$ and, when $L\neq 0$,
 $E:=\widetilde{X}_\perp/L\in N^{\perp_\delta}$ so that $\widetilde{X}=S\,N+L\,E$
 with $\delta(E,E)=1$.
 
-\begin{lemma}[Euclidean and Lorentzian norms of the protovelocity]
+\begin{lemma}[Euclidean and Lorentzian norms of the proto--velocity]
 \label{lem:euclid-vs-lorentz}
 Along $X$ one has
 \begin{equation}\label{eq:norm-identities-protovelocity}
@@ -1551,7 +1612,7 @@ For $g$, use $g(N,N)=1$, $g(N,\widetilde X_\perp)=0$, and
 $g(\widetilde X_\perp,\widetilde X_\perp)=-\delta(\widetilde X_\perp,\widetilde X_\perp)=-L^2$.
 \end{proof}
 
-Motivated by the phase/clock viewpoint, define the \emph{interval rate} with respect
+Motivated by the phase/clock viewpoint, define the interval rate with respect
 to $\chi$ by
 \begin{equation}\label{eq:interval-rate-def}
    \widetilde{s} \;:=\; \sqrt{g(\widetilde{X},\widetilde{X})}
@@ -1579,7 +1640,7 @@ in \S\ref{sec:PRT}.
 \end{remark}
 
 % ------------------------------------------------------------
-\subsection{Equivalence: proper--time normalization $\Longleftrightarrow$ calibrated protovelocity}
+\subsection{Equivalence: proper--time normalization $\Longleftrightarrow$ calibrated proto--velocity}
 \label{subsec:equivalence-local-time}
 
 Let $\tau$ denote the proper time along a $g$--timelike worldline $X$, i.e.\ a
@@ -1658,14 +1719,14 @@ defining ODEs.
 
 \paragraph{Operational meaning.}
 Statement (A) is the standard SR normalization of the 4--velocity in proper time.
-Statement (B) is the corresponding calibration of the proto--space protovelocity.
+Statement (B) is the corresponding calibration of the proto--space proto--velocity.
 Theorem~\ref{thm:equiv} shows that these two ``invariants'' are equivalent and
 amount to a change of parameter: constant norm in one metric corresponds to
 constant norm in the other once the operational projection structure ($N$, hence $g$)
 has been fixed.
 
 % ------------------------------------------------------------
-\subsection{The $S^3$ of admissible protovelocity states}
+\subsection{The $S^3$ of admissible proto--velocity states}
 \label{subsec:S3-of-velocities}
 
 Fix $p\in\Espace$.  The set of all $\delta$--calibrated protovelocities at $p$ is
@@ -1710,7 +1771,7 @@ structure is canonical.
 
 \begin{remark}[The physical sector of $S^3$ and time orientation]
 \label{rem:physical-sector-S3}
-While the calibrated protovelocity states form the full sphere $S^3_{\clight}(p)$,
+While the calibrated proto--velocity states form the full sphere $S^3_{\clight}(p)$,
 the requirement that a worldline be timelike with respect to $g$,
 \[
    g(V,V)>0,
@@ -1725,7 +1786,7 @@ i.e.\ to the union of two polar caps on $S^3_{\clight}(p)$ centered at
 $\pm \clight N$.  The boundary $|S|=|L|$ is the null locus.
 
 Because $g$ is insensitive to $N\mapsto -N$ but the oriented time projection
-$\alpha=N^\flat$ is not, an observer fixes a \emph{future} branch by imposing
+$\alpha=N^\flat$ is not, an observer fixes a future branch by imposing
 $S=N\cdot V>0$.  This selects a single polar cap (the future timelike sector).
 Along any sequence approaching the null boundary within that cap one has
 $d\tau/d\chi=\sqrt{g(V,V)}/\clight\to 0$, consistently with
@@ -1763,6 +1824,8 @@ Fix an inertial observer axis $e_0$ (constant on the region of interest),
 $\delta(e_0,e_0)=1$, $\nabla^\delta e_0=0$, and set $N\equiv e_0$ in the SR sector.
 Let $g=2\,e_0^\flat\!\otimes e_0^\flat-\delta$ be the induced Lorentzian form.
 All statements below are pointwise at $p\in\Espace$.
+Unless stated otherwise, we work on the future timelike sector $\mathcal T_p^{+}$,
+so that $0\le\xi<\tfrac{\pi}{4}$, $\tilde H>0$, and $\cos(2\xi)>0$.
 
 \paragraph{Calibrated proto--velocities and circular angle data.}
 A $\chi$--calibrated proto--velocity state is a vector $\tilde X\in T_p\Espace$
@@ -1775,15 +1838,12 @@ satisfying $\delta(\tilde X,\tilde X)=\clight^2$.  Relative to $e_0$ write
   \qquad
   \tilde H^2+\tilde L^2=\clight^2,
 \]
-and define the circular tilt $\xi\in[0,\pi]$ by
-\begin{equation}\label{eq:xi-def}
-  \cos\xi:=\frac{\tilde H}{\clight},
+and define the circular tilt $\xi\in[0,\pi]$ as in Definition~\ref{def:xi}.
+Since $\delta(\tilde X,\tilde X)=\clight^2$, Eq.~\eqref{eq:xi-def} yields
+\begin{equation}\label{eq:xi-HL}
+  \cos\xi=\frac{\tilde H}{\clight},
   \qquad
-  \sin\xi:=\frac{\tilde L}{\clight}.
-\end{equation}
-The observer speed parameter (measured in the observer coordinate time $t$) is
-\begin{equation}\label{eq:beta-def-xi}
-  \beta:=\frac{v}{\clight}=\frac{\tilde L}{\tilde H}=\tan\xi.
+  \sin\xi=\frac{\tilde L}{\clight}.
 \end{equation}
 
 \paragraph{Operational time and the $\chi\!\to\!\tau$ rescaling.}
@@ -1809,7 +1869,7 @@ Define the observer Lorentz factor and the spatial speed vector by
   \boldsymbol\beta:=\frac{1}{\gamma}\,h_g(U),
 \]
 where $h_g$ denotes the $g$--orthogonal projector onto $e_0^{\perp_g}$.
-From \eqref{eq:U-from-tildeX-xi} and \eqref{eq:xi-def} one obtains purely in terms of $\xi$
+From \eqref{eq:U-from-tildeX-xi} and \eqref{eq:xi-HL} one obtains purely in terms of $\xi$
 \begin{equation}\label{eq:gamma-beta-from-xi-only}
   \gamma
   =\frac{\cos\xi}{\sqrt{\cos(2\xi)}},
@@ -2042,8 +2102,11 @@ and define the associated (minimal) boost rotor by the standard axis--to--axis f
 \begin{equation}\label{eq:R-xiE}
   R(\xi,E):=
   \frac{1+U(\xi,E)\,e_0}{\sqrt{2\bigl(1+e_0\cdot_g U(\xi,E)\bigr)}}
-  \quad\in\Spin(1,3)\subset\Cl^+(4,0),
+  \quad\in\Spin^+(1,3),
 \end{equation}
+\noindent\emph{Remark.} Here $\Spin^+(1,3)$ is understood in the Clifford algebra
+associated with the induced Lorentzian form $g$; i.e., the geometric product in
+this subsection is the one determined by $g$ (not by $\delta$).
 so that
 \[
   R(\xi,E)\,e_0\,\widetilde{R(\xi,E)}=U(\xi,E),
@@ -2368,9 +2431,62 @@ or a coarse--grained source model.  Developing such field equations and their
 relation to the Einstein vacuum equation is left for future work.
 
 
-
 \bibliographystyle{plain}
 \begin{thebibliography}{9}
+
+\bibitem{HoeferHuggettReadSEP2024}
+C.\ Hoefer, N.\ Huggett, J.\ Read,
+Absolute and Relational Space and Motion: Classical Theories,
+\emph{The Stanford Encyclopedia of Philosophy} (Fall 2024 Edition),
+E.\,N.\ Zalta, U.\ Nodelman (eds.),
+Metaphysics Research Lab, Stanford University.
+\url{https://plato.stanford.edu/archives/fall2024/entries/spacetime-theories-classical/}
+
+\bibitem{AristotlePhysics}
+Aristotle,
+\emph{Physics}, Book IV, Chs.\ 10--14 (esp.\ IV.11, 219b1--2).
+
+\bibitem{Coope2005TimeAristotle}
+U.\ Coope,
+\emph{Time for Aristotle: Physics IV.10--14},
+Oxford University Press, 2005.
+
+\bibitem{MachMechanics1893}
+E.\ Mach,
+\emph{The Science of Mechanics: A Critical and Historical Exposition of Its Principles},
+Open Court, Chicago, 1893 (English transl.\ by T.\,J.\ McCormack).
+
+\bibitem{Rovelli2002PartialObs}
+C.\ Rovelli,
+Partial observables,
+\emph{Phys.\ Rev.\ D} \textbf{65} (2002), 124013.
+doi:10.1103/PhysRevD.65.124013.
+arXiv:gr-qc/0110035.
+
+\bibitem{ConnesRovelli1994ThermalTime}
+A.\ Connes, C.\ Rovelli,
+Von Neumann Algebra Automorphisms and Time--Thermodynamics Relation in General Covariant Quantum Theories,
+arXiv:gr-qc/9406019 (1994).
+
+\bibitem{PageWootters1983}
+D.\,N.\ Page, W.\,K.\ Wootters,
+Evolution without evolution: Dynamics described by stationary observables,
+\emph{Phys.\ Rev.\ D} \textbf{27} (1983), 2885.
+doi:10.1103/PhysRevD.27.2885.
+
+\bibitem{Barbour2009NatureOfTime}
+J.\ Barbour,
+The Nature of Time,
+arXiv:0903.3489 [gr-qc] (2009).
+
+% Optional (if you want an explicit secondary pointer to the Aristotle discussion):
+\bibitem{Falcon2006NDPR}
+A.\ Falcon,
+Review of U.\ Coope, \emph{Time for Aristotle: Physics IV.10--14},
+\emph{Notre Dame Philosophical Reviews} (2006).
+\url{https://ndpr.nd.edu/reviews/time-for-aristotle/}
+
+
 \bibitem{Karapetoff1912}
 V. Karapetoff, \emph{The Electric Circuit}, McGraw--Hill, 1912.
 
